@@ -139,6 +139,7 @@
 		5DE6C2F117B20B4A00CAC389 /* BSKeyboardControls.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DE6C2ED17B20B4A00CAC389 /* BSKeyboardControls.strings */; };
 		5DEC2CCF17CCB60900C82DFF /* LabelSizeToRollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEC2CCE17CCB60900C82DFF /* LabelSizeToRollViewController.m */; };
 		5DEC2CD217CCBA7D00C82DFF /* YieldUsingSpecificGravityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEC2CD117CCBA7C00C82DFF /* YieldUsingSpecificGravityViewController.m */; };
+		5DEC2CD417CCC49B00C82DFF /* icons.psd in Resources */ = {isa = PBXBuildFile; fileRef = 5DEC2CD317CCC49B00C82DFF /* icons.psd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -335,6 +336,7 @@
 		5DEC2CCE17CCB60900C82DFF /* LabelSizeToRollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelSizeToRollViewController.m; sourceTree = "<group>"; };
 		5DEC2CD017CCBA7C00C82DFF /* YieldUsingSpecificGravityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YieldUsingSpecificGravityViewController.h; sourceTree = "<group>"; };
 		5DEC2CD117CCBA7C00C82DFF /* YieldUsingSpecificGravityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YieldUsingSpecificGravityViewController.m; sourceTree = "<group>"; };
+		5DEC2CD317CCC49B00C82DFF /* icons.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = icons.psd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -396,6 +398,7 @@
 		5D06C5EA17A0787600673E02 /* Conversions */ = {
 			isa = PBXGroup;
 			children = (
+				5DEC2CD317CCC49B00C82DFF /* icons.psd */,
 				5D99EE6517C5543A000FBFF3 /* ZenKeyboard.h */,
 				5D99EE6617C5543A000FBFF3 /* ZenKeyboard.m */,
 				5D06C5F317A0787600673E02 /* AppDelegate.h */,
@@ -788,6 +791,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D06C61917A0787700673E02 /* InfoPlist.strings in Resources */,
+				5DEC2CD417CCC49B00C82DFF /* icons.psd in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
