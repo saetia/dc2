@@ -83,9 +83,6 @@
     _textField.clearsOnBeginEditing = self.item.clearsOnBeginEditing;
     _textField.textAlignment = NSTextAlignmentRight;
     
-    
-    //[self.badge addTarget:self action:@selector(triggerMenu:) forControlEvents:UIControlEventTouchUpInside];
-    
 }
 
 - (UIResponder *)responder

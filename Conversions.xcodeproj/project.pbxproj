@@ -39,6 +39,8 @@
 		5D06C64717A1ADBF00673E02 /* MMSideDrawerSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D06C63E17A1A8A800673E02 /* MMSideDrawerSectionHeaderView.m */; };
 		5D06C64917A1ADBF00673E02 /* MMSideDrawerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D06C64017A1A8A800673E02 /* MMSideDrawerTableViewCell.m */; };
 		5D06C64B17A1ADBF00673E02 /* MMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D06C64217A1A8A900673E02 /* MMTableViewCell.m */; };
+		5D1DB86C17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DB86B17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.m */; };
+		5D1DB86F17CD1493007CB6B9 /* YieldUsingStandardYieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DB86E17CD1493007CB6B9 /* YieldUsingStandardYieldViewController.m */; };
 		5D353D3717A8D25100EC6AEF /* UnitMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D353D3617A8D25100EC6AEF /* UnitMenuItem.m */; };
 		5D353D3A17A8E3B800EC6AEF /* PSMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D353D3817A8E3B800EC6AEF /* PSMenuItem.m */; };
 		5D353D3B17A8E7AB00EC6AEF /* PSMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D353D3817A8E3B800EC6AEF /* PSMenuItem.m */; };
@@ -198,6 +200,10 @@
 		5D06C64017A1A8A800673E02 /* MMSideDrawerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSideDrawerTableViewCell.m; sourceTree = "<group>"; };
 		5D06C64117A1A8A900673E02 /* MMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTableViewCell.h; sourceTree = "<group>"; };
 		5D06C64217A1A8A900673E02 /* MMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTableViewCell.m; sourceTree = "<group>"; };
+		5D1DB86A17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetallizedFilmResistanceViewController.h; sourceTree = "<group>"; };
+		5D1DB86B17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetallizedFilmResistanceViewController.m; sourceTree = "<group>"; };
+		5D1DB86D17CD1493007CB6B9 /* YieldUsingStandardYieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YieldUsingStandardYieldViewController.h; sourceTree = "<group>"; };
+		5D1DB86E17CD1493007CB6B9 /* YieldUsingStandardYieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YieldUsingStandardYieldViewController.m; sourceTree = "<group>"; };
 		5D353D3517A8D25100EC6AEF /* UnitMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitMenuItem.h; sourceTree = "<group>"; };
 		5D353D3617A8D25100EC6AEF /* UnitMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitMenuItem.m; sourceTree = "<group>"; };
 		5D353D3817A8E3B800EC6AEF /* PSMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMenuItem.m; sourceTree = "<group>"; };
@@ -405,8 +411,8 @@
 				5D06C5F417A0787600673E02 /* AppDelegate.m */,
 				5D353D3817A8E3B800EC6AEF /* PSMenuItem.m */,
 				5D353D3917A8E3B800EC6AEF /* PSMenuItem.h */,
-				5DB5785417C4A8E40084EFEE /* TDBadgedCell.m */,
 				5DB5785517C4A8E40084EFEE /* TDBadgedCell.h */,
+				5DB5785417C4A8E40084EFEE /* TDBadgedCell.m */,
 				5D06C63717A08CBF00673E02 /* CenterViewController.h */,
 				5D06C63817A08CC000673E02 /* CenterViewController.m */,
 				5D99EE7B17C5767E000FBFF3 /* DemoViewController.h */,
@@ -423,6 +429,10 @@
 				5DA6C5C417B6D42400819C93 /* CalculatorViewController.m */,
 				5D06C5FC17A0787600673E02 /* MainStoryboard_iPhone.storyboard */,
 				5D06C5FF17A0787600673E02 /* MainStoryboard_iPad.storyboard */,
+				5D1DB86D17CD1493007CB6B9 /* YieldUsingStandardYieldViewController.h */,
+				5D1DB86E17CD1493007CB6B9 /* YieldUsingStandardYieldViewController.m */,
+				5D1DB86A17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.h */,
+				5D1DB86B17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.m */,
 				5DEC2CD017CCBA7C00C82DFF /* YieldUsingSpecificGravityViewController.h */,
 				5DEC2CD117CCBA7C00C82DFF /* YieldUsingSpecificGravityViewController.m */,
 				5DA6C5C017B4EE8900819C93 /* RollLengthViewController.h */,
@@ -872,6 +882,8 @@
 				5D9EFFCE17CCB22E0099B0D1 /* RollDiameterViewController.m in Sources */,
 				5DEC2CCF17CCB60900C82DFF /* LabelSizeToRollViewController.m in Sources */,
 				5DEC2CD217CCBA7D00C82DFF /* YieldUsingSpecificGravityViewController.m in Sources */,
+				5D1DB86C17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.m in Sources */,
+				5D1DB86F17CD1493007CB6B9 /* YieldUsingStandardYieldViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
