@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>FFEF1402-F7FE-414F-A546-BB6FD7E85E27</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Conversions</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>98CE11E2-BD26-49C4-A960-E23836E7DC6D</key>
+		<string>ssh://github.com/saetia/dc.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Conversions.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>98CE11E2-BD26-49C4-A960-E23836E7DC6D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/saetia/dc.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>98CE11E2-BD26-49C4-A960-E23836E7DC6D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>98CE11E2-BD26-49C4-A960-E23836E7DC6D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>dc</string>
+		</dict>
+	</array>
+</dict>
+</plist>
