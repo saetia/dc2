@@ -1,28 +1,18 @@
 //
-//  YieldUsingStandardYieldViewController.m
+//  DistanceViewController.m
 //  Conversions
 //
-//  Created by Joel Glovacki on 8/27/13.
+//  Created by Joel Glovacki on 8/28/13.
 //  Copyright (c) 2013 Dunmore. All rights reserved.
 //
 
-#import "YieldUsingStandardYieldViewController.h"
+#import "DistanceViewController.h"
 
-@interface YieldUsingStandardYieldViewController ()
+@interface DistanceViewController ()
 
 @end
 
-@implementation YieldUsingStandardYieldViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
+@implementation DistanceViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -30,39 +20,65 @@
     return self;
 }
 
-
 - (void)viewDidLoad
 {
     
-    self.title = @"Yield / Standard Yield";
+    self.title = @"Distance Conversions";
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = [UIColor colorWithRed:0.93f green:0.93f blue:0.90f alpha:1.00f];
-
     [super viewDidLoad];
+    
     
     _fields = @[
                 @{
-                    @"label":           @"Specific Gravity",
-                    @"unit":            @"",
-                    @"possibleUnits":   @[],
+                    @"label":           @"Millimeters",
+                    @"base":            @1,
+                    @"unit":            @1,
                     },
                 @{
-                    @"label":           @"Thickness",
-                    @"unit":            @"mic",
-                    @"possibleUnits":   @[@"mic", @"ga", @"mil", @"in"],
+                    @"label":           @"Centimeters",
+                    @"base":            @10,
+                    @"unit":            @0.1,
                     },
                 @{
-                    @"label":           @"Result",
-                    @"unit":            @"msi/lb",
-                    @"possibleUnits":   @[@"msi/lb", @"ft²/lb"],
-                    }
+                    @"label":           @"Meters",
+                    @"base":            @1000,
+                    @"unit":            @0.001,
+                    },
+                @{
+                    @"label":           @"Kilometers",
+                    @"base":            @1000000,
+                    @"unit":            @0.000001,
+                    },
+                @{
+                    @"label":           @"Inches",
+                    @"base":            @25.4,
+                    @"unit":            @0.0393701,
+                    },
+                @{
+                    @"label":           @"Feet",
+                    @"base":            @304.8,
+                    @"unit":            @0.00328084,
+                    },
+                @{
+                    @"label":           @"Yard",
+                    @"base":            @914.4,
+                    @"unit":            @0.00109361,
+                    },
+                @{
+                    @"label":           @"Mile",
+                    @"base":            @1609344,
+                    @"unit":            @0.000000621,
+                    },
                 ];
+
     
     _textFields = [[NSMutableArray alloc] init];
     
     _manager = [[RETableViewManager alloc] initWithTableView:self.tableView delegate:self];
+    
+    
     self.basicControlsSection = [self addBasicControls];
-    self.buttonSection = [self addButton];
     
     [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.00f green:0.50f blue:0.73f alpha:1.00f]];
     
@@ -96,12 +112,11 @@
 
 - (RETableViewSection *)addBasicControls {
     
-    RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Roll Length"];
+    RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@""];
     
     [_manager addSection:section];
     
     for (NSDictionary *field in _fields){
-        if ([field[@"label"] isEqualToString: @"Result"]) continue;
         RETableViewItem *item = [RETextItem itemWithTitle:field[@"label"] value:nil placeholder:@"0.00"];
         [section addItem: item];
     }
@@ -110,50 +125,48 @@
     
 }
 
-- (RETableViewSection *)addButton
-{
-    
-    RETableViewSection *section = [RETableViewSection section];
-    
-    [_manager addSection:section];
-    
-    RETableViewItem *item = [RETextItem itemWithTitle:@"Result" value:nil placeholder:@"0.00"];
-    [section addItem: item];
-    
-    return section;
-}
+
+
 
 - (void)calculateResult:(UITextField *)sender {
     
-    float total = 0;
-    int required_fields = 2;
-    int filled_out_fields = 0;
+    int tag = sender.tag;
     
-    NSMutableArray *values = [[NSMutableArray alloc] init];
+    NSString *originalType = _fields[tag][@"label"];
+    NSNumber *baseConverter = _fields[tag][@"base"];
+    
+    double numberAsBase = sender.text.doubleValue * baseConverter.doubleValue;
+
+    NSLog(@"Converting: %@ %@", sender.text, originalType);
+    
+    int i = 0;
+    
+    NSLog(@"number of fields: %i", _fields.count);
+    NSLog(@"number of texfields: %i", _textFields.count);
     
     for (UITextField *field in _textFields){
-        NSLog(@"is %f >= 0.0000000000001f?", field.text.floatValue);
-        if (field.text.floatValue < 0.0000000000001f) continue;
-        filled_out_fields++;
-        NSLog(@"filled out field: %f",field.text.floatValue);
-        [values addObject: [NSNumber numberWithFloat:field.text.floatValue]];
+        
+        if (field.tag == tag) {
+            i++;
+            continue;
+        }
+        
+        NSNumber *fieldUnit = _fields[i][@"unit"];
+        NSString *o = _fields[i][@"label"];
+        
+        NSLog(@"%i) %@ %@ * %f = %0.4f", i, o, fieldUnit, numberAsBase, numberAsBase * fieldUnit.doubleValue);
+        
+        field.text = [NSString stringWithFormat:@"%0.4f", numberAsBase * fieldUnit.doubleValue];
+        
+        i++;
+        
     }
-    NSLog(@"is %d >= %d?", filled_out_fields, required_fields);
+
     
-    if (filled_out_fields >= required_fields){
-        
-        double value1 = ((NSNumber *)values[0]).doubleValue;
-        double value2 = ((NSNumber *)values[1]).doubleValue;
-        
-        total = 703 / (value1 * value2);
-        
-        //=SUM((((0.06545/B6)*((C6^2)-(D6^2))) / 3))
-        //0.06545 / 0.0023 * (pow(18,2) - pow(3,2)) / 3;
-        
-        
-        _resultField.text = [NSString stringWithFormat:@"%f", total];
-    }
 }
+
+
+
 
 
 
@@ -161,6 +174,7 @@
 {
     
     for (UIView *view in cell.contentView.subviews) {
+
         
         UILabel *currentView = ((UILabel *)view);
         
@@ -172,59 +186,25 @@
         if ([view isKindOfClass:[UITextField class]] || [view isKindOfClass:[UITextView class]]){
             
             currentView.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
+            
             currentView.textColor = [UIColor colorWithRed:0.20f green:0.20f blue:0.20f alpha:1.00f];
             
-            if (![cell.textLabel.text isEqualToString:@"Result"]){
-                _keyboardView = [[ZenKeyboard alloc] initWithFrame:CGRectMake(0, 0, 320, 216)];
-                _keyboardView.textField = (UITextField *)view;
-                
-                
-                [(UITextField *)view addTarget:self action:@selector(calculateResult:) forControlEvents:UIControlEventEditingChanged];
-                
-                [_textFields addObject: (UITextField *)view];
-                
-                
-                if (!indexPath.section && !indexPath.row) currentView.tag = 8;
-                
-                
-            } else {
-                
-                _resultField = (UITextField *)view;
-                
-                currentView.enabled = FALSE;
-                //do something to copy the number to clipboard here.
-            }
             
+            _keyboardView = [[ZenKeyboard alloc] initWithFrame:CGRectMake(0, 0, 320, 216)];
+            _keyboardView.textField = (UITextField *)view;
+            
+            
+            [(UITextField *)view addTarget:self action:@selector(calculateResult:) forControlEvents:UIControlEventEditingChanged];
+
+            
+            currentView.tag = indexPath.row;
+            
+                        
+            [_textFields addObject: (UITextField *)view];
             
             
         }
     }
-    
-    
-    //NSLog(@"%@",indexPath);
-    
-    int row = (!indexPath.section) ? indexPath.row : (_fields.count - 1);
-    
-    //NSLog(@"%d",row);
-    
-    //NSLog(@"row unit: %@",_fields[row][@"unit"]);
-    
-    if (![_fields[row][@"unit"] isEqualToString:@""]){
-        
-        //NSLog(@"%@", _fields[row][@"label"]);
-        
-        cell.badgeString        = _fields[row][@"unit"];
-        cell.badgeColor         = [UIColor colorWithRed:0.00f green:0.64f blue:0.48f alpha:1.00f];
-        cell.badgeTextColor     = [UIColor colorWithRed:1.00f green:1.00f blue:1.00f alpha:1.00f];
-        cell.badge.fontSize     = 14;
-        cell.badgeLeftOffset    = 0;
-        cell.badgeRightOffset   = 10;
-        
-        [cell.badge addTarget:self action:@selector(triggerMenu:) forControlEvents:UIControlEventTouchUpInside];
-        
-    }
-    
-    
     
 }
 
@@ -303,7 +283,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [[self.view viewWithTag:8] becomeFirstResponder];
+    [[self.view viewWithTag:0] becomeFirstResponder];
 }
 
 
@@ -314,3 +294,4 @@
 }
 
 @end
+

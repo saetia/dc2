@@ -23,13 +23,19 @@
     return self;
 }
 
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    if (self = [super initWithStyle:UITableViewStyleGrouped]){}
+    return self;
+}
 
 
 - (void)viewDidLoad
 {
     
     self.title = @"Roll Length";
-    
+    self.tableView.backgroundView = nil;
+    self.tableView.backgroundColor = [UIColor colorWithRed:0.93f green:0.93f blue:0.90f alpha:1.00f];
     [super viewDidLoad];
     
     _fields = @[
@@ -130,7 +136,7 @@
     
     for (UITextField *field in _textFields){
         NSLog(@"is %f >= 0.0000000000001f?", field.text.floatValue);
-        if (field.text.floatValue < 0.0000000000001f) return;
+        if (field.text.floatValue < 0.0000000000001f) continue;
         filled_out_fields++;
         NSLog(@"filled out field: %f",field.text.floatValue);
         [values addObject: [NSNumber numberWithFloat:field.text.floatValue]];

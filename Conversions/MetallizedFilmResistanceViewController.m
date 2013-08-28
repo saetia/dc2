@@ -26,13 +26,19 @@
     return self;
 }
 
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    if (self = [super initWithStyle:UITableViewStyleGrouped]){}
+    return self;
+}
 
 
 - (void)viewDidLoad
 {
     
     self.title = @"Metallized Film Resistance";
-    
+    self.tableView.backgroundView = nil;
+    self.tableView.backgroundColor = [UIColor colorWithRed:0.93f green:0.93f blue:0.90f alpha:1.00f];
     [super viewDidLoad];
 
     

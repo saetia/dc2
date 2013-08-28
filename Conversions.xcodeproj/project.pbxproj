@@ -41,6 +41,27 @@
 		5D06C64B17A1ADBF00673E02 /* MMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D06C64217A1A8A900673E02 /* MMTableViewCell.m */; };
 		5D1DB86C17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DB86B17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.m */; };
 		5D1DB86F17CD1493007CB6B9 /* YieldUsingStandardYieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DB86E17CD1493007CB6B9 /* YieldUsingStandardYieldViewController.m */; };
+		5D1DB88117CE6D71007CB6B9 /* area-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DB87117CE6D71007CB6B9 /* area-active.png */; };
+		5D1DB88217CE6D72007CB6B9 /* area-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DB87217CE6D71007CB6B9 /* area-active@2x.png */; };
+		5D1DB88317CE6D72007CB6B9 /* area-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DB87317CE6D71007CB6B9 /* area-normal.png */; };
+		5D1DB88417CE6D72007CB6B9 /* area-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DB87417CE6D71007CB6B9 /* area-normal@2x.png */; };
+		5D1DB88517CE6D72007CB6B9 /* distance-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DB87517CE6D71007CB6B9 /* distance-active.png */; };
+		5D1DB88617CE6D72007CB6B9 /* distance-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DB87617CE6D71007CB6B9 /* distance-active@2x.png */; };
+		5D1DB88717CE6D72007CB6B9 /* distance-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DB87717CE6D71007CB6B9 /* distance-normal.png */; };
+		5D1DB88817CE6D72007CB6B9 /* distance-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DB87817CE6D71007CB6B9 /* distance-normal@2x.png */; };
+		5D1DB88917CE6D72007CB6B9 /* thickness-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DB87917CE6D71007CB6B9 /* thickness-active.png */; };
+		5D1DB88A17CE6D72007CB6B9 /* thickness-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DB87A17CE6D71007CB6B9 /* thickness-active@2x.png */; };
+		5D1DB88B17CE6D72007CB6B9 /* thickness-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DB87B17CE6D71007CB6B9 /* thickness-normal.png */; };
+		5D1DB88C17CE6D72007CB6B9 /* thickness-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DB87C17CE6D71007CB6B9 /* thickness-normal@2x.png */; };
+		5D1DB88D17CE6D72007CB6B9 /* weight-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DB87D17CE6D71007CB6B9 /* weight-active.png */; };
+		5D1DB88E17CE6D72007CB6B9 /* weight-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DB87E17CE6D71007CB6B9 /* weight-active@2x.png */; };
+		5D1DB88F17CE6D72007CB6B9 /* weight-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DB87F17CE6D71007CB6B9 /* weight-normal.png */; };
+		5D1DB89017CE6D72007CB6B9 /* weight-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DB88017CE6D71007CB6B9 /* weight-normal@2x.png */; };
+		5D1DB89317CE8156007CB6B9 /* CViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DB89217CE8154007CB6B9 /* CViewController.m */; };
+		5D1DB89617CE8A87007CB6B9 /* AreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DB89517CE8A86007CB6B9 /* AreaViewController.m */; };
+		5D1DB89917CE8AA3007CB6B9 /* ThicknessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DB89817CE8AA2007CB6B9 /* ThicknessViewController.m */; };
+		5D1DB89C17CE8AB3007CB6B9 /* WeightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DB89B17CE8AB1007CB6B9 /* WeightViewController.m */; };
+		5D1DB89F17CE8ACA007CB6B9 /* DistanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DB89E17CE8AC9007CB6B9 /* DistanceViewController.m */; };
 		5D353D3717A8D25100EC6AEF /* UnitMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D353D3617A8D25100EC6AEF /* UnitMenuItem.m */; };
 		5D353D3A17A8E3B800EC6AEF /* PSMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D353D3817A8E3B800EC6AEF /* PSMenuItem.m */; };
 		5D353D3B17A8E7AB00EC6AEF /* PSMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D353D3817A8E3B800EC6AEF /* PSMenuItem.m */; };
@@ -204,6 +225,32 @@
 		5D1DB86B17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetallizedFilmResistanceViewController.m; sourceTree = "<group>"; };
 		5D1DB86D17CD1493007CB6B9 /* YieldUsingStandardYieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YieldUsingStandardYieldViewController.h; sourceTree = "<group>"; };
 		5D1DB86E17CD1493007CB6B9 /* YieldUsingStandardYieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YieldUsingStandardYieldViewController.m; sourceTree = "<group>"; };
+		5D1DB87117CE6D71007CB6B9 /* area-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "area-active.png"; sourceTree = "<group>"; };
+		5D1DB87217CE6D71007CB6B9 /* area-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "area-active@2x.png"; sourceTree = "<group>"; };
+		5D1DB87317CE6D71007CB6B9 /* area-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "area-normal.png"; sourceTree = "<group>"; };
+		5D1DB87417CE6D71007CB6B9 /* area-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "area-normal@2x.png"; sourceTree = "<group>"; };
+		5D1DB87517CE6D71007CB6B9 /* distance-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "distance-active.png"; sourceTree = "<group>"; };
+		5D1DB87617CE6D71007CB6B9 /* distance-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "distance-active@2x.png"; sourceTree = "<group>"; };
+		5D1DB87717CE6D71007CB6B9 /* distance-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "distance-normal.png"; sourceTree = "<group>"; };
+		5D1DB87817CE6D71007CB6B9 /* distance-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "distance-normal@2x.png"; sourceTree = "<group>"; };
+		5D1DB87917CE6D71007CB6B9 /* thickness-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thickness-active.png"; sourceTree = "<group>"; };
+		5D1DB87A17CE6D71007CB6B9 /* thickness-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thickness-active@2x.png"; sourceTree = "<group>"; };
+		5D1DB87B17CE6D71007CB6B9 /* thickness-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thickness-normal.png"; sourceTree = "<group>"; };
+		5D1DB87C17CE6D71007CB6B9 /* thickness-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thickness-normal@2x.png"; sourceTree = "<group>"; };
+		5D1DB87D17CE6D71007CB6B9 /* weight-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weight-active.png"; sourceTree = "<group>"; };
+		5D1DB87E17CE6D71007CB6B9 /* weight-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weight-active@2x.png"; sourceTree = "<group>"; };
+		5D1DB87F17CE6D71007CB6B9 /* weight-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weight-normal.png"; sourceTree = "<group>"; };
+		5D1DB88017CE6D71007CB6B9 /* weight-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weight-normal@2x.png"; sourceTree = "<group>"; };
+		5D1DB89117CE8153007CB6B9 /* CViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CViewController.h; sourceTree = "<group>"; };
+		5D1DB89217CE8154007CB6B9 /* CViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CViewController.m; sourceTree = "<group>"; };
+		5D1DB89417CE8A85007CB6B9 /* AreaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaViewController.h; sourceTree = "<group>"; };
+		5D1DB89517CE8A86007CB6B9 /* AreaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaViewController.m; sourceTree = "<group>"; };
+		5D1DB89717CE8AA2007CB6B9 /* ThicknessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThicknessViewController.h; sourceTree = "<group>"; };
+		5D1DB89817CE8AA2007CB6B9 /* ThicknessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThicknessViewController.m; sourceTree = "<group>"; };
+		5D1DB89A17CE8AB0007CB6B9 /* WeightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeightViewController.h; sourceTree = "<group>"; };
+		5D1DB89B17CE8AB1007CB6B9 /* WeightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeightViewController.m; sourceTree = "<group>"; };
+		5D1DB89D17CE8AC8007CB6B9 /* DistanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistanceViewController.h; sourceTree = "<group>"; };
+		5D1DB89E17CE8AC9007CB6B9 /* DistanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistanceViewController.m; sourceTree = "<group>"; };
 		5D353D3517A8D25100EC6AEF /* UnitMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitMenuItem.h; sourceTree = "<group>"; };
 		5D353D3617A8D25100EC6AEF /* UnitMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitMenuItem.m; sourceTree = "<group>"; };
 		5D353D3817A8E3B800EC6AEF /* PSMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMenuItem.m; sourceTree = "<group>"; };
@@ -429,6 +476,16 @@
 				5DA6C5C417B6D42400819C93 /* CalculatorViewController.m */,
 				5D06C5FC17A0787600673E02 /* MainStoryboard_iPhone.storyboard */,
 				5D06C5FF17A0787600673E02 /* MainStoryboard_iPad.storyboard */,
+				5D1DB89117CE8153007CB6B9 /* CViewController.h */,
+				5D1DB89217CE8154007CB6B9 /* CViewController.m */,
+				5D1DB89417CE8A85007CB6B9 /* AreaViewController.h */,
+				5D1DB89517CE8A86007CB6B9 /* AreaViewController.m */,
+				5D1DB89A17CE8AB0007CB6B9 /* WeightViewController.h */,
+				5D1DB89B17CE8AB1007CB6B9 /* WeightViewController.m */,
+				5D1DB89717CE8AA2007CB6B9 /* ThicknessViewController.h */,
+				5D1DB89817CE8AA2007CB6B9 /* ThicknessViewController.m */,
+				5D1DB89D17CE8AC8007CB6B9 /* DistanceViewController.h */,
+				5D1DB89E17CE8AC9007CB6B9 /* DistanceViewController.m */,
 				5D1DB86D17CD1493007CB6B9 /* YieldUsingStandardYieldViewController.h */,
 				5D1DB86E17CD1493007CB6B9 /* YieldUsingStandardYieldViewController.m */,
 				5D1DB86A17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.h */,
@@ -515,6 +572,7 @@
 		5D06C63A17A19EA800673E02 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				5D1DB87017CE6D71007CB6B9 /* conversions-icons */,
 				5D99EE7917C573FC000FBFF3 /* dunmore-logo.png */,
 				5D99EE7717C55681000FBFF3 /* KeyboardNumericEntryKeyBackspaceGlyphTextured@2x.png */,
 				5D99EE6917C55651000FBFF3 /* BackgroundTexture@2x.png */,
@@ -571,6 +629,29 @@
 				5D06C63B17A19EB900673E02 /* dunmore_logo-2.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		5D1DB87017CE6D71007CB6B9 /* conversions-icons */ = {
+			isa = PBXGroup;
+			children = (
+				5D1DB87117CE6D71007CB6B9 /* area-active.png */,
+				5D1DB87217CE6D71007CB6B9 /* area-active@2x.png */,
+				5D1DB87317CE6D71007CB6B9 /* area-normal.png */,
+				5D1DB87417CE6D71007CB6B9 /* area-normal@2x.png */,
+				5D1DB87517CE6D71007CB6B9 /* distance-active.png */,
+				5D1DB87617CE6D71007CB6B9 /* distance-active@2x.png */,
+				5D1DB87717CE6D71007CB6B9 /* distance-normal.png */,
+				5D1DB87817CE6D71007CB6B9 /* distance-normal@2x.png */,
+				5D1DB87917CE6D71007CB6B9 /* thickness-active.png */,
+				5D1DB87A17CE6D71007CB6B9 /* thickness-active@2x.png */,
+				5D1DB87B17CE6D71007CB6B9 /* thickness-normal.png */,
+				5D1DB87C17CE6D71007CB6B9 /* thickness-normal@2x.png */,
+				5D1DB87D17CE6D71007CB6B9 /* weight-active.png */,
+				5D1DB87E17CE6D71007CB6B9 /* weight-active@2x.png */,
+				5D1DB87F17CE6D71007CB6B9 /* weight-normal.png */,
+				5D1DB88017CE6D71007CB6B9 /* weight-normal@2x.png */,
+			);
+			path = "conversions-icons";
 			sourceTree = "<group>";
 		};
 		5DB5780017C4A7F30084EFEE /* RETableViewManager */ = {
@@ -793,6 +874,22 @@
 				5D99EE7617C55651000FBFF3 /* KeyboardTopShadow@2x.png in Resources */,
 				5D99EE7817C55681000FBFF3 /* KeyboardNumericEntryKeyBackspaceGlyphTextured@2x.png in Resources */,
 				5D99EE7A17C573FC000FBFF3 /* dunmore-logo.png in Resources */,
+				5D1DB88117CE6D71007CB6B9 /* area-active.png in Resources */,
+				5D1DB88217CE6D72007CB6B9 /* area-active@2x.png in Resources */,
+				5D1DB88317CE6D72007CB6B9 /* area-normal.png in Resources */,
+				5D1DB88417CE6D72007CB6B9 /* area-normal@2x.png in Resources */,
+				5D1DB88517CE6D72007CB6B9 /* distance-active.png in Resources */,
+				5D1DB88617CE6D72007CB6B9 /* distance-active@2x.png in Resources */,
+				5D1DB88717CE6D72007CB6B9 /* distance-normal.png in Resources */,
+				5D1DB88817CE6D72007CB6B9 /* distance-normal@2x.png in Resources */,
+				5D1DB88917CE6D72007CB6B9 /* thickness-active.png in Resources */,
+				5D1DB88A17CE6D72007CB6B9 /* thickness-active@2x.png in Resources */,
+				5D1DB88B17CE6D72007CB6B9 /* thickness-normal.png in Resources */,
+				5D1DB88C17CE6D72007CB6B9 /* thickness-normal@2x.png in Resources */,
+				5D1DB88D17CE6D72007CB6B9 /* weight-active.png in Resources */,
+				5D1DB88E17CE6D72007CB6B9 /* weight-active@2x.png in Resources */,
+				5D1DB88F17CE6D72007CB6B9 /* weight-normal.png in Resources */,
+				5D1DB89017CE6D72007CB6B9 /* weight-normal@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -884,6 +981,11 @@
 				5DEC2CD217CCBA7D00C82DFF /* YieldUsingSpecificGravityViewController.m in Sources */,
 				5D1DB86C17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.m in Sources */,
 				5D1DB86F17CD1493007CB6B9 /* YieldUsingStandardYieldViewController.m in Sources */,
+				5D1DB89317CE8156007CB6B9 /* CViewController.m in Sources */,
+				5D1DB89617CE8A87007CB6B9 /* AreaViewController.m in Sources */,
+				5D1DB89917CE8AA3007CB6B9 /* ThicknessViewController.m in Sources */,
+				5D1DB89C17CE8AB3007CB6B9 /* WeightViewController.m in Sources */,
+				5D1DB89F17CE8ACA007CB6B9 /* DistanceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

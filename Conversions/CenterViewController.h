@@ -13,20 +13,9 @@
 
 @property (strong, readwrite, nonatomic) NSArray *fields;
 
-@property (weak, nonatomic) IBOutlet UIButton *rollLength;
-@property (weak, nonatomic) IBOutlet UIButton *rollDiameter;
-@property (weak, nonatomic) IBOutlet UIButton *labelToRoll;
-@property (weak, nonatomic) IBOutlet UIButton *yieldUsingSG;
-@property (weak, nonatomic) IBOutlet UIButton *yieldUsingStandardYield;
-@property (weak, nonatomic) IBOutlet UIButton *metallizedFilmResistance;
-
-
-
-- (IBAction)rollLengthTapped:(UIButton *)sender;
-- (IBAction)rollDiameter:(UIButton *)sender;
-- (IBAction)labelToRollTapped:(UIButton *)sender;
-- (IBAction)yieldUsingSGTapped:(UIButton *)sender;
-- (IBAction)yieldUsingStandardYieldTapped:(UIButton *)sender;
-- (IBAction)metallizedFilmResistanceTapped:(UIButton *)sender;
+- (IBAction)areaTap:(UIButton *)sender;
+- (IBAction)weightTap:(UIButton *)sender;
+- (IBAction)distanceTap:(UIButton *)sender;
+- (IBAction)thicknessTap:(UIButton *)sender;
 
 @end

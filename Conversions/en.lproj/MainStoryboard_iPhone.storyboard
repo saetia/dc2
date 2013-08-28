@@ -130,156 +130,105 @@
         <scene sceneID="HTi-pA-NdU">
             <objects>
                 <tableViewController storyboardIdentifier="center" id="Txe-mU-oXU" customClass="CenterViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="p5r-OR-Lco">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="p5r-OR-Lco">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="0H8-KP-vJk">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="360"/>
+                        <color key="backgroundColor" red="0.94117653369999998" green="0.94117653369999998" blue="0.9215686917" alpha="1" colorSpace="deviceRGB"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="app-va-MyL">
+                            <rect key="frame" x="0.0" y="102" width="320" height="92"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQO-PF-Qzk">
-                                    <color key="backgroundColor" red="0.57179187909999996" green="0.83621348510000004" blue="0.53456388529999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYv-Z8-iRy">
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="120" id="2H4-DI-AIN"/>
-                                        <constraint firstAttribute="width" constant="160" id="dZi-Sn-1HD"/>
+                                        <constraint firstAttribute="height" constant="72" id="81Y-VB-VFD"/>
+                                        <constraint firstAttribute="width" constant="66" id="8So-vz-HZW"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                    <state key="normal" title="Roll Length">
+                                    <state key="normal" title="Button" image="area-normal.png">
                                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
-                                    <state key="highlighted">
+                                    <state key="selected" image="area-active.png"/>
+                                    <state key="highlighted" image="area-active.png">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
-                                        <action selector="calculationButtonClicked:" destination="L3J-Iz-MBs" eventType="touchUpInside" id="9xP-Ra-s8u"/>
-                                        <action selector="rollLengthTapped:" destination="L3J-Iz-MBs" eventType="touchUpInside" id="1OU-vf-M3J"/>
-                                        <segue destination="cqG-6T-2bF" kind="push" id="wkA-eW-X69"/>
+                                        <action selector="areaTap:" destination="Txe-mU-oXU" eventType="touchUpInside" id="qkM-5c-nj3"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oO-ah-aDh">
-                                    <color key="backgroundColor" red="0.63080985509999998" green="0.77357832380000002" blue="0.83621348510000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEM-qN-oOI">
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="160" id="B7a-zg-U3S"/>
+                                        <constraint firstAttribute="width" constant="66" id="97r-ay-btG"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                    <state key="normal" title="Roll Diameter">
+                                    <state key="normal" title="Button" image="weight-normal.png">
                                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
-                                    <state key="highlighted">
+                                    <state key="selected" image="weight-active.png"/>
+                                    <state key="highlighted" image="weight-active.png">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
-                                        <action selector="rollDiameter:" destination="L3J-Iz-MBs" eventType="touchUpInside" id="0Xp-ni-HLT"/>
-                                        <segue destination="06U-9G-4nL" kind="push" id="keR-ip-257"/>
+                                        <action selector="weightTap:" destination="Txe-mU-oXU" eventType="touchUpInside" id="rQQ-Tg-Ed6"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSS-a1-I9k">
-                                    <color key="backgroundColor" red="0.70775970730000004" green="0.83621348510000004" blue="0.41332097029999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDW-J4-Rzq">
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="120" id="d6k-25-tW0"/>
+                                        <constraint firstAttribute="width" constant="66" id="z6X-ey-pOw"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                    <state key="normal" title="Label Size to Roll">
+                                    <state key="normal" title="Button" image="distance-normal.png">
                                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
-                                    <state key="highlighted">
+                                    <state key="selected" image="distance-active.png"/>
+                                    <state key="highlighted" image="distance-active.png">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
-                                        <action selector="labelToRollTapped:" destination="L3J-Iz-MBs" eventType="touchUpInside" id="yeN-ml-EUj"/>
-                                        <segue destination="Dt5-rQ-5Vy" kind="push" id="fcb-a0-Wqh"/>
+                                        <action selector="distanceTap:" destination="Txe-mU-oXU" eventType="touchUpInside" id="cDH-k2-5f1"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="ajx-Gj-dK0">
-                                    <color key="backgroundColor" red="0.83621348510000004" green="0.78136364300000005" blue="0.42168010649999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                    <state key="normal" title="Yield using Specific Gravity">
-                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <state key="highlighted">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="yieldUsingSGTapped:" destination="L3J-Iz-MBs" eventType="touchUpInside" id="Qun-Wx-z4P"/>
-                                        <segue destination="rrY-41-R9X" kind="push" id="Muy-7f-fEO"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Z6o-2E-rk1">
-                                    <color key="backgroundColor" red="0.83621348510000004" green="0.47717098569999999" blue="0.55718559320000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYj-QJ-Bmn">
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="120" id="Bbe-vc-2x4"/>
+                                        <constraint firstAttribute="width" constant="66" id="bte-G8-o78"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                    <state key="normal" title="Yield using standard yield">
+                                    <state key="normal" title="Button" image="thickness-normal.png">
                                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
-                                    <state key="highlighted">
+                                    <state key="selected" image="thickness-active.png"/>
+                                    <state key="highlighted" image="thickness-active.png">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
-                                        <action selector="yieldUsingStandardYieldTapped:" destination="L3J-Iz-MBs" eventType="touchUpInside" id="UpA-Td-VCA"/>
-                                        <segue destination="N3E-qF-Vdb" kind="push" id="c4O-a0-4ph"/>
+                                        <action selector="thicknessTap:" destination="Txe-mU-oXU" eventType="touchUpInside" id="7fp-Qa-4e6"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="6Zz-cd-COA">
-                                    <color key="backgroundColor" red="0.75269851750000005" green="0.6271309249" blue="0.83621348510000004" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                    <state key="normal" title="Metallized film Resistance">
-                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <state key="highlighted">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="metallizedFilmResistanceTapped:" destination="L3J-Iz-MBs" eventType="touchUpInside" id="4PB-YM-TXc"/>
-                                        <segue destination="OA5-GU-MY7" kind="push" id="zeG-Vo-6OI"/>
-                                    </connections>
-                                </button>
-                                <imageView userInteractionEnabled="NO" contentMode="center" image="dunmore_logo-2.png" translatesAutoresizingMaskIntoConstraints="NO" id="xv8-xU-YKu">
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="128" id="YpJ-oB-LV5"/>
-                                        <constraint firstAttribute="width" constant="240" id="zkT-vg-pM3"/>
-                                    </constraints>
-                                </imageView>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="ajx-Gj-dK0" firstAttribute="bottom" secondItem="LSS-a1-I9k" secondAttribute="bottom" type="default" id="166-bj-nnW"/>
-                                <constraint firstItem="TQO-PF-Qzk" firstAttribute="top" secondItem="0H8-KP-vJk" secondAttribute="top" type="default" id="2YF-Go-g4v"/>
-                                <constraint firstItem="Z6o-2E-rk1" firstAttribute="leading" secondItem="0H8-KP-vJk" secondAttribute="leading" type="default" id="3ef-se-kFk"/>
-                                <constraint firstItem="TQO-PF-Qzk" firstAttribute="trailing" secondItem="LSS-a1-I9k" secondAttribute="trailing" type="default" id="3ei-Pu-Fmf"/>
-                                <constraint firstItem="6Zz-cd-COA" firstAttribute="trailing" secondItem="0H8-KP-vJk" secondAttribute="trailing" type="default" id="5K3-wI-NAc"/>
-                                <constraint firstItem="LSS-a1-I9k" firstAttribute="leading" secondItem="0H8-KP-vJk" secondAttribute="leading" type="default" id="8gL-aJ-UJa"/>
-                                <constraint firstItem="6Zz-cd-COA" firstAttribute="bottom" secondItem="0H8-KP-vJk" secondAttribute="bottom" type="default" id="9WR-Ce-xd8"/>
-                                <constraint firstItem="xv8-xU-YKu" firstAttribute="centerX" secondItem="0H8-KP-vJk" secondAttribute="centerX" type="default" id="GLq-5E-S4g"/>
-                                <constraint firstItem="LSS-a1-I9k" firstAttribute="trailing" secondItem="Z6o-2E-rk1" secondAttribute="trailing" type="default" id="HJM-ce-q7m"/>
-                                <constraint firstItem="LSS-a1-I9k" firstAttribute="centerY" secondItem="0H8-KP-vJk" secondAttribute="centerY" type="default" id="OkG-Sk-IYB"/>
-                                <constraint firstItem="ajx-Gj-dK0" firstAttribute="trailing" secondItem="0H8-KP-vJk" secondAttribute="trailing" type="default" id="R2l-Tx-84S"/>
-                                <constraint firstItem="Z6o-2E-rk1" firstAttribute="top" secondItem="6Zz-cd-COA" secondAttribute="top" type="default" id="SIK-cA-XB2"/>
-                                <constraint firstItem="ajx-Gj-dK0" firstAttribute="leading" secondItem="4oO-ah-aDh" secondAttribute="leading" type="default" id="U25-9g-LkK"/>
-                                <constraint firstItem="Z6o-2E-rk1" firstAttribute="bottom" secondItem="0H8-KP-vJk" secondAttribute="bottom" type="default" id="UCM-mA-9Ca"/>
-                                <constraint firstItem="TQO-PF-Qzk" firstAttribute="bottom" secondItem="4oO-ah-aDh" secondAttribute="bottom" type="default" id="Vc3-EK-euc"/>
-                                <constraint firstItem="4oO-ah-aDh" firstAttribute="top" secondItem="0H8-KP-vJk" secondAttribute="top" type="default" id="Vlq-a5-P3e"/>
-                                <constraint firstItem="TQO-PF-Qzk" firstAttribute="leading" secondItem="0H8-KP-vJk" secondAttribute="leading" type="default" id="oI3-EO-IdR"/>
-                                <constraint firstItem="4oO-ah-aDh" firstAttribute="trailing" secondItem="0H8-KP-vJk" secondAttribute="trailing" type="default" id="sZJ-mq-K0P"/>
-                                <constraint firstItem="LSS-a1-I9k" firstAttribute="top" secondItem="ajx-Gj-dK0" secondAttribute="top" type="default" id="tIK-ek-rVO"/>
-                                <constraint firstItem="xv8-xU-YKu" firstAttribute="top" secondItem="0H8-KP-vJk" secondAttribute="top" constant="-163" id="wVs-61-5pA"/>
-                                <constraint firstItem="6Zz-cd-COA" firstAttribute="leading" secondItem="ajx-Gj-dK0" secondAttribute="leading" type="default" id="xQJ-SO-05n"/>
+                                <constraint firstItem="RDW-J4-Rzq" firstAttribute="top" secondItem="sEM-qN-oOI" secondAttribute="top" type="default" id="2PO-E9-wNe"/>
+                                <constraint firstItem="RDW-J4-Rzq" firstAttribute="leading" secondItem="sEM-qN-oOI" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="3Oy-bA-a8e"/>
+                                <constraint firstItem="sEM-qN-oOI" firstAttribute="top" secondItem="xYv-Z8-iRy" secondAttribute="top" type="default" id="4sX-Dc-mXB"/>
+                                <constraint firstItem="QYj-QJ-Bmn" firstAttribute="bottom" secondItem="RDW-J4-Rzq" secondAttribute="bottom" type="default" id="75t-1R-73S"/>
+                                <constraint firstItem="RDW-J4-Rzq" firstAttribute="bottom" secondItem="sEM-qN-oOI" secondAttribute="bottom" type="default" id="8XG-Ap-sf9"/>
+                                <constraint firstItem="QYj-QJ-Bmn" firstAttribute="top" secondItem="RDW-J4-Rzq" secondAttribute="top" type="default" id="Dce-Sh-jvR"/>
+                                <constraint firstItem="sEM-qN-oOI" firstAttribute="bottom" secondItem="xYv-Z8-iRy" secondAttribute="bottom" type="default" id="Hy1-aX-QW9"/>
+                                <constraint firstItem="QYj-QJ-Bmn" firstAttribute="leading" secondItem="RDW-J4-Rzq" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="I59-Mc-g4O"/>
+                                <constraint firstItem="xYv-Z8-iRy" firstAttribute="leading" secondItem="app-va-MyL" secondAttribute="leading" constant="16" id="RhU-CX-9v9"/>
+                                <constraint firstItem="sEM-qN-oOI" firstAttribute="centerY" secondItem="app-va-MyL" secondAttribute="centerY" type="default" id="Wsh-OK-wnC"/>
+                                <constraint firstItem="sEM-qN-oOI" firstAttribute="leading" secondItem="xYv-Z8-iRy" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="hyd-TG-cCH"/>
                             </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Main" textLabel="KHG-GX-mKS" style="IBUITableViewCellStyleDefault" id="e4U-RI-1dt">
-                                <rect key="frame" x="0.0" y="382" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <rect key="frame" x="10" y="1" width="280" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHG-GX-mKS">
@@ -297,11 +246,12 @@
                             <outlet property="delegate" destination="Txe-mU-oXU" id="s0N-nF-PCr"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="8HZ-I9-GYu"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ua-2J-A7U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1149" y="-2506"/>
+            <point key="canvasLocation" x="-1056" y="-3014"/>
         </scene>
         <!--Center View Controller - Dunmore-->
         <scene sceneID="00O-Zf-YRz">
@@ -1390,7 +1340,7 @@
             <objects>
                 <tableViewController id="cqG-6T-2bF" customClass="RollLengthViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="pv8-IK-f72">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.94117653369903564" green="0.94117653369903564" blue="0.92156869173049927" alpha="1" colorSpace="deviceRGB"/>
                         <prototypes>
@@ -2023,7 +1973,7 @@
             <objects>
                 <tableViewController id="06U-9G-4nL" customClass="RollDiameterViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Jeh-Or-i0c">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.94117653369999998" green="0.94117653369999998" blue="0.9215686917" alpha="1" colorSpace="deviceRGB"/>
                         <prototypes>
@@ -2067,7 +2017,7 @@
             <objects>
                 <tableViewController id="Dt5-rQ-5Vy" customClass="LabelSizeToRollViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="ZK8-hT-U8O">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.94117653369999998" green="0.94117653369999998" blue="0.9215686917" alpha="1" colorSpace="deviceRGB"/>
                         <prototypes>
@@ -2111,7 +2061,7 @@
             <objects>
                 <tableViewController id="rrY-41-R9X" customClass="YieldUsingSpecificGravityViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="uBn-ts-AEX">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.94117653369999998" green="0.94117653369999998" blue="0.9215686917" alpha="1" colorSpace="deviceRGB"/>
                         <prototypes>
@@ -2155,7 +2105,7 @@
             <objects>
                 <tableViewController id="N3E-qF-Vdb" customClass="YieldUsingStandardYieldViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="zIb-EH-oXS">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.94117653369999998" green="0.94117653369999998" blue="0.9215686917" alpha="1" colorSpace="deviceRGB"/>
                         <prototypes>
@@ -2199,7 +2149,7 @@
             <objects>
                 <tableViewController id="OA5-GU-MY7" customClass="MetallizedFilmResistanceViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="2LH-bR-OVf">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.94117653369999998" green="0.94117653369999998" blue="0.9215686917" alpha="1" colorSpace="deviceRGB"/>
                         <prototypes>
@@ -2238,81 +2188,234 @@
             </objects>
             <point key="canvasLocation" x="-132" y="-2241"/>
         </scene>
+        <!--Center View Controller-->
+        <scene sceneID="WBD-Wu-lTt">
+            <objects>
+                <tableViewController storyboardIdentifier="center-old" id="Afd-jH-S5Z" customClass="CenterViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="8ek-wa-8SG">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="qCf-JD-a2a">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="360"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z3U-M8-YIx">
+                                    <color key="backgroundColor" red="0.57179187909999996" green="0.83621348510000004" blue="0.53456388529999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="160" id="0BQ-CN-EsG"/>
+                                        <constraint firstAttribute="height" constant="120" id="OcC-Yx-C6R"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="Roll Length">
+                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="calculationButtonClicked:" destination="L3J-Iz-MBs" eventType="touchUpInside" id="Nk0-4a-QBD"/>
+                                        <action selector="rollLengthTapped:" destination="L3J-Iz-MBs" eventType="touchUpInside" id="rbx-3v-rdp"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gja-Xe-mnr">
+                                    <color key="backgroundColor" red="0.63080985509999998" green="0.77357832380000002" blue="0.83621348510000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="160" id="iiW-jY-mCd"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="Roll Diameter">
+                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="rollDiameter:" destination="L3J-Iz-MBs" eventType="touchUpInside" id="zdO-u9-E69"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mna-qP-54O">
+                                    <color key="backgroundColor" red="0.70775970730000004" green="0.83621348510000004" blue="0.41332097029999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="120" id="Xa7-wC-e4N"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="Label Size to Roll">
+                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="labelToRollTapped:" destination="L3J-Iz-MBs" eventType="touchUpInside" id="jFG-m1-Z0j"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="nzq-ks-d7a">
+                                    <color key="backgroundColor" red="0.83621348510000004" green="0.78136364300000005" blue="0.42168010649999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="Yield using Specific Gravity">
+                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="yieldUsingSGTapped:" destination="L3J-Iz-MBs" eventType="touchUpInside" id="UT7-lC-Nah"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="526-qF-krQ">
+                                    <color key="backgroundColor" red="0.83621348510000004" green="0.47717098569999999" blue="0.55718559320000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="120" id="san-cW-1Z7"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="Yield using standard yield">
+                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="yieldUsingStandardYieldTapped:" destination="L3J-Iz-MBs" eventType="touchUpInside" id="SvR-JB-4EI"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="oWg-1f-gja">
+                                    <color key="backgroundColor" red="0.75269851750000005" green="0.6271309249" blue="0.83621348510000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="Metallized film Resistance">
+                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="metallizedFilmResistanceTapped:" destination="L3J-Iz-MBs" eventType="touchUpInside" id="RD9-hb-Shr"/>
+                                    </connections>
+                                </button>
+                                <imageView userInteractionEnabled="NO" contentMode="center" image="dunmore_logo-2.png" translatesAutoresizingMaskIntoConstraints="NO" id="t4G-gD-gqa">
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="240" id="JMy-z0-Ab2"/>
+                                        <constraint firstAttribute="height" constant="128" id="ggK-bF-Hb3"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="Z3U-M8-YIx" firstAttribute="leading" secondItem="qCf-JD-a2a" secondAttribute="leading" type="default" id="29P-w7-PIe"/>
+                                <constraint firstItem="526-qF-krQ" firstAttribute="top" secondItem="oWg-1f-gja" secondAttribute="top" type="default" id="2IO-pB-Pmk"/>
+                                <constraint firstItem="t4G-gD-gqa" firstAttribute="top" secondItem="qCf-JD-a2a" secondAttribute="top" constant="-163" id="2QE-Xd-Gli"/>
+                                <constraint firstItem="mna-qP-54O" firstAttribute="trailing" secondItem="526-qF-krQ" secondAttribute="trailing" type="default" id="760-6Q-v5r"/>
+                                <constraint firstItem="Z3U-M8-YIx" firstAttribute="bottom" secondItem="gja-Xe-mnr" secondAttribute="bottom" type="default" id="DZD-XJ-clh"/>
+                                <constraint firstItem="526-qF-krQ" firstAttribute="bottom" secondItem="qCf-JD-a2a" secondAttribute="bottom" type="default" id="Eye-3v-9yF"/>
+                                <constraint firstItem="t4G-gD-gqa" firstAttribute="centerX" secondItem="qCf-JD-a2a" secondAttribute="centerX" type="default" id="FiY-jk-QYd"/>
+                                <constraint firstItem="526-qF-krQ" firstAttribute="leading" secondItem="qCf-JD-a2a" secondAttribute="leading" type="default" id="GJz-5G-mu1"/>
+                                <constraint firstItem="gja-Xe-mnr" firstAttribute="trailing" secondItem="qCf-JD-a2a" secondAttribute="trailing" type="default" id="GS6-gK-3HJ"/>
+                                <constraint firstItem="oWg-1f-gja" firstAttribute="trailing" secondItem="qCf-JD-a2a" secondAttribute="trailing" type="default" id="Hq6-d1-rNV"/>
+                                <constraint firstItem="gja-Xe-mnr" firstAttribute="top" secondItem="qCf-JD-a2a" secondAttribute="top" type="default" id="MgC-3c-H1d"/>
+                                <constraint firstItem="oWg-1f-gja" firstAttribute="bottom" secondItem="qCf-JD-a2a" secondAttribute="bottom" type="default" id="QQR-4l-QuW"/>
+                                <constraint firstItem="Z3U-M8-YIx" firstAttribute="top" secondItem="qCf-JD-a2a" secondAttribute="top" type="default" id="StD-Cb-0yA"/>
+                                <constraint firstItem="nzq-ks-d7a" firstAttribute="trailing" secondItem="qCf-JD-a2a" secondAttribute="trailing" type="default" id="aUs-XZ-24I"/>
+                                <constraint firstItem="mna-qP-54O" firstAttribute="leading" secondItem="qCf-JD-a2a" secondAttribute="leading" type="default" id="fcL-Ws-6iA"/>
+                                <constraint firstItem="nzq-ks-d7a" firstAttribute="bottom" secondItem="mna-qP-54O" secondAttribute="bottom" type="default" id="hgs-qC-eTF"/>
+                                <constraint firstItem="nzq-ks-d7a" firstAttribute="leading" secondItem="gja-Xe-mnr" secondAttribute="leading" type="default" id="k9O-Fp-kKv"/>
+                                <constraint firstItem="oWg-1f-gja" firstAttribute="leading" secondItem="nzq-ks-d7a" secondAttribute="leading" type="default" id="kUr-cO-10i"/>
+                                <constraint firstItem="Z3U-M8-YIx" firstAttribute="trailing" secondItem="mna-qP-54O" secondAttribute="trailing" type="default" id="lU5-j0-78L"/>
+                                <constraint firstItem="mna-qP-54O" firstAttribute="top" secondItem="nzq-ks-d7a" secondAttribute="top" type="default" id="mTD-Yv-FDC"/>
+                                <constraint firstItem="mna-qP-54O" firstAttribute="centerY" secondItem="qCf-JD-a2a" secondAttribute="centerY" type="default" id="q92-SP-EFa"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Main" textLabel="cug-VT-y91" style="IBUITableViewCellStyleDefault" id="8yE-iq-yHv">
+                                <rect key="frame" x="0.0" y="382" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cug-VT-y91">
+                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Afd-jH-S5Z" id="GGA-y1-AxG"/>
+                            <outlet property="delegate" destination="Afd-jH-S5Z" id="RTe-W3-qNf"/>
+                        </connections>
+                    </tableView>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="evf-bK-hBS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1427" y="-4335"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="AmE-kI-V6f">
+            <objects>
+                <tableViewController storyboardIdentifier="calculator" id="U4E-jX-tuw" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="2l1-qS-0ba">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.94117653369999998" green="0.94117653369999998" blue="0.9215686917" alpha="1" colorSpace="deviceRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="qt7-Ac-Zbn" detailTextLabel="DF3-0C-hPi" style="IBUITableViewCellStyleValue1" id="wqk-yK-ycW">
+                                <rect key="frame" x="0.0" y="46" width="320" height="46"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qt7-Ac-Zbn">
+                                            <rect key="frame" x="10" y="13" width="31" height="19"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DF3-0C-hPi">
+                                            <rect key="frame" x="246" y="11" width="44" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="U4E-jX-tuw" id="yMb-Ii-gRf"/>
+                            <outlet property="delegate" destination="U4E-jX-tuw" id="7Uy-7J-SeR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="e6r-pD-QqU"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xPy-eb-32T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-662" y="-2873"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="area-active.png" width="54" height="54"/>
+        <image name="area-normal.png" width="54" height="54"/>
+        <image name="distance-active.png" width="54" height="54"/>
+        <image name="distance-normal.png" width="54" height="54"/>
         <image name="dunmore_logo-2.png" width="207" height="100"/>
+        <image name="thickness-active.png" width="54" height="54"/>
+        <image name="thickness-normal.png" width="54" height="54"/>
+        <image name="weight-active.png" width="54" height="54"/>
+        <image name="weight-normal.png" width="54" height="54"/>
     </resources>
-    <classes>
-        <class className="CalculationViewController" superclassName="CenterViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalculationViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="calculationSubTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="calculationTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="input1" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="input2" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="input3" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="inputLabel1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="inputLabel2" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="inputLabel3" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="CenterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CenterViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="labelToRollTapped:" candidateClass="UIButton"/>
-                <relationship kind="action" name="metallizedFilmResistanceTapped:" candidateClass="UIButton"/>
-                <relationship kind="action" name="rollDiameter:" candidateClass="UIButton"/>
-                <relationship kind="action" name="rollLengthTapped:" candidateClass="UIButton"/>
-                <relationship kind="action" name="yieldUsingSGTapped:" candidateClass="UIButton"/>
-                <relationship kind="action" name="yieldUsingStandardYieldTapped:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="labelToRoll" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="metallizedFilmResistance" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="rollDiameter" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="rollLength" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="yieldUsingSG" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="yieldUsingStandardYield" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="DetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="DrawerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DrawerViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableview" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="LabelSizeToRollViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LabelSizeToRollViewController.h"/>
-        </class>
-        <class className="MasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
-        </class>
-        <class className="MetallizedFilmResistanceViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MetallizedFilmResistanceViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="RollDiameterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RollDiameterViewController.h"/>
-        </class>
-        <class className="RollLengthViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RollLengthViewController.h"/>
-        </class>
-        <class className="UnitsButton" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UnitsButton.h"/>
-        </class>
-        <class className="YieldUsingSpecificGravityViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/YieldUsingSpecificGravityViewController.h"/>
-        </class>
-        <class className="YieldUsingStandardYieldViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/YieldUsingStandardYieldViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
