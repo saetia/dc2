@@ -23,7 +23,7 @@
 - (void)viewDidLoad
 {
     
-    self.title = @"Distance Conversions";
+    self.title = @"Thickness Conversions";
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = [UIColor colorWithRed:0.93f green:0.93f blue:0.90f alpha:1.00f];
     [super viewDidLoad];
@@ -33,29 +33,22 @@
                 @{
                     @"label":           @"Mil",
                     @"base":            @1,
-                    @"unit":            @1,
                     },
                 @{
                     @"label":           @"Micron",
                     @"base":            @0.0393700787,
-                    @"unit":            @0.1,
-                },
-
-
+                    },
                 @{
                     @"label":           @"Gauge",
-                    @"base":            @100,
-                    @"unit":          ,
+                    @"base":            @0.01,
                     },
                 @{
                     @"label":           @"Millimeter",
-                    @"base":            @0.0254,
-                    @"unit":            @,
+                    @"base":            @39.3700787,
                     },
                 @{
                     @"label":           @"Inch",
                     @"base":            @1000,
-                    @"unit":            @,
                     },
                 ];
     
@@ -96,7 +89,6 @@
 
 
 
-
 - (RETableViewSection *)addBasicControls {
     
     RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@""];
@@ -104,64 +96,72 @@
     [_manager addSection:section];
     
     for (NSDictionary *field in _fields){
-        RETableViewItem *item = [RETextItem itemWithTitle:field[@"label"] value:nil placeholder:@"0.00"];
+        
+        RETextItem *item = [RETextItem itemWithTitle:field[@"label"] value:nil placeholder:@"0.00"];
+        
+        [item setOnChange:^(RETextItem *item){
+            
+            
+            NSNumber *baseConverter;
+            
+            for (NSDictionary *field in _fields){
+                if ([field[@"label"] isEqualToString:item.title]){
+                    baseConverter = field[@"base"];
+                    break;
+                }
+            }
+            
+            
+            double numberAsBase = item.value.doubleValue * baseConverter.doubleValue;
+            
+            
+            for (RETableViewSection *sections in self.manager.sections){
+                
+                int i = 0;
+                
+                for (RETextItem *textItem in sections.items){
+                    
+                    if ([textItem.title isEqualToString:item.title]) {i++; continue;}
+                    
+                    NSNumber *fieldBase = _fields[i][@"base"];
+                    
+                    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+                    
+                    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+                    
+                    NSNumber *number = [NSNumber numberWithDouble:numberAsBase / fieldBase.doubleValue];
+                    
+                    textItem.value = [NSNumberFormatter localizedStringFromNumber:number numberStyle: NSNumberFormatterDecimalStyle];
+                    
+                    if ([textItem.value isEqualToString:@"0"]) {textItem.value = @"";}
+                    
+                    
+                    for (UIView *view in cell.contentView.subviews) {
+                        UITextField *currentView = ((UITextField *)view);
+                        if ([view isKindOfClass:[UITextField class]]){
+                            currentView.text = textItem.value;
+                        }
+                    }
+                    
+                    i++;
+                    
+                }
+                
+            }
+            
+        }];
+        
         [section addItem: item];
+        
     }
     
     return section;
     
 }
 
-
-
-
-- (void)calculateResult:(UITextField *)sender {
-    
-    int tag = sender.tag;
-    
-    NSString *originalType = _fields[tag][@"label"];
-    NSNumber *baseConverter = _fields[tag][@"base"];
-    
-    double numberAsBase = sender.text.doubleValue * baseConverter.doubleValue;
-    
-    NSLog(@"Converting: %@ %@", sender.text, originalType);
-    
-    int i = 0;
-    
-    NSLog(@"number of fields: %i", _fields.count);
-    NSLog(@"number of texfields: %i", _textFields.count);
-    
-    for (UITextField *field in _textFields){
-        
-        if (field.tag == tag) {
-            i++;
-            continue;
-        }
-        
-        NSNumber *fieldUnit = _fields[i][@"unit"];
-        NSString *o = _fields[i][@"label"];
-        
-        NSLog(@"%i) %@ %@ * %f = %0.4f", i, o, fieldUnit, numberAsBase, numberAsBase * fieldUnit.doubleValue);
-        
-        field.text = [NSString stringWithFormat:@"%0.4f", numberAsBase * fieldUnit.doubleValue];
-        
-        i++;
-        
-    }
-    
-    
-}
-
-
-
-
-
-
 - (void)tableView:(UITableView *)tableView willDisplayCell:(RETableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     for (UIView *view in cell.contentView.subviews) {
-        
         
         UILabel *currentView = ((UILabel *)view);
         
@@ -170,107 +170,23 @@
             currentView.textColor = [UIColor colorWithRed:0.20f green:0.20f blue:0.20f alpha:1.00f];
         }
         
-        if ([view isKindOfClass:[UITextField class]] || [view isKindOfClass:[UITextView class]]){
+        if ([view isKindOfClass:[UITextField class]]){
             
             currentView.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
-            
             currentView.textColor = [UIColor colorWithRed:0.20f green:0.20f blue:0.20f alpha:1.00f];
-            
+            currentView.tag = indexPath.row + 5000;
             
             _keyboardView = [[ZenKeyboard alloc] initWithFrame:CGRectMake(0, 0, 320, 216)];
             _keyboardView.textField = (UITextField *)view;
-            
-            
-            [(UITextField *)view addTarget:self action:@selector(calculateResult:) forControlEvents:UIControlEventEditingChanged];
-            
-            
-            currentView.tag = indexPath.row;
-            
-            
-            [_textFields addObject: (UITextField *)view];
-            
             
         }
     }
     
 }
 
-
-
-+ (void)load {
-    [PSMenuItem installMenuHandlerForObject:self];
-}
-
-+ (void)initialize {
-    [PSMenuItem installMenuHandlerForObject:self];
-}
-
-- (void)triggerMenu:(UIButton *)sender
-{
-    [self becomeFirstResponder];
-    
-    __weak RETableViewTextCell *view_self = (RETableViewTextCell*)sender.superview.superview;
-    
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:view_self];
-    
-    NSMutableArray *units = [[NSMutableArray alloc] init];
-    
-    int row = (!indexPath.section) ? indexPath.row : (_fields.count - 1);
-    
-    for (NSString *unit in _fields[row][@"possibleUnits"]){
-        PSMenuItem *possibleUnit = [[PSMenuItem alloc] initWithTitle:unit block:^{
-            view_self.badgeString = unit;
-            [view_self.badge setNeedsDisplay];
-            [[UIMenuController sharedMenuController] setMenuItems:nil];
-        }];
-        [units addObject:possibleUnit];
-    }
-    
-    [[UIMenuController sharedMenuController] setTargetRect:sender.frame inView:sender];
-    [[UIMenuController sharedMenuController] setMenuItems:units];
-    [[UIMenuController sharedMenuController] setMenuVisible:YES animated:YES];
-    
-}
-
-
-
-
-
-
-
-
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 0;
-    //return (section == 0) ? 40 : 0;
-}
-
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    
-    if (section == 1){
-        return [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-    }
-    
-    UIView *customTitleView = [ [UIView alloc] initWithFrame:CGRectMake(15, 0, 300, 40)];
-    UILabel *titleLabel = [ [UILabel alloc] initWithFrame:CGRectMake(15, 0, 300, 40)];
-    
-    titleLabel.text = @"";
-    
-    titleLabel.textColor = [UIColor colorWithRed:0.51f green:0.51f blue:0.50f alpha:0.8f];
-    titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
-    titleLabel.shadowColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.8f];
-    titleLabel.shadowOffset = CGSizeMake(0, 1.0f);
-    
-    titleLabel.backgroundColor = [UIColor clearColor];
-    [customTitleView addSubview:titleLabel];
-    return customTitleView;
-    
-}
-
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [[self.view viewWithTag:0] becomeFirstResponder];
+    [[self.view viewWithTag:5000] becomeFirstResponder];
 }
 
 
@@ -281,3 +197,4 @@
 }
 
 @end
+

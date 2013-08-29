@@ -2416,6 +2416,69 @@
         <image name="weight-active.png" width="54" height="54"/>
         <image name="weight-normal.png" width="54" height="54"/>
     </resources>
+    <classes>
+        <class className="CalculationViewController" superclassName="CenterViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalculationViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="calculationSubTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="calculationTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="input1" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="input2" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="input3" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="inputLabel1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="inputLabel2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="inputLabel3" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CenterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CenterViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="areaTap:" candidateClass="UIButton"/>
+                <relationship kind="action" name="distanceTap:" candidateClass="UIButton"/>
+                <relationship kind="action" name="thicknessTap:" candidateClass="UIButton"/>
+                <relationship kind="action" name="weightTap:" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="DetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="DrawerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DrawerViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableview" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="LabelSizeToRollViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LabelSizeToRollViewController.h"/>
+        </class>
+        <class className="MasterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
+        </class>
+        <class className="MetallizedFilmResistanceViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MetallizedFilmResistanceViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RollDiameterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RollDiameterViewController.h"/>
+        </class>
+        <class className="RollLengthViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RollLengthViewController.h"/>
+        </class>
+        <class className="UnitsButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UnitsButton.h"/>
+        </class>
+        <class className="YieldUsingSpecificGravityViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/YieldUsingSpecificGravityViewController.h"/>
+        </class>
+        <class className="YieldUsingStandardYieldViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/YieldUsingStandardYieldViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

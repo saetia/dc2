@@ -7,7 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TDBadgedCell.h"
+#import "RETableViewManager.h"
+#import "PSMenuItem.h"
+#import "ZenKeyboard.h"
 
-@interface WeightViewController : UITableViewController
+@interface WeightViewController : UITableViewController <RETableViewManagerDelegate>
+
+@property (strong, readwrite, nonatomic) NSArray *fields;
+@property (strong, readwrite, nonatomic) NSArray *opticalConversions;
+@property (strong, readwrite, nonatomic) NSMutableArray *textFields;
+@property (strong, readwrite, nonatomic) UITextField *resultField;
+@property (nonatomic, strong) ZenKeyboard *keyboardView;
+
+@property (strong, readonly, nonatomic) RETableViewManager *manager;
+
+@property (strong, readwrite, nonatomic) RETableViewSection *basicControlsSection;
 
 @end

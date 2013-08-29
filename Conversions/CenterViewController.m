@@ -54,7 +54,8 @@
                 @"Label Size to Roll",
                 @"Yield Using Specific Gravity",
                 @"Yield Using Standard Yield",
-                @"Metallized Film Resistance"];
+                @"Metallized Film Resistance",
+                @"Additional Calculators"];
     
 }
 
@@ -85,7 +86,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 6;
+    return _fields.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -173,6 +174,11 @@
             
         }
         break;
+        case 6:{
+            detailViewController = [[MetallizedFilmResistanceViewController alloc] init];
+            
+        }
+            break;
     }
     
     
