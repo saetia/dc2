@@ -207,8 +207,15 @@
     
     for (UITextField *field in _textFields){
         NSNumber *number = dens[i];
-        field.text = [NSString stringWithFormat:@"%f", number.doubleValue];
+        
+        if ([number isEqualToNumber:@0]){
+            field.text = @"";
+        } else {
+            field.text = [NSNumberFormatter localizedStringFromNumber:number numberStyle: NSNumberFormatterDecimalStyle];
+        }
+        
         i++;
+   
     }
     
     

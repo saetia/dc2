@@ -17,6 +17,7 @@
 #import "YieldUsingStandardYieldViewController.h"
 #import "MetallizedFilmResistanceViewController.h"
 #import "LabelSizeToRollViewController.h"
+#import "AdditionalCalculatorsViewController.h"
 
 #import "AreaViewController.h"
 #import "DistanceViewController.h"
@@ -91,9 +92,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Main";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Main" forIndexPath:indexPath];
     
     cell.textLabel.text = _fields[indexPath.row];
 
@@ -123,13 +123,10 @@
         
     }
 
-    
     cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
     cell.textLabel.textColor = [UIColor colorWithRed:0.20f green:0.20f blue:0.20f alpha:1.00f];
 
-    
-    
     return cell;
     
 }
@@ -175,7 +172,7 @@
         }
         break;
         case 6:{
-            detailViewController = [[MetallizedFilmResistanceViewController alloc] init];
+            detailViewController = [[AdditionalCalculatorsViewController alloc] init];
             
         }
             break;
