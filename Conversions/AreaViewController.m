@@ -31,32 +31,32 @@
     
     _fields = @[
                 @{
-                    @"label":           @"Milligram",
+                    @"label":           @"Square Centimeters",
                     @"base":            @1,
                     },
                 @{
-                    @"label":           @"Grams",
-                    @"base":            @1000,
-                    },
-                @{
-                    @"label":           @"Kilograms",
-                    @"base":            @1000000,
-                    },
-                @{
-                    @"label":           @"Metric Tons",
+                    @"label":           @"Square Meters",
                     @"base":            @1000000000,
                     },
                 @{
-                    @"label":           @"Ounces",
-                    @"base":            @28349.5,
+                    @"label":           @"Square Kilometers",
+                    @"base":            @1000000000,
                     },
                 @{
-                    @"label":           @"Pounds",
-                    @"base":            @453592,
+                    @"label":           @"Square Inches",
+                    @"base":            @1000,
                     },
                 @{
-                    @"label":           @"Stones",
-                    @"base":            @6350293.18,
+                    @"label":           @"Square Feet",
+                    @"base":            @1000000,
+                    },
+                @{
+                    @"label":           @"Square Yards",
+                    @"base":            @1000000,
+                    },
+                @{
+                    @"label":           @"Square Miles",
+                    @"base":            @1000000,
                     },
                 ];
     

@@ -7,6 +7,7 @@
 //
 
 #import "AdditionalCalculatorsViewController.h"
+#import "AdditionalCalculationViewController.h"
 
 @interface AdditionalCalculatorsViewController ()
 
@@ -174,13 +175,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
+     UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    
+     AdditionalCalculationViewController *detailViewController = [[AdditionalCalculationViewController alloc] init];
+    
+     [detailViewController setCalculation:cell.textLabel.text];
+    
      [self.navigationController pushViewController:detailViewController animated:YES];
-     */
 }
 
 @end

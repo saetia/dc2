@@ -142,40 +142,47 @@
     switch(indexPath.row){
         case 0: {
             
-            detailViewController = [[RollLengthViewController alloc] init];}
-            
+            detailViewController = [[RollLengthViewController alloc] init];
             break;
+        }
+            
+            
         
         case 1: {
          detailViewController = [[RollDiameterViewController alloc] init];
-            }
             break;
+        
+        }
+            
         
         case 2:{
             detailViewController = [[LabelSizeToRollViewController alloc] init];
-            }
             break;
+        
+        }
+            
         
         case 3:{
             detailViewController = [[YieldUsingSpecificGravityViewController alloc] init];
-            }
             break;
+            }
+            
         
         case 4:{
             detailViewController = [[YieldUsingStandardYieldViewController alloc] init];
-            
-        }
             break;
+        }
+            
         case 5:{
             detailViewController = [[MetallizedFilmResistanceViewController alloc] init];
-            
+            break;
         }
-        break;
+        
         case 6:{
             detailViewController = [[AdditionalCalculatorsViewController alloc] init];
-            
-        }
             break;
+        }
+            
     }
     
     

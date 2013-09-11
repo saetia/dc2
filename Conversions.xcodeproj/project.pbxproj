@@ -65,6 +65,7 @@
 		5D353D3717A8D25100EC6AEF /* UnitMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D353D3617A8D25100EC6AEF /* UnitMenuItem.m */; };
 		5D353D3A17A8E3B800EC6AEF /* PSMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D353D3817A8E3B800EC6AEF /* PSMenuItem.m */; };
 		5D353D3B17A8E7AB00EC6AEF /* PSMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D353D3817A8E3B800EC6AEF /* PSMenuItem.m */; };
+		5D63846A17E06F6E00061D10 /* AdditionalCalculationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D63846917E06F6E00061D10 /* AdditionalCalculationViewController.m */; };
 		5D69C59017C4C7A2005E0FE4 /* DigitInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69C58F17C4C7A2005E0FE4 /* DigitInputCell.m */; };
 		5D69C59317C4C7E0005E0FE4 /* DigitInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69C59217C4C7E0005E0FE4 /* DigitInputItem.m */; };
 		5D7ED68917D04DDB00E389A2 /* AdditionalCalculatorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7ED68817D04DDB00E389A2 /* AdditionalCalculatorsViewController.m */; };
@@ -256,6 +257,8 @@
 		5D353D3617A8D25100EC6AEF /* UnitMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitMenuItem.m; sourceTree = "<group>"; };
 		5D353D3817A8E3B800EC6AEF /* PSMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMenuItem.m; sourceTree = "<group>"; };
 		5D353D3917A8E3B800EC6AEF /* PSMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMenuItem.h; sourceTree = "<group>"; };
+		5D63846817E06F6E00061D10 /* AdditionalCalculationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdditionalCalculationViewController.h; sourceTree = "<group>"; };
+		5D63846917E06F6E00061D10 /* AdditionalCalculationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionalCalculationViewController.m; sourceTree = "<group>"; };
 		5D69C58E17C4C7A2005E0FE4 /* DigitInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DigitInputCell.h; sourceTree = "<group>"; };
 		5D69C58F17C4C7A2005E0FE4 /* DigitInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DigitInputCell.m; sourceTree = "<group>"; };
 		5D69C59117C4C7E0005E0FE4 /* DigitInputItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DigitInputItem.h; sourceTree = "<group>"; };
@@ -467,6 +470,8 @@
 				5D06C63817A08CC000673E02 /* CenterViewController.m */,
 				5D7ED68717D04DDA00E389A2 /* AdditionalCalculatorsViewController.h */,
 				5D7ED68817D04DDB00E389A2 /* AdditionalCalculatorsViewController.m */,
+				5D63846817E06F6E00061D10 /* AdditionalCalculationViewController.h */,
+				5D63846917E06F6E00061D10 /* AdditionalCalculationViewController.m */,
 				5D99EE7B17C5767E000FBFF3 /* DemoViewController.h */,
 				5D99EE7C17C57680000FBFF3 /* DemoViewController.m */,
 				5D69C59117C4C7E0005E0FE4 /* DigitInputItem.h */,
@@ -973,6 +978,7 @@
 				5DB5784717C4A7F30084EFEE /* REActionBar.m in Sources */,
 				5DB5784817C4A7F30084EFEE /* REPlaceholderTextView.m in Sources */,
 				5DB5784917C4A7F30084EFEE /* RETableViewCell.m in Sources */,
+				5D63846A17E06F6E00061D10 /* AdditionalCalculationViewController.m in Sources */,
 				5DB5784A17C4A7F30084EFEE /* RETableViewCellStyle.m in Sources */,
 				5DB5784B17C4A7F30084EFEE /* RETableViewItem.m in Sources */,
 				5DB5784D17C4A7F30084EFEE /* RETableViewManager.m in Sources */,

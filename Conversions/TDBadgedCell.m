@@ -230,13 +230,13 @@
         }
 		
 		//set badge highlighted colours or use defaults
-		if(self.badgeColorHighlighted)
+		if (self.badgeColorHighlighted)
 			self.badge.badgeColorHighlighted = self.badgeColorHighlighted;
 		else
 			self.badge.badgeColorHighlighted = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.000f];
 		
 		//set badge colours or impose defaults
-		if(self.badgeColor)
+		if (self.badgeColor)
 			self.badge.badgeColor = self.badgeColor;
 		else
 			self.badge.badgeColor = [UIColor colorWithRed:0.530f green:0.600f blue:0.738f alpha:1.000f];

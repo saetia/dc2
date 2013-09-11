@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>FFEF1402-F7FE-414F-A546-BB6FD7E85E27</string>
+	<string>200E32CE-C1BE-455E-9F46-00E520B3D059</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Conversions</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>98CE11E2-BD26-49C4-A960-E23836E7DC6D</key>
-		<string>ssh://github.com/saetia/dc.git</string>
+		<key>8FA352E9-FEF6-48A1-BFA9-1D06140CEE89</key>
+		<string>ssh://github.com/saetia/dc2.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Conversions.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>98CE11E2-BD26-49C4-A960-E23836E7DC6D</key>
+		<key>8FA352E9-FEF6-48A1-BFA9-1D06140CEE89</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/saetia/dc.git</string>
+	<string>ssh://github.com/saetia/dc2.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>98CE11E2-BD26-49C4-A960-E23836E7DC6D</string>
+	<string>8FA352E9-FEF6-48A1-BFA9-1D06140CEE89</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>98CE11E2-BD26-49C4-A960-E23836E7DC6D</string>
+			<string>8FA352E9-FEF6-48A1-BFA9-1D06140CEE89</string>
 			<key>IDESourceControlWCCName</key>
-			<string>dc</string>
+			<string>Dunmore Conversions</string>
 		</dict>
 	</array>
 </dict>
