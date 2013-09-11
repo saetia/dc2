@@ -35,24 +35,151 @@
         _fields = @[
                     @{
                         @"label":           @"Length",
-                        @"unit":            @"ft",
-                        @"possibleUnits":   @[@"in", @"ft"],
+                        @"unit":            @"yd",
+                        @"possibleUnits":   @[@"yd", @"in", @"ft"],
                         },
                     @{
                         @"label":           @"Width",
-                        @"unit":            @"ft",
-                        @"possibleUnits":   @[@"in", @"ft"],
+                        @"unit":            @"yd",
+                        @"possibleUnits":   @[@"yd", @"in", @"ft"],
                         },
                     @{
                         @"label":           @"Result",
                         @"unit":            @"ft²",
-                        @"possibleUnits":   @[@"ft²", @"ft²"],
+                        @"possibleUnits":   @[@"ft²", @"yd²"],
+                        }
+                    ];
+        
+    }
+
+    
+    if ([_calculation isEqualToString:@"ft² & w ➝ yards"]){
+        
+        _fields = @[
+                    @{
+                        @"label":           @"Square footage",
+                        @"unit":            @"ft²",
+                        @"possibleUnits":   @[@"ft²"],
+                        },
+                    @{
+                        @"label":           @"Width",
+                        @"unit":            @"yd",
+                        @"possibleUnits":   @[@"yd", @"in", @"ft"],
+                        },
+                    @{
+                        @"label":           @"Result",
+                        @"unit":            @"yd",
+                        @"possibleUnits":   @[@"yd", @"ft²", @"ft²"],
+                        }
+                    ];
+        
+    }
+    
+    if ([_calculation isEqualToString:@"w & l ➝ msi"]){
+        
+        _fields = @[
+                    @{
+                        @"label":           @"Length",
+                        @"unit":            @"yd",
+                        @"possibleUnits":   @[@"yd", @"in", @"ft"],
+                        },
+                    @{
+                        @"label":           @"Width",
+                        @"unit":            @"yd",
+                        @"possibleUnits":   @[@"yd", @"in", @"ft"],
+                        },
+                    @{
+                        @"label":           @"Result",
+                        @"unit":            @"msi",
+                        @"possibleUnits":   @[],
+                        }
+                    ];
+        
+    }
+    
+    if ([_calculation isEqualToString:@"msi & w ➝ y²"]){
+        
+        _fields = @[
+                    @{
+                        @"label":           @"MSI (1,000 in²)",
+                        @"unit":            @"msi",
+                        @"possibleUnits":   @[],
+                        },
+                    @{
+                        @"label":           @"Width",
+                        @"unit":            @"yd",
+                        @"possibleUnits":   @[@"yd", @"in", @"ft"],
+                        },
+                    @{
+                        @"label":           @"Result",
+                        @"unit":            @"yd²",
+                        @"possibleUnits":   @[@"yd²", @"ft²"],
                         }
                     ];
         
     }
     
     
+    if ([_calculation isEqualToString:@"l & w ➝ m²"]){
+        
+        _fields = @[
+                    @{
+                        @"label":           @"Length",
+                        @"unit":            @"m",
+                        @"possibleUnits":   @[@"m", @"y", @"in", @"ft"],
+                        },
+                    @{
+                        @"label":           @"Width",
+                        @"unit":            @"m",
+                        @"possibleUnits":   @[@"m", @"y", @"in", @"ft"],
+                        },
+                    @{
+                        @"label":           @"Result",
+                        @"unit":            @"m²",
+                        @"possibleUnits":   @[@"m²", @"ft²"],
+                        }
+                    ];
+        
+    }
+
+    
+    
+    if ([_calculation isEqualToString:@"oz/yd² ➝ g/m²"]){
+        
+        _fields = @[
+                    @{
+                        @"label":           @"Ounces / yards²",
+                        @"unit":            @"oz/yd²",
+                        @"possibleUnits":   @[],
+                        },
+                    @{
+                        @"label":           @"Result",
+                        @"unit":            @"g/m²",
+                        @"possibleUnits":   @[],
+                        }
+                    ];
+        
+    }
+    
+    
+    if ([_calculation isEqualToString:@"g/m² ➝ oz/yd²"]){
+        
+        _fields = @[
+                    @{
+                        @"label":           @"Grams / meter²",
+                        @"unit":            @"g/m²",
+                        @"possibleUnits":   @[],
+                        },
+                    @{
+                        @"label":           @"Result",
+                        @"unit":            @"oz/yd²",
+                        @"possibleUnits":   @[],
+                        }
+                    ];
+        
+    }
+    
+   
 
     
     _textFields = [[NSMutableArray alloc] init];
@@ -123,9 +250,7 @@
 - (void)calculateResult:(UITextField *)sender {
     
     float total = 0;
-    int required_fields = 3;
     int filled_out_fields = 0;
-    
     NSMutableArray *values = [[NSMutableArray alloc] init];
     
     for (UITextField *field in _textFields){
@@ -135,22 +260,145 @@
         NSLog(@"filled out field: %f",field.text.floatValue);
         [values addObject: [NSNumber numberWithFloat:field.text.floatValue]];
     }
-    NSLog(@"is %d >= %d?", filled_out_fields, required_fields);
     
-    if (filled_out_fields >= required_fields){
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    if ([_calculation isEqualToString:@"w & l ➝ ft²"]){
         
-        double value1 = ((NSNumber *)values[0]).doubleValue;
-        double value2 = ((NSNumber *)values[1]).doubleValue;
-        double value3 = ((NSNumber *)values[2]).doubleValue;
-        
-        total = 0.06545 / value1 * (pow(value2,  2.0f) - pow(value3,  2.0f)) / 3.0f;
-        
-        //=SUM((((0.06545/B6)*((C6^2)-(D6^2))) / 3))
-        //0.06545 / 0.0023 * (pow(18,2) - pow(3,2)) / 3;
-        
-        
-        _resultField.text = [NSString stringWithFormat:@"%f", total];
+        if (filled_out_fields >= [_fields count] - 1){
+            
+            double value1 = ((NSNumber *)values[0]).doubleValue;
+            double value2 = ((NSNumber *)values[1]).doubleValue;
+            
+            total = value1 * value2 / 4;
+            
+            _resultField.text = [NSString stringWithFormat:@"%f", total];
+            
+        }
     }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    if ([_calculation isEqualToString:@"ft² & w ➝ yards"]){
+        
+        if (filled_out_fields >= [_fields count] - 1){
+            
+            double value1 = ((NSNumber *)values[0]).doubleValue;
+            double value2 = ((NSNumber *)values[1]).doubleValue;
+            
+            total = (value1 * 4) / value2;
+            
+            _resultField.text = [NSString stringWithFormat:@"%f", total];
+            
+        }
+        
+    }
+    
+    
+    
+    
+    if ([_calculation isEqualToString:@"w & l ➝ msi"]){
+        
+        if (filled_out_fields >= [_fields count] - 1){
+            
+            double value1 = ((NSNumber *)values[0]).doubleValue;
+            double value2 = ((NSNumber *)values[1]).doubleValue;
+            
+            total = value1 * value2 * 36 / 1000;
+      
+            _resultField.text = [NSString stringWithFormat:@"%f", total];
+            
+        }
+        
+    }
+    
+    if ([_calculation isEqualToString:@"msi & w ➝ y²"]){
+        
+        if (filled_out_fields >= [_fields count] - 1){
+            
+            double value1 = ((NSNumber *)values[0]).doubleValue;
+            double value2 = ((NSNumber *)values[1]).doubleValue;
+            
+            total = value1 * 1000 / 36 / value2;
+
+            _resultField.text = [NSString stringWithFormat:@"%f", total];
+            
+        }
+        
+    }
+    
+    
+    if ([_calculation isEqualToString:@"l & w ➝ m²"]){
+        
+        if (filled_out_fields >= [_fields count] - 1){
+            
+            double value1 = ((NSNumber *)values[0]).doubleValue;
+            double value2 = ((NSNumber *)values[1]).doubleValue;
+            
+            total = value1 * value2;
+            
+            _resultField.text = [NSString stringWithFormat:@"%f", total];
+            
+        }
+        
+    }
+    
+    
+    
+    if ([_calculation isEqualToString:@"oz/yd² ➝ g/m²"]){
+        
+        if (filled_out_fields >= [_fields count] - 1){
+            
+            double value1 = ((NSNumber *)values[0]).doubleValue;
+            
+            total = value1 * 33.9057475;
+            
+            _resultField.text = [NSString stringWithFormat:@"%f", total];
+            
+        }
+        
+    }
+    
+    
+    if ([_calculation isEqualToString:@"g/m² ➝ oz/yd²"]){
+        
+        if (filled_out_fields >= [_fields count] - 1){
+            
+            double value1 = ((NSNumber *)values[0]).doubleValue;
+
+            total = value1 * 0.0294935247;
+            
+            _resultField.text = [NSString stringWithFormat:@"%f", total];
+            
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+
+
+    
+    
 }
 
 

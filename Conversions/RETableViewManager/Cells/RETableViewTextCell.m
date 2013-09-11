@@ -82,7 +82,7 @@
     _textField.clearButtonMode = self.item.clearButtonMode;
     _textField.clearsOnBeginEditing = self.item.clearsOnBeginEditing;
     _textField.textAlignment = NSTextAlignmentRight;
-    
+    [_textField setNeedsDisplay];
 }
 
 - (UIResponder *)responder

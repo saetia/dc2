@@ -132,7 +132,9 @@
                 int i = 0;
                 
                 for (RETextItem *textItem in sections.items){
-            
+                    
+                    
+                    
                     if ([textItem.title isEqualToString:item.title]) {i++; continue;}
                     
                     NSNumber *fieldBase = _fields[i][@"base"];

@@ -139,17 +139,15 @@
 - (void)layoutDetailView:(UIView *)view minimumWidth:(CGFloat)minimumWidth
 {
     CGFloat cellOffset = 10.0;
-    CGFloat fieldOffset = 35.0;
+    CGFloat fieldOffset = 0.0;
     
     if (REDeviceIsUIKit7() && self.section.style.contentViewMargin <= 0)
         cellOffset += 5.0;
     
     UIFont *font = self.textLabel.font;
-    if ([view respondsToSelector:@selector(font)]) {
-        font = (UIFont *)[view performSelector:@selector(font)];
-    }
     
     CGRect frame = CGRectMake(0, self.textLabel.frame.origin.y, 0, self.textLabel.frame.size.height);
+    
     if (self.item.title.length > 0) {
         frame.origin.x = [self.section maximumTitleWidthWithFont:font] + cellOffset + fieldOffset;
     } else {
@@ -161,8 +159,12 @@
         frame.origin.x = frame.origin.x - diff;
         frame.size.width = minimumWidth;
     }
-    frame.size.width = frame.size.width - 50;
+
+    float badgeWidth = self.badge.bounds.size.width + 10;
+    
+    frame.size.width = frame.size.width - badgeWidth;
     view.frame = frame;
+
 }
 
 - (RETableViewCellType)type
