@@ -35,6 +35,10 @@
 	return self;
 }
 
+
+
+
+
 - (void) drawRect:(CGRect)rect
 {
     // Set up variable for drawing
@@ -126,10 +130,15 @@
 #endif
 }
 
+
+
+
+
 @end
 
 
 @implementation TDBadgedCell
+
 
 @synthesize badgeString=__badgeString, badge=__badge, badgeColor, badgeTextColor, badgeColorHighlighted, showShadow, badgeLeftOffset, badgeRightOffset, resizeableLabels;
 

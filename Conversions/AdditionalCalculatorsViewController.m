@@ -37,17 +37,12 @@
     [super viewDidLoad];
     
     _fields = @[
-                @"w & l ➝ ft²",
-                @"ft² & w ➝ yards",
-                @"w & l ➝ msi",
-                @"msi & w ➝ y²",
-                @"l & w ➝ m²",
-                
-                
+                @"Length & Width ➝ Area",
+                @"Length & Width ➝ MSI",
+                @"Area & Width ➝ Length",
+                @"MSI & Width ➝ Area",
                 @"oz/yd² ➝ g/m²",
                 @"g/m² ➝ oz/yd²",
-                
-                
                 ];
     
     

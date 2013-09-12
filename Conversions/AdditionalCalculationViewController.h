@@ -12,13 +12,14 @@
 #import "PSMenuItem.h"
 #import "ZenKeyboard.h"
 #import "MKUnits.h"
+#import "ReadonlyUITextField.h"
 
 @interface AdditionalCalculationViewController : UITableViewController <RETableViewManagerDelegate>
 
 @property (strong, readwrite, nonatomic) NSArray *fields;
 @property (strong, readwrite, nonatomic) NSArray *opticalConversions;
 @property (strong, readwrite, nonatomic) NSMutableArray *textFields;
-@property (strong, readwrite, nonatomic) UITextField *resultField;
+@property (strong, readwrite, nonatomic) ReadonlyUITextField *resultField;
 @property (nonatomic, strong) ZenKeyboard *keyboardView;
 @property (strong, readonly, nonatomic) RETableViewManager *manager;
 

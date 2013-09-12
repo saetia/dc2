@@ -121,6 +121,7 @@
 		5D9EFFCE17CCB22E0099B0D1 /* RollDiameterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9EFFCD17CCB22E0099B0D1 /* RollDiameterViewController.m */; };
 		5DA6C5C217B4EE8900819C93 /* RollLengthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA6C5C117B4EE8900819C93 /* RollLengthViewController.m */; };
 		5DA6C5C517B6D42400819C93 /* CalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA6C5C417B6D42400819C93 /* CalculatorViewController.m */; };
+		5DAA7CC917E27ACA0074F33A /* ReadonlyUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAA7CC817E27ACA0074F33A /* ReadonlyUITextField.m */; };
 		5DB5783617C4A7F30084EFEE /* RETableViewBoolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB5780317C4A7F30084EFEE /* RETableViewBoolCell.m */; };
 		5DB5783717C4A7F30084EFEE /* RETableViewCreditCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB5780517C4A7F30084EFEE /* RETableViewCreditCardCell.m */; };
 		5DB5783817C4A7F30084EFEE /* RETableViewDateTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB5780717C4A7F30084EFEE /* RETableViewDateTimeCell.m */; };
@@ -342,6 +343,8 @@
 		5DA6C5C117B4EE8900819C93 /* RollLengthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RollLengthViewController.m; sourceTree = "<group>"; };
 		5DA6C5C317B6D42400819C93 /* CalculatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorViewController.h; sourceTree = "<group>"; };
 		5DA6C5C417B6D42400819C93 /* CalculatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorViewController.m; sourceTree = "<group>"; };
+		5DAA7CC717E27AC90074F33A /* ReadonlyUITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadonlyUITextField.h; sourceTree = "<group>"; };
+		5DAA7CC817E27ACA0074F33A /* ReadonlyUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadonlyUITextField.m; sourceTree = "<group>"; };
 		5DB5780217C4A7F30084EFEE /* RETableViewBoolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewBoolCell.h; sourceTree = "<group>"; };
 		5DB5780317C4A7F30084EFEE /* RETableViewBoolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RETableViewBoolCell.m; sourceTree = "<group>"; };
 		5DB5780417C4A7F30084EFEE /* RETableViewCreditCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RETableViewCreditCardCell.h; sourceTree = "<group>"; };
@@ -530,6 +533,8 @@
 				5D7ED68817D04DDB00E389A2 /* AdditionalCalculatorsViewController.m */,
 				5D63846817E06F6E00061D10 /* AdditionalCalculationViewController.h */,
 				5D63846917E06F6E00061D10 /* AdditionalCalculationViewController.m */,
+				5DAA7CC717E27AC90074F33A /* ReadonlyUITextField.h */,
+				5DAA7CC817E27ACA0074F33A /* ReadonlyUITextField.m */,
 				5D99EE7B17C5767E000FBFF3 /* DemoViewController.h */,
 				5D99EE7C17C57680000FBFF3 /* DemoViewController.m */,
 				5D69C59117C4C7E0005E0FE4 /* DigitInputItem.h */,
@@ -1185,6 +1190,7 @@
 				5DCF088C17E19C8400ED5544 /* MKUnit+Conversion.m in Sources */,
 				5D7ED68917D04DDB00E389A2 /* AdditionalCalculatorsViewController.m in Sources */,
 				5DCF088A17E19C8400ED5544 /* MKQuantity+Precision.m in Sources */,
+				5DAA7CC917E27ACA0074F33A /* ReadonlyUITextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

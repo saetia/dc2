@@ -7,7 +7,7 @@
 //
 
 #import "AdditionalCalculationViewController.h"
-
+#import "ReadonlyUITextField.h"
 @interface AdditionalCalculationViewController ()
 
 @end
@@ -30,63 +30,63 @@
     
     _fields = @[];
     
-    if ([_calculation isEqualToString:@"w & l ➝ ft²"]){
+    if ([_calculation isEqualToString:@"Length & Width ➝ Area"]){
         
         _fields = @[
                     @{
                         @"label":           @"Length",
                         @"unit":            @"yd",
-                        @"possibleUnits":   @[@"yd", @"in", @"ft"],
+                        @"possibleUnits":   @[@"in", @"ft", @"yd"],
                         },
                     @{
                         @"label":           @"Width",
                         @"unit":            @"yd",
-                        @"possibleUnits":   @[@"yd", @"in", @"ft"],
+                        @"possibleUnits":   @[@"in", @"ft", @"yd"],
                         },
                     @{
                         @"label":           @"Result",
                         @"unit":            @"ft²",
-                        @"possibleUnits":   @[@"ft²", @"yd²"],
+                        @"possibleUnits":   @[@"in²", @"ft²", @"yd²"],
                         }
                     ];
         
     }
 
     
-    if ([_calculation isEqualToString:@"ft² & w ➝ yards"]){
+    if ([_calculation isEqualToString:@"Area & Width ➝ Length"]){
         
         _fields = @[
                     @{
-                        @"label":           @"Square footage",
+                        @"label":           @"Area",
                         @"unit":            @"ft²",
-                        @"possibleUnits":   @[@"ft²"],
+                        @"possibleUnits":   @[@"in²", @"ft²", @"yd²", @"cm²", @"m²"],
                         },
                     @{
                         @"label":           @"Width",
                         @"unit":            @"yd",
-                        @"possibleUnits":   @[@"yd", @"in", @"ft"],
+                        @"possibleUnits":   @[@"in", @"yd", @"ft"],
                         },
                     @{
                         @"label":           @"Result",
                         @"unit":            @"yd",
-                        @"possibleUnits":   @[@"yd", @"ft²", @"ft²"],
+                        @"possibleUnits":   @[@"in", @"yd", @"ft"],
                         }
                     ];
         
     }
     
-    if ([_calculation isEqualToString:@"w & l ➝ msi"]){
+    if ([_calculation isEqualToString:@"Length & Width ➝ MSI"]){
         
         _fields = @[
                     @{
                         @"label":           @"Length",
-                        @"unit":            @"yd",
-                        @"possibleUnits":   @[@"yd", @"in", @"ft"],
+                        @"unit":            @"in",
+                        @"possibleUnits":   @[@"in", @"ft", @"yd"],
                         },
                     @{
                         @"label":           @"Width",
                         @"unit":            @"yd",
-                        @"possibleUnits":   @[@"yd", @"in", @"ft"],
+                        @"possibleUnits":   @[@"in", @"ft", @"yd"],
                         },
                     @{
                         @"label":           @"Result",
@@ -97,7 +97,7 @@
         
     }
     
-    if ([_calculation isEqualToString:@"msi & w ➝ y²"]){
+    if ([_calculation isEqualToString:@"MSI & Width ➝ Area"]){
         
         _fields = @[
                     @{
@@ -108,47 +108,23 @@
                     @{
                         @"label":           @"Width",
                         @"unit":            @"yd",
-                        @"possibleUnits":   @[@"yd", @"in", @"ft"],
+                        @"possibleUnits":   @[@"in", @"yd", @"ft"],
                         },
                     @{
                         @"label":           @"Result",
                         @"unit":            @"yd²",
-                        @"possibleUnits":   @[@"yd²", @"ft²"],
+                        @"possibleUnits":   @[@"in²", @"ft²", @"yd²", @"cm²", @"m²"],
                         }
                     ];
         
     }
-    
-    
-    if ([_calculation isEqualToString:@"l & w ➝ m²"]){
-        
-        _fields = @[
-                    @{
-                        @"label":           @"Length",
-                        @"unit":            @"m",
-                        @"possibleUnits":   @[@"m", @"yd", @"in", @"ft"],
-                        },
-                    @{
-                        @"label":           @"Width",
-                        @"unit":            @"m",
-                        @"possibleUnits":   @[@"m", @"yd", @"in", @"ft"],
-                        },
-                    @{
-                        @"label":           @"Result",
-                        @"unit":            @"m²",
-                        @"possibleUnits":   @[@"m²", @"ft²"],
-                        }
-                    ];
-        
-    }
-
     
     
     if ([_calculation isEqualToString:@"oz/yd² ➝ g/m²"]){
         
         _fields = @[
                     @{
-                        @"label":           @"Ounces / yards²",
+                        @"label":           @"Ounces / Yards²",
                         @"unit":            @"oz/yd²",
                         @"possibleUnits":   @[],
                         },
@@ -166,7 +142,7 @@
         
         _fields = @[
                     @{
-                        @"label":           @"Grams / meter²",
+                        @"label":           @"Grams / Meters²",
                         @"unit":            @"g/m²",
                         @"possibleUnits":   @[],
                         },
@@ -247,192 +223,127 @@
     return section;
 }
 
+
+
+- (id)objectify:(NSString *)unit {
+    
+    id object;
+    
+    if ([unit isEqualToString:@"in"]) object = [MKLengthUnit inch];
+    if ([unit isEqualToString:@"ft"]) object = [MKLengthUnit foot];
+    if ([unit isEqualToString:@"yd"]) object = [MKLengthUnit yard];
+    if ([unit isEqualToString:@"mi"]) object = [MKLengthUnit mile];
+    if ([unit isEqualToString:@"mm"]) object = [MKLengthUnit millimeter];
+    if ([unit isEqualToString:@"cm"]) object = [MKLengthUnit centimeter];
+    if ([unit isEqualToString:@"m"]) object = [MKLengthUnit meter];
+    if ([unit isEqualToString:@"km"]) object = [MKLengthUnit kilometer];
+
+    if ([unit isEqualToString:@"in²"]) object = [MKAreaUnit square_inch];
+    if ([unit isEqualToString:@"ft²"]) object = [MKAreaUnit square_foot];
+    if ([unit isEqualToString:@"yd²"]) object = [MKAreaUnit square_yard];
+    if ([unit isEqualToString:@"mi²"]) object = [MKAreaUnit square_mile];
+    if ([unit isEqualToString:@"mm²"]) object = [MKAreaUnit square_millimeter];
+    if ([unit isEqualToString:@"cm²"]) object = [MKAreaUnit square_centimeter];
+    if ([unit isEqualToString:@"m²"]) object = [MKAreaUnit square_meter];
+    if ([unit isEqualToString:@"km²"]) object = [MKAreaUnit square_kilometer];
+    
+    return (object) ?: FALSE;
+
+}
+
+
+
+- (NSNumber *)convert:(NSNumber *)value from:(NSString *)from to:(NSString *)to {
+    
+    //if we don't have a legit conversion, just return value. not everything needs a conversion
+    if (![self objectify:from] || ![self objectify:to]) return value;
+    
+    NSNumber *result = [MKUnit convertAmount:value from:[self objectify:from] to:[self objectify:to]];
+    
+    return result;
+    
+}
+
+
+
+
 - (void)calculateResult:(UITextField *)sender {
     
     float total = 0;
     int filled_out_fields = 0;
+    
     NSMutableArray *values = [[NSMutableArray alloc] init];
+    NSMutableArray *numbers = [[NSMutableArray alloc] init];
     
     for (UITextField *field in _textFields){
-        NSLog(@"is %f >= 0.0000000000001f?", field.text.floatValue);
-        if (field.text.floatValue < 0.0000000000001f) continue;
+        if (field.text.doubleValue < 0.0000000000001f) continue;
         filled_out_fields++;
-        NSLog(@"filled out field: %f",field.text.floatValue);
-        [values addObject: [NSNumber numberWithFloat:field.text.floatValue]];
+        [values addObject: [NSNumber numberWithDouble:field.text.doubleValue]];
     }
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
     NSMutableArray *units = [[NSMutableArray alloc] init];
-    
-    
     for (UITextField *field in _textFields){
-        
         RETableViewCell *badge = (RETableViewCell *)field.superview.superview;
-        
-        [units addObject:badge.badgeString];
-        
-        
+        [units addObject:badge.badge.badgeString];
     }
 
     
     
-    if ([_calculation isEqualToString:@"w & l ➝ ft²"]){
+    
+    int i = 0;
+    for (NSNumber *value in values) {
         
-        if (filled_out_fields >= [_fields count] - 1){
+        NSLog(@"converting %@ %@ to %@",value, _fields[i][@"unit"], units[i]);
         
-            double value1 = ((NSNumber *)values[0]).doubleValue;
-            double value2 = ((NSNumber *)values[1]).doubleValue;
-            
-            
-            if ([units[0] isEqualToString:@"in"]){
-                MKQuantity *result = [[MKQuantity length_inchWithAmount:[NSNumber numberWithDouble:value1]] convertTo:[MKLengthUnit yard]];
-                value1 = result.amount.doubleValue;
-            }
-            if ([units[1] isEqualToString:@"in"]){
-                MKQuantity *result = [[MKQuantity length_inchWithAmount:[NSNumber numberWithDouble:value2]] convertTo:[MKLengthUnit yard]];
-                value2 = result.amount.doubleValue;
-            }
-            
-            
-            //total = value1 * value2 / 4;
-            total = value1 * value2;
-            
-            NSString *display = [NSNumberFormatter localizedStringFromNumber:[NSNumber numberWithDouble:total] numberStyle: NSNumberFormatterDecimalStyle];
-            
-            _resultField.text = display;
-            
-        }
+        [numbers addObject: (NSNumber *)[self convert:value from: units[i] to: _fields[i][@"unit"]]]; i++;
     }
     
+    //make sure we have the full set of required fields
+    if (filled_out_fields < [_fields count] - 1) return;
     
     
-    
-    
-    
-    
-    
+    if ([_calculation isEqualToString:@"Length & Width ➝ Area"]){
+        //total = value1 * value2 / 4;
+        total = [numbers[0] doubleValue] * [numbers[1] doubleValue];
+    }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    if ([_calculation isEqualToString:@"ft² & w ➝ yards"]){
-        
-        if (filled_out_fields >= [_fields count] - 1){
-            
-            double value1 = ((NSNumber *)values[0]).doubleValue;
-            double value2 = ((NSNumber *)values[1]).doubleValue;
-            
-            total = (value1 * 4) / value2;
-            
-            _resultField.text = [NSString stringWithFormat:@"%f", total];
-            
-        }
-        
+    if ([_calculation isEqualToString:@"Area & Width ➝ Length"]){
+        //total = ([numbers[0] doubleValue] * 4) / [numbers[1] doubleValue];
+        total = [numbers[0] doubleValue] / [numbers[1] doubleValue];
     }
     
-    
-    
-    
-    if ([_calculation isEqualToString:@"w & l ➝ msi"]){
-        
-        if (filled_out_fields >= [_fields count] - 1){
-            
-            double value1 = ((NSNumber *)values[0]).doubleValue;
-            double value2 = ((NSNumber *)values[1]).doubleValue;
-            
-            total = value1 * value2 * 36 / 1000;
-      
-            _resultField.text = [NSString stringWithFormat:@"%f", total];
-            
-        }
-        
+    if ([_calculation isEqualToString:@"Length & Width ➝ MSI"]){
+        total = [numbers[0] doubleValue] * [numbers[1] doubleValue] * 36 / 1000;
     }
     
-    if ([_calculation isEqualToString:@"msi & w ➝ y²"]){
-        
-        if (filled_out_fields >= [_fields count] - 1){
-            
-            double value1 = ((NSNumber *)values[0]).doubleValue;
-            double value2 = ((NSNumber *)values[1]).doubleValue;
-            
-            total = value1 * 1000 / 36 / value2;
-
-            _resultField.text = [NSString stringWithFormat:@"%f", total];
-            
-        }
-        
+    if ([_calculation isEqualToString:@"MSI & Width ➝ Area"]){
+        total = [numbers[0] doubleValue] * 1000 / 36 / [numbers[1] doubleValue];
     }
-    
-    
-    if ([_calculation isEqualToString:@"l & w ➝ m²"]){
-        
-        if (filled_out_fields >= [_fields count] - 1){
-            
-            double value1 = ((NSNumber *)values[0]).doubleValue;
-            double value2 = ((NSNumber *)values[1]).doubleValue;
-            
-            total = value1 * value2;
-            
-            _resultField.text = [NSString stringWithFormat:@"%f", total];
-            
-        }
-        
-    }
-    
-    
     
     if ([_calculation isEqualToString:@"oz/yd² ➝ g/m²"]){
-        
-        if (filled_out_fields >= [_fields count] - 1){
-            
-            double value1 = ((NSNumber *)values[0]).doubleValue;
-            
-            total = value1 * 33.9057475;
-            
-            _resultField.text = [NSString stringWithFormat:@"%f", total];
-            
-        }
-        
+        total = [numbers[0] doubleValue] * 33.9057475;
     }
-    
     
     if ([_calculation isEqualToString:@"g/m² ➝ oz/yd²"]){
-        
-        if (filled_out_fields >= [_fields count] - 1){
-            
-            double value1 = ((NSNumber *)values[0]).doubleValue;
-
-            total = value1 * 0.0294935247;
-            
-            _resultField.text = [NSString stringWithFormat:@"%f", total];
-            
-        }
-        
+        total = [numbers[0] doubleValue] * 0.0294935247;
     }
     
     
     
     
     
+    RETableViewTextCell *textcell = (RETableViewTextCell *)_resultField.superview.superview;
     
+    NSNumber *final_total = [self convert:[NSNumber numberWithDouble: total] from: textcell.badge.badgeString to: [_fields lastObject][@"unit"]];
     
+    total = final_total.doubleValue;
+    
+    NSString *display = [NSNumberFormatter localizedStringFromNumber:[NSNumber numberWithDouble:total] numberStyle: NSNumberFormatterDecimalStyle];
 
 
+    _resultField.text = display;
     
     
 }
@@ -472,8 +383,15 @@
                 
             } else {
                 
-                _resultField = (UITextField *)view;
+                _resultField = (ReadonlyUITextField *)currentView;
                 currentView.enabled = FALSE;
+
+                UILongPressGestureRecognizer *contextGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureDidFire:)];
+                
+                contextGestureRecognizer
+                
+                [currentView.superview.superview addGestureRecognizer:contextGestureRecognizer];
+                
                 //do something to copy the number to clipboard here.
                 
             }
@@ -487,18 +405,93 @@
     int row = (indexPath.section == 0) ? indexPath.row : (_fields.count - 1);
     
     cell.badgeString        = _fields[row][@"unit"];
-    cell.badgeColor         = [UIColor colorWithRed:0.00f green:0.64f blue:0.48f alpha:1.00f];
+    cell.badgeColor         = [self colorize: _fields[row][@"unit"]];
     cell.badgeTextColor     = [UIColor colorWithRed:1.00f green:1.00f blue:1.00f alpha:1.00f];
     cell.badge.fontSize     = 14;
     cell.badgeLeftOffset    = 0;
     cell.badgeRightOffset   = 10;
     
     [cell.badge addTarget:self action:@selector(triggerMenu:) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    
+
 }
 
+// First-level of response, filters out some noise
+-(void)longPressGestureDidFire:(id)sender {
+    UILongPressGestureRecognizer *recognizer = sender;
+    if(recognizer.state == UIGestureRecognizerStateBegan) { // Only fire once
+        [self initiateContextMenu:sender];
+    }
+}
+
+// Second level of response - actually trigger the menu
+-(void)initiateContextMenu:(id)sender {
+    
+    NSLog(@"%@",_resultField.text);
+    
+    [_resultField becomeFirstResponder]; // So the menu will be active.  We can't set the Text field to be first responder -- doesn't work if it is disabled
+ 
+    [[UIMenuController sharedMenuController] setTargetRect:_resultField.frame inView:self.view];
+    [[UIMenuController sharedMenuController] setMenuVisible:YES animated:YES];
+    [[UIMenuController sharedMenuController] setMenuItems:nil];
+}
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+    
+    NSLog(@"blocking");
+    
+    if(action == @selector(copy:)) {
+        return YES;
+    }
+    else {
+        return NO;
+    }
+}
+
+
+
+// The menu will automatically add a "Copy" command if it sees a "copy:" method.
+// See UIResponderStandardEditActions to see what other commands we can add through methods.
+-(void)copy:(id)sender {
+    UIPasteboard *pb = [UIPasteboard generalPasteboard];
+    UITextField *tf = (UITextField *)_resultField;
+    NSLog(@"Copied %@", tf.text);
+    [pb setString: tf.text];
+}
+
+
+
+-(UIColor *)colorize: (NSString *)unit {
+    
+
+    NSDictionary *units_to_colors = @{
+                                      
+      @"in": [UIColor colorWithRed:0.92f green:0.56f blue:0.15f alpha:1.00f],
+      @"ft": [UIColor colorWithRed:0.46f green:0.14f blue:0.70f alpha:1.00f],
+      @"yd": [UIColor colorWithRed:0.09f green:0.61f blue:0.46f alpha:1.00f],
+      @"mi": [UIColor colorWithRed:0.00f green:0.64f blue:0.48f alpha:1.00f],
+      @"mm": [UIColor colorWithRed:0.7f green:0.64f blue:0.48f alpha:1.00f],
+      @"cm": [UIColor colorWithRed:0.37f green:0.73f blue:0.64f alpha:1.00f],
+      @"m": [UIColor colorWithRed:0.50f green:0.05f blue:0.00f alpha:1.00f],
+      @"km": [UIColor colorWithRed:0.36f green:0.25f blue:0.18f alpha:1.00f],
+      
+      @"msi": [UIColor colorWithRed:0.42f green:0.55f blue:0.50f alpha:1.00f],
+      
+      @"in²": [UIColor colorWithRed:0.92f green:0.56f blue:0.15f alpha:1.00f],
+      @"ft²": [UIColor colorWithRed:0.46f green:0.14f blue:0.70f alpha:1.00f],
+      @"yd²": [UIColor colorWithRed:0.09f green:0.61f blue:0.46f alpha:1.00f],
+      @"mi²": [UIColor colorWithRed:0.00f green:0.64f blue:0.48f alpha:1.00f],
+      @"mm²": [UIColor colorWithRed:0.7f green:0.64f blue:0.48f alpha:1.00f],
+      @"cm²": [UIColor colorWithRed:0.37f green:0.73f blue:0.64f alpha:1.00f],
+      @"m²": [UIColor colorWithRed:0.50f green:0.05f blue:0.00f alpha:1.00f],
+      @"km²": [UIColor colorWithRed:0.36f green:0.25f blue:0.18f alpha:1.00f],
+    
+      @"g/m²": [UIColor colorWithRed:0.28f green:0.28f blue:0.28f alpha:1.00f],
+      @"oz/yd²": [UIColor colorWithRed:0.40f green:0.64f blue:0.48f alpha:1.00f],
+      
+    };
+    
+    return (units_to_colors[unit]) ?: [UIColor colorWithRed:0.00f green:0.64f blue:0.48f alpha:1.00f];
+}
 
 
 + (void)load {
@@ -508,6 +501,11 @@
 + (void)initialize {
     [PSMenuItem installMenuHandlerForObject:self];
 }
+
+
+
+
+
 
 - (void)triggerMenu:(UIButton *)sender
 {
@@ -523,15 +521,34 @@
     
     for (NSString *unit in _fields[row][@"possibleUnits"]){
         PSMenuItem *possibleUnit = [[PSMenuItem alloc] initWithTitle:unit block:^{
+
             view_self.badgeString = unit;
-            [view_self.badge setNeedsDisplay];
+            view_self.badgeColor = [self colorize: unit];
             
+            view_self.badge.badgeString = unit;
+            view_self.badge.badgeColor = [self colorize: unit];
+            
+            [view_self.badge setNeedsDisplay];
+            [view_self setNeedsDisplay];
+ 
             [view_self.textField becomeFirstResponder];
             
             [[UIMenuController sharedMenuController] setMenuItems:nil];
+
+            
+            [self calculateResult: view_self.textField];
+            
+            
         }];
         [units addObject:possibleUnit];
     }
+    
+    
+
+    
+    //[cell.subviews setNeedsDisplay];
+    
+    [sender.superview.superview setNeedsDisplay];
     
     [[UIMenuController sharedMenuController] setTargetRect:sender.frame inView:sender];
     [[UIMenuController sharedMenuController] setMenuItems:units];
