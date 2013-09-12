@@ -113,8 +113,8 @@
             
             break;
         default:
-            if (10000000 <= [[NSString stringWithFormat:@"%@%d", _textField.text, key] doubleValue]) {
-                _textField.text = [NSString stringWithFormat:@"%d", 10000000];
+            if (1000000000 <= [[NSString stringWithFormat:@"%@%d", _textField.text, key] doubleValue]) {
+                _textField.text = @"";
             //} else if ([@"0.00" isEqualToString:_textField.text]) {
             //    _textField.text = [NSString stringWithFormat:@"%d", key];
             } else if (dot.location == NSNotFound || _textField.text.length <= dot.location + 8) {

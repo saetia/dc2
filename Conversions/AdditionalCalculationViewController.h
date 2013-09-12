@@ -11,6 +11,7 @@
 #import "RETableViewManager.h"
 #import "PSMenuItem.h"
 #import "ZenKeyboard.h"
+#import "MKUnits.h"
 
 @interface AdditionalCalculationViewController : UITableViewController <RETableViewManagerDelegate>
 

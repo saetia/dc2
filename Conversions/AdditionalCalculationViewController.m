@@ -126,12 +126,12 @@
                     @{
                         @"label":           @"Length",
                         @"unit":            @"m",
-                        @"possibleUnits":   @[@"m", @"y", @"in", @"ft"],
+                        @"possibleUnits":   @[@"m", @"yd", @"in", @"ft"],
                         },
                     @{
                         @"label":           @"Width",
                         @"unit":            @"m",
-                        @"possibleUnits":   @[@"m", @"y", @"in", @"ft"],
+                        @"possibleUnits":   @[@"m", @"yd", @"in", @"ft"],
                         },
                     @{
                         @"label":           @"Result",
@@ -270,20 +270,56 @@
     
     
     
+    
+    NSMutableArray *units = [[NSMutableArray alloc] init];
+    
+    
+    for (UITextField *field in _textFields){
+        
+        RETableViewCell *badge = (RETableViewCell *)field.superview.superview;
+        
+        [units addObject:badge.badgeString];
+        
+        
+    }
 
+    
+    
     if ([_calculation isEqualToString:@"w & l ➝ ft²"]){
         
         if (filled_out_fields >= [_fields count] - 1){
-            
+        
             double value1 = ((NSNumber *)values[0]).doubleValue;
             double value2 = ((NSNumber *)values[1]).doubleValue;
             
-            total = value1 * value2 / 4;
             
-            _resultField.text = [NSString stringWithFormat:@"%f", total];
+            if ([units[0] isEqualToString:@"in"]){
+                MKQuantity *result = [[MKQuantity length_inchWithAmount:[NSNumber numberWithDouble:value1]] convertTo:[MKLengthUnit yard]];
+                value1 = result.amount.doubleValue;
+            }
+            if ([units[1] isEqualToString:@"in"]){
+                MKQuantity *result = [[MKQuantity length_inchWithAmount:[NSNumber numberWithDouble:value2]] convertTo:[MKLengthUnit yard]];
+                value2 = result.amount.doubleValue;
+            }
+            
+            
+            //total = value1 * value2 / 4;
+            total = value1 * value2;
+            
+            NSString *display = [NSNumberFormatter localizedStringFromNumber:[NSNumber numberWithDouble:total] numberStyle: NSNumberFormatterDecimalStyle];
+            
+            _resultField.text = display;
             
         }
     }
+    
+    
+    
+    
+    
+    
+    
+    
 
     
     
@@ -408,7 +444,7 @@
     
     for (UIView *view in cell.contentView.subviews) {
         
-        UILabel *currentView = ((UILabel *)view);
+        UITextField *currentView = ((UITextField *)view);
         
         if ([view isKindOfClass:[UILabel class]]){
             currentView.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
@@ -424,11 +460,13 @@
                 
                 _keyboardView = [[ZenKeyboard alloc] initWithFrame:CGRectMake(0, 0, 320, 216)];
                 
-                _keyboardView.textField = (UITextField *)view;
+                _keyboardView.textField = currentView;
 
-                [(UITextField *)view addTarget:self action:@selector(calculateResult:) forControlEvents:UIControlEventEditingChanged];
+                [currentView addTarget:self action:@selector(calculateResult:) forControlEvents:UIControlEventEditingChanged];
                 
-                [_textFields addObject: (UITextField *)view];
+                [_textFields addObject: currentView];
+                
+                currentView.clearButtonMode = UITextFieldViewModeAlways;
                 
                 if (!indexPath.section && !indexPath.row) currentView.tag = 8;
                 
@@ -487,6 +525,9 @@
         PSMenuItem *possibleUnit = [[PSMenuItem alloc] initWithTitle:unit block:^{
             view_self.badgeString = unit;
             [view_self.badge setNeedsDisplay];
+            
+            [view_self.textField becomeFirstResponder];
+            
             [[UIMenuController sharedMenuController] setMenuItems:nil];
         }];
         [units addObject:possibleUnit];
