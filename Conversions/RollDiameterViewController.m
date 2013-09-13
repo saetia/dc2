@@ -29,6 +29,24 @@
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 35, 21)];
+    
+    backButton.imageView.contentMode = UIViewContentModeCenter;
+    
+    [backButton setImage:[UIImage imageNamed:@"BackButton"] forState:UIControlStateNormal];
+    
+    UIBarButtonItem *barBackButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    
+    [backButton addTarget:self action:@selector(popCurrentViewController) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = barBackButtonItem;
+    self.navigationItem.hidesBackButton = YES;
+}
+
+- (void)popCurrentViewController {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)viewDidLoad
 {
     
@@ -42,22 +60,22 @@
                 @{
                     @"label":           @"Film Thickness",
                     @"unit":            @"in",
-                    @"possibleUnits":   @[@"in", @"ft"],
+                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
                     },
                 @{
                     @"label":           @"Length",
                     @"unit":            @"ft",
-                    @"possibleUnits":   @[@"in", @"ft"],
+                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
                     },
                 @{
                     @"label":           @"Core Diameter",
                     @"unit":            @"ft",
-                    @"possibleUnits":   @[@"in", @"ft"],
+                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
                     },
                 @{
                     @"label":           @"Result",
                     @"unit":            @"yd",
-                    @"possibleUnits":   @[@"yd", @"in", @"ft"],
+                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
                     }
                 ];
     
@@ -92,75 +110,82 @@
         self.manager.style.backgroundImageMargin = 10.0;
     }
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UIMenuControllerDidHide:) name:UIMenuControllerDidHideMenuNotification object:nil];
+    
+}
+
+
+-(void)UIMenuControllerDidHide:(id)sender {
+    [[UIMenuController sharedMenuController] setMenuItems:nil];
 }
 
 
 
-
 - (RETableViewSection *)addBasicControls {
-    
-    RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Roll Diameter"];
-    
+    RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Roll Length"];
     [_manager addSection:section];
-    
     for (NSDictionary *field in _fields){
         if ([field[@"label"] isEqualToString: @"Result"]) continue;
         RETableViewItem *item = [RETextItem itemWithTitle:field[@"label"] value:nil placeholder:@"0.00"];
         [section addItem: item];
     }
-    
     return section;
-    
 }
 
-- (RETableViewSection *)addButton
-{
-    
+- (RETableViewSection *)addButton {
     RETableViewSection *section = [RETableViewSection section];
-    
     [_manager addSection:section];
-    
     RETableViewItem *item = [RETextItem itemWithTitle:@"Result" value:nil placeholder:@"0.00"];
     [section addItem: item];
-    
     return section;
 }
 
 - (void)calculateResult:(UITextField *)sender {
     
     float total = 0;
-    int required_fields = 3;
     int filled_out_fields = 0;
     
     NSMutableArray *values = [[NSMutableArray alloc] init];
+    NSMutableArray *numbers = [[NSMutableArray alloc] init];
     
     for (UITextField *field in _textFields){
-        NSLog(@"is %f >= 0.0000000000001f?", field.text.floatValue);
-        if (field.text.floatValue < 0.0000000000001f) continue;
+        if (field.text.doubleValue < 0.0000000000001f) continue;
         filled_out_fields++;
-        NSLog(@"filled out field: %f",field.text.floatValue);
-        [values addObject: [NSNumber numberWithFloat:field.text.floatValue]];
+        [values addObject: [NSNumber numberWithDouble:field.text.doubleValue]];
     }
-    NSLog(@"is %d >= %d?", filled_out_fields, required_fields);
     
-    if (filled_out_fields >= required_fields){
-        
-        double value1 = ((NSNumber *)values[0]).doubleValue;
-        double value2 = ((NSNumber *)values[1]).doubleValue;
-        double value3 = ((NSNumber *)values[2]).doubleValue;
-        
-        //total = 0.06545 / value1 * (pow(value2,  2.0f) - pow(value3,  2.0f)) / 3.0f;
-        
-        total = sqrt((15.279f * value1) * value2 + pow(value3, 2.0f));
-        //=SQRT((((15.279*B13)*C13)+(D13^2)))
-        
-        
-        //=SUM((((0.06545/B6)*((C6^2)-(D6^2))) / 3))
-        //0.06545 / 0.0023 * (pow(18,2) - pow(3,2)) / 3;
-        
-        
-        _resultField.text = [NSString stringWithFormat:@"%f", total];
+    
+    
+    NSMutableArray *units = [[NSMutableArray alloc] init];
+    for (UITextField *field in _textFields){
+        RETableViewCell *badge = (RETableViewCell *)field.superview.superview;
+        [units addObject:badge.badge.badgeString];
     }
+    
+    
+    int i = 0;
+    for (NSNumber *value in values) {
+        //NSLog(@"converting %@ %@ to %@",value, _fields[i][@"unit"], units[i]);
+        [numbers addObject: (NSNumber *)[UnitConvert convert:value from: units[i] to: _fields[i][@"unit"]]]; i++;
+    }
+    
+    //make sure we have the full set of required fields
+    if (filled_out_fields < [_fields count] - 1) return;
+    
+    
+    total = sqrt((15.279f * [numbers[0] doubleValue]) * [numbers[1] doubleValue] + pow([numbers[2] doubleValue], 2.0f));
+    
+    
+    RETableViewTextCell *textcell = (RETableViewTextCell *)_resultField.superview.superview;
+    
+    NSNumber *final_total = [UnitConvert convert:[NSNumber numberWithDouble: total] from: textcell.badge.badgeString to: [_fields lastObject][@"unit"]];
+    
+    total = final_total.doubleValue;
+    
+    NSString *display = [NSNumberFormatter localizedStringFromNumber:[NSNumber numberWithDouble:total] numberStyle: NSNumberFormatterDecimalStyle];
+    
+    _resultField.text = display;
+    
 }
 
 
@@ -212,7 +237,7 @@
     int row = (indexPath.section == 0) ? indexPath.row : (_fields.count - 1);
     
     cell.badgeString        = _fields[row][@"unit"];
-    cell.badgeColor         = [UIColor colorWithRed:0.00f green:0.64f blue:0.48f alpha:1.00f];
+    cell.badgeColor         = [UnitConvert colorize: _fields[row][@"unit"]];
     cell.badgeTextColor     = [UIColor colorWithRed:1.00f green:1.00f blue:1.00f alpha:1.00f];
     cell.badge.fontSize     = 14;
     cell.badgeLeftOffset    = 0;
@@ -234,6 +259,7 @@
     [PSMenuItem installMenuHandlerForObject:self];
 }
 
+
 - (void)triggerMenu:(UIButton *)sender
 {
     [self becomeFirstResponder];
@@ -248,12 +274,29 @@
     
     for (NSString *unit in _fields[row][@"possibleUnits"]){
         PSMenuItem *possibleUnit = [[PSMenuItem alloc] initWithTitle:unit block:^{
+            
             view_self.badgeString = unit;
+            view_self.badgeColor = [UnitConvert colorize: unit];
+            
+            view_self.badge.badgeString = unit;
+            view_self.badge.badgeColor = [UnitConvert colorize: unit];
+            
             [view_self.badge setNeedsDisplay];
+            [view_self setNeedsDisplay];
+            
+            [view_self.textField becomeFirstResponder];
+            
+            [self calculateResult: view_self.textField];
+            
             [[UIMenuController sharedMenuController] setMenuItems:nil];
+            
         }];
+        
         [units addObject:possibleUnit];
+        
     }
+    
+    [sender.superview.superview setNeedsDisplay];
     
     [[UIMenuController sharedMenuController] setTargetRect:sender.frame inView:sender];
     [[UIMenuController sharedMenuController] setMenuItems:units];

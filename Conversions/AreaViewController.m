@@ -20,6 +20,30 @@
     return self;
 }
 
+
+
+-(void)viewWillAppear:(BOOL)animated {
+    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 35, 21)];
+    
+    backButton.imageView.contentMode = UIViewContentModeCenter;
+    
+    [backButton setImage:[UIImage imageNamed:@"BackButton"] forState:UIControlStateNormal];
+    
+    UIBarButtonItem *barBackButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    
+    [backButton addTarget:self action:@selector(popCurrentViewController) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = barBackButtonItem;
+    self.navigationItem.hidesBackButton = YES;
+}
+
+- (void)popCurrentViewController {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+
+
+
 - (void)viewDidLoad
 {
     

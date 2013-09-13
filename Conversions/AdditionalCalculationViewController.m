@@ -7,7 +7,6 @@
 //
 
 #import "AdditionalCalculationViewController.h"
-#import "ReadonlyUITextField.h"
 @interface AdditionalCalculationViewController ()
 
 @end
@@ -19,6 +18,31 @@
     if (self = [super initWithStyle:UITableViewStyleGrouped]){}
     return self;
 }
+
+
+
+
+
+
+-(void)viewWillAppear:(BOOL)animated {
+    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 35, 21)];
+    
+    backButton.imageView.contentMode = UIViewContentModeCenter;
+    
+    [backButton setImage:[UIImage imageNamed:@"BackButton"] forState:UIControlStateNormal];
+    
+    UIBarButtonItem *barBackButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    
+    [backButton addTarget:self action:@selector(popCurrentViewController) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = barBackButtonItem;
+    self.navigationItem.hidesBackButton = YES;
+}
+
+- (void)popCurrentViewController {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
 
 - (void)viewDidLoad
 {
@@ -189,80 +213,37 @@
         self.manager.style.backgroundImageMargin = 10.0;
     }
     
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UIMenuControllerDidHide:) name:UIMenuControllerDidHideMenuNotification object:nil];
+    
 }
 
 
+-(void)UIMenuControllerDidHide:(id)sender {
+    [[UIMenuController sharedMenuController] setMenuItems:nil];
+}
 
 
 - (RETableViewSection *)addBasicControls {
-    
     RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Roll Length"];
-    
     [_manager addSection:section];
-    
     for (NSDictionary *field in _fields){
         if ([field[@"label"] isEqualToString: @"Result"]) continue;
         RETableViewItem *item = [RETextItem itemWithTitle:field[@"label"] value:nil placeholder:@"0.00"];
         [section addItem: item];
     }
-    
     return section;
-    
 }
 
-- (RETableViewSection *)addButton
-{
-    
+- (RETableViewSection *)addButton {
     RETableViewSection *section = [RETableViewSection section];
-    
     [_manager addSection:section];
-    
     RETableViewItem *item = [RETextItem itemWithTitle:@"Result" value:nil placeholder:@"0.00"];
     [section addItem: item];
-    
     return section;
 }
 
 
-
-- (id)objectify:(NSString *)unit {
-    
-    id object;
-    
-    if ([unit isEqualToString:@"in"]) object = [MKLengthUnit inch];
-    if ([unit isEqualToString:@"ft"]) object = [MKLengthUnit foot];
-    if ([unit isEqualToString:@"yd"]) object = [MKLengthUnit yard];
-    if ([unit isEqualToString:@"mi"]) object = [MKLengthUnit mile];
-    if ([unit isEqualToString:@"mm"]) object = [MKLengthUnit millimeter];
-    if ([unit isEqualToString:@"cm"]) object = [MKLengthUnit centimeter];
-    if ([unit isEqualToString:@"m"]) object = [MKLengthUnit meter];
-    if ([unit isEqualToString:@"km"]) object = [MKLengthUnit kilometer];
-
-    if ([unit isEqualToString:@"in²"]) object = [MKAreaUnit square_inch];
-    if ([unit isEqualToString:@"ft²"]) object = [MKAreaUnit square_foot];
-    if ([unit isEqualToString:@"yd²"]) object = [MKAreaUnit square_yard];
-    if ([unit isEqualToString:@"mi²"]) object = [MKAreaUnit square_mile];
-    if ([unit isEqualToString:@"mm²"]) object = [MKAreaUnit square_millimeter];
-    if ([unit isEqualToString:@"cm²"]) object = [MKAreaUnit square_centimeter];
-    if ([unit isEqualToString:@"m²"]) object = [MKAreaUnit square_meter];
-    if ([unit isEqualToString:@"km²"]) object = [MKAreaUnit square_kilometer];
-    
-    return (object) ?: FALSE;
-
-}
-
-
-
-- (NSNumber *)convert:(NSNumber *)value from:(NSString *)from to:(NSString *)to {
-    
-    //if we don't have a legit conversion, just return value. not everything needs a conversion
-    if (![self objectify:from] || ![self objectify:to]) return value;
-    
-    NSNumber *result = [MKUnit convertAmount:value from:[self objectify:from] to:[self objectify:to]];
-    
-    return result;
-    
-}
 
 
 
@@ -290,14 +271,10 @@
     }
 
     
-    
-    
     int i = 0;
     for (NSNumber *value in values) {
-        
-        NSLog(@"converting %@ %@ to %@",value, _fields[i][@"unit"], units[i]);
-        
-        [numbers addObject: (NSNumber *)[self convert:value from: units[i] to: _fields[i][@"unit"]]]; i++;
+        //NSLog(@"converting %@ %@ to %@",value, _fields[i][@"unit"], units[i]);
+        [numbers addObject: (NSNumber *)[UnitConvert convert:value from: units[i] to: _fields[i][@"unit"]]]; i++;
     }
     
     //make sure we have the full set of required fields
@@ -330,13 +307,10 @@
         total = [numbers[0] doubleValue] * 0.0294935247;
     }
     
-    
-    
-    
-    
+
     RETableViewTextCell *textcell = (RETableViewTextCell *)_resultField.superview.superview;
     
-    NSNumber *final_total = [self convert:[NSNumber numberWithDouble: total] from: textcell.badge.badgeString to: [_fields lastObject][@"unit"]];
+    NSNumber *final_total = [UnitConvert convert:[NSNumber numberWithDouble: total] from: textcell.badge.badgeString to: [_fields lastObject][@"unit"]];
     
     total = final_total.doubleValue;
     
@@ -383,12 +357,11 @@
                 
             } else {
                 
-                _resultField = (ReadonlyUITextField *)currentView;
+                _resultField = (UITextField *)currentView;
                 currentView.enabled = FALSE;
 
                 UILongPressGestureRecognizer *contextGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureDidFire:)];
                 
-                contextGestureRecognizer
                 
                 [currentView.superview.superview addGestureRecognizer:contextGestureRecognizer];
                 
@@ -405,7 +378,7 @@
     int row = (indexPath.section == 0) ? indexPath.row : (_fields.count - 1);
     
     cell.badgeString        = _fields[row][@"unit"];
-    cell.badgeColor         = [self colorize: _fields[row][@"unit"]];
+    cell.badgeColor         = [UnitConvert colorize: _fields[row][@"unit"]];
     cell.badgeTextColor     = [UIColor colorWithRed:1.00f green:1.00f blue:1.00f alpha:1.00f];
     cell.badge.fontSize     = 14;
     cell.badgeLeftOffset    = 0;
@@ -436,15 +409,12 @@
 }
 
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
-    
-    NSLog(@"blocking");
-    
-    if(action == @selector(copy:)) {
-        return YES;
-    }
-    else {
-        return NO;
-    }
+    return NO;
+//    if(action == @selector(copy:)) {
+//        return YES;
+//    } else {
+//        return NO;
+//    }
 }
 
 
@@ -459,39 +429,6 @@
 }
 
 
-
--(UIColor *)colorize: (NSString *)unit {
-    
-
-    NSDictionary *units_to_colors = @{
-                                      
-      @"in": [UIColor colorWithRed:0.92f green:0.56f blue:0.15f alpha:1.00f],
-      @"ft": [UIColor colorWithRed:0.46f green:0.14f blue:0.70f alpha:1.00f],
-      @"yd": [UIColor colorWithRed:0.09f green:0.61f blue:0.46f alpha:1.00f],
-      @"mi": [UIColor colorWithRed:0.00f green:0.64f blue:0.48f alpha:1.00f],
-      @"mm": [UIColor colorWithRed:0.7f green:0.64f blue:0.48f alpha:1.00f],
-      @"cm": [UIColor colorWithRed:0.37f green:0.73f blue:0.64f alpha:1.00f],
-      @"m": [UIColor colorWithRed:0.50f green:0.05f blue:0.00f alpha:1.00f],
-      @"km": [UIColor colorWithRed:0.36f green:0.25f blue:0.18f alpha:1.00f],
-      
-      @"msi": [UIColor colorWithRed:0.42f green:0.55f blue:0.50f alpha:1.00f],
-      
-      @"in²": [UIColor colorWithRed:0.92f green:0.56f blue:0.15f alpha:1.00f],
-      @"ft²": [UIColor colorWithRed:0.46f green:0.14f blue:0.70f alpha:1.00f],
-      @"yd²": [UIColor colorWithRed:0.09f green:0.61f blue:0.46f alpha:1.00f],
-      @"mi²": [UIColor colorWithRed:0.00f green:0.64f blue:0.48f alpha:1.00f],
-      @"mm²": [UIColor colorWithRed:0.7f green:0.64f blue:0.48f alpha:1.00f],
-      @"cm²": [UIColor colorWithRed:0.37f green:0.73f blue:0.64f alpha:1.00f],
-      @"m²": [UIColor colorWithRed:0.50f green:0.05f blue:0.00f alpha:1.00f],
-      @"km²": [UIColor colorWithRed:0.36f green:0.25f blue:0.18f alpha:1.00f],
-    
-      @"g/m²": [UIColor colorWithRed:0.28f green:0.28f blue:0.28f alpha:1.00f],
-      @"oz/yd²": [UIColor colorWithRed:0.40f green:0.64f blue:0.48f alpha:1.00f],
-      
-    };
-    
-    return (units_to_colors[unit]) ?: [UIColor colorWithRed:0.00f green:0.64f blue:0.48f alpha:1.00f];
-}
 
 
 + (void)load {
@@ -521,32 +458,27 @@
     
     for (NSString *unit in _fields[row][@"possibleUnits"]){
         PSMenuItem *possibleUnit = [[PSMenuItem alloc] initWithTitle:unit block:^{
-
+        
             view_self.badgeString = unit;
-            view_self.badgeColor = [self colorize: unit];
+            view_self.badgeColor = [UnitConvert colorize: unit];
             
             view_self.badge.badgeString = unit;
-            view_self.badge.badgeColor = [self colorize: unit];
+            view_self.badge.badgeColor = [UnitConvert colorize: unit];
             
             [view_self.badge setNeedsDisplay];
             [view_self setNeedsDisplay];
  
             [view_self.textField becomeFirstResponder];
             
-            [[UIMenuController sharedMenuController] setMenuItems:nil];
-
-            
             [self calculateResult: view_self.textField];
             
-            
+            [[UIMenuController sharedMenuController] setMenuItems:nil];
+ 
         }];
+        
         [units addObject:possibleUnit];
+        
     }
-    
-    
-
-    
-    //[cell.subviews setNeedsDisplay];
     
     [sender.superview.superview setNeedsDisplay];
     
@@ -558,16 +490,12 @@
 
 
 
-
-
-
-
-
-
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 0;
-    //return (section == 0) ? 40 : 0;
 }
+
+
+
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
@@ -598,8 +526,7 @@
 }
 
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

@@ -65,6 +65,13 @@
 		5D353D3717A8D25100EC6AEF /* UnitMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D353D3617A8D25100EC6AEF /* UnitMenuItem.m */; };
 		5D353D3A17A8E3B800EC6AEF /* PSMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D353D3817A8E3B800EC6AEF /* PSMenuItem.m */; };
 		5D353D3B17A8E7AB00EC6AEF /* PSMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D353D3817A8E3B800EC6AEF /* PSMenuItem.m */; };
+		5D516C4D17E3A6E0000A4D1E /* UnitConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D516C4C17E3A6E0000A4D1E /* UnitConvert.m */; };
+		5D516C5017E3AB0A000A4D1E /* ColorizeUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D516C4F17E3AB0A000A4D1E /* ColorizeUnit.m */; };
+		5D516C5317E3C0F3000A4D1E /* DunmoreLogo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D516C5217E3C0F3000A4D1E /* DunmoreLogo.m */; };
+		5D516C5817E3C9AE000A4D1E /* BackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D516C5417E3C9AE000A4D1E /* BackButton.png */; };
+		5D516C5917E3C9AE000A4D1E /* BackButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D516C5517E3C9AE000A4D1E /* BackButton@2x.png */; };
+		5D516C5A17E3C9AE000A4D1E /* BackButtonTap.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D516C5617E3C9AE000A4D1E /* BackButtonTap.png */; };
+		5D516C5B17E3C9AE000A4D1E /* BackButtonTap@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D516C5717E3C9AE000A4D1E /* BackButtonTap@2x.png */; };
 		5D63846A17E06F6E00061D10 /* AdditionalCalculationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D63846917E06F6E00061D10 /* AdditionalCalculationViewController.m */; };
 		5D69C59017C4C7A2005E0FE4 /* DigitInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69C58F17C4C7A2005E0FE4 /* DigitInputCell.m */; };
 		5D69C59317C4C7E0005E0FE4 /* DigitInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69C59217C4C7E0005E0FE4 /* DigitInputItem.m */; };
@@ -278,6 +285,16 @@
 		5D353D3617A8D25100EC6AEF /* UnitMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitMenuItem.m; sourceTree = "<group>"; };
 		5D353D3817A8E3B800EC6AEF /* PSMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMenuItem.m; sourceTree = "<group>"; };
 		5D353D3917A8E3B800EC6AEF /* PSMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMenuItem.h; sourceTree = "<group>"; };
+		5D516C4B17E3A6E0000A4D1E /* UnitConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitConvert.h; sourceTree = "<group>"; };
+		5D516C4C17E3A6E0000A4D1E /* UnitConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitConvert.m; sourceTree = "<group>"; };
+		5D516C4E17E3AB0A000A4D1E /* ColorizeUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorizeUnit.h; sourceTree = "<group>"; };
+		5D516C4F17E3AB0A000A4D1E /* ColorizeUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorizeUnit.m; sourceTree = "<group>"; };
+		5D516C5117E3C0F3000A4D1E /* DunmoreLogo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DunmoreLogo.h; sourceTree = "<group>"; };
+		5D516C5217E3C0F3000A4D1E /* DunmoreLogo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DunmoreLogo.m; sourceTree = "<group>"; };
+		5D516C5417E3C9AE000A4D1E /* BackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackButton.png; sourceTree = "<group>"; };
+		5D516C5517E3C9AE000A4D1E /* BackButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BackButton@2x.png"; sourceTree = "<group>"; };
+		5D516C5617E3C9AE000A4D1E /* BackButtonTap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackButtonTap.png; sourceTree = "<group>"; };
+		5D516C5717E3C9AE000A4D1E /* BackButtonTap@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BackButtonTap@2x.png"; sourceTree = "<group>"; };
 		5D63846817E06F6E00061D10 /* AdditionalCalculationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdditionalCalculationViewController.h; sourceTree = "<group>"; };
 		5D63846917E06F6E00061D10 /* AdditionalCalculationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionalCalculationViewController.m; sourceTree = "<group>"; };
 		5D69C58E17C4C7A2005E0FE4 /* DigitInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DigitInputCell.h; sourceTree = "<group>"; };
@@ -533,6 +550,8 @@
 				5D7ED68817D04DDB00E389A2 /* AdditionalCalculatorsViewController.m */,
 				5D63846817E06F6E00061D10 /* AdditionalCalculationViewController.h */,
 				5D63846917E06F6E00061D10 /* AdditionalCalculationViewController.m */,
+				5D516C4B17E3A6E0000A4D1E /* UnitConvert.h */,
+				5D516C4C17E3A6E0000A4D1E /* UnitConvert.m */,
 				5DAA7CC717E27AC90074F33A /* ReadonlyUITextField.h */,
 				5DAA7CC817E27ACA0074F33A /* ReadonlyUITextField.m */,
 				5D99EE7B17C5767E000FBFF3 /* DemoViewController.h */,
@@ -567,10 +586,14 @@
 				5DEC2CD117CCBA7C00C82DFF /* YieldUsingSpecificGravityViewController.m */,
 				5DA6C5C017B4EE8900819C93 /* RollLengthViewController.h */,
 				5DA6C5C117B4EE8900819C93 /* RollLengthViewController.m */,
+				5D516C4E17E3AB0A000A4D1E /* ColorizeUnit.h */,
+				5D516C4F17E3AB0A000A4D1E /* ColorizeUnit.m */,
 				5DEC2CCD17CCB60900C82DFF /* LabelSizeToRollViewController.h */,
 				5DEC2CCE17CCB60900C82DFF /* LabelSizeToRollViewController.m */,
 				5D9EFFCC17CCB22D0099B0D1 /* RollDiameterViewController.h */,
 				5D9EFFCD17CCB22E0099B0D1 /* RollDiameterViewController.m */,
+				5D516C5117E3C0F3000A4D1E /* DunmoreLogo.h */,
+				5D516C5217E3C0F3000A4D1E /* DunmoreLogo.m */,
 				5D353D3517A8D25100EC6AEF /* UnitMenuItem.h */,
 				5D353D3617A8D25100EC6AEF /* UnitMenuItem.m */,
 				5D83192A17A877EE0069F64E /* UnitsButton.h */,
@@ -647,6 +670,10 @@
 			children = (
 				5D1DB87017CE6D71007CB6B9 /* conversions-icons */,
 				5D99EE7917C573FC000FBFF3 /* dunmore-logo.png */,
+				5D516C5417E3C9AE000A4D1E /* BackButton.png */,
+				5D516C5517E3C9AE000A4D1E /* BackButton@2x.png */,
+				5D516C5617E3C9AE000A4D1E /* BackButtonTap.png */,
+				5D516C5717E3C9AE000A4D1E /* BackButtonTap@2x.png */,
 				5D99EE7717C55681000FBFF3 /* KeyboardNumericEntryKeyBackspaceGlyphTextured@2x.png */,
 				5D99EE6917C55651000FBFF3 /* BackgroundTexture@2x.png */,
 				5D99EE6A17C55651000FBFF3 /* GenericSeparator@2x.png */,
@@ -1008,6 +1035,7 @@
 				5DB5786217C4BD100084EFEE /* Single@2x.png in Resources */,
 				5DB5786317C4BD100084EFEE /* First@2x.png in Resources */,
 				5DB5786417C4BD100084EFEE /* Single_Selected@2x.png in Resources */,
+				5D516C5817E3C9AE000A4D1E /* BackButton.png in Resources */,
 				5DB5786517C4BD100084EFEE /* First_Selected@2x.png in Resources */,
 				5DB5786617C4BD100084EFEE /* Last_Selected@2x.png in Resources */,
 				5DB5786717C4BD100084EFEE /* Middle_Selected@2x.png in Resources */,
@@ -1020,6 +1048,7 @@
 				5D99EE4717C53A18000FBFF3 /* SettingsFormMiddleTap.png in Resources */,
 				5D99EE4817C53A18000FBFF3 /* SettingsFormMiddleTap@2x.png in Resources */,
 				5D99EE4917C53A18000FBFF3 /* SettingsFormSingle.png in Resources */,
+				5D516C5917E3C9AE000A4D1E /* BackButton@2x.png in Resources */,
 				5D99EE4A17C53A18000FBFF3 /* SettingsFormSingle@2x.png in Resources */,
 				5D99EE4B17C53A18000FBFF3 /* SettingsFormSingleTap.png in Resources */,
 				5D99EE4C17C53A18000FBFF3 /* SettingsFormSingleTap@2x.png in Resources */,
@@ -1040,6 +1069,7 @@
 				5D99EE5A17C53A18000FBFF3 /* SignInFormSingle@2x.png in Resources */,
 				5D99EE5B17C53A18000FBFF3 /* SignInFormTop.png in Resources */,
 				5DCF089917E19C8400ED5544 /* .gitkeep in Resources */,
+				5D516C5A17E3C9AE000A4D1E /* BackButtonTap.png in Resources */,
 				5D99EE5C17C53A18000FBFF3 /* SignInFormTop@2x.png in Resources */,
 				5D99EE5D17C53A18000FBFF3 /* SignInGreenButton.png in Resources */,
 				5D99EE5E17C53A18000FBFF3 /* SignInGreenButton@2x.png in Resources */,
@@ -1048,6 +1078,7 @@
 				5D99EE6017C53A18000FBFF3 /* SignInGreenButtonTap@2x.png in Resources */,
 				5D99EE6117C53A18000FBFF3 /* TwitterButton.png in Resources */,
 				5D99EE6217C53A18000FBFF3 /* TwitterButton@2x.png in Resources */,
+				5D516C5B17E3C9AE000A4D1E /* BackButtonTap@2x.png in Resources */,
 				5D99EE6317C53A18000FBFF3 /* TwitterButtonTap.png in Resources */,
 				5D99EE6417C53A18000FBFF3 /* TwitterButtonTap@2x.png in Resources */,
 				5D99EE7017C55651000FBFF3 /* BackgroundTexture@2x.png in Resources */,
@@ -1139,6 +1170,7 @@
 				5D353D3717A8D25100EC6AEF /* UnitMenuItem.m in Sources */,
 				5DCF089717E19C8400ED5544 /* MKLengthUnit+Imperial.m in Sources */,
 				5DCF088F17E19C8400ED5544 /* NSDecimalNumber+Negative.m in Sources */,
+				5D516C5317E3C0F3000A4D1E /* DunmoreLogo.m in Sources */,
 				5DE6C2F017B20B4A00CAC389 /* BSKeyboardControls.m in Sources */,
 				5DCF089017E19C8400ED5544 /* NSNumber+Fraction.m in Sources */,
 				5DA6C5C217B4EE8900819C93 /* RollLengthViewController.m in Sources */,
@@ -1169,6 +1201,7 @@
 				5DB5784A17C4A7F30084EFEE /* RETableViewCellStyle.m in Sources */,
 				5DB5784B17C4A7F30084EFEE /* RETableViewItem.m in Sources */,
 				5DCF089D17E19C8400ED5544 /* MKTimeUnit.m in Sources */,
+				5D516C5017E3AB0A000A4D1E /* ColorizeUnit.m in Sources */,
 				5DB5784D17C4A7F30084EFEE /* RETableViewManager.m in Sources */,
 				5DB5784E17C4A7F30084EFEE /* RETableViewOptionsController.m in Sources */,
 				5DB5784F17C4A7F30084EFEE /* RETableViewSection.m in Sources */,
@@ -1185,6 +1218,7 @@
 				5D1DB89317CE8156007CB6B9 /* CViewController.m in Sources */,
 				5D1DB89617CE8A87007CB6B9 /* AreaViewController.m in Sources */,
 				5D1DB89917CE8AA3007CB6B9 /* ThicknessViewController.m in Sources */,
+				5D516C4D17E3A6E0000A4D1E /* UnitConvert.m in Sources */,
 				5D1DB89C17CE8AB3007CB6B9 /* WeightViewController.m in Sources */,
 				5D1DB89F17CE8ACA007CB6B9 /* DistanceViewController.m in Sources */,
 				5DCF088C17E19C8400ED5544 /* MKUnit+Conversion.m in Sources */,

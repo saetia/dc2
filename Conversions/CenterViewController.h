@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "UIViewController+MMDrawerController.h"
+#import "DunmoreLogo.h"
+
 
 @interface CenterViewController : UITableViewController
 

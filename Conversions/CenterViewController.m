@@ -48,8 +48,46 @@
     
     [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.00f green:0.50f blue:0.73f alpha:1.00f]];
     
-    [self.navigationItem setTitleView:[[UIImageView alloc] initWithImage: [UIImage imageNamed:@"dunmore-logo.png"]]];
+    //[self.navigationItem setTitleView:[[UIImageView alloc] initWithImage: [UIImage imageNamed:@"dunmore-logo.png"]]];
+    
 
+    UIView *dunmoreLogo = [[DunmoreLogo alloc] initWithFrame:CGRectMake(0, 0, 175, 44)];
+    dunmoreLogo.backgroundColor = [UIColor clearColor];
+    [self.navigationItem setTitleView:dunmoreLogo];
+
+    
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"BackButton"] style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    /*
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@"BackButton"]
+                                                      forState:UIControlStateNormal
+                                                    barMetrics:UIBarMetricsDefault];
+    */
+
+    
+
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(36, 36), NO, 0.0);
+    UIImage *blank = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    
+
+
+    
+//    UIImage *img = [blank
+//     resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+//    
+//    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:blank
+//                                                      forState:UIControlStateNormal
+//                                                    barMetrics:UIBarMetricsDefault];
+//    
+//
+//    [self.navigationItem setBackBarButtonItem:button];
+//    
+//    self.navigationItem.backBarButtonItem.customView = [[UIView alloc] init];
+    
+ 
+    
     _fields = @[@"Roll Length",
                 @"Roll Dimensions",
                 @"Label Size to Roll",
