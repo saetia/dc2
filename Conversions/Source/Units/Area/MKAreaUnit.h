@@ -18,6 +18,7 @@
 + (instancetype)are;
 + (instancetype)hectare;
 + (instancetype)square_kilometer;
++ (instancetype)msi;
 
 @end
 
@@ -30,5 +31,6 @@
 + (instancetype)area_areWithAmount:(NSNumber *)amount;
 + (instancetype)area_hectareWithAmount:(NSNumber *)amount;
 + (instancetype)area_square_kilometerWithAmount:(NSNumber *)amount;
++ (instancetype)area_msiWithAmount:(NSNumber *)amount;
 
 @end

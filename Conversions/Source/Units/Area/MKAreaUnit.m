@@ -80,6 +80,25 @@
                       withRatio:ratio];
 }
 
+
+/*
+Convert Square Meters to MSI - MSI = 1.5425 X m² (Square Meters)
+Convert MSI to Square Meters - Square Meters = .64 X MSI
+*/
+
++ (instancetype)msi {
+    static NSString *name   = @"msi";
+    static NSString *symbol = @"msi";
+    id ratio = [NSDecimalNumber decimalNumberWithMantissa:64 exponent:-2 isNegative:NO];
+    
+    return [self createWithName:name
+                     withSymbol:symbol
+                      withRatio:ratio];
+}
+
+
+
+
 @end
 
 @implementation MKQuantity (MKAreaUnit)
@@ -110,6 +129,10 @@
 
 + (instancetype)area_square_kilometerWithAmount:(NSNumber *)amount {
     return [self createWithAmount:amount withUnit:[MKAreaUnit square_kilometer]];
+}
+
++ (instancetype)area_msiWithAmount:(NSNumber *)amount {
+    return [self createWithAmount:amount withUnit:[MKAreaUnit msi]];
 }
 
 @end

@@ -57,8 +57,8 @@
     _fields = @[
         @{
             @"label":           @"Film Thickness",
-            @"unit":            @"in",
-            @"possibleUnits":   @[@"in", @"ft", @"yd"],
+            @"unit":            @"mil",
+            @"possibleUnits":   @[@"mil", @"mic", @"ga", @"in"],
         },
         @{
             @"label":           @"Roll Diameter",
@@ -67,7 +67,7 @@
         },
         @{
             @"label":           @"Core Diameter",
-            @"unit":            @"ft",
+            @"unit":            @"in",
             @"possibleUnits":   @[@"in", @"ft", @"yd"],
         },
         @{
@@ -177,7 +177,7 @@
     if (filled_out_fields < [_fields count] - 1) return;
         
 
-    total = 0.06545 / [numbers[0] doubleValue] * (pow([numbers[1] doubleValue],  2.0f) - pow([numbers[2] doubleValue],  2.0f)) / 3.0f;
+    total = 0.06545f / ([numbers[0] doubleValue] * 0.001) * (pow([numbers[1] doubleValue] * 12,  2.0f) - pow([numbers[2] doubleValue],  2.0f)) / 3.0f;
 
     
     RETableViewTextCell *textcell = (RETableViewTextCell *)_resultField.superview.superview;

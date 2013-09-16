@@ -64,8 +64,49 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 - (void)viewDidLoad
 {
+
+
+    NSNumber *result = [MKUnit convertAmount:@1 from:[MKLengthUnit mil] to:[MKLengthUnit micron]];
+    NSLog(@"1mil to mic: %@",result);
+
+    result = [MKUnit convertAmount:@1 from:[MKLengthUnit mil] to:[MKLengthUnit inch]];
+    NSLog(@"1mil to inch: %@",result);
+    
     
     self.title = @"Yield / Standard Yield";
     self.tableView.backgroundView = nil;
@@ -148,12 +189,97 @@
     RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Roll Length"];
     [_manager addSection:section];
     for (NSDictionary *field in _fields){
+        
         if ([field[@"label"] isEqualToString: @"Result"]) continue;
-        RETableViewItem *item = [RETextItem itemWithTitle:field[@"label"] value:nil placeholder:@"0.00"];
+        
+        if ([field[@"label"] isEqualToString: @"PET Yield2"]){
+            
+            __typeof (&*self) __weak weakSelf = self;
+            
+            RERadioItem *options = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" selectionHandler:^(RERadioItem *item) {
+            [item deselectRowAnimated:YES]; // same as [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+            
+            // Generate sample options
+            //
+            NSMutableArray *options = [[NSMutableArray alloc] init];
+            
+            for (NSInteger i = 1; i < 40; i++)
+                [options addObject:[NSString stringWithFormat:@"Option %li", (long) i]];
+            
+            // Present options controller
+            //
+            RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options multipleChoice:NO completionHandler:^{
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+                
+                [item reloadRowWithAnimation:UITableViewRowAnimationNone]; // same as [weakSelf.tableView reloadRowsAtIndexPaths:@[item.indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            }];
+            
+            // Adjust styles
+            //
+            optionsController.delegate = weakSelf;
+            optionsController.style = section.style;
+            if (weakSelf.tableView.backgroundView == nil) {
+                optionsController.tableView.backgroundColor = weakSelf.tableView.backgroundColor;
+                optionsController.tableView.backgroundView = nil;
+            }
+            
+            // Push the options controller
+            //
+            [weakSelf.navigationController pushViewController:optionsController animated:YES];
+        }];
+        
+            [section addItem: options];
+            continue;
+            
+        }
+            
+        
+        NSLog(@"FILEDDDD %@",field[@"label"]);
+            
+        
+        RETextItem *item = [RETextItem itemWithTitle:field[@"label"] value:nil placeholder:@"0.00"];
+
+            [item setOnChange:^(RETextItem *item){
+            
+                RETableViewTextCell *cell = (RETableViewTextCell*) [self.tableView cellForRowAtIndexPath:item.indexPath];
+                
+                
+                for (UIView *view in cell.contentView.subviews) {
+                    
+                    UILabel *currentView = ((UILabel *)view);
+                    
+                    if ([view isKindOfClass:[UITextField class]] || [view isKindOfClass:[UITextView class]]){
+                        
+                        //self.autocompleteTextField = (MLPAutoCompleteTextField *)currentView;
+                        
+                    }
+                    
+                }
+                
+                
+
+            }];
+        
+        
         [section addItem: item];
     }
     return section;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 - (RETableViewSection *)addButton {
     RETableViewSection *section = [RETableViewSection section];
@@ -162,6 +288,14 @@
     [section addItem: item];
     return section;
 }
+
+
+
+
+
+
+
+
 
 - (void)calculateResult:(UITextField *)sender {
     
@@ -213,6 +347,7 @@
     
 }
 
+//autocompleteTextField
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(RETableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -241,6 +376,9 @@
                 [_textFields addObject: (UITextField *)view];
                 
                 
+//                [(MLPAutoCompleteTextField *)view setAutoCompleteDelegate:self];
+//                [(MLPAutoCompleteTextField *)view setAutoCompleteDataSource: self];
+                
                 if (!indexPath.section && !indexPath.row) currentView.tag = 8;
                 
                 
@@ -266,7 +404,7 @@
     
     //NSLog(@"row unit: %@",_fields[row][@"unit"]);
     
-    if (![_fields[row][@"unit"] isEqualToString:@""]){
+    if (_fields.count > row && ![_fields[row][@"unit"] isEqualToString:@""]){
         
         //NSLog(@"%@", _fields[row][@"label"]);
         

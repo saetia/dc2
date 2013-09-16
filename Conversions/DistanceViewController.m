@@ -135,7 +135,18 @@
 
         [item setOnChange:^(RETextItem *item){
             
-    
+
+            //clear old corner piece
+            [[self.view viewWithTag:103040] removeFromSuperview];
+            RETableViewTextCell *used_cell = (RETableViewTextCell*) [self.tableView cellForRowAtIndexPath:item.indexPath];
+            UIImageView *corner = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LikePhotoCorner"]];
+            corner.tag = 103040;
+            corner.frame = CGRectMake(used_cell.frame.size.width - 21 - 20, 0, 21, 21);
+            [used_cell.contentView addSubview:corner];
+            
+            
+            
+            
             NSNumber *baseConverter;
             
             for (NSDictionary *field in _fields){

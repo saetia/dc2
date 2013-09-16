@@ -59,22 +59,22 @@
     _fields = @[
                 @{
                     @"label":           @"Film Thickness",
-                    @"unit":            @"in",
-                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
+                    @"unit":            @"mil",
+                    @"possibleUnits":   @[@"mil", @"mic", @"ga", @"in"],
                     },
                 @{
                     @"label":           @"Length",
-                    @"unit":            @"ft",
+                    @"unit":            @"yd",
                     @"possibleUnits":   @[@"in", @"ft", @"yd"],
                     },
                 @{
                     @"label":           @"Core Diameter",
-                    @"unit":            @"ft",
+                    @"unit":            @"in",
                     @"possibleUnits":   @[@"in", @"ft", @"yd"],
                     },
                 @{
                     @"label":           @"Result",
-                    @"unit":            @"yd",
+                    @"unit":            @"ft",
                     @"possibleUnits":   @[@"in", @"ft", @"yd"],
                     }
                 ];
@@ -135,7 +135,19 @@
 - (RETableViewSection *)addButton {
     RETableViewSection *section = [RETableViewSection section];
     [_manager addSection:section];
+    
     RETableViewItem *item = [RETextItem itemWithTitle:@"Result" value:nil placeholder:@"0.00"];
+
+    /*
+    RETableViewItem *item = [RETableViewItem itemWithTitle:@"Long tap to copy this item" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
+        [item deselectRowAnimated:YES];
+    }];
+
+    item.copyHandler = ^(RETableViewItem *item) {
+        [UIPasteboard generalPasteboard].string = @"Copied item #1";
+    };
+    */
+    
     [section addItem: item];
     return section;
 }
@@ -173,7 +185,7 @@
     if (filled_out_fields < [_fields count] - 1) return;
     
     
-    total = sqrt((15.279f * [numbers[0] doubleValue]) * [numbers[1] doubleValue] + pow([numbers[2] doubleValue], 2.0f));
+    total = sqrt((15.279f * ([numbers[0] doubleValue] * 0.001)) * ([numbers[1] doubleValue] * 3) + pow([numbers[2] doubleValue], 2.0f));
     
     
     RETableViewTextCell *textcell = (RETableViewTextCell *)_resultField.superview.superview;

@@ -26,6 +26,7 @@
 #import "RETableViewTextCell.h"
 #import "RETableViewManager.h"
 
+
 @implementation RETableViewTextCell
 
 + (BOOL)canFocusWithItem:(RETableViewItem *)item
@@ -43,9 +44,31 @@
     [super cellDidLoad];
     self.textLabel.backgroundColor = [UIColor clearColor];
     
+    
+    /*
+    NSLog(@"%@",self.parentTableView);
+    
+    if ([self.textLabel.text isEqual:@"PET Yield"]){
+        NSLog(@"yep");
+      _textField = [[MLPAutoCompleteTextField alloc] initWithFrame:CGRectNull];
+    } else {
+        NSLog(@"no");
+      _textField = [[UITextField alloc] initWithFrame:CGRectNull];
+    }
+    
+    */
+    
     _textField = [[UITextField alloc] initWithFrame:CGRectNull];
+    
+    //_textField = [[MLPAutoCompleteTextField alloc] initWithFrame:CGRectNull];
+    //[_textField setAutoCompleteTableAppearsAsKeyboardAccessory:NO];
+    
     _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+   
+    
     //_textField.inputAccessoryView = self.actionBar;
+   
+    
     _textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _textField.delegate = self;
     [_textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];

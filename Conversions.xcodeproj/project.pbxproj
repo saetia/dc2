@@ -75,6 +75,8 @@
 		5D63846A17E06F6E00061D10 /* AdditionalCalculationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D63846917E06F6E00061D10 /* AdditionalCalculationViewController.m */; };
 		5D69C59017C4C7A2005E0FE4 /* DigitInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69C58F17C4C7A2005E0FE4 /* DigitInputCell.m */; };
 		5D69C59317C4C7E0005E0FE4 /* DigitInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69C59217C4C7E0005E0FE4 /* DigitInputItem.m */; };
+		5D7D09A617E79CAD001B993C /* MLPAutoCompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7D09A017E79CAD001B993C /* MLPAutoCompleteTextField.m */; };
+		5D7D09A717E79CAD001B993C /* NSString+Levenshtein.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7D09A517E79CAD001B993C /* NSString+Levenshtein.m */; };
 		5D7ED68917D04DDB00E389A2 /* AdditionalCalculatorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7ED68817D04DDB00E389A2 /* AdditionalCalculatorsViewController.m */; };
 		5D83192C17A877EE0069F64E /* UnitsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D83192B17A877EE0069F64E /* UnitsButton.m */; };
 		5D99EE4117C53A18000FBFF3 /* SettingsFormBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D99EE1D17C53A18000FBFF3 /* SettingsFormBottom.png */; };
@@ -167,6 +169,10 @@
 		5DB5786517C4BD100084EFEE /* First_Selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DB5785D17C4BD100084EFEE /* First_Selected@2x.png */; };
 		5DB5786617C4BD100084EFEE /* Last_Selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DB5785E17C4BD100084EFEE /* Last_Selected@2x.png */; };
 		5DB5786717C4BD100084EFEE /* Middle_Selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DB5785F17C4BD100084EFEE /* Middle_Selected@2x.png */; };
+		5DBC514317E758F500366D6F /* LikePhotoCorner.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBC514117E758F500366D6F /* LikePhotoCorner.png */; };
+		5DBC514417E758F500366D6F /* LikePhotoCorner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBC514217E758F500366D6F /* LikePhotoCorner@2x.png */; };
+		5DBC514917E763A200366D6F /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 5DBC514617E763A200366D6F /* .gitkeep */; };
+		5DBC514A17E763A200366D6F /* MKThicknessUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBC514817E763A200366D6F /* MKThicknessUnit.m */; };
 		5DCF088A17E19C8400ED5544 /* MKQuantity+Precision.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF085F17E19C8400ED5544 /* MKQuantity+Precision.m */; };
 		5DCF088B17E19C8400ED5544 /* MKQuantity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF086117E19C8400ED5544 /* MKQuantity.m */; };
 		5DCF088C17E19C8400ED5544 /* MKUnit+Conversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF086317E19C8400ED5544 /* MKUnit+Conversion.m */; };
@@ -301,6 +307,13 @@
 		5D69C58F17C4C7A2005E0FE4 /* DigitInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DigitInputCell.m; sourceTree = "<group>"; };
 		5D69C59117C4C7E0005E0FE4 /* DigitInputItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DigitInputItem.h; sourceTree = "<group>"; };
 		5D69C59217C4C7E0005E0FE4 /* DigitInputItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DigitInputItem.m; sourceTree = "<group>"; };
+		5D7D099F17E79CAD001B993C /* MLPAutoCompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompleteTextField.h; sourceTree = "<group>"; };
+		5D7D09A017E79CAD001B993C /* MLPAutoCompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPAutoCompleteTextField.m; sourceTree = "<group>"; };
+		5D7D09A117E79CAD001B993C /* MLPAutoCompleteTextFieldDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompleteTextFieldDataSource.h; sourceTree = "<group>"; };
+		5D7D09A217E79CAD001B993C /* MLPAutoCompleteTextFieldDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompleteTextFieldDelegate.h; sourceTree = "<group>"; };
+		5D7D09A317E79CAD001B993C /* MLPAutoCompletionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompletionObject.h; sourceTree = "<group>"; };
+		5D7D09A417E79CAD001B993C /* NSString+Levenshtein.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Levenshtein.h"; sourceTree = "<group>"; };
+		5D7D09A517E79CAD001B993C /* NSString+Levenshtein.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Levenshtein.m"; sourceTree = "<group>"; };
 		5D7ED68717D04DDA00E389A2 /* AdditionalCalculatorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdditionalCalculatorsViewController.h; sourceTree = "<group>"; };
 		5D7ED68817D04DDB00E389A2 /* AdditionalCalculatorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionalCalculatorsViewController.m; sourceTree = "<group>"; };
 		5D83192A17A877EE0069F64E /* UnitsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitsButton.h; sourceTree = "<group>"; };
@@ -425,6 +438,11 @@
 		5DB5785D17C4BD100084EFEE /* First_Selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "First_Selected@2x.png"; sourceTree = "<group>"; };
 		5DB5785E17C4BD100084EFEE /* Last_Selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Last_Selected@2x.png"; sourceTree = "<group>"; };
 		5DB5785F17C4BD100084EFEE /* Middle_Selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Middle_Selected@2x.png"; sourceTree = "<group>"; };
+		5DBC514117E758F500366D6F /* LikePhotoCorner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LikePhotoCorner.png; sourceTree = "<group>"; };
+		5DBC514217E758F500366D6F /* LikePhotoCorner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LikePhotoCorner@2x.png"; sourceTree = "<group>"; };
+		5DBC514617E763A200366D6F /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		5DBC514717E763A200366D6F /* MKThicknessUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKThicknessUnit.h; sourceTree = "<group>"; };
+		5DBC514817E763A200366D6F /* MKThicknessUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKThicknessUnit.m; sourceTree = "<group>"; };
 		5DCF085E17E19C8400ED5544 /* MKQuantity+Precision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKQuantity+Precision.h"; sourceTree = "<group>"; };
 		5DCF085F17E19C8400ED5544 /* MKQuantity+Precision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKQuantity+Precision.m"; sourceTree = "<group>"; };
 		5DCF086017E19C8400ED5544 /* MKQuantity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKQuantity.h; sourceTree = "<group>"; };
@@ -538,6 +556,7 @@
 				5DCF085C17E19C8400ED5544 /* MKUnits */,
 				5D99EE6517C5543A000FBFF3 /* ZenKeyboard.h */,
 				5D99EE6617C5543A000FBFF3 /* ZenKeyboard.m */,
+				5D7D099E17E79CAD001B993C /* MLPAutoCompleteTextField */,
 				5D06C5F317A0787600673E02 /* AppDelegate.h */,
 				5D06C5F417A0787600673E02 /* AppDelegate.m */,
 				5D353D3817A8E3B800EC6AEF /* PSMenuItem.m */,
@@ -670,6 +689,8 @@
 			children = (
 				5D1DB87017CE6D71007CB6B9 /* conversions-icons */,
 				5D99EE7917C573FC000FBFF3 /* dunmore-logo.png */,
+				5DBC514117E758F500366D6F /* LikePhotoCorner.png */,
+				5DBC514217E758F500366D6F /* LikePhotoCorner@2x.png */,
 				5D516C5417E3C9AE000A4D1E /* BackButton.png */,
 				5D516C5517E3C9AE000A4D1E /* BackButton@2x.png */,
 				5D516C5617E3C9AE000A4D1E /* BackButtonTap.png */,
@@ -754,6 +775,20 @@
 			path = "conversions-icons";
 			sourceTree = "<group>";
 		};
+		5D7D099E17E79CAD001B993C /* MLPAutoCompleteTextField */ = {
+			isa = PBXGroup;
+			children = (
+				5D7D099F17E79CAD001B993C /* MLPAutoCompleteTextField.h */,
+				5D7D09A017E79CAD001B993C /* MLPAutoCompleteTextField.m */,
+				5D7D09A117E79CAD001B993C /* MLPAutoCompleteTextFieldDataSource.h */,
+				5D7D09A217E79CAD001B993C /* MLPAutoCompleteTextFieldDelegate.h */,
+				5D7D09A317E79CAD001B993C /* MLPAutoCompletionObject.h */,
+				5D7D09A417E79CAD001B993C /* NSString+Levenshtein.h */,
+				5D7D09A517E79CAD001B993C /* NSString+Levenshtein.m */,
+			);
+			path = MLPAutoCompleteTextField;
+			sourceTree = "<group>";
+		};
 		5DB5780017C4A7F30084EFEE /* RETableViewManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -830,6 +865,16 @@
 			path = Items;
 			sourceTree = "<group>";
 		};
+		5DBC514517E763A200366D6F /* Thickness */ = {
+			isa = PBXGroup;
+			children = (
+				5DBC514617E763A200366D6F /* .gitkeep */,
+				5DBC514717E763A200366D6F /* MKThicknessUnit.h */,
+				5DBC514817E763A200366D6F /* MKThicknessUnit.m */,
+			);
+			path = Thickness;
+			sourceTree = "<group>";
+		};
 		5DCF085C17E19C8400ED5544 /* MKUnits */ = {
 			isa = PBXGroup;
 			children = (
@@ -874,6 +919,7 @@
 		5DCF086F17E19C8400ED5544 /* Units */ = {
 			isa = PBXGroup;
 			children = (
+				5DBC514517E763A200366D6F /* Thickness */,
 				5DCF087017E19C8400ED5544 /* Area */,
 				5DCF087617E19C8400ED5544 /* Byte */,
 				5DCF087A17E19C8400ED5544 /* Length */,
@@ -1035,6 +1081,7 @@
 				5DB5786217C4BD100084EFEE /* Single@2x.png in Resources */,
 				5DB5786317C4BD100084EFEE /* First@2x.png in Resources */,
 				5DB5786417C4BD100084EFEE /* Single_Selected@2x.png in Resources */,
+				5DBC514317E758F500366D6F /* LikePhotoCorner.png in Resources */,
 				5D516C5817E3C9AE000A4D1E /* BackButton.png in Resources */,
 				5DB5786517C4BD100084EFEE /* First_Selected@2x.png in Resources */,
 				5DB5786617C4BD100084EFEE /* Last_Selected@2x.png in Resources */,
@@ -1055,6 +1102,7 @@
 				5D99EE4D17C53A18000FBFF3 /* SettingsFormTop.png in Resources */,
 				5DCF089617E19C8400ED5544 /* .gitkeep in Resources */,
 				5D99EE4E17C53A18000FBFF3 /* SettingsFormTop@2x.png in Resources */,
+				5DBC514417E758F500366D6F /* LikePhotoCorner@2x.png in Resources */,
 				5D99EE4F17C53A18000FBFF3 /* SettingsFormTopTap.png in Resources */,
 				5D99EE5017C53A18000FBFF3 /* SettingsFormTopTap@2x.png in Resources */,
 				5D99EE5117C53A18000FBFF3 /* SettingsLogOutButton.png in Resources */,
@@ -1076,6 +1124,7 @@
 				5DCF089417E19C8400ED5544 /* .gitkeep in Resources */,
 				5D99EE5F17C53A18000FBFF3 /* SignInGreenButtonTap.png in Resources */,
 				5D99EE6017C53A18000FBFF3 /* SignInGreenButtonTap@2x.png in Resources */,
+				5DBC514917E763A200366D6F /* .gitkeep in Resources */,
 				5D99EE6117C53A18000FBFF3 /* TwitterButton.png in Resources */,
 				5D99EE6217C53A18000FBFF3 /* TwitterButton@2x.png in Resources */,
 				5D516C5B17E3C9AE000A4D1E /* BackButtonTap@2x.png in Resources */,
@@ -1164,6 +1213,7 @@
 				5D06C63117A07EF700673E02 /* UIViewController+MMDrawerController.m in Sources */,
 				5DCF089317E19C8400ED5544 /* MKAreaUnit.m in Sources */,
 				5D06C63617A088F900673E02 /* DrawerViewController.m in Sources */,
+				5D7D09A617E79CAD001B993C /* MLPAutoCompleteTextField.m in Sources */,
 				5D06C63917A08CC000673E02 /* CenterViewController.m in Sources */,
 				5DD8A84717A1D5D400669C34 /* CalculationViewController.m in Sources */,
 				5D83192C17A877EE0069F64E /* UnitsButton.m in Sources */,
@@ -1183,9 +1233,11 @@
 				5DB5783A17C4A7F30084EFEE /* RETableViewLongTextCell.m in Sources */,
 				5DB5783B17C4A7F30084EFEE /* RETableViewNumberCell.m in Sources */,
 				5DB5783C17C4A7F30084EFEE /* RETableViewOptionCell.m in Sources */,
+				5D7D09A717E79CAD001B993C /* NSString+Levenshtein.m in Sources */,
 				5DB5783D17C4A7F30084EFEE /* RETableViewTextCell.m in Sources */,
 				5DB5783E17C4A7F30084EFEE /* REBoolItem.m in Sources */,
 				5DCF089517E19C8400ED5544 /* MKByteUnit.m in Sources */,
+				5DBC514A17E763A200366D6F /* MKThicknessUnit.m in Sources */,
 				5DB5783F17C4A7F30084EFEE /* RECreditCardItem.m in Sources */,
 				5DB5784017C4A7F30084EFEE /* REDateTimeItem.m in Sources */,
 				5DB5784117C4A7F30084EFEE /* REFloatItem.m in Sources */,

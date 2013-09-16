@@ -61,27 +61,27 @@
                 @{
                     @"label":           @"Label Width",
                     @"unit":            @"in",
-                    @"possibleUnits":   @[@"in", @"ft"],
+                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
                     },
                 @{
                     @"label":           @"Label Length",
                     @"unit":            @"ft",
-                    @"possibleUnits":   @[@"in", @"ft"],
+                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
                     },
                 @{
                     @"label":           @"Quantity",
-                    @"unit":            @"ft",
-                    @"possibleUnits":   @[@"in", @"ft"],
+                    @"unit":            @"",
+                    @"possibleUnits":   @[],
                     },
                 @{
                     @"label":           @"Roll Length",
                     @"unit":            @"ft",
-                    @"possibleUnits":   @[@"in", @"ft"],
+                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
                     },
                 @{
                     @"label":           @"Result",
                     @"unit":            @"yd",
-                    @"possibleUnits":   @[@"yd", @"in", @"ft"],
+                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
                     }
                 ];
     
@@ -165,7 +165,11 @@
     NSMutableArray *units = [[NSMutableArray alloc] init];
     for (UITextField *field in _textFields){
         RETableViewCell *badge = (RETableViewCell *)field.superview.superview;
-        [units addObject:badge.badge.badgeString];
+        if (badge.badge.badgeString){
+            [units addObject:badge.badge.badgeString];
+        } else {
+            [units addObject:@""];
+        }
     }
     
     
@@ -242,14 +246,18 @@
     
     int row = (indexPath.section == 0) ? indexPath.row : (_fields.count - 1);
     
-    cell.badgeString        = _fields[row][@"unit"];
-    cell.badgeColor         = [UnitConvert colorize: _fields[row][@"unit"]];
-    cell.badgeTextColor     = [UIColor colorWithRed:1.00f green:1.00f blue:1.00f alpha:1.00f];
-    cell.badge.fontSize     = 14;
-    cell.badgeLeftOffset    = 0;
-    cell.badgeRightOffset   = 10;
-    
-    [cell.badge addTarget:self action:@selector(triggerMenu:) forControlEvents:UIControlEventTouchUpInside];
+    if (![_fields[row][@"unit"] isEqualToString:@""]){
+        
+        cell.badgeString        = _fields[row][@"unit"];
+        cell.badgeColor         = [UnitConvert colorize: _fields[row][@"unit"]];
+        cell.badgeTextColor     = [UIColor colorWithRed:1.00f green:1.00f blue:1.00f alpha:1.00f];
+        cell.badge.fontSize     = 14;
+        cell.badgeLeftOffset    = 0;
+        cell.badgeRightOffset   = 10;
+        
+        [cell.badge addTarget:self action:@selector(triggerMenu:) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
     
 
 }

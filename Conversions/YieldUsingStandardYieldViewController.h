@@ -9,11 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "TDBadgedCell.h"
 #import "RETableViewManager.h"
+#import "RETableViewOptionsController.h"
 #import "PSMenuItem.h"
 #import "ZenKeyboard.h"
 #import "UnitConvert.h"
 
-@interface YieldUsingStandardYieldViewController : UITableViewController <RETableViewManagerDelegate>
+#import "MLPAutoCompleteTextField.h"
+#import <QuartzCore/QuartzCore.h>
+
+
+
+@interface YieldUsingStandardYieldViewController : UITableViewController <RETableViewManagerDelegate, MLPAutoCompleteTextFieldDataSource, MLPAutoCompleteTextFieldDelegate, UITextFieldDelegate>
 
 @property (strong, readwrite, nonatomic) NSArray *fields;
 @property (strong, readwrite, nonatomic) NSMutableArray *textFields;
@@ -23,6 +29,10 @@
 @property (strong, readonly, nonatomic) RETableViewManager *manager;
 @property (strong, readwrite, nonatomic) RETableViewSection *basicControlsSection;
 @property (strong, readwrite, nonatomic) RETableViewSection *buttonSection;
+
+
+@property (strong, nonatomic) MLPAutoCompleteTextField *autocompleteTextField;
+@property (strong, nonatomic) NSArray *petObjects;
 
 
 @end

@@ -34,10 +34,17 @@
     if ([unit isEqualToString:@"km²"]) object = [MKAreaUnit square_kilometer];
 
     
+    
+    if ([unit isEqualToString:@"msi"]) object = [MKAreaUnit msi];
+    
+    if ([unit isEqualToString:@"mil"]) object = [MKLengthUnit mil];
+    if ([unit isEqualToString:@"mic"]) object = [MKLengthUnit micron];
+    if ([unit isEqualToString:@"ga"]) object = [MKLengthUnit gauge];
+
+    
     //mil, mic, gauge
     //msi
-    
-    
+
     return (object) ?: FALSE;
     
 }
@@ -84,7 +91,23 @@
                                       @"km²": [UIColor colorWithRed:0.36f green:0.25f blue:0.18f alpha:1.00f],
                                       
                                       @"g/m²": [UIColor colorWithRed:0.28f green:0.28f blue:0.28f alpha:1.00f],
+                                      
                                       @"oz/yd²": [UIColor colorWithRed:0.40f green:0.64f blue:0.48f alpha:1.00f],
+                                      
+                                      
+                                      @"in²/lb": [UIColor colorWithRed:0.90f green:0.80f blue:0.15f alpha:1.00f],
+                                      
+                                       @"ft²/lb": [UIColor colorWithRed:0.10f green:0.80f blue:0.95f alpha:1.00f],
+                                      
+                                      
+                                      @"mil": [UIColor colorWithRed:0.20f green:0.24f blue:0.38f alpha:1.00f],
+ 
+                                      @"mic": [UIColor colorWithRed:0.20f green:0.44f blue:0.98f alpha:1.00f],
+                                      
+                                      @"ga": [UIColor colorWithRed:0.10f green:0.64f blue:0.18f alpha:1.00f],
+                                      
+                                      
+                                      
                                       
                                       };
     

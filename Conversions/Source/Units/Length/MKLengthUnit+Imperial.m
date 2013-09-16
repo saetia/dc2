@@ -80,6 +80,47 @@
                       withRatio:ratio];
 }
 
+
+
+
+
+
++ (instancetype)mil {
+    static NSString *name   = @"mil";
+    static NSString *symbol = @"mil";
+    id ratio = [NSDecimalNumber decimalNumberWithMantissa:254 exponent:-7 isNegative:NO];
+    
+    return [self createWithName:name
+                     withSymbol:symbol
+                      withRatio:ratio];
+}
+
++ (instancetype)micron {
+    static NSString *name   = @"micron";
+    static NSString *symbol = @"mic";
+    id ratio = [NSDecimalNumber decimalNumberWithMantissa:1 exponent:-6 isNegative:NO];
+    
+    return [self createWithName:name
+                     withSymbol:symbol
+                      withRatio:ratio];
+}
+
++ (instancetype)gauge {
+    static NSString *name   = @"gauge";
+    static NSString *symbol = @"ga";
+    id ratio = [NSDecimalNumber decimalNumberWithMantissa:254 exponent:-5 isNegative:NO];
+    
+    return [self createWithName:name
+                     withSymbol:symbol
+                      withRatio:ratio];
+}
+
+
+
+
+
+
+
 @end
 
 @implementation MKQuantity (MKLengthUnit_Imperial)
@@ -111,5 +152,20 @@
 + (instancetype)length_nautical_mileWithAmount:(NSNumber *)amount {
     return [self createWithAmount:amount withUnit:[MKLengthUnit nautical_mile]];
 }
+
+
+
++ (instancetype)length_milWithAmount:(NSNumber *)amount {
+    return [self createWithAmount:amount withUnit:[MKLengthUnit mil]];
+}
+
++ (instancetype)length_micronWithAmount:(NSNumber *)amount {
+    return [self createWithAmount:amount withUnit:[MKLengthUnit micron]];
+}
+
++ (instancetype)length_gaugeWithAmount:(NSNumber *)amount {
+    return [self createWithAmount:amount withUnit:[MKLengthUnit gauge]];
+}
+
 
 @end

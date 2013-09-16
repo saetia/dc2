@@ -18,6 +18,14 @@
 + (instancetype)mile;
 + (instancetype)nautical_mile;
 
+
++ (instancetype)mil;
++ (instancetype)micron;
++ (instancetype)gauge;
+
+
+
+
 @end
 
 @interface MKQuantity (MKLengthUnit_Imperial)
@@ -29,5 +37,9 @@
 + (instancetype)length_furlongWithAmount:(NSNumber *)amount;
 + (instancetype)length_mileWithAmount:(NSNumber *)amount;
 + (instancetype)length_nautical_mileWithAmount:(NSNumber *)amount;
+
++ (instancetype)thickness_milWithAmount:(NSNumber *)amount;
++ (instancetype)thickness_micronWithAmount:(NSNumber *)amount;
++ (instancetype)thickness_gaugeWithAmount:(NSNumber *)amount;
 
 @end
