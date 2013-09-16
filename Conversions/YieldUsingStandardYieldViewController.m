@@ -6,6 +6,19 @@
 //  Copyright (c) 2013 Dunmore. All rights reserved.
 //
 
+//length of film = mass / (density * film thickness * width of blown film) 
+
+/*
+
+ $weight = ($length * 12) * $width * ($thickness / 1000) * $pet;
+
+ $yield = ($weight / $width / $length / $thickness)
+
+
+
+=IF(C10="PET",(C6*12)*C11*(C3/1000)*0.05,G2)
+*/
+
 #import "YieldUsingStandardYieldViewController.h"
 
 @interface YieldUsingStandardYieldViewController ()
@@ -62,19 +75,29 @@
     
     _fields = @[
                 @{
-                    @"label":           @"Specific Gravity",
-                    @"unit":            @"",
-                    @"possibleUnits":   @[],
+                    @"label":           @"Length",
+                    @"unit":            @"yd",
+                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
+                    },
+                @{
+                    @"label":           @"Width",
+                    @"unit":            @"ft",
+                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
                     },
                 @{
                     @"label":           @"Thickness",
-                    @"unit":            @"mic",
-                    @"possibleUnits":   @[@"mic", @"ga", @"mil", @"in"],
+                    @"unit":            @"mil",
+                    @"possibleUnits":   @[@"mil", @"mic", @"ga", @"in"],
+                    },
+                @{
+                    @"label":           @"PET Yield",
+                    @"unit":            @"in²/lb",
+                    @"possibleUnits":   @[@"in²/lb", @"ft²/lb"],
                     },
                 @{
                     @"label":           @"Result",
-                    @"unit":            @"msi/lb",
-                    @"possibleUnits":   @[@"msi/lb", @"ft²/lb"],
+                    @"unit":            @"in²/lb",
+                    @"possibleUnits":   @[@"in²/lb", @"ft²/lb"],
                     }
                 ];
     
@@ -173,7 +196,9 @@
     if (filled_out_fields < [_fields count] - 1) return;
     
     
-    total = 703 / ([numbers[0] doubleValue] * [numbers[1] doubleValue]);
+    double weight = [numbers[0] doubleValue] * [numbers[1] doubleValue] * ([numbers[2] doubleValue] / 1000) * [numbers[3] doubleValue];
+    
+    total = weight / [numbers[1] doubleValue] / [numbers[0] doubleValue] / [numbers[2] doubleValue];
     
     
     RETableViewTextCell *textcell = (RETableViewTextCell *)_resultField.superview.superview;

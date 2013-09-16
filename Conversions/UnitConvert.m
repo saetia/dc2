@@ -32,6 +32,11 @@
     if ([unit isEqualToString:@"cm²"]) object = [MKAreaUnit square_centimeter];
     if ([unit isEqualToString:@"m²"]) object = [MKAreaUnit square_meter];
     if ([unit isEqualToString:@"km²"]) object = [MKAreaUnit square_kilometer];
+
+    
+    //mil, mic, gauge
+    //msi
+    
     
     return (object) ?: FALSE;
     
