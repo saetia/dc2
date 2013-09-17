@@ -185,6 +185,8 @@
     _textFields = [[NSMutableArray alloc] init];
     
     _manager = [[RETableViewManager alloc] initWithTableView:self.tableView delegate:self];
+    
+
     self.basicControlsSection = [self addBasicControls];
     self.buttonSection = [self addButton];
     
@@ -330,6 +332,7 @@
     for (UIView *view in cell.contentView.subviews) {
         
         UITextField *currentView = ((UITextField *)view);
+
         
         if ([view isKindOfClass:[UILabel class]]){
             currentView.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
@@ -351,7 +354,7 @@
                 
                 [_textFields addObject: currentView];
                 
-                currentView.clearButtonMode = UITextFieldViewModeAlways;
+                //currentView.clearButtonMode = UITextFieldViewModeAlways;
                 
                 if (!indexPath.section && !indexPath.row) currentView.tag = 8;
                 
@@ -509,7 +512,7 @@
     titleLabel.text = @"";
     
     titleLabel.textColor = [UIColor colorWithRed:0.51f green:0.51f blue:0.50f alpha:0.8f];
-    titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
+    titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
     titleLabel.shadowColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.8f];
     titleLabel.shadowOffset = CGSizeMake(0, 1.0f);
     

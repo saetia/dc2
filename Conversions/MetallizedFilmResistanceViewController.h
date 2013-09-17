@@ -13,6 +13,9 @@
 #import "ZenKeyboard.h"
 #import "UnitConvert.h"
 
+#import "RETableViewOptionsController.h"
+
+
 @interface MetallizedFilmResistanceViewController : UITableViewController <RETableViewManagerDelegate>
 
 @property (strong, readwrite, nonatomic) NSArray *fields;

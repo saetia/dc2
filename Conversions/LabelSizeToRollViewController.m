@@ -75,7 +75,7 @@
                     },
                 @{
                     @"label":           @"Roll Length",
-                    @"unit":            @"ft",
+                    @"unit":            @"yd",
                     @"possibleUnits":   @[@"in", @"ft", @"yd"],
                     },
                 @{
@@ -178,7 +178,7 @@
     //make sure we have the full set of required fields
     if (filled_out_fields < [_fields count] - 1) return;
     
-    total = ([numbers[0] doubleValue] * [numbers[1] doubleValue]) * [numbers[2] doubleValue] / (36 * [numbers[3] doubleValue]);
+    total = ([numbers[0] doubleValue] * [numbers[1] doubleValue]) * [numbers[2] doubleValue] / [numbers[3] doubleValue];
     
     RETableViewTextCell *textcell = (RETableViewTextCell *)_resultField.superview.superview;
     

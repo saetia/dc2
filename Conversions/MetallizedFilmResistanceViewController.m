@@ -179,6 +179,8 @@
 - (RETableViewSection *)addOpticalSection
 {
     
+    /*
+    
     RETableViewSection *section = [RETableViewSection section];
     
     [_manager addSection:section];
@@ -187,6 +189,52 @@
     [section addItem: item];
     
     return section;
+
+    */
+    
+    RETableViewSection *section = [RETableViewSection section];
+    [_manager addSection:section];
+    
+    __typeof (&*self) __weak weakSelf = self;
+    
+    RERadioItem *options = [RERadioItem itemWithTitle:@"Optical Density" value:@"0.0" selectionHandler:^(RERadioItem *item) {
+        [item deselectRowAnimated:YES]; // same as [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
+        
+        // Generate sample options
+        //
+        NSMutableArray *options = [[NSMutableArray alloc] init];
+        
+        for (NSDictionary *opticalConversion in weakSelf.opticalConversions)
+            [options addObject: [NSString stringWithFormat:@"%0.1f", [opticalConversion[@"optical density"] doubleValue]]];
+        
+        
+        RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options multipleChoice:NO completionHandler:^{
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+            
+            [item reloadRowWithAnimation:UITableViewRowAnimationNone];
+            
+            [weakSelf calculateResult:item];
+            
+        }];
+        
+        // Adjust styles
+        //
+        optionsController.delegate = weakSelf;
+        optionsController.style = section.style;
+        if (weakSelf.tableView.backgroundView == nil) {
+            optionsController.tableView.backgroundColor = weakSelf.tableView.backgroundColor;
+            optionsController.tableView.backgroundView = nil;
+        }
+        
+        // Push the options controller
+        //
+        [weakSelf.navigationController pushViewController:optionsController animated:YES];
+    }];
+    
+    [section addItem: options];
+    
+    return section;
+    
 }
 
 
@@ -209,11 +257,14 @@
 
 
 
-- (void)calculateResult:(UITextField *)sender {
+- (void)calculateResult:(id)sender {
     
-    double opticalDensity = _resultField.text.doubleValue;
+    //double opticalDensity = _resultField.text.doubleValue;
     
     NSMutableArray *dens = [[NSMutableArray alloc] init];
+    RERadioItem *opden = sender;
+
+    double opticalDensity = [opden.value doubleValue];
     
     int i = 0;
     
@@ -260,8 +311,10 @@
         UILabel *currentView = ((UILabel *)view);
         
         if ([view isKindOfClass:[UILabel class]]){
+            
             currentView.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
             currentView.textColor = [UIColor colorWithRed:0.20f green:0.20f blue:0.20f alpha:1.00f];
+
         }
         
         if ([view isKindOfClass:[UITextField class]] || [view isKindOfClass:[UITextView class]]){
@@ -269,6 +322,7 @@
             currentView.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
             currentView.textColor = [UIColor colorWithRed:0.20f green:0.20f blue:0.20f alpha:1.00f];
             
+        
             if ([cell.textLabel.text isEqualToString:@"Optical Density"]){
                 _keyboardView = [[ZenKeyboard alloc] initWithFrame:CGRectMake(0, 0, 320, 216)];
                 _keyboardView.textField = (UITextField *)view;
