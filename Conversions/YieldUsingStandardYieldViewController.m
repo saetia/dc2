@@ -100,13 +100,6 @@
 - (void)viewDidLoad
 {
 
-
-    NSNumber *result = [MKUnit convertAmount:@1 from:[MKLengthUnit mil] to:[MKLengthUnit micron]];
-    NSLog(@"1mil to mic: %@",result);
-
-    result = [MKUnit convertAmount:@1 from:[MKLengthUnit mil] to:[MKLengthUnit inch]];
-    NSLog(@"1mil to inch: %@",result);
-    
     
     self.title = @"Yield / Standard Yield";
     self.tableView.backgroundView = nil;
@@ -233,35 +226,9 @@
             
         }
             
-        
-        NSLog(@"FILEDDDD %@",field[@"label"]);
-            
-        
-        RETextItem *item = [RETextItem itemWithTitle:field[@"label"] value:nil placeholder:@"0.00"];
-
-            [item setOnChange:^(RETextItem *item){
-            
-                RETableViewTextCell *cell = (RETableViewTextCell*) [self.tableView cellForRowAtIndexPath:item.indexPath];
-                
-                
-                for (UIView *view in cell.contentView.subviews) {
-                    
-                    UILabel *currentView = ((UILabel *)view);
-                    
-                    if ([view isKindOfClass:[UITextField class]] || [view isKindOfClass:[UITextView class]]){
-                        
-                        //self.autocompleteTextField = (MLPAutoCompleteTextField *)currentView;
-                        
-                    }
-                    
-                }
-                
-                
-
-            }];
-        
-        
+        RETableViewItem *item = [RETextItem itemWithTitle:field[@"label"] value:nil placeholder:@"0.00"];
         [section addItem: item];
+        
     }
     return section;
 }
@@ -310,9 +277,7 @@
         filled_out_fields++;
         [values addObject: [NSNumber numberWithDouble:field.text.doubleValue]];
     }
-    
-    
-    
+
     NSMutableArray *units = [[NSMutableArray alloc] init];
     for (UITextField *field in _textFields){
         RETableViewCell *badge = (RETableViewCell *)field.superview.superview;
@@ -322,7 +287,7 @@
     
     int i = 0;
     for (NSNumber *value in values) {
-        //NSLog(@"converting %@ %@ to %@",value, _fields[i][@"unit"], units[i]);
+        NSLog(@"converting %@ %@ to %@",value, _fields[i][@"unit"], units[i]);
         [numbers addObject: (NSNumber *)[UnitConvert convert:value from: units[i] to: _fields[i][@"unit"]]]; i++;
     }
     
@@ -334,6 +299,10 @@
     
     total = weight / [numbers[1] doubleValue] / [numbers[0] doubleValue] / [numbers[2] doubleValue];
     
+    NSLog(@"%f * %f * (%f / 1000) * %f", [numbers[0] doubleValue], [numbers[1] doubleValue], [numbers[2] doubleValue], [numbers[3] doubleValue]);
+
+    NSLog(@"%f / %f / %f / %f", weight, [numbers[1] doubleValue], [numbers[0] doubleValue], [numbers[2] doubleValue]);
+    
     
     RETableViewTextCell *textcell = (RETableViewTextCell *)_resultField.superview.superview;
     
@@ -342,6 +311,8 @@
     total = final_total.doubleValue;
     
     NSString *display = [NSNumberFormatter localizedStringFromNumber:[NSNumber numberWithDouble:total] numberStyle: NSNumberFormatterDecimalStyle];
+    
+    NSLog(@"display %@",display);
     
     _resultField.text = display;
     
@@ -370,15 +341,13 @@
                 _keyboardView = [[ZenKeyboard alloc] initWithFrame:CGRectMake(0, 0, 320, 216)];
                 _keyboardView.textField = (UITextField *)view;
                 
+                //NSLog(@"addto");
                 
                 [(UITextField *)view addTarget:self action:@selector(calculateResult:) forControlEvents:UIControlEventEditingChanged];
                 
                 [_textFields addObject: (UITextField *)view];
                 
-                
-//                [(MLPAutoCompleteTextField *)view setAutoCompleteDelegate:self];
-//                [(MLPAutoCompleteTextField *)view setAutoCompleteDataSource: self];
-                
+        
                 if (!indexPath.section && !indexPath.row) currentView.tag = 8;
                 
                 

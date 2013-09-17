@@ -125,8 +125,6 @@
     [[UIMenuController sharedMenuController] setMenuItems:nil];
 }
 
-
-
 - (RETableViewSection *)addBasicControls {
     RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Roll Length"];
     [_manager addSection:section];
@@ -160,8 +158,6 @@
         [values addObject: [NSNumber numberWithDouble:field.text.doubleValue]];
     }
     
-    
-    
     NSMutableArray *units = [[NSMutableArray alloc] init];
     for (UITextField *field in _textFields){
         RETableViewCell *badge = (RETableViewCell *)field.superview.superview;
@@ -182,9 +178,7 @@
     //make sure we have the full set of required fields
     if (filled_out_fields < [_fields count] - 1) return;
     
-    
     total = ([numbers[0] doubleValue] * [numbers[1] doubleValue]) * [numbers[2] doubleValue] / (36 * [numbers[3] doubleValue]);
-    
     
     RETableViewTextCell *textcell = (RETableViewTextCell *)_resultField.superview.superview;
     
@@ -237,9 +231,6 @@
                 currentView.enabled = FALSE;
                 //do something to copy the number to clipboard here.
             }
-            
-            
-            
         }
     }
     
@@ -332,7 +323,7 @@
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    
+
     if (section == 1){
         return [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
     }
@@ -342,16 +333,15 @@
     
     //titleLabel.text = @"Roll Length";
     titleLabel.text = @"";
-    
     titleLabel.textColor = [UIColor colorWithRed:0.51f green:0.51f blue:0.50f alpha:0.8f];
     titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
     titleLabel.shadowColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.8f];
     titleLabel.shadowOffset = CGSizeMake(0, 1.0f);
-    
     titleLabel.backgroundColor = [UIColor clearColor];
+    
     [customTitleView addSubview:titleLabel];
     return customTitleView;
-    
+
 }
 
 

@@ -14,12 +14,11 @@
 #import "ZenKeyboard.h"
 #import "UnitConvert.h"
 
-#import "MLPAutoCompleteTextField.h"
 #import <QuartzCore/QuartzCore.h>
 
 
 
-@interface YieldUsingStandardYieldViewController : UITableViewController <RETableViewManagerDelegate, MLPAutoCompleteTextFieldDataSource, MLPAutoCompleteTextFieldDelegate, UITextFieldDelegate>
+@interface YieldUsingStandardYieldViewController : UITableViewController <RETableViewManagerDelegate>
 
 @property (strong, readwrite, nonatomic) NSArray *fields;
 @property (strong, readwrite, nonatomic) NSMutableArray *textFields;
@@ -30,8 +29,6 @@
 @property (strong, readwrite, nonatomic) RETableViewSection *basicControlsSection;
 @property (strong, readwrite, nonatomic) RETableViewSection *buttonSection;
 
-
-@property (strong, nonatomic) MLPAutoCompleteTextField *autocompleteTextField;
 @property (strong, nonatomic) NSArray *petObjects;
 
 

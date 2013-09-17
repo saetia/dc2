@@ -45,8 +45,42 @@
 
 
 
+- (void)keyboardWillShow:(NSNotification *)aNotification
+{
+    
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    self.tableView.contentInset = contentInsets;
+    self.tableView.scrollIndicatorInsets = contentInsets;
+    
+    //    [self.tableView scrollToRowAtIndexPath:self.currentField.indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+}
+- (void)keyboardWillHide:(NSNotification *)aNotification
+{
+    [UIView animateWithDuration:.3 animations:^(void)
+     {
+         self.tableView.contentInset = UIEdgeInsetsZero;
+         self.tableView.scrollIndicatorInsets = UIEdgeInsetsZero;
+     }];
+}
+
+
 - (void)viewDidLoad
 {
+    
+    // Register notification when the keyboard will be show
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    // Register notification when the keyboard will be hide
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
     
     self.title = @"Thickness Conversions";
     self.tableView.backgroundView = nil;

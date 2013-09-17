@@ -18,8 +18,7 @@
 
 
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
+- (id)initWithStyle:(UITableViewStyle)style {
     if (self = [super initWithStyle:UITableViewStyleGrouped]){}
     return self;
 }
@@ -33,6 +32,9 @@
 
 
 -(void)viewWillAppear:(BOOL)animated {
+    
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    
     UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 35, 21)];
     
     backButton.imageView.contentMode = UIViewContentModeCenter;
@@ -49,6 +51,7 @@
 - (void)popCurrentViewController {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 
 
@@ -111,7 +114,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     }
     
-
+    
+    cell.textLabel.highlightedTextColor = [UIColor grayColor];
+    
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     if (indexPath.row == 0){

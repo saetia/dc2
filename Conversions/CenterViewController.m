@@ -54,37 +54,6 @@
     UIView *dunmoreLogo = [[DunmoreLogo alloc] initWithFrame:CGRectMake(0, 0, 175, 44)];
     dunmoreLogo.backgroundColor = [UIColor clearColor];
     [self.navigationItem setTitleView:dunmoreLogo];
-
-    
-    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"BackButton"] style:UIBarButtonItemStylePlain target:nil action:nil];
-    
-    /*
-    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@"BackButton"]
-                                                      forState:UIControlStateNormal
-                                                    barMetrics:UIBarMetricsDefault];
-    */
-
-    
-
-    UIGraphicsBeginImageContextWithOptions(CGSizeMake(36, 36), NO, 0.0);
-    UIImage *blank = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-
-    
-
-
-    
-//    UIImage *img = [blank
-//     resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
-//    
-//    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:blank
-//                                                      forState:UIControlStateNormal
-//                                                    barMetrics:UIBarMetricsDefault];
-//    
-//
-//    [self.navigationItem setBackBarButtonItem:button];
-//    
-//    self.navigationItem.backBarButtonItem.customView = [[UIView alloc] init];
     
  
     
@@ -135,6 +104,11 @@
     
     cell.textLabel.text = _fields[indexPath.row];
 
+
+    cell.textLabel.highlightedTextColor = [UIColor grayColor];
+    
+    
+    
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     if (indexPath.row == 0){
@@ -174,48 +148,35 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
     
     UITableViewController *detailViewController = [[UITableViewController alloc] init];
     
     switch(indexPath.row){
         case 0: {
-            
             detailViewController = [[RollLengthViewController alloc] init];
             break;
         }
-            
-            
-        
         case 1: {
-         detailViewController = [[RollDiameterViewController alloc] init];
+            detailViewController = [[RollDiameterViewController alloc] init];
             break;
-        
         }
-            
-        
         case 2:{
             detailViewController = [[LabelSizeToRollViewController alloc] init];
             break;
-        
         }
-            
-        
         case 3:{
             detailViewController = [[YieldUsingSpecificGravityViewController alloc] init];
             break;
-            }
-            
-        
+        }
         case 4:{
             detailViewController = [[YieldUsingStandardYieldViewController alloc] init];
             break;
         }
-            
         case 5:{
             detailViewController = [[MetallizedFilmResistanceViewController alloc] init];
             break;
         }
-        
         case 6:{
             detailViewController = [[AdditionalCalculatorsViewController alloc] init];
             break;
