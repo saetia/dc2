@@ -49,8 +49,42 @@
 }
 
 
+- (void)keyboardWillShow:(NSNotification *)aNotification
+{
+    
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    self.tableView.contentInset = contentInsets;
+    self.tableView.scrollIndicatorInsets = contentInsets;
+    
+    //    [self.tableView scrollToRowAtIndexPath:self.currentField.indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+}
+- (void)keyboardWillHide:(NSNotification *)aNotification
+{
+    [UIView animateWithDuration:.3 animations:^(void)
+     {
+         self.tableView.contentInset = UIEdgeInsetsZero;
+         self.tableView.scrollIndicatorInsets = UIEdgeInsetsZero;
+     }];
+}
+
+
 - (void)viewDidLoad
 {
+    
+    // Register notification when the keyboard will be show
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    // Register notification when the keyboard will be hide
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
     
     self.title = @"Label Size to Roll";
     self.tableView.backgroundView = nil;
@@ -152,7 +186,10 @@
     NSMutableArray *values = [[NSMutableArray alloc] init];
     NSMutableArray *numbers = [[NSMutableArray alloc] init];
     
+    NSLog(@"current textfields %d",[_textFields count]);
+    
     for (UITextField *field in _textFields){
+        NSLog(@"adding %@",field.text);
         if (field.text.doubleValue < 0.0000000000001f) continue;
         filled_out_fields++;
         [values addObject: [NSNumber numberWithDouble:field.text.doubleValue]];
@@ -170,7 +207,9 @@
     
     
     int i = 0;
+    NSLog(@"%@",values);
     for (NSNumber *value in values) {
+        NSLog(@"trying to get id: %d",i);
         //NSLog(@"converting %@ %@ to %@",value, _fields[i][@"unit"], units[i]);
         [numbers addObject: (NSNumber *)[UnitConvert convert:value from: units[i] to: _fields[i][@"unit"]]]; i++;
     }
@@ -218,8 +257,7 @@
                 
                 [(UITextField *)view addTarget:self action:@selector(calculateResult:) forControlEvents:UIControlEventEditingChanged];
                 
-                [_textFields addObject: (UITextField *)view];
-                
+                _textFields[indexPath.row] = (UITextField *)view;
                 
                 if (!indexPath.section && !indexPath.row) currentView.tag = 8;
                 
@@ -236,6 +274,8 @@
     
     
     int row = (indexPath.section == 0) ? indexPath.row : (_fields.count - 1);
+    
+    NSLog(@"trying to get row: %d", row);
     
     if (![_fields[row][@"unit"] isEqualToString:@""]){
         

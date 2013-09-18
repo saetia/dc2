@@ -352,7 +352,7 @@
 
                 [currentView addTarget:self action:@selector(calculateResult:) forControlEvents:UIControlEventEditingChanged];
                 
-                [_textFields addObject: currentView];
+                _textFields[indexPath.row] = (UITextField *)view;
                 
                 //currentView.clearButtonMode = UITextFieldViewModeAlways;
                 

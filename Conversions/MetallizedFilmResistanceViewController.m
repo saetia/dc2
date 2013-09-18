@@ -339,7 +339,7 @@
                 
                 currentView.enabled = FALSE;
                 
-                [_textFields addObject: (UITextField *)view];
+                _textFields[indexPath.row] = (UITextField *)view;
                 
                 //do something to copy the number to clipboard here.
             }

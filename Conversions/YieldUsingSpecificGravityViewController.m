@@ -226,7 +226,7 @@
                 
                 [(UITextField *)view addTarget:self action:@selector(calculateResult:) forControlEvents:UIControlEventEditingChanged];
                 
-                [_textFields addObject: (UITextField *)view];
+                _textFields[indexPath.row] = (UITextField *)view;
                 
                 
                 if (!indexPath.section && !indexPath.row) currentView.tag = 8;
