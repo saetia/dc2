@@ -32,7 +32,13 @@
 
 
 -(void)viewWillAppear:(BOOL)animated {
-    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 35, 21)];
+    UIButton *backButton;
+    
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 35, 21)];
+    } else {
+        backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 21)];
+    }
     
     backButton.imageView.contentMode = UIViewContentModeCenter;
     
@@ -54,6 +60,9 @@
 
 - (void)viewDidLoad
 {
+    
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
+        self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.title = @"Yield / Specific Gravity";
     self.tableView.backgroundView = nil;
@@ -86,27 +95,26 @@
     
     [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.00f green:0.50f blue:0.73f alpha:1.00f]];
     
-    [self.manager.style setBackgroundImage:[[UIImage imageNamed:@"SettingsFormTop"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
-                               forCellType:RETableViewCellTypeFirst];
-    [self.manager.style setBackgroundImage:[[UIImage imageNamed:@"SettingsFormMiddle"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
-                               forCellType:RETableViewCellTypeMiddle];
-    [self.manager.style setBackgroundImage:[[UIImage imageNamed:@"SettingsFormBottom"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
-                               forCellType:RETableViewCellTypeLast];
-    [self.manager.style setBackgroundImage:[[UIImage imageNamed:@"SettingsFormSingle"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
-                               forCellType:RETableViewCellTypeSingle];
-    
-    [self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"SettingsFormTopTap"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
-                                       forCellType:RETableViewCellTypeFirst];
-    [self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"SettingsFormMiddleTap"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
-                                       forCellType:RETableViewCellTypeMiddle];
-    [self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"SettingsFormBottomTap"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
-                                       forCellType:RETableViewCellTypeLast];
-    [self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"SettingsFormSingleTap"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
-                                       forCellType:RETableViewCellTypeSingle];
-    
-    if (REDeviceIsUIKit7()) {
-        self.manager.style.contentViewMargin = 10.0;
-        self.manager.style.backgroundImageMargin = 10.0;
+    if (!REDeviceIsUIKit7()) {
+        
+        [self.manager.style setBackgroundImage:[[UIImage imageNamed:@"SettingsFormTop"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                                   forCellType:RETableViewCellTypeFirst];
+        [self.manager.style setBackgroundImage:[[UIImage imageNamed:@"SettingsFormMiddle"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                                   forCellType:RETableViewCellTypeMiddle];
+        [self.manager.style setBackgroundImage:[[UIImage imageNamed:@"SettingsFormBottom"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                                   forCellType:RETableViewCellTypeLast];
+        [self.manager.style setBackgroundImage:[[UIImage imageNamed:@"SettingsFormSingle"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                                   forCellType:RETableViewCellTypeSingle];
+        
+        [self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"SettingsFormTopTap"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                                           forCellType:RETableViewCellTypeFirst];
+        [self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"SettingsFormMiddleTap"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                                           forCellType:RETableViewCellTypeMiddle];
+        [self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"SettingsFormBottomTap"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                                           forCellType:RETableViewCellTypeLast];
+        [self.manager.style setSelectedBackgroundImage:[[UIImage imageNamed:@"SettingsFormSingleTap"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]
+                                           forCellType:RETableViewCellTypeSingle];
+        
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UIMenuControllerDidHide:) name:UIMenuControllerDidHideMenuNotification object:nil];
@@ -161,7 +169,13 @@
     
     NSMutableArray *units = [[NSMutableArray alloc] init];
     for (UITextField *field in _textFields){
-        RETableViewCell *badge = (RETableViewCell *)field.superview.superview;
+        RETableViewCell *badge;
+        
+        if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+            badge = (RETableViewCell *)field.superview.superview;
+        } else {
+            badge = (RETableViewCell *)field.superview.superview.superview;
+        }
         
         if (badge.badge.badgeString){
             [units addObject:badge.badge.badgeString];
@@ -185,7 +199,13 @@
     total = 703 / ([numbers[0] doubleValue] * [numbers[1] doubleValue]);
     
     
-    RETableViewTextCell *textcell = (RETableViewTextCell *)_resultField.superview.superview;
+    RETableViewTextCell *textcell;
+    
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        textcell = (RETableViewTextCell *)_resultField.superview.superview;
+    } else {
+        textcell = (RETableViewTextCell *)_resultField.superview.superview.superview;
+    }
     
     NSNumber *final_total = [UnitConvert convert:[NSNumber numberWithDouble: total] from: textcell.badge.badgeString to: [_fields lastObject][@"unit"]];
     
@@ -288,7 +308,13 @@
 {
     [self becomeFirstResponder];
     
-    __weak RETableViewTextCell *view_self = (RETableViewTextCell*)sender.superview.superview;
+    __weak RETableViewTextCell *view_self;
+    
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        view_self = (RETableViewTextCell *)sender.superview.superview;
+    } else {
+        view_self = (RETableViewTextCell *)sender.superview.superview.superview;
+    }
     
     NSIndexPath *indexPath = [self.tableView indexPathForCell:view_self];
     

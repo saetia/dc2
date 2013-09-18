@@ -25,6 +25,7 @@
         splitViewController.delegate = (id)navigationController.topViewController;
     }
     
+    
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle: nil];
     
     UIViewController * centerViewController = (UIViewController *)[mainStoryboard
@@ -34,6 +35,8 @@
                                                                             instantiateViewControllerWithIdentifier: @"settings"];
     
     UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:centerViewController];
+    
+
     
     MMDrawerController * drawerController = [[MMDrawerController alloc]
                                              initWithCenterViewController:navigationController
@@ -48,6 +51,9 @@
     [self.window setRootViewController:drawerController];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+
+    self.window.tintColor = [UIColor colorWithRed:0.00f green:0.50f blue:0.73f alpha:1.00f];
+    
     [self.window makeKeyAndVisible];
 
     return YES;

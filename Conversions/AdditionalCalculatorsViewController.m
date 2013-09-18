@@ -35,7 +35,13 @@
     
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
     
-    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 35, 21)];
+    UIButton *backButton;
+    
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 35, 21)];
+    } else {
+        backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 21)];
+    }
     
     backButton.imageView.contentMode = UIViewContentModeCenter;
     
@@ -59,6 +65,11 @@
 
 - (void)viewDidLoad
 {
+    
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    
     [super viewDidLoad];
 
     self.title = @"Additional Calculators";

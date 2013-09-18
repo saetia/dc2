@@ -38,19 +38,46 @@
     }
     return self;
 }
-
+-(BOOL) prefersStatusBarHidden { return YES; }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
+    
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    
+    
+    
+    
+    
     [self setupRightMenuButton];
     
     [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.00f green:0.50f blue:0.73f alpha:1.00f]];
     
-    //[self.navigationItem setTitleView:[[UIImageView alloc] initWithImage: [UIImage imageNamed:@"dunmore-logo.png"]]];
-    
 
+    
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
+        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.00f green:0.50f blue:0.73f alpha:1.00f];
+        self.navigationController.navigationBar.translucent = NO;
+
+        //self.navigationController.navigationBar
+    }
+    
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
+
+        [[UINavigationBar appearance] setTitleTextAttributes: @{
+                                                                UITextAttributeTextColor: [UIColor whiteColor],
+                                                                UITextAttributeTextShadowColor: [UIColor colorWithRed:0.00f green:0.00f blue:0.00f alpha:0.5f],
+                                                                UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 1.0f)],
+                                                                UITextAttributeFont: [UIFont fontWithName:@"Helvetica Bold" size:20.0f]
+                                                                }];
+        
+    }
+    
+    
     UIView *dunmoreLogo = [[DunmoreLogo alloc] initWithFrame:CGRectMake(0, 0, 175, 44)];
     dunmoreLogo.backgroundColor = [UIColor clearColor];
     [self.navigationItem setTitleView:dunmoreLogo];
@@ -109,8 +136,13 @@
     
     
     
+    
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+    
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
+    
+    
     if (indexPath.row == 0){
         
         //top
@@ -134,7 +166,10 @@
         cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[ [UIImage imageNamed:@"SettingsFormMiddleTap"] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 10, 10)]];
         
     }
-
+        
+        
+    }
+    
     cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
     cell.textLabel.textColor = [UIColor colorWithRed:0.20f green:0.20f blue:0.20f alpha:1.00f];
