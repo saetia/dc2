@@ -84,6 +84,7 @@
 		5D34432417EA2BBA00B72C01 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D34431017EA2BBA00B72C01 /* iTunesArtwork@2x.png */; };
 		5D34432F17EA4BF400B72C01 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D34432D17EA4BF400B72C01 /* logo.png */; };
 		5D34433017EA4BF400B72C01 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D34432E17EA4BF400B72C01 /* logo@2x.png */; };
+		5D34433317EA627F00B72C01 /* YieldUsingCustomYieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D34433217EA627F00B72C01 /* YieldUsingCustomYieldViewController.m */; };
 		5D353D3717A8D25100EC6AEF /* UnitMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D353D3617A8D25100EC6AEF /* UnitMenuItem.m */; };
 		5D353D3A17A8E3B800EC6AEF /* PSMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D353D3817A8E3B800EC6AEF /* PSMenuItem.m */; };
 		5D353D3B17A8E7AB00EC6AEF /* PSMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D353D3817A8E3B800EC6AEF /* PSMenuItem.m */; };
@@ -330,6 +331,8 @@
 		5D34431017EA2BBA00B72C01 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		5D34432D17EA4BF400B72C01 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		5D34432E17EA4BF400B72C01 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		5D34433117EA627F00B72C01 /* YieldUsingCustomYieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YieldUsingCustomYieldViewController.h; sourceTree = "<group>"; };
+		5D34433217EA627F00B72C01 /* YieldUsingCustomYieldViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YieldUsingCustomYieldViewController.m; sourceTree = "<group>"; };
 		5D353D3517A8D25100EC6AEF /* UnitMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitMenuItem.h; sourceTree = "<group>"; };
 		5D353D3617A8D25100EC6AEF /* UnitMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitMenuItem.m; sourceTree = "<group>"; };
 		5D353D3817A8E3B800EC6AEF /* PSMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMenuItem.m; sourceTree = "<group>"; };
@@ -800,6 +803,7 @@
 				5DEC2CCE17CCB60900C82DFF /* LabelSizeToRollViewController.m */,
 				5DEC2CD117CCBA7C00C82DFF /* YieldUsingSpecificGravityViewController.m */,
 				5D1DB86E17CD1493007CB6B9 /* YieldUsingStandardYieldViewController.m */,
+				5D34433217EA627F00B72C01 /* YieldUsingCustomYieldViewController.m */,
 				5D1DB86B17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.m */,
 				5D7ED68817D04DDB00E389A2 /* AdditionalCalculatorsViewController.m */,
 				5D63846917E06F6E00061D10 /* AdditionalCalculationViewController.m */,
@@ -808,6 +812,7 @@
 				5DEC2CCD17CCB60900C82DFF /* LabelSizeToRollViewController.h */,
 				5DEC2CD017CCBA7C00C82DFF /* YieldUsingSpecificGravityViewController.h */,
 				5D1DB86D17CD1493007CB6B9 /* YieldUsingStandardYieldViewController.h */,
+				5D34433117EA627F00B72C01 /* YieldUsingCustomYieldViewController.h */,
 				5D1DB86A17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.h */,
 				5D7ED68717D04DDA00E389A2 /* AdditionalCalculatorsViewController.h */,
 				5D63846817E06F6E00061D10 /* AdditionalCalculationViewController.h */,
@@ -1347,6 +1352,7 @@
 				5D06C60717A0787600673E02 /* DetailViewController.m in Sources */,
 				5D06C62E17A07EF700673E02 /* MMDrawerBarButtonItem.m in Sources */,
 				5DCF089817E19C8400ED5544 /* MKLengthUnit.m in Sources */,
+				5D34433317EA627F00B72C01 /* YieldUsingCustomYieldViewController.m in Sources */,
 				5D06C62F17A07EF700673E02 /* MMDrawerController.m in Sources */,
 				5D06C63017A07EF700673E02 /* MMDrawerVisualState.m in Sources */,
 				5D06C63117A07EF700673E02 /* UIViewController+MMDrawerController.m in Sources */,

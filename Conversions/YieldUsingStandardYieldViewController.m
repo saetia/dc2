@@ -164,7 +164,7 @@
                     },
                 @{
                     @"label":           @"PET Yield",
-                    @"unit":            @"in²/lb",
+                    @"unit":            @"",
                     @"possibleUnits":   @[],
                     },
                 @{
@@ -223,41 +223,41 @@
         
         if ([field[@"label"] isEqualToString: @"Result"]) continue;
         
-        if ([field[@"label"] isEqualToString: @"PET Yield2"]){
+        if ([field[@"label"] isEqualToString: @"PET Yield"]){
             
             __typeof (&*self) __weak weakSelf = self;
             
-            RERadioItem *options = [RERadioItem itemWithTitle:@"Radio" value:@"Option 4" selectionHandler:^(RERadioItem *item) {
-            [item deselectRowAnimated:YES]; // same as [weakSelf.tableView deselectRowAtIndexPath:item.indexPath animated:YES];
-            
-            // Generate sample options
-            //
+            RERadioItem *options = [RERadioItem itemWithTitle:@"PET Yield" value:@"1 Gauge" selectionHandler:^(RERadioItem *item) {
+                
+            [item deselectRowAnimated:YES];
+                
             NSMutableArray *options = [[NSMutableArray alloc] init];
             
-            for (NSInteger i = 1; i < 40; i++)
-                [options addObject:[NSString stringWithFormat:@"Option %li", (long) i]];
+            for (NSInteger i = 1; i <= 700; i++)
+                [options addObject:[NSString stringWithFormat:@"%li Gauge", (long) i]];
             
-            // Present options controller
-            //
+     
             RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options multipleChoice:NO completionHandler:^{
                 [weakSelf.navigationController popViewControllerAnimated:YES];
                 
-                [item reloadRowWithAnimation:UITableViewRowAnimationNone]; // same as [weakSelf.tableView reloadRowsAtIndexPaths:@[item.indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                [item reloadRowWithAnimation:UITableViewRowAnimationNone];
+                
+                [weakSelf calculateResult: item];
+                
             }];
             
-            // Adjust styles
-            //
+                
             optionsController.delegate = weakSelf;
-            optionsController.style = section.style;
+            //optionsController.style = section.style;
             if (weakSelf.tableView.backgroundView == nil) {
                 optionsController.tableView.backgroundColor = weakSelf.tableView.backgroundColor;
                 optionsController.tableView.backgroundView = nil;
             }
             
-            // Push the options controller
-            //
+                
             [weakSelf.navigationController pushViewController:optionsController animated:YES];
-        }];
+                
+            }];
         
             [section addItem: options];
             continue;
@@ -302,7 +302,7 @@
 
 
 
-- (void)calculateResult:(UITextField *)sender {
+- (void)calculateResult:(id)sender {
     
     float total = 0;
     int filled_out_fields = 0;
@@ -311,6 +311,21 @@
     NSMutableArray *numbers = [[NSMutableArray alloc] init];
     
     for (UITextField *field in _textFields){
+        
+        if ([field.text isEqualToString:@"PET Yield"]) {
+            
+            RETableViewOptionCell *celly;
+            
+            if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+                celly = (RETableViewOptionCell *)field.superview.superview;
+            } else {
+                celly = (RETableViewOptionCell *)field.superview.superview.superview;
+            }
+            
+            field.text = celly.valueLabel.text;
+            
+        }
+        
         if (field.text.doubleValue < 0.0000000000001f) continue;
         filled_out_fields++;
         [values addObject: [NSNumber numberWithDouble:field.text.doubleValue]];
@@ -378,7 +393,7 @@
         UILabel *currentView = ((UILabel *)view);
         
         if ([view isKindOfClass:[UILabel class]]){
-            currentView.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
+            currentView.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
             currentView.textColor = [UIColor colorWithRed:0.20f green:0.20f blue:0.20f alpha:1.00f];
         }
         
@@ -409,6 +424,12 @@
                 //do something to copy the number to clipboard here.
             }
             
+            if ([view isKindOfClass:[RETableViewOptionCell class]]){
+                NSLog(@"fuck me");
+                _textFields[indexPath.row] = (RETableViewOptionCell *)view;
+                
+            }
+            
             
             
         }
@@ -422,15 +443,21 @@
     //NSLog(@"%d",row);
     
     //NSLog(@"row unit: %@",_fields[row][@"unit"]);
+
+    
+    if ([cell.textLabel.text rangeOfString:@"Gauge"].location != NSNotFound) {
+        return;
+    }
+    
     
     if (_fields.count > row && ![_fields[row][@"unit"] isEqualToString:@""]){
         
-        //NSLog(@"%@", _fields[row][@"label"]);
+        NSLog(@"%@", _fields[row][@"label"]);
         
         cell.badgeString        = _fields[row][@"unit"];
         cell.badgeColor         = [UnitConvert colorize: _fields[row][@"unit"]];
         cell.badgeTextColor     = [UIColor colorWithRed:1.00f green:1.00f blue:1.00f alpha:1.00f];
-        cell.badge.fontSize     = 14;
+        cell.badge.fontSize     = 16;
         cell.badgeLeftOffset    = 0;
         cell.badgeRightOffset   = 10;
         

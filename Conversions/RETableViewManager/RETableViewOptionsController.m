@@ -50,7 +50,13 @@
 
 
 -(void)viewWillAppear:(BOOL)animated {
-    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 35, 21)];
+    UIButton *backButton;
+    
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 35, 21)];
+    } else {
+        backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 21)];
+    }
     
     backButton.imageView.contentMode = UIViewContentModeCenter;
     
@@ -63,6 +69,10 @@
     self.navigationItem.hidesBackButton = YES;
 }
 
+
+- (void)popCurrentViewController {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 
 - (void)viewDidLoad

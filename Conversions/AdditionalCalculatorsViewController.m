@@ -155,7 +155,7 @@
     }
     
     cell.textLabel.backgroundColor = [UIColor clearColor];
-    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
+    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
     cell.textLabel.textColor = [UIColor colorWithRed:0.20f green:0.20f blue:0.20f alpha:1.00f];
     
     

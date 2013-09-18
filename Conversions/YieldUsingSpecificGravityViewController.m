@@ -230,7 +230,7 @@
         UILabel *currentView = ((UILabel *)view);
         
         if ([view isKindOfClass:[UILabel class]]){
-            currentView.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
+            currentView.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
             currentView.textColor = [UIColor colorWithRed:0.20f green:0.20f blue:0.20f alpha:1.00f];
         }
         
@@ -281,7 +281,7 @@
         cell.badgeString        = _fields[row][@"unit"];
         cell.badgeColor         = [UnitConvert colorize: _fields[row][@"unit"]];
         cell.badgeTextColor     = [UIColor colorWithRed:1.00f green:1.00f blue:1.00f alpha:1.00f];
-        cell.badge.fontSize     = 14;
+        cell.badge.fontSize     = 16;
         cell.badgeLeftOffset    = 0;
         cell.badgeRightOffset   = 10;
         

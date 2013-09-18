@@ -1,18 +1,31 @@
 //
-//  RollDiameterViewController.m
+//  YieldUsingStandardYieldViewController.m
 //  Conversions
 //
 //  Created by Joel Glovacki on 8/27/13.
 //  Copyright (c) 2013 Dunmore. All rights reserved.
 //
 
-#import "RollDiameterViewController.h"
+//length of film = mass / (density * film thickness * width of blown film)
 
-@interface RollDiameterViewController ()
+/*
+ 
+ $weight = ($length * 12) * $width * ($thickness / 1000) * $pet;
+ 
+ $yield = ($weight / $width / $length / $thickness)
+ 
+ 
+ 
+ =IF(C10="PET",(C6*12)*C11*(C3/1000)*0.05,G2)
+ */
+
+#import "YieldUsingCustomYieldViewController.h"
+
+@interface YieldUsingCustomYieldViewController ()
 
 @end
 
-@implementation RollDiameterViewController
+@implementation YieldUsingCustomYieldViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,11 +36,13 @@
     return self;
 }
 
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     if (self = [super initWithStyle:UITableViewStyleGrouped]){}
     return self;
 }
+
 
 -(void)viewWillAppear:(BOOL)animated {
     UIButton *backButton;
@@ -52,6 +67,11 @@
 - (void)popCurrentViewController {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+
+
+
+
 
 
 
@@ -118,34 +138,39 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
-
     
-    [super viewDidLoad];
     
-    self.title = @"Roll Diameter";
+    self.title = @"Yield / Custom Yield";
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = [UIColor colorWithRed:0.93f green:0.93f blue:0.90f alpha:1.00f];
     
+    [super viewDidLoad];
+    
     _fields = @[
-                @{
-                    @"label":           @"Film Thickness",
-                    @"unit":            @"mil",
-                    @"possibleUnits":   @[@"mil", @"mic", @"ga", @"in"],
-                    },
                 @{
                     @"label":           @"Length",
                     @"unit":            @"yd",
                     @"possibleUnits":   @[@"in", @"ft", @"yd"],
                     },
                 @{
-                    @"label":           @"Core Diameter",
-                    @"unit":            @"in",
+                    @"label":           @"Width",
+                    @"unit":            @"ft",
                     @"possibleUnits":   @[@"in", @"ft", @"yd"],
                     },
                 @{
+                    @"label":           @"Thickness",
+                    @"unit":            @"mil",
+                    @"possibleUnits":   @[@"mil", @"mic", @"ga", @"in"],
+                    },
+                @{
+                    @"label":           @"PET Yield",
+                    @"unit":            @"in²/lb",
+                    @"possibleUnits":   @[],
+                    },
+                @{
                     @"label":           @"Result",
-                    @"unit":            @"ft",
-                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
+                    @"unit":            @"in²/lb",
+                    @"possibleUnits":   @[],
                     }
                 ];
     
@@ -190,36 +215,51 @@
 
 
 
+
 - (RETableViewSection *)addBasicControls {
     RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Roll Length"];
     [_manager addSection:section];
     for (NSDictionary *field in _fields){
+        
         if ([field[@"label"] isEqualToString: @"Result"]) continue;
+        
         RETableViewItem *item = [RETextItem itemWithTitle:field[@"label"] value:nil placeholder:@"0.00"];
         [section addItem: item];
+        
     }
     return section;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 - (RETableViewSection *)addButton {
     RETableViewSection *section = [RETableViewSection section];
     [_manager addSection:section];
-    
     RETableViewItem *item = [RETextItem itemWithTitle:@"Result" value:nil placeholder:@"0.00"];
-
-    /*
-    RETableViewItem *item = [RETableViewItem itemWithTitle:@"Long tap to copy this item" accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
-        [item deselectRowAnimated:YES];
-    }];
-
-    item.copyHandler = ^(RETableViewItem *item) {
-        [UIPasteboard generalPasteboard].string = @"Copied item #1";
-    };
-    */
-    
     [section addItem: item];
     return section;
 }
+
+
+
+
+
+
+
+
 
 - (void)calculateResult:(UITextField *)sender {
     
@@ -234,8 +274,6 @@
         filled_out_fields++;
         [values addObject: [NSNumber numberWithDouble:field.text.doubleValue]];
     }
-    
-    
     
     NSMutableArray *units = [[NSMutableArray alloc] init];
     for (UITextField *field in _textFields){
@@ -252,7 +290,7 @@
     
     int i = 0;
     for (NSNumber *value in values) {
-        //NSLog(@"converting %@ %@ to %@",value, _fields[i][@"unit"], units[i]);
+        NSLog(@"converting %@ %@ to %@",value, _fields[i][@"unit"], units[i]);
         [numbers addObject: (NSNumber *)[UnitConvert convert:value from: units[i] to: _fields[i][@"unit"]]]; i++;
     }
     
@@ -260,7 +298,13 @@
     if (filled_out_fields < [_fields count] - 1) return;
     
     
-    total = sqrt((15.279f * ([numbers[0] doubleValue] * 0.001)) * ([numbers[1] doubleValue] * 3) + pow([numbers[2] doubleValue], 2.0f));
+    double weight = [numbers[0] doubleValue] * [numbers[1] doubleValue] * ([numbers[2] doubleValue] / 1000) * [numbers[3] doubleValue];
+    
+    total = weight / [numbers[1] doubleValue] / [numbers[0] doubleValue] / [numbers[2] doubleValue];
+    
+    NSLog(@"%f * %f * (%f / 1000) * %f", [numbers[0] doubleValue], [numbers[1] doubleValue], [numbers[2] doubleValue], [numbers[3] doubleValue]);
+    
+    NSLog(@"%f / %f / %f / %f", weight, [numbers[1] doubleValue], [numbers[0] doubleValue], [numbers[2] doubleValue]);
     
     
     RETableViewTextCell *textcell;
@@ -277,16 +321,18 @@
     
     NSString *display = [NSNumberFormatter localizedStringFromNumber:[NSNumber numberWithDouble:total] numberStyle: NSNumberFormatterDecimalStyle];
     
+    NSLog(@"display %@",display);
+    
     _resultField.text = display;
     
 }
 
-
+//autocompleteTextField
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(RETableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    for (UIView *view in cell.contentView.subviews){
+    for (UIView *view in cell.contentView.subviews) {
         
         UILabel *currentView = ((UILabel *)view);
         
@@ -304,6 +350,7 @@
                 _keyboardView = [[ZenKeyboard alloc] initWithFrame:CGRectMake(0, 0, 320, 216)];
                 _keyboardView.textField = (UITextField *)view;
                 
+                //NSLog(@"addto");
                 
                 [(UITextField *)view addTarget:self action:@selector(calculateResult:) forControlEvents:UIControlEventEditingChanged];
                 
@@ -324,19 +371,31 @@
             
             
         }
-        
     }
     
-    int row = (indexPath.section == 0) ? indexPath.row : (_fields.count - 1);
     
-    cell.badgeString        = _fields[row][@"unit"];
-    cell.badgeColor         = [UnitConvert colorize: _fields[row][@"unit"]];
-    cell.badgeTextColor     = [UIColor colorWithRed:1.00f green:1.00f blue:1.00f alpha:1.00f];
-    cell.badge.fontSize     = 16;
-    cell.badgeLeftOffset    = 0;
-    cell.badgeRightOffset   = 10;
+    //NSLog(@"%@",indexPath);
     
-    [cell.badge addTarget:self action:@selector(triggerMenu:) forControlEvents:UIControlEventTouchUpInside];
+    int row = (!indexPath.section) ? indexPath.row : (_fields.count - 1);
+    
+    //NSLog(@"%d",row);
+    
+    //NSLog(@"row unit: %@",_fields[row][@"unit"]);
+    
+    if (_fields.count > row && ![_fields[row][@"unit"] isEqualToString:@""]){
+        
+        //NSLog(@"%@", _fields[row][@"label"]);
+        
+        cell.badgeString        = _fields[row][@"unit"];
+        cell.badgeColor         = [UnitConvert colorize: _fields[row][@"unit"]];
+        cell.badgeTextColor     = [UIColor colorWithRed:1.00f green:1.00f blue:1.00f alpha:1.00f];
+        cell.badge.fontSize     = 16;
+        cell.badgeLeftOffset    = 0;
+        cell.badgeRightOffset   = 10;
+        
+        [cell.badge addTarget:self action:@selector(triggerMenu:) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
     
     
     
@@ -351,6 +410,11 @@
 + (void)initialize {
     [PSMenuItem installMenuHandlerForObject:self];
 }
+
+
+
+
+
 
 
 - (void)triggerMenu:(UIButton *)sender
@@ -402,6 +466,9 @@
     [[UIMenuController sharedMenuController] setMenuVisible:YES animated:YES];
     
 }
+
+
+
 
 
 

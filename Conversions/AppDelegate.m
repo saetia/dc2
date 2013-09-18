@@ -43,7 +43,7 @@
                                              leftDrawerViewController:nil
                                              rightDrawerViewController:rightSideDrawerViewController];
     
-    [drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+    [drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModePanningNavigationBar];
     
     [drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     

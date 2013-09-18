@@ -14,12 +14,11 @@
 #import "UnitConvert.h"
 #import "RETableViewOptionsController.h"
 
-@interface YieldUsingStandardYieldViewController : UITableViewController <RETableViewManagerDelegate>
+@interface YieldUsingCustomYieldViewController : UITableViewController <RETableViewManagerDelegate>
 
 @property (strong, readwrite, nonatomic) NSArray *fields;
 @property (strong, readwrite, nonatomic) NSMutableArray *textFields;
 @property (strong, readwrite, nonatomic) UITextField *resultField;
-@property (strong, readwrite, nonatomic) double *PET;
 @property (nonatomic, strong) ZenKeyboard *keyboardView;
 
 @property (strong, readonly, nonatomic) RETableViewManager *manager;
@@ -27,7 +26,6 @@
 @property (strong, readwrite, nonatomic) RETableViewSection *buttonSection;
 
 @property (strong, nonatomic) NSArray *petObjects;
-
 
 
 @end

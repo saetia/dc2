@@ -322,7 +322,7 @@
         
         if ([view isKindOfClass:[UILabel class]]){
             
-            currentView.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
+            currentView.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
             currentView.textColor = [UIColor colorWithRed:0.20f green:0.20f blue:0.20f alpha:1.00f];
 
         }

@@ -15,6 +15,7 @@
 #import "RollDiameterViewController.h"
 #import "YieldUsingSpecificGravityViewController.h"
 #import "YieldUsingStandardYieldViewController.h"
+#import "YieldUsingCustomYieldViewController.h"
 #import "MetallizedFilmResistanceViewController.h"
 #import "LabelSizeToRollViewController.h"
 #import "AdditionalCalculatorsViewController.h"
@@ -50,7 +51,7 @@
     
     
     
-    
+    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     
     
     [self setupRightMenuButton];
@@ -89,6 +90,7 @@
                 @"Label Size to Roll",
                 @"Yield Using Specific Gravity",
                 @"Yield Using Standard Yield",
+                @"Yield Using Custom Yield",
                 @"Metallized Film Resistance",
                 @"Additional Calculators"];
     
@@ -171,7 +173,7 @@
     }
     
     cell.textLabel.backgroundColor = [UIColor clearColor];
-    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
+    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
     cell.textLabel.textColor = [UIColor colorWithRed:0.20f green:0.20f blue:0.20f alpha:1.00f];
 
     return cell;
@@ -209,10 +211,14 @@
             break;
         }
         case 5:{
-            detailViewController = [[MetallizedFilmResistanceViewController alloc] init];
+            detailViewController = [[YieldUsingCustomYieldViewController alloc] init];
             break;
         }
         case 6:{
+            detailViewController = [[MetallizedFilmResistanceViewController alloc] init];
+            break;
+        }
+        case 7:{
             detailViewController = [[AdditionalCalculatorsViewController alloc] init];
             break;
         }
@@ -221,7 +227,8 @@
     
     
     [self.navigationController pushViewController:detailViewController animated:YES];
-
+    
+    
  
 }
 
