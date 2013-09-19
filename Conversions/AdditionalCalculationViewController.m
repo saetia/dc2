@@ -70,12 +70,12 @@
         _fields = @[
                     @{
                         @"label":           @"Length",
-                        @"unit":            @"yd",
+                        @"unit":            @"ft",
                         @"possibleUnits":   @[@"in", @"ft", @"yd"],
                         },
                     @{
                         @"label":           @"Width",
-                        @"unit":            @"yd",
+                        @"unit":            @"ft",
                         @"possibleUnits":   @[@"in", @"ft", @"yd"],
                         },
                     @{
@@ -98,12 +98,12 @@
                         },
                     @{
                         @"label":           @"Width",
-                        @"unit":            @"yd",
+                        @"unit":            @"ft",
                         @"possibleUnits":   @[@"in", @"yd", @"ft"],
                         },
                     @{
                         @"label":           @"Result",
-                        @"unit":            @"yd",
+                        @"unit":            @"ft",
                         @"possibleUnits":   @[@"in", @"yd", @"ft"],
                         }
                     ];
@@ -115,18 +115,18 @@
         _fields = @[
                     @{
                         @"label":           @"Length",
-                        @"unit":            @"in",
+                        @"unit":            @"ft",
                         @"possibleUnits":   @[@"in", @"ft", @"yd"],
                         },
                     @{
                         @"label":           @"Width",
-                        @"unit":            @"yd",
+                        @"unit":            @"ft",
                         @"possibleUnits":   @[@"in", @"ft", @"yd"],
                         },
                     @{
                         @"label":           @"Result",
                         @"unit":            @"msi",
-                        @"possibleUnits":   @[],
+                        @"possibleUnits":   @[@"msi", @"in²", @"ft²", @"yd²", @"cm²", @"m²"],
                         }
                     ];
         
@@ -311,7 +311,9 @@
     }
     
     if ([_calculation isEqualToString:@"Length & Width ➝ MSI"]){
-        total = [numbers[0] doubleValue] * [numbers[1] doubleValue] * 36 / 1000;
+        //total = [numbers[0] doubleValue] * [numbers[1] doubleValue] / 1000;
+        total = [numbers[0] doubleValue] * [numbers[1] doubleValue] * 0.144;
+        NSLog(@"%f",total);
     }
     
     if ([_calculation isEqualToString:@"MSI & Width ➝ Area"]){
@@ -335,7 +337,7 @@
         textcell = (RETableViewTextCell *)_resultField.superview.superview.superview;
     }
     
-    NSNumber *final_total = [UnitConvert convert:[NSNumber numberWithDouble: total] from: textcell.badge.badgeString to: [_fields lastObject][@"unit"]];
+    NSNumber *final_total = [UnitConvert convert:[NSNumber numberWithDouble: total] from: [_fields lastObject][@"unit"] to: textcell.badge.badgeString];
     
     total = final_total.doubleValue;
     

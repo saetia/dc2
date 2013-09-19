@@ -139,12 +139,14 @@
                     },
                 @{
                     @"label":           @"Core Diameter",
-                    @"unit":            @"in",
-                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
+//                    @"unit":            @"in",
+//                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
+                    @"unit":            @"",
+                    @"possibleUnits":   @[],
                     },
                 @{
                     @"label":           @"Result",
-                    @"unit":            @"ft",
+                    @"unit":            @"in",
                     @"possibleUnits":   @[@"in", @"ft", @"yd"],
                     }
                 ];
@@ -195,6 +197,50 @@
     [_manager addSection:section];
     for (NSDictionary *field in _fields){
         if ([field[@"label"] isEqualToString: @"Result"]) continue;
+        
+
+        if ([field[@"label"] isEqualToString: @"Core Diameter"]){
+            
+            __typeof (&*self) __weak weakSelf = self;
+            
+            RERadioItem *options = [RERadioItem itemWithTitle:@"Core Diameter" value:@"3 inches" selectionHandler:^(RERadioItem *item) {
+                
+                [item deselectRowAnimated:YES];
+                
+                NSMutableArray *options = [[NSMutableArray alloc] init];
+                
+                [options addObject:@"3 inches"];
+                [options addObject:@"6 inches"];
+                
+                
+                RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options multipleChoice:NO completionHandler:^{
+                    [weakSelf.navigationController popViewControllerAnimated:YES];
+                    
+                    [item reloadRowWithAnimation:UITableViewRowAnimationNone];
+                    
+                    [weakSelf calculateResult: item];
+                    
+                }];
+                
+                
+                optionsController.delegate = weakSelf;
+                //optionsController.style = section.style;
+                if (weakSelf.tableView.backgroundView == nil) {
+                    optionsController.tableView.backgroundColor = weakSelf.tableView.backgroundColor;
+                    optionsController.tableView.backgroundView = nil;
+                }
+                
+                
+                [weakSelf.navigationController pushViewController:optionsController animated:YES];
+                
+            }];
+            
+            [section addItem: options];
+            continue;
+            
+        }
+        
+        
         RETableViewItem *item = [RETextItem itemWithTitle:field[@"label"] value:nil placeholder:@"0.00"];
         [section addItem: item];
     }
@@ -221,13 +267,21 @@
     return section;
 }
 
-- (void)calculateResult:(UITextField *)sender {
+- (void)calculateResult:(id)sender {
     
     float total = 0;
     int filled_out_fields = 0;
     
     NSMutableArray *values = [[NSMutableArray alloc] init];
     NSMutableArray *numbers = [[NSMutableArray alloc] init];
+
+
+    
+    RETableViewSection *section = self.manager.sections[0];
+    RERadioItem *core_item = section.items[2];
+    double core_diameter = ([core_item.value isEqualToString:@"3 inches"]) ? 3.75f : 7.00f;
+    
+    
     
     for (UITextField *field in _textFields){
         if (field.text.doubleValue < 0.0000000000001f) continue;
@@ -257,10 +311,10 @@
     }
     
     //make sure we have the full set of required fields
-    if (filled_out_fields < [_fields count] - 1) return;
+    if (filled_out_fields < [_fields count] - 2 && core_diameter) return;
     
     
-    total = sqrt((15.279f * ([numbers[0] doubleValue] * 0.001)) * ([numbers[1] doubleValue] * 3) + pow([numbers[2] doubleValue], 2.0f));
+    total = sqrt((15.279f * ([numbers[0] doubleValue] * 0.001)) * ([numbers[1] doubleValue] * 3) + pow(core_diameter, 2.0f));
     
     
     RETableViewTextCell *textcell;
@@ -271,7 +325,7 @@
         textcell = (RETableViewTextCell *)_resultField.superview.superview.superview;
     }
     
-    NSNumber *final_total = [UnitConvert convert:[NSNumber numberWithDouble: total] from: textcell.badge.badgeString to: [_fields lastObject][@"unit"]];
+    NSNumber *final_total = [UnitConvert convert:[NSNumber numberWithDouble: total] from: [_fields lastObject][@"unit"] to: textcell.badge.badgeString];
     
     total = final_total.doubleValue;
     
@@ -327,17 +381,27 @@
         
     }
     
+    
     int row = (indexPath.section == 0) ? indexPath.row : (_fields.count - 1);
     
-    cell.badgeString        = _fields[row][@"unit"];
-    cell.badgeColor         = [UnitConvert colorize: _fields[row][@"unit"]];
-    cell.badgeTextColor     = [UIColor colorWithRed:1.00f green:1.00f blue:1.00f alpha:1.00f];
-    cell.badge.fontSize     = 16;
-    cell.badgeLeftOffset    = 0;
-    cell.badgeRightOffset   = 10;
     
-    [cell.badge addTarget:self action:@selector(triggerMenu:) forControlEvents:UIControlEventTouchUpInside];
+    if ([cell.textLabel.text rangeOfString:@"inches"].location != NSNotFound) {
+        return;
+    }
     
+
+    if (_fields.count > row && ![_fields[row][@"unit"] isEqualToString:@""]){
+        
+        cell.badgeString        = _fields[row][@"unit"];
+        cell.badgeColor         = [UnitConvert colorize: _fields[row][@"unit"]];
+        cell.badgeTextColor     = [UIColor colorWithRed:1.00f green:1.00f blue:1.00f alpha:1.00f];
+        cell.badge.fontSize     = 16;
+        cell.badgeLeftOffset    = 0;
+        cell.badgeRightOffset   = 10;
+        
+        [cell.badge addTarget:self action:@selector(triggerMenu:) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
     
     
 }

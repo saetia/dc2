@@ -924,11 +924,11 @@ Today, they often turn to us first with new challenges untried innovations and e
                         <viewControllerLayoutGuide type="bottom" id="Nkt-EV-T78"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4Un-fc-Vd3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="1188"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="1228"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5t-AA-4Lv">
-                                <rect key="frame" x="262" y="262" width="38" height="30"/>
+                                <rect key="frame" x="262" y="271" width="38" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="38" id="qvA-oz-AaH"/>
                                 </constraints>
@@ -945,7 +945,7 @@ Today, they often turn to us first with new challenges untried innovations and e
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sua-Lx-7ug">
-                                <rect key="frame" x="162" y="1144" width="79" height="44"/>
+                                <rect key="frame" x="162" y="1184" width="79" height="44"/>
                                 <state key="normal" title="Popup2">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -954,13 +954,13 @@ Today, they often turn to us first with new challenges untried innovations and e
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Roll Length" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jL2-Kd-Ykp">
-                                <rect key="frame" x="20" y="45" width="280" height="21"/>
+                                <rect key="frame" x="20" y="46" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Calculates the rolled length of a roll of material ddas asdfasdfasfasdfasd sadf asdf afasdfasdfasdf" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="O4i-kV-xlE">
-                                <rect key="frame" x="20" y="113" width="280" height="60"/>
+                                <rect key="frame" x="20" y="117" width="280" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="p6r-W8-CvU"/>
                                 </constraints>
@@ -969,7 +969,7 @@ Today, they often turn to us first with new challenges untried innovations and e
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.0023" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iRf-8l-d5k">
-                                <rect key="frame" x="162" y="262" width="92" height="30"/>
+                                <rect key="frame" x="162" y="271" width="92" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="92" id="JRc-ZR-Q6v"/>
                                 </constraints>
@@ -977,7 +977,7 @@ Today, they often turn to us first with new challenges untried innovations and e
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Film Thickness" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVI-zF-niE">
-                                <rect key="frame" x="20" y="262" width="122" height="30"/>
+                                <rect key="frame" x="20" y="271" width="122" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="122" id="aJS-r2-dgW"/>
                                 </constraints>
@@ -986,7 +986,7 @@ Today, they often turn to us first with new challenges untried innovations and e
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Cu-DQ-AF4">
-                                <rect key="frame" x="262" y="359" width="38" height="30"/>
+                                <rect key="frame" x="262" y="371" width="38" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" title="ft">
                                     <color key="titleColor" red="0.29308169150000002" green="0.67105180809999998" blue="0.83311987700000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1000,18 +1000,18 @@ Today, they often turn to us first with new challenges untried innovations and e
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="18" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="amH-Il-j1A">
-                                <rect key="frame" x="162" y="359" width="92" height="30"/>
+                                <rect key="frame" x="162" y="371" width="92" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Roll Diameter" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="789-gy-0yc">
-                                <rect key="frame" x="20" y="359" width="122" height="30"/>
+                                <rect key="frame" x="20" y="371" width="122" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCs-eG-TVO">
-                                <rect key="frame" x="262" y="465" width="38" height="30"/>
+                                <rect key="frame" x="262" y="481" width="38" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" title="ft">
                                     <color key="titleColor" red="0.29308169150000002" green="0.67105180809999998" blue="0.83311987700000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1025,19 +1025,19 @@ Today, they often turn to us first with new challenges untried innovations and e
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="3" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fwg-jl-Kl7">
-                                <rect key="frame" x="162" y="465" width="92" height="30"/>
+                                <rect key="frame" x="162" y="481" width="92" height="30"/>
                                 <color key="backgroundColor" red="0.75336771849999995" green="0.96207383830000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Core Diameter" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqb-JW-yHs">
-                                <rect key="frame" x="20" y="465" width="122" height="30"/>
+                                <rect key="frame" x="20" y="481" width="122" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Result" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RsT-Lh-5gw">
-                                <rect key="frame" x="20" y="579" width="122" height="30"/>
+                                <rect key="frame" x="20" y="599" width="122" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="RpS-Fq-Kmp"/>
                                 </constraints>
@@ -1046,13 +1046,13 @@ Today, they often turn to us first with new challenges untried innovations and e
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="2,987.93" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdl-0Q-Cfj">
-                                <rect key="frame" x="162" y="579" width="92" height="30"/>
+                                <rect key="frame" x="162" y="599" width="92" height="30"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <color key="textColor" red="0.084578804669999993" green="0.01058904175" blue="0.021601911630000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxD-Xg-tKv">
-                                <rect key="frame" x="257" y="579" width="49" height="30"/>
+                                <rect key="frame" x="257" y="599" width="49" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="a6U-LQ-jda"/>
                                 </constraints>
@@ -2694,19 +2694,13 @@ Today, they often turn to us first with new challenges untried innovations and e
     </scenes>
     <resources>
         <image name="area-active.png" width="54" height="54"/>
-        <image name="area-active.png" width="54" height="54"/>
         <image name="area-normal.png" width="54" height="54"/>
-        <image name="distance-active.png" width="54" height="54"/>
         <image name="distance-active.png" width="54" height="54"/>
         <image name="distance-normal.png" width="54" height="54"/>
         <image name="dunmore_logo-2.png" width="207" height="100"/>
-        <image name="dunmore_logo-2.png" width="207" height="100"/>
-        <image name="dunmore_logo-2.png" width="207" height="100"/>
         <image name="logo.png" width="213" height="92"/>
         <image name="thickness-active.png" width="54" height="54"/>
-        <image name="thickness-active.png" width="54" height="54"/>
         <image name="thickness-normal.png" width="54" height="54"/>
-        <image name="weight-active.png" width="54" height="54"/>
         <image name="weight-active.png" width="54" height="54"/>
         <image name="weight-normal.png" width="54" height="54"/>
     </resources>

@@ -12,6 +12,7 @@
 #import "PSMenuItem.h"
 #import "ZenKeyboard.h"
 #import "UnitConvert.h"
+#import "RETableViewOptionsController.h"
 
 @interface RollDiameterViewController : UITableViewController <RETableViewManagerDelegate>
 

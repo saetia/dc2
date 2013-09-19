@@ -111,7 +111,7 @@
                     },
                 @{
                     @"label":           @"Label Length",
-                    @"unit":            @"ft",
+                    @"unit":            @"in",
                     @"possibleUnits":   @[@"in", @"ft", @"yd"],
                     },
                 @{
@@ -121,7 +121,7 @@
                     },
                 @{
                     @"label":           @"Roll Length",
-                    @"unit":            @"yd",
+                    @"unit":            @"in",
                     @"possibleUnits":   @[@"in", @"ft", @"yd"],
                     },
                 @{
@@ -234,7 +234,7 @@
     //make sure we have the full set of required fields
     if (filled_out_fields < [_fields count] - 1) return;
     
-    total = ([numbers[0] doubleValue] * [numbers[1] doubleValue]) * [numbers[2] doubleValue] / [numbers[3] doubleValue];
+    total = ([numbers[0] doubleValue] * [numbers[1] doubleValue]) * [numbers[2] doubleValue] / ([numbers[3] doubleValue] * 36);
     
     RETableViewTextCell *textcell;
     
@@ -244,7 +244,7 @@
         textcell = (RETableViewTextCell *)_resultField.superview.superview.superview;
     }
     
-    NSNumber *final_total = [UnitConvert convert:[NSNumber numberWithDouble: total] from: textcell.badge.badgeString to: [_fields lastObject][@"unit"]];
+    NSNumber *final_total = [UnitConvert convert:[NSNumber numberWithDouble: total] from: [_fields lastObject][@"unit"] to: textcell.badge.badgeString];
     
     total = final_total.doubleValue;
     

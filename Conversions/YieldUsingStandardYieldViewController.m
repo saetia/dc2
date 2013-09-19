@@ -15,6 +15,45 @@
  $yield = ($weight / $width / $length / $thickness)
 
 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ function weight($yield, $length, $width) {
+ return round(($yield * $length * $width * 0.0004), 2);
+ }
+ 
+ function yield($width, $weight, $length) {
+ return round(($weight / $width / $length / 0.0004), 2);
+ }
+ 
+ $density = 1.4; //1.38 g/cm³
+ 
+ $length = 100; //ft
+ $weight = 10; //lb
+ $width = 50; //in
+ 
+ //$thickness = 250 //mil;
+ $yield = 5; //mil
+ 
+ echo weight($yield, $length, $width)."\n";
+ 
+ echo yield($width, $weight, $length);
+ //echo $width * $length / $density;
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 =IF(C10="PET",(C6*12)*C11*(C3/1000)*0.05,G2)
 */
@@ -217,6 +256,23 @@
 
 
 - (RETableViewSection *)addBasicControls {
+    
+    
+    NSArray *petYields = @[
+        @{@"gauge":@1.00,	@"mic":@0.25,   @"in":@1980198.00,	 @"ft":@13751.40,     @"yd":@1527.90,    @"m":@2816.50},
+        @{@"gauge":@48.00,	@"mic":@12.19,	@"in":@41254.00,     @"ft":@286.50,       @"yd":@31.80,      @"m":@58.70},
+        @{@"gauge":@60.00,	@"mic":@15.24,	@"in":@33003.00,     @"ft":@229.20,       @"yd":@25.50,      @"m":@46.90},
+        @{@"gauge":@75.00,	@"mic":@19.05,	@"in":@26403.00,     @"ft":@183.40,       @"yd":@20.40,      @"m":@37.60},
+        @{@"gauge":@92.00,	@"mic":@23.37,	@"in":@21524.00,     @"ft":@149.50,       @"yd":@16.60,      @"m":@30.60},
+        @{@"gauge":@142.00,	@"mic":@36.07,	@"in":@13945.00,     @"ft":@96.80,        @"yd":@10.80,      @"m":@19.80},
+        @{@"gauge":@200.00,	@"mic":@50.80,	@"in":@9901.00,      @"ft":@68.80,        @"yd":@7.60,       @"m":@14.10},
+        @{@"gauge":@300.00,	@"mic":@76.20,	@"in":@6601.00,      @"ft":@45.80,        @"yd":@5.10,       @"m":@9.40},
+        @{@"gauge":@400.00,	@"mic":@101.60,	@"in":@4901.00,      @"ft":@34.40,        @"yd":@3.80,       @"m":@7.00},
+        @{@"gauge":@500.00,	@"mic":@127.00,	@"in":@3960.00,      @"ft":@27.50,        @"yd":@3.10,       @"m":@5.60},
+        @{@"gauge":@700.00,	@"mic":@177.80,	@"in":@2829.00,      @"ft":@19.60,        @"yd":@2.20,       @"m":@4.00},
+    ];
+    
+    
     RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Roll Length"];
     [_manager addSection:section];
     for (NSDictionary *field in _fields){
@@ -233,8 +289,8 @@
                 
             NSMutableArray *options = [[NSMutableArray alloc] init];
             
-            for (NSInteger i = 1; i <= 700; i++)
-                [options addObject:[NSString stringWithFormat:@"%li Gauge", (long) i]];
+            for (NSDictionary *petYield in petYields)
+                [options addObject:[NSString stringWithFormat:@"%@ Gauge", petYield[@"gauge"]]];
             
      
             RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options multipleChoice:NO completionHandler:^{
@@ -371,7 +427,7 @@
         textcell = (RETableViewTextCell *)_resultField.superview.superview.superview;
     }
     
-    NSNumber *final_total = [UnitConvert convert:[NSNumber numberWithDouble: total] from: textcell.badge.badgeString to: [_fields lastObject][@"unit"]];
+    NSNumber *final_total = [UnitConvert convert:[NSNumber numberWithDouble: total] from: [_fields lastObject][@"unit"] to: textcell.badge.badgeString];
     
     total = final_total.doubleValue;
     

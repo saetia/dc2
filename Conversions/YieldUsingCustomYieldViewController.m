@@ -315,7 +315,7 @@
         textcell = (RETableViewTextCell *)_resultField.superview.superview.superview;
     }
     
-    NSNumber *final_total = [UnitConvert convert:[NSNumber numberWithDouble: total] from: textcell.badge.badgeString to: [_fields lastObject][@"unit"]];
+    NSNumber *final_total = [UnitConvert convert:[NSNumber numberWithDouble: total] from: [_fields lastObject][@"unit"] to: textcell.badge.badgeString];
     
     total = final_total.doubleValue;
     
