@@ -189,12 +189,12 @@
                 @{
                     @"label":           @"Length",
                     @"unit":            @"yd",
-                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
+                    @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                     },
                 @{
                     @"label":           @"Width",
                     @"unit":            @"ft",
-                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
+                    @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                     },
                 @{
                     @"label":           @"Thickness",
@@ -209,7 +209,7 @@
                 @{
                     @"label":           @"Result",
                     @"unit":            @"in²/lb",
-                    @"possibleUnits":   @[],
+                    @"possibleUnits":   @[@"in²/lb", @"ft²/lb", @"yd²/lb", @"mm²/kg", @"m²/kg"],
                     }
                 ];
     
@@ -304,7 +304,7 @@
             
                 
             optionsController.delegate = weakSelf;
-            //optionsController.style = section.style;
+            optionsController.style = section.style;
             if (weakSelf.tableView.backgroundView == nil) {
                 optionsController.tableView.backgroundColor = weakSelf.tableView.backgroundColor;
                 optionsController.tableView.backgroundView = nil;
@@ -518,6 +518,11 @@
         cell.badgeRightOffset   = 10;
         
         [cell.badge addTarget:self action:@selector(triggerMenu:) forControlEvents:UIControlEventTouchUpInside];
+        
+        
+        cell.badge.frame = CGRectMake(0,0,0,0);
+        [cell.badge removeFromSuperview];
+        [cell.badge setNeedsDisplay];
         
     }
     

@@ -150,12 +150,12 @@
                 @{
                     @"label":           @"Length",
                     @"unit":            @"yd",
-                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
+                    @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                     },
                 @{
                     @"label":           @"Width",
                     @"unit":            @"ft",
-                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
+                    @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                     },
                 @{
                     @"label":           @"Thickness",
@@ -165,12 +165,12 @@
                 @{
                     @"label":           @"PET Yield",
                     @"unit":            @"in²/lb",
-                    @"possibleUnits":   @[],
+                    @"possibleUnits":   @[@"in²/lb", @"ft²/lb", @"yd²/lb", @"mm²/kg", @"m²/kg"],
                     },
                 @{
                     @"label":           @"Result",
                     @"unit":            @"in²/lb",
-                    @"possibleUnits":   @[],
+                    @"possibleUnits":   @[@"in²/lb", @"ft²/lb", @"yd²/lb", @"mm²/kg", @"m²/kg"],
                     }
                 ];
     

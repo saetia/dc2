@@ -135,7 +135,7 @@
                 @{
                     @"label":           @"Length",
                     @"unit":            @"yd",
-                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
+                    @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                     },
                 @{
                     @"label":           @"Core Diameter",
@@ -147,7 +147,7 @@
                 @{
                     @"label":           @"Result",
                     @"unit":            @"in",
-                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
+                    @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                     }
                 ];
     
@@ -224,7 +224,7 @@
                 
                 
                 optionsController.delegate = weakSelf;
-                //optionsController.style = section.style;
+                optionsController.style = section.style;
                 if (weakSelf.tableView.backgroundView == nil) {
                     optionsController.tableView.backgroundColor = weakSelf.tableView.backgroundColor;
                     optionsController.tableView.backgroundView = nil;

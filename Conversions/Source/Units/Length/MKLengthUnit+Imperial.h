@@ -38,8 +38,8 @@
 + (instancetype)length_mileWithAmount:(NSNumber *)amount;
 + (instancetype)length_nautical_mileWithAmount:(NSNumber *)amount;
 
-+ (instancetype)thickness_milWithAmount:(NSNumber *)amount;
-+ (instancetype)thickness_micronWithAmount:(NSNumber *)amount;
-+ (instancetype)thickness_gaugeWithAmount:(NSNumber *)amount;
++ (instancetype)length_milWithAmount:(NSNumber *)amount;
++ (instancetype)length_micronWithAmount:(NSNumber *)amount;
++ (instancetype)length_gaugeWithAmount:(NSNumber *)amount;
 
 @end

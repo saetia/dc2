@@ -62,44 +62,38 @@
     
     
     NSDictionary *units_to_colors = @{
-                                      
-                                      @"in": [UIColor colorWithRed:0.92f green:0.56f blue:0.15f alpha:1.00f],
-                                      @"ft": [UIColor colorWithRed:0.46f green:0.14f blue:0.70f alpha:1.00f],
-                                      @"yd": [UIColor colorWithRed:0.09f green:0.61f blue:0.46f alpha:1.00f],
-                                      @"mi": [UIColor colorWithRed:0.00f green:0.64f blue:0.48f alpha:1.00f],
-                                      @"mm": [UIColor colorWithRed:0.7f green:0.64f blue:0.48f alpha:1.00f],
-                                      @"cm": [UIColor colorWithRed:0.37f green:0.73f blue:0.64f alpha:1.00f],
-                                      @"m": [UIColor colorWithRed:0.50f green:0.05f blue:0.00f alpha:1.00f],
-                                      @"km": [UIColor colorWithRed:0.36f green:0.25f blue:0.18f alpha:1.00f],
-                                      
-                                      @"msi": [UIColor colorWithRed:0.42f green:0.55f blue:0.50f alpha:1.00f],
-                                      
-                                      @"in²": [UIColor colorWithRed:0.92f green:0.56f blue:0.15f alpha:1.00f],
-                                      @"ft²": [UIColor colorWithRed:0.46f green:0.14f blue:0.70f alpha:1.00f],
-                                      @"yd²": [UIColor colorWithRed:0.09f green:0.61f blue:0.46f alpha:1.00f],
-                                      @"mi²": [UIColor colorWithRed:0.00f green:0.64f blue:0.48f alpha:1.00f],
-                                      @"mm²": [UIColor colorWithRed:0.7f green:0.64f blue:0.48f alpha:1.00f],
-                                      @"cm²": [UIColor colorWithRed:0.37f green:0.73f blue:0.64f alpha:1.00f],
-                                      @"m²": [UIColor colorWithRed:0.50f green:0.05f blue:0.00f alpha:1.00f],
-                                      @"km²": [UIColor colorWithRed:0.36f green:0.25f blue:0.18f alpha:1.00f],
-                                      
-                                      @"g/m²": [UIColor colorWithRed:0.28f green:0.28f blue:0.28f alpha:1.00f],
-                                      
-                                      @"oz/yd²": [UIColor colorWithRed:0.40f green:0.64f blue:0.48f alpha:1.00f],
-                                      
-                                      
-                                      @"in²/lb": [UIColor colorWithRed:0.90f green:0.80f blue:0.15f alpha:1.00f],
-                                      
-                                       @"ft²/lb": [UIColor colorWithRed:0.10f green:0.80f blue:0.95f alpha:1.00f],
-                                      
-                                      
-                                      @"mil": [UIColor colorWithRed:0.20f green:0.24f blue:0.38f alpha:1.00f],
- 
-                                      @"mic": [UIColor colorWithRed:0.20f green:0.44f blue:0.98f alpha:1.00f],
-                                      
-                                      @"ga": [UIColor colorWithRed:0.10f green:0.64f blue:0.18f alpha:1.00f],
+  
+  @"in": [UIColor colorWithRed:0.00f green:0.69f blue:0.53f alpha:1.00f],
+  @"ft": [UIColor colorWithRed:1.00f green:0.32f blue:0.35f alpha:1.00f],
+  @"yd": [UIColor colorWithRed:0.85f green:0.36f blue:0.69f alpha:1.00f],
+  @"mi": [UIColor colorWithRed:0.36f green:0.77f blue:0.91f alpha:1.00f],
+  @"mm": [UIColor colorWithRed:0.33f green:0.70f blue:0.37f alpha:1.00f],
+  @"cm": [UIColor colorWithRed:1.00f green:0.60f blue:0.65f alpha:1.00f],
+  @"m": [UIColor colorWithRed:0.53f green:0.72f blue:0.79f alpha:1.00f],
+  @"km": [UIColor colorWithRed:0.46f green:0.37f blue:0.69f alpha:1.00f],
+  
+  @"msi": [UIColor colorWithRed:0.31f green:0.38f blue:0.55f alpha:1.00f],
+  
+  @"in²": [UIColor colorWithRed:0.00f green:0.69f blue:0.53f alpha:0.80f],
+  @"ft²": [UIColor colorWithRed:1.00f green:0.32f blue:0.35f alpha:0.80f],
+  @"yd²": [UIColor colorWithRed:0.85f green:0.36f blue:0.69f alpha:0.80f],
+  @"mi²": [UIColor colorWithRed:0.36f green:0.77f blue:0.91f alpha:0.80f],
+  @"mm²": [UIColor colorWithRed:0.33f green:0.70f blue:0.37f alpha:0.80f],
+  @"cm²": [UIColor colorWithRed:1.00f green:0.60f blue:0.65f alpha:0.80f],
+  @"m²": [UIColor colorWithRed:0.53f green:0.72f blue:0.79f alpha:0.80f],
+  @"km²": [UIColor colorWithRed:0.46f green:0.37f blue:0.69f alpha:0.80f],
+  
+  @"g/m²": [UIColor colorWithRed:0.25f green:0.77f blue:0.71f alpha:0.80f],
+  @"oz/yd²": [UIColor colorWithRed:1.00f green:0.44f blue:0.26f alpha:0.80f],
+  @"in²/lb": [UIColor colorWithRed:0.97f green:0.34f blue:0.50f alpha:0.80f],
+  @"ft²/lb": [UIColor colorWithRed:0.31f green:0.38f blue:0.55f alpha:0.80f],
+  
+  
+  @"mil": [UIColor colorWithRed:0.25f green:0.77f blue:0.71f alpha:1.00f],
+  @"mic": [UIColor colorWithRed:1.00f green:0.44f blue:0.26f alpha:1.00f],
+  @"ga": [UIColor colorWithRed:0.97f green:0.34f blue:0.50f alpha:1.00f],
 
-                                      };
+  };
     
     return (units_to_colors[unit]) ?: [UIColor colorWithRed:0.00f green:0.64f blue:0.48f alpha:1.00f];
 }

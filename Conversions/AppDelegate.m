@@ -52,7 +52,12 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
 
-    self.window.tintColor = [UIColor colorWithRed:0.00f green:0.50f blue:0.73f alpha:1.00f];
+
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
+        
+        self.window.tintColor = [UIColor colorWithRed:0.00f green:0.50f blue:0.73f alpha:1.00f];
+
+    }
     
     [self.window makeKeyAndVisible];
 

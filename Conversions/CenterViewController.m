@@ -49,10 +49,7 @@
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
         self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    
-    
-    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
-    
+
     
     [self setupRightMenuButton];
     

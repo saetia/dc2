@@ -71,17 +71,17 @@
                     @{
                         @"label":           @"Length",
                         @"unit":            @"ft",
-                        @"possibleUnits":   @[@"in", @"ft", @"yd"],
+                        @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                         },
                     @{
                         @"label":           @"Width",
                         @"unit":            @"ft",
-                        @"possibleUnits":   @[@"in", @"ft", @"yd"],
+                        @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                         },
                     @{
                         @"label":           @"Result",
                         @"unit":            @"ft²",
-                        @"possibleUnits":   @[@"in²", @"ft²", @"yd²"],
+                        @"possibleUnits":   @[@"in²", @"ft²", @"yd²", @"mm²", @"m²"],
                         }
                     ];
         
@@ -94,17 +94,17 @@
                     @{
                         @"label":           @"Area",
                         @"unit":            @"ft²",
-                        @"possibleUnits":   @[@"in²", @"ft²", @"yd²", @"cm²", @"m²"],
+                        @"possibleUnits":   @[@"in²", @"ft²", @"yd²", @"mm²", @"m²"],
                         },
                     @{
                         @"label":           @"Width",
                         @"unit":            @"ft",
-                        @"possibleUnits":   @[@"in", @"yd", @"ft"],
+                        @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                         },
                     @{
                         @"label":           @"Result",
                         @"unit":            @"ft",
-                        @"possibleUnits":   @[@"in", @"yd", @"ft"],
+                        @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                         }
                     ];
         
@@ -116,17 +116,17 @@
                     @{
                         @"label":           @"Length",
                         @"unit":            @"ft",
-                        @"possibleUnits":   @[@"in", @"ft", @"yd"],
+                        @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                         },
                     @{
                         @"label":           @"Width",
                         @"unit":            @"ft",
-                        @"possibleUnits":   @[@"in", @"ft", @"yd"],
+                        @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                         },
                     @{
                         @"label":           @"Result",
                         @"unit":            @"msi",
-                        @"possibleUnits":   @[@"msi", @"in²", @"ft²", @"yd²", @"cm²", @"m²"],
+                        @"possibleUnits":   @[@"msi", @"in²", @"ft²", @"yd²", @"mm²", @"m²"],
                         }
                     ];
         
@@ -143,12 +143,12 @@
                     @{
                         @"label":           @"Width",
                         @"unit":            @"yd",
-                        @"possibleUnits":   @[@"in", @"yd", @"ft"],
+                        @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                         },
                     @{
                         @"label":           @"Result",
                         @"unit":            @"yd²",
-                        @"possibleUnits":   @[@"in²", @"ft²", @"yd²", @"cm²", @"m²"],
+                        @"possibleUnits":   @[@"in²", @"ft²", @"yd²", @"mm²", @"m²"],
                         }
                     ];
         

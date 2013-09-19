@@ -83,7 +83,7 @@
                 @{
                     @"label":           @"Result",
                     @"unit":            @"msi/lb",
-                    @"possibleUnits":   @[@"msi/lb", @"ft²/lb"],
+                    @"possibleUnits":   @[@"in²/lb", @"ft²/lb", @"msi/lb", @"m²/kg"],
                     }
                 ];
     

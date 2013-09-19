@@ -107,12 +107,12 @@
                 @{
                     @"label":           @"Label Width",
                     @"unit":            @"in",
-                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
+                    @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                     },
                 @{
                     @"label":           @"Label Length",
                     @"unit":            @"in",
-                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
+                    @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                     },
                 @{
                     @"label":           @"Quantity",
@@ -122,12 +122,12 @@
                 @{
                     @"label":           @"Roll Length",
                     @"unit":            @"in",
-                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
+                    @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                     },
                 @{
                     @"label":           @"Result",
                     @"unit":            @"yd",
-                    @"possibleUnits":   @[@"in", @"ft", @"yd"],
+                    @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                     }
                 ];
     
