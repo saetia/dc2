@@ -187,7 +187,16 @@
             RETableViewTextCell *used_cell = (RETableViewTextCell*) [self.tableView cellForRowAtIndexPath:item.indexPath];
             UIImageView *corner = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LikePhotoCorner"]];
             corner.tag = 103040;
-            corner.frame = CGRectMake(used_cell.frame.size.width - 21 - 20, 0, 21, 21);
+            
+            
+            
+            double padding = 0;
+            
+            if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+                padding = 20;
+            }
+            corner.frame = CGRectMake(used_cell.frame.size.width - 21 - padding, 0, 21, 21);
+            
             [used_cell.contentView addSubview:corner];
             
             
@@ -269,6 +278,9 @@
             
             _keyboardView = [[ZenKeyboard alloc] initWithFrame:CGRectMake(0, 0, 320, 216)];
             _keyboardView.textField = (UITextField *)view;
+            
+            ((UITextField *)currentView).clearButtonMode = UITextFieldViewModeAlways;
+            
             
         }
     }

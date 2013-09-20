@@ -1164,6 +1164,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Dunmore;
+				TargetAttributes = {
+					5D06C5E017A0787600673E02 = {
+						DevelopmentTeam = 5P57FQZ4FS;
+					};
+				};
 			};
 			buildConfigurationList = 5D06C5DC17A0787600673E02 /* Build configuration list for PBXProject "Conversions" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1555,6 +1560,8 @@
 		5D06C62017A0787700673E02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Byte Studios, Inc. (5P57FQZ4FS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Byte Studios, Inc. (5P57FQZ4FS)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Conversions/Conversions-Prefix.pch";
 				INFOPLIST_FILE = "Conversions/Conversions-Info.plist";
@@ -1566,6 +1573,7 @@
 		5D06C62117A0787700673E02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Byte Studios, Inc. (5P57FQZ4FS)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Conversions/Conversions-Prefix.pch";
 				INFOPLIST_FILE = "Conversions/Conversions-Info.plist";

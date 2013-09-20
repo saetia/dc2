@@ -114,6 +114,9 @@
         }
         [_mainSection addItem:[RETableViewItem itemWithTitle:title accessoryType:accessoryType selectionHandler:^(RETableViewItem *selectedItem) {
             UITableViewCell *cell = [weakSelf.tableView cellForRowAtIndexPath:selectedItem.indexPath];
+            
+            cell.textLabel.highlightedTextColor = [UIColor grayColor];
+            
             if (!weakSelf.multipleChoice) {
                 cell.accessoryType = UITableViewCellAccessoryCheckmark;
                 RERadioItem * __weak item = (RERadioItem *)weakSelf.item;

@@ -380,25 +380,18 @@
                 _textFields[indexPath.row] = (UITextField *)view;
                 
                 //currentView.clearButtonMode = UITextFieldViewModeAlways;
+               
+                //[currentView setNeedsDisplay];
                 
                 if (!indexPath.section && !indexPath.row) currentView.tag = 8;
                 
             } else {
                 
                 _resultField = (UITextField *)currentView;
+                
                 currentView.enabled = FALSE;
 
-                UILongPressGestureRecognizer *contextGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureDidFire:)];
-                
-                
-                [currentView.superview.superview addGestureRecognizer:contextGestureRecognizer];
-                
-                //do something to copy the number to clipboard here.
-                
             }
-            
-            
-            
         }
     }
     

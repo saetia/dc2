@@ -162,6 +162,26 @@
 
 - (void)viewDidLoad
 {
+
+    
+    
+
+    _petYields = @[
+           @{@"gauge":@1.00,	@"mic":@0.25,   @"in":@1980198.00,	 @"ft":@13751.40,     @"yd":@1527.90,    @"m":@2816.50},
+           @{@"gauge":@48.00,	@"mic":@12.19,	@"in":@41254.00,     @"ft":@286.50,       @"yd":@31.80,      @"m":@58.70},
+           @{@"gauge":@60.00,	@"mic":@15.24,	@"in":@33003.00,     @"ft":@229.20,       @"yd":@25.50,      @"m":@46.90},
+           @{@"gauge":@75.00,	@"mic":@19.05,	@"in":@26403.00,     @"ft":@183.40,       @"yd":@20.40,      @"m":@37.60},
+           @{@"gauge":@92.00,	@"mic":@23.37,	@"in":@21524.00,     @"ft":@149.50,       @"yd":@16.60,      @"m":@30.60},
+           @{@"gauge":@142.00,	@"mic":@36.07,	@"in":@13945.00,     @"ft":@96.80,        @"yd":@10.80,      @"m":@19.80},
+           @{@"gauge":@200.00,	@"mic":@50.80,	@"in":@9901.00,      @"ft":@68.80,        @"yd":@7.60,       @"m":@14.10},
+           @{@"gauge":@300.00,	@"mic":@76.20,	@"in":@6601.00,      @"ft":@45.80,        @"yd":@5.10,       @"m":@9.40},
+           @{@"gauge":@400.00,	@"mic":@101.60,	@"in":@4901.00,      @"ft":@34.40,        @"yd":@3.80,       @"m":@7.00},
+           @{@"gauge":@500.00,	@"mic":@127.00,	@"in":@3960.00,      @"ft":@27.50,        @"yd":@3.10,       @"m":@5.60},
+           @{@"gauge":@700.00,	@"mic":@177.80,	@"in":@2829.00,      @"ft":@19.60,        @"yd":@2.20,       @"m":@4.00},
+           ];
+    
+    
+    
     
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
         self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -179,7 +199,7 @@
                                                object:nil];
 
     
-    self.title = @"Yield / Standard Yield";
+    self.title = @"Length / Standard Yield";
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = [UIColor colorWithRed:0.93f green:0.93f blue:0.90f alpha:1.00f];
 
@@ -187,9 +207,9 @@
     
     _fields = @[
                 @{
-                    @"label":           @"Length",
-                    @"unit":            @"yd",
-                    @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
+                    @"label":           @"Weight",
+                    @"unit":            @"lb",
+                    @"possibleUnits":   @[@"oz", @"lb", @"g", @"kg"],
                     },
                 @{
                     @"label":           @"Width",
@@ -198,18 +218,13 @@
                     },
                 @{
                     @"label":           @"Thickness",
-                    @"unit":            @"mil",
-                    @"possibleUnits":   @[@"mil", @"mic", @"ga", @"in"],
-                    },
-                @{
-                    @"label":           @"PET Yield",
                     @"unit":            @"",
                     @"possibleUnits":   @[],
                     },
                 @{
                     @"label":           @"Result",
-                    @"unit":            @"in²/lb",
-                    @"possibleUnits":   @[@"in²/lb", @"ft²/lb", @"yd²/lb", @"mm²/kg", @"m²/kg"],
+                    @"unit":            @"yd",
+                    @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                     }
                 ];
     
@@ -258,38 +273,23 @@
 - (RETableViewSection *)addBasicControls {
     
     
-    NSArray *petYields = @[
-        @{@"gauge":@1.00,	@"mic":@0.25,   @"in":@1980198.00,	 @"ft":@13751.40,     @"yd":@1527.90,    @"m":@2816.50},
-        @{@"gauge":@48.00,	@"mic":@12.19,	@"in":@41254.00,     @"ft":@286.50,       @"yd":@31.80,      @"m":@58.70},
-        @{@"gauge":@60.00,	@"mic":@15.24,	@"in":@33003.00,     @"ft":@229.20,       @"yd":@25.50,      @"m":@46.90},
-        @{@"gauge":@75.00,	@"mic":@19.05,	@"in":@26403.00,     @"ft":@183.40,       @"yd":@20.40,      @"m":@37.60},
-        @{@"gauge":@92.00,	@"mic":@23.37,	@"in":@21524.00,     @"ft":@149.50,       @"yd":@16.60,      @"m":@30.60},
-        @{@"gauge":@142.00,	@"mic":@36.07,	@"in":@13945.00,     @"ft":@96.80,        @"yd":@10.80,      @"m":@19.80},
-        @{@"gauge":@200.00,	@"mic":@50.80,	@"in":@9901.00,      @"ft":@68.80,        @"yd":@7.60,       @"m":@14.10},
-        @{@"gauge":@300.00,	@"mic":@76.20,	@"in":@6601.00,      @"ft":@45.80,        @"yd":@5.10,       @"m":@9.40},
-        @{@"gauge":@400.00,	@"mic":@101.60,	@"in":@4901.00,      @"ft":@34.40,        @"yd":@3.80,       @"m":@7.00},
-        @{@"gauge":@500.00,	@"mic":@127.00,	@"in":@3960.00,      @"ft":@27.50,        @"yd":@3.10,       @"m":@5.60},
-        @{@"gauge":@700.00,	@"mic":@177.80,	@"in":@2829.00,      @"ft":@19.60,        @"yd":@2.20,       @"m":@4.00},
-    ];
-    
-    
     RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Roll Length"];
     [_manager addSection:section];
     for (NSDictionary *field in _fields){
         
         if ([field[@"label"] isEqualToString: @"Result"]) continue;
         
-        if ([field[@"label"] isEqualToString: @"PET Yield"]){
+        if ([field[@"label"] isEqualToString: @"Thickness"]){
             
             __typeof (&*self) __weak weakSelf = self;
             
-            RERadioItem *options = [RERadioItem itemWithTitle:@"PET Yield" value:@"1 Gauge" selectionHandler:^(RERadioItem *item) {
+            RERadioItem *options = [RERadioItem itemWithTitle:@"Thickness" value:@"1 Gauge" selectionHandler:^(RERadioItem *item) {
                 
             [item deselectRowAnimated:YES];
                 
             NSMutableArray *options = [[NSMutableArray alloc] init];
             
-            for (NSDictionary *petYield in petYields)
+            for (NSDictionary *petYield in _petYields)
                 [options addObject:[NSString stringWithFormat:@"%@ Gauge", petYield[@"gauge"]]];
             
      
@@ -365,29 +365,22 @@
     
     NSMutableArray *values = [[NSMutableArray alloc] init];
     NSMutableArray *numbers = [[NSMutableArray alloc] init];
+
+    
+    RETableViewSection *section = self.manager.sections[0];
+    RERadioItem *core_item = section.items[2];
+    double yield = [core_item.value doubleValue];
+
+    
     
     for (UITextField *field in _textFields){
-        
-        if ([field.text isEqualToString:@"PET Yield"]) {
-            
-            RETableViewOptionCell *celly;
-            
-            if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
-                celly = (RETableViewOptionCell *)field.superview.superview;
-            } else {
-                celly = (RETableViewOptionCell *)field.superview.superview.superview;
-            }
-            
-            field.text = celly.valueLabel.text;
-            
-        }
-        
         if (field.text.doubleValue < 0.0000000000001f) continue;
         filled_out_fields++;
         [values addObject: [NSNumber numberWithDouble:field.text.doubleValue]];
     }
 
     NSMutableArray *units = [[NSMutableArray alloc] init];
+    
     for (UITextField *field in _textFields){
         RETableViewCell *badge;
         
@@ -407,19 +400,34 @@
     }
     
     //make sure we have the full set of required fields
-    if (filled_out_fields < [_fields count] - 1) return;
+    if (filled_out_fields < [_fields count] - 2) return;
     
     
-    double weight = [numbers[0] doubleValue] * [numbers[1] doubleValue] * ([numbers[2] doubleValue] / 1000) * [numbers[3] doubleValue];
     
-    total = weight / [numbers[1] doubleValue] / [numbers[0] doubleValue] / [numbers[2] doubleValue];
-    
-    NSLog(@"%f * %f * (%f / 1000) * %f", [numbers[0] doubleValue], [numbers[1] doubleValue], [numbers[2] doubleValue], [numbers[3] doubleValue]);
 
-    NSLog(@"%f / %f / %f / %f", weight, [numbers[1] doubleValue], [numbers[0] doubleValue], [numbers[2] doubleValue]);
+    for (NSDictionary *petYield in _petYields){
+        if ([petYield[@"gauge"] isEqualToNumber:[NSNumber numberWithDouble:yield]]){
+            yield = [petYield[@"in"] doubleValue];
+        }
+    }
+    
+
+
     
     
+    
+    
+    
+    total = [numbers[0] doubleValue] * yield / [numbers[1] doubleValue] / 36;
+
+
+
+    
+    NSLog(@"%f * %f / %f / 36 = %f",[numbers[0] doubleValue], yield, [numbers[1] doubleValue], total);
+    
+
     RETableViewTextCell *textcell;
+    
     
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
         textcell = (RETableViewTextCell *)_resultField.superview.superview;
@@ -480,13 +488,7 @@
                 //do something to copy the number to clipboard here.
             }
             
-            if ([view isKindOfClass:[RETableViewOptionCell class]]){
-                NSLog(@"fuck me");
-                _textFields[indexPath.row] = (RETableViewOptionCell *)view;
-                
-            }
-            
-            
+
             
         }
     }

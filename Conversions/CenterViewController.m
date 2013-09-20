@@ -86,8 +86,8 @@
                 @"Roll Diameter",
                 @"Label Size to Roll",
                 @"Yield Using Specific Gravity",
-                @"Yield Using Standard Yield",
-                @"Yield Using Custom Yield",
+                @"Length From Standard Yield",
+                @"Length From Custom Yield",
                 @"Metallized Film Resistance",
                 @"Additional Calculators"];
     

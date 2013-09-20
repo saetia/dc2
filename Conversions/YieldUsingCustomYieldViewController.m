@@ -140,7 +140,7 @@
                                                object:nil];
     
     
-    self.title = @"Yield / Custom Yield";
+    self.title = @"Length / Custom Yield";
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = [UIColor colorWithRed:0.93f green:0.93f blue:0.90f alpha:1.00f];
     
@@ -148,19 +148,14 @@
     
     _fields = @[
                 @{
-                    @"label":           @"Length",
-                    @"unit":            @"yd",
-                    @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
+                    @"label":           @"Weight",
+                    @"unit":            @"lb",
+                    @"possibleUnits":   @[@"oz", @"lb", @"g", @"kg"],
                     },
                 @{
                     @"label":           @"Width",
-                    @"unit":            @"ft",
+                    @"unit":            @"in",
                     @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
-                    },
-                @{
-                    @"label":           @"Thickness",
-                    @"unit":            @"mil",
-                    @"possibleUnits":   @[@"mil", @"mic", @"ga", @"in"],
                     },
                 @{
                     @"label":           @"PET Yield",
@@ -169,8 +164,8 @@
                     },
                 @{
                     @"label":           @"Result",
-                    @"unit":            @"in²/lb",
-                    @"possibleUnits":   @[@"in²/lb", @"ft²/lb", @"yd²/lb", @"mm²/kg", @"m²/kg"],
+                    @"unit":            @"yd",
+                    @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                     }
                 ];
     
@@ -297,16 +292,9 @@
     //make sure we have the full set of required fields
     if (filled_out_fields < [_fields count] - 1) return;
     
-    
-    double weight = [numbers[0] doubleValue] * [numbers[1] doubleValue] * ([numbers[2] doubleValue] / 1000) * [numbers[3] doubleValue];
-    
-    total = weight / [numbers[1] doubleValue] / [numbers[0] doubleValue] / [numbers[2] doubleValue];
-    
-    NSLog(@"%f * %f * (%f / 1000) * %f", [numbers[0] doubleValue], [numbers[1] doubleValue], [numbers[2] doubleValue], [numbers[3] doubleValue]);
-    
-    NSLog(@"%f / %f / %f / %f", weight, [numbers[1] doubleValue], [numbers[0] doubleValue], [numbers[2] doubleValue]);
-    
-    
+
+    total = [numbers[0] doubleValue] * [numbers[2] doubleValue] / [numbers[1] doubleValue] / 36;
+
     RETableViewTextCell *textcell;
     
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
