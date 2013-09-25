@@ -25,7 +25,7 @@
 @property (strong, readwrite, nonatomic) RETableViewSection *basicControlsSection;
 @property (strong, readwrite, nonatomic) RETableViewSection *buttonSection;
 
-@property (strong, nonatomic) NSMutableArray *petYields;
+@property (strong, nonatomic) NSArray *petYields;
 
 
 @end
