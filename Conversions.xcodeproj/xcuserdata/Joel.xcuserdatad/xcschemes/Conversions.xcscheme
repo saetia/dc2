@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5D06C5E017A0787600673E02"
-               BuildableName = "Conversions.app"
-               BlueprintName = "Conversions"
+               BuildableName = "Roll-to-Roll.app"
+               BlueprintName = "Roll-to-Roll"
                ReferencedContainer = "container:Conversions.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5D06C5E017A0787600673E02"
-            BuildableName = "Conversions.app"
-            BlueprintName = "Conversions"
+            BuildableName = "Roll-to-Roll.app"
+            BlueprintName = "Roll-to-Roll"
             ReferencedContainer = "container:Conversions.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5D06C5E017A0787600673E02"
-            BuildableName = "Conversions.app"
-            BlueprintName = "Conversions"
+            BuildableName = "Roll-to-Roll.app"
+            BlueprintName = "Roll-to-Roll"
             ReferencedContainer = "container:Conversions.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -80,8 +80,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5D06C5E017A0787600673E02"
-            BuildableName = "Conversions.app"
-            BlueprintName = "Conversions"
+            BuildableName = "Roll-to-Roll.app"
+            BlueprintName = "Roll-to-Roll"
             ReferencedContainer = "container:Conversions.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

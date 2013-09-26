@@ -1120,9 +1120,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5D06C5E017A0787600673E02 /* Conversions */ = {
+		5D06C5E017A0787600673E02 /* Roll-to-Roll */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5D06C61F17A0787700673E02 /* Build configuration list for PBXNativeTarget "Conversions" */;
+			buildConfigurationList = 5D06C61F17A0787700673E02 /* Build configuration list for PBXNativeTarget "Roll-to-Roll" */;
 			buildPhases = (
 				5D06C5DD17A0787600673E02 /* Sources */,
 				5D06C5DE17A0787600673E02 /* Frameworks */,
@@ -1132,7 +1132,7 @@
 			);
 			dependencies = (
 			);
-			name = Conversions;
+			name = "Roll-to-Roll";
 			productName = Conversions;
 			productReference = 5D06C5E117A0787600673E02 /* Conversions.app */;
 			productType = "com.apple.product-type.application";
@@ -1183,7 +1183,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5D06C5E017A0787600673E02 /* Conversions */,
+				5D06C5E017A0787600673E02 /* Roll-to-Roll */,
 				5D06C60C17A0787700673E02 /* ConversionsTests */,
 			);
 		};
@@ -1449,7 +1449,7 @@
 /* Begin PBXTargetDependency section */
 		5D06C61317A0787700673E02 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5D06C5E017A0787600673E02 /* Conversions */;
+			target = 5D06C5E017A0787600673E02 /* Roll-to-Roll */;
 			targetProxy = 5D06C61217A0787700673E02 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1513,7 +1513,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1547,7 +1547,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -1634,7 +1634,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5D06C61F17A0787700673E02 /* Build configuration list for PBXNativeTarget "Conversions" */ = {
+		5D06C61F17A0787700673E02 /* Build configuration list for PBXNativeTarget "Roll-to-Roll" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5D06C62017A0787700673E02 /* Debug */,
