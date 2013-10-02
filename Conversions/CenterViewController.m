@@ -84,7 +84,7 @@
     
     _fields = @[@"Roll Length",
                 @"Roll Diameter",
-                @"Label Size to Roll",
+                @"Label Size to Roll Length",
                 @"Yield Using Specific Gravity",
                 @"Length From Standard Yield",
                 @"Length From Custom Yield",

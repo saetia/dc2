@@ -84,7 +84,7 @@
 
 
 
-
+//0.0000254 meters
 + (instancetype)mil {
     static NSString *name   = @"mil";
     static NSString *symbol = @"mil";
@@ -108,7 +108,7 @@
 + (instancetype)gauge {
     static NSString *name   = @"gauge";
     static NSString *symbol = @"ga";
-    id ratio = [NSDecimalNumber decimalNumberWithMantissa:254 exponent:-5 isNegative:NO];
+    id ratio = [NSDecimalNumber decimalNumberWithMantissa:254 exponent:-9 isNegative:NO];
     
     return [self createWithName:name
                      withSymbol:symbol

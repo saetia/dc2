@@ -234,7 +234,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5D06C5E117A0787600673E02 /* Conversions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Conversions.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D06C5E117A0787600673E02 /* Roll-to-Roll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Roll-to-Roll.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D06C5E417A0787600673E02 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5D06C5E617A0787600673E02 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5D06C5E817A0787600673E02 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -576,7 +576,7 @@
 		5D06C5E217A0787600673E02 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5D06C5E117A0787600673E02 /* Conversions.app */,
+				5D06C5E117A0787600673E02 /* Roll-to-Roll.app */,
 				5D06C60D17A0787700673E02 /* ConversionsTests.octest */,
 			);
 			name = Products;
@@ -1134,7 +1134,7 @@
 			);
 			name = "Roll-to-Roll";
 			productName = Conversions;
-			productReference = 5D06C5E117A0787600673E02 /* Conversions.app */;
+			productReference = 5D06C5E117A0787600673E02 /* Roll-to-Roll.app */;
 			productType = "com.apple.product-type.application";
 		};
 		5D06C60C17A0787700673E02 /* ConversionsTests */ = {
@@ -1564,13 +1564,14 @@
 		5D06C62017A0787700673E02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Byte Studios, Inc. (5P57FQZ4FS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Byte Studios, Inc. (5P57FQZ4FS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Conversions/Conversions-Prefix.pch";
 				INFOPLIST_FILE = "Conversions/Conversions-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1578,12 +1579,14 @@
 		5D06C62117A0787700673E02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Byte Studios, Inc. (5P57FQZ4FS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Conversions/Conversions-Prefix.pch";
 				INFOPLIST_FILE = "Conversions/Conversions-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

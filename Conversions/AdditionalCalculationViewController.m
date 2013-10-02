@@ -81,7 +81,7 @@
                     @{
                         @"label":           @"Result",
                         @"unit":            @"ft²",
-                        @"possibleUnits":   @[@"in²", @"ft²", @"yd²", @"mm²", @"m²"],
+                        @"possibleUnits":   @[@"in²", @"msi", @"ft²", @"yd²", @"mm²", @"m²"],
                         }
                     ];
         

@@ -106,27 +106,31 @@
                     },
                 @{
                     @"label":           @"Square Meters",
-                    @"base":            @1000000000,
+                    @"base":            @10000,
                     },
                 @{
                     @"label":           @"Square Kilometers",
-                    @"base":            @1000000000,
+                    @"base":            @10000000000,
                     },
                 @{
                     @"label":           @"Square Inches",
-                    @"base":            @1000,
+                    @"base":            @6.4516,
+                    },
+                @{
+                    @"label":           @"MSI",
+                    @"base":            @6451.6,
                     },
                 @{
                     @"label":           @"Square Feet",
-                    @"base":            @1000000,
+                    @"base":            @929.0304,
                     },
                 @{
                     @"label":           @"Square Yards",
-                    @"base":            @1000000,
+                    @"base":            @8361.2736,
                     },
                 @{
                     @"label":           @"Square Miles",
-                    @"base":            @1000000,
+                    @"base":            @25899881103.36,
                     },
                 ];
     

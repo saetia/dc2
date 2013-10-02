@@ -412,13 +412,8 @@
     }
     
 
-
     
-    
-    
-    
-    
-    total = [numbers[0] doubleValue] * yield / [numbers[1] doubleValue] / 36;
+    total = [numbers[0] doubleValue] * yield / ([numbers[1] doubleValue] * 12) / 36;
 
 
 

@@ -79,9 +79,9 @@
     
     _fields = @[
                 @"Length & Width ➝ Area",
-                @"Length & Width ➝ MSI",
+                //@"Length & Width ➝ MSI",
                 @"Area & Width ➝ Length",
-                @"MSI & Width ➝ Area",
+                //@"MSI & Width ➝ Area",
                 @"oz/yd² ➝ g/m²",
                 @"g/m² ➝ oz/yd²",
                 ];

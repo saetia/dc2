@@ -158,7 +158,7 @@
                     @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                     },
                 @{
-                    @"label":           @"PET Yield",
+                    @"label":           @"Film Yield",
                     @"unit":            @"in²/lb",
                     @"possibleUnits":   @[@"in²/lb", @"ft²/lb", @"yd²/lb", @"mm²/kg", @"m²/kg"],
                     },

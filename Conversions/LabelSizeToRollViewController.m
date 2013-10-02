@@ -98,7 +98,7 @@
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
     
-    self.title = @"Label Size to Roll";
+    self.title = @"Label Size to Roll Length";
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = [UIColor colorWithRed:0.93f green:0.93f blue:0.90f alpha:1.00f];
     [super viewDidLoad];
@@ -110,7 +110,7 @@
                     @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                     },
                 @{
-                    @"label":           @"Label Length",
+                    @"label":           @"Label Height",
                     @"unit":            @"in",
                     @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                     },
@@ -120,7 +120,7 @@
                     @"possibleUnits":   @[],
                     },
                 @{
-                    @"label":           @"Roll Length",
+                    @"label":           @"Roll Width",
                     @"unit":            @"in",
                     @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                     },
