@@ -167,17 +167,17 @@
     
 
     _petYields = @[
-           @{@"gauge":@1.00,	@"mic":@0.25,   @"in":@1980198.00,	 @"ft":@13751.40,     @"yd":@1527.90,    @"m":@2816.50},
-           @{@"gauge":@48.00,	@"mic":@12.19,	@"in":@41254.00,     @"ft":@286.50,       @"yd":@31.80,      @"m":@58.70},
-           @{@"gauge":@60.00,	@"mic":@15.24,	@"in":@33003.00,     @"ft":@229.20,       @"yd":@25.50,      @"m":@46.90},
-           @{@"gauge":@75.00,	@"mic":@19.05,	@"in":@26403.00,     @"ft":@183.40,       @"yd":@20.40,      @"m":@37.60},
-           @{@"gauge":@92.00,	@"mic":@23.37,	@"in":@21524.00,     @"ft":@149.50,       @"yd":@16.60,      @"m":@30.60},
-           @{@"gauge":@142.00,	@"mic":@36.07,	@"in":@13945.00,     @"ft":@96.80,        @"yd":@10.80,      @"m":@19.80},
-           @{@"gauge":@200.00,	@"mic":@50.80,	@"in":@9901.00,      @"ft":@68.80,        @"yd":@7.60,       @"m":@14.10},
-           @{@"gauge":@300.00,	@"mic":@76.20,	@"in":@6601.00,      @"ft":@45.80,        @"yd":@5.10,       @"m":@9.40},
-           @{@"gauge":@400.00,	@"mic":@101.60,	@"in":@4901.00,      @"ft":@34.40,        @"yd":@3.80,       @"m":@7.00},
-           @{@"gauge":@500.00,	@"mic":@127.00,	@"in":@3960.00,      @"ft":@27.50,        @"yd":@3.10,       @"m":@5.60},
-           @{@"gauge":@700.00,	@"mic":@177.80,	@"in":@2829.00,      @"ft":@19.60,        @"yd":@2.20,       @"m":@4.00},
+           @{@"display":@"1 ga\t\t\t.25 mic", @"gauge":@1.00,	@"mic":@0.25,   @"in":@1980198.00,	 @"ft":@13751.40,     @"yd":@1527.90,    @"m":@2816.50},
+           @{@"display":@"48 ga\t\t\t12.19 mic", @"gauge":@48.00,	@"mic":@12.19,	@"in":@41254.00,     @"ft":@286.50,       @"yd":@31.80,      @"m":@58.70},
+           @{@"display":@"60 ga\t\t\t15.24 mic", @"gauge":@60.00,	@"mic":@15.24,	@"in":@33003.00,     @"ft":@229.20,       @"yd":@25.50,      @"m":@46.90},
+           @{@"display":@"75 ga\t\t\t19.05 mic", @"gauge":@75.00,	@"mic":@19.05,	@"in":@26403.00,     @"ft":@183.40,       @"yd":@20.40,      @"m":@37.60},
+           @{@"display":@"92 ga\t\t\t23.37 mic", @"gauge":@92.00,	@"mic":@23.37,	@"in":@21524.00,     @"ft":@149.50,       @"yd":@16.60,      @"m":@30.60},
+           @{@"display":@"142 ga\t\t36.07 mic", @"gauge":@142.00,	@"mic":@36.07,	@"in":@13945.00,     @"ft":@96.80,        @"yd":@10.80,      @"m":@19.80},
+           @{@"display":@"200 ga\t\t50.80 mic", @"gauge":@200.00,	@"mic":@50.80,	@"in":@9901.00,      @"ft":@68.80,        @"yd":@7.60,       @"m":@14.10},
+           @{@"display":@"300 ga\t\t76.20 mic", @"gauge":@300.00,	@"mic":@76.20,	@"in":@6601.00,      @"ft":@45.80,        @"yd":@5.10,       @"m":@9.40},
+           @{@"display":@"400 ga\t\t101.60 mic", @"gauge":@400.00,	@"mic":@101.60,	@"in":@4901.00,      @"ft":@34.40,        @"yd":@3.80,       @"m":@7.00},
+           @{@"display":@"500 ga\t\t127 mic", @"gauge":@500.00,	@"mic":@127.00,	@"in":@3960.00,      @"ft":@27.50,        @"yd":@3.10,       @"m":@5.60},
+           @{@"display":@"700 ga\t\t177.80 mic", @"gauge":@700.00,	@"mic":@177.80,	@"in":@2829.00,      @"ft":@19.60,        @"yd":@2.20,       @"m":@4.00},
            ];
     
     
@@ -289,9 +289,10 @@
                 
             NSMutableArray *options = [[NSMutableArray alloc] init];
             
-            for (NSDictionary *petYield in _petYields)
-                [options addObject:[NSString stringWithFormat:@"%@ Gauge", petYield[@"gauge"]]];
-            
+                for (NSDictionary *petYield in _petYields){
+                    [options addObject:[NSString stringWithFormat:@"%@", petYield[@"display"]]];
+                }
+                
      
             RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options multipleChoice:NO completionHandler:^{
                 [weakSelf.navigationController popViewControllerAnimated:YES];
@@ -320,7 +321,7 @@
             
         }
             
-        RETableViewItem *item = [RETextItem itemWithTitle:field[@"label"] value:nil placeholder:@"0.00"];
+        RETableViewItem *item = [RETextItem itemWithTitle:field[@"label"] value:nil placeholder:@"0"];
         [section addItem: item];
         
     }
@@ -345,7 +346,7 @@
 - (RETableViewSection *)addButton {
     RETableViewSection *section = [RETableViewSection section];
     [_manager addSection:section];
-    RETableViewItem *item = [RETextItem itemWithTitle:@"Result" value:nil placeholder:@"0.00"];
+    RETableViewItem *item = [RETextItem itemWithTitle:@"Result" value:nil placeholder:@"0"];
     [section addItem: item];
     return section;
 }
@@ -365,13 +366,15 @@
     
     NSMutableArray *values = [[NSMutableArray alloc] init];
     NSMutableArray *numbers = [[NSMutableArray alloc] init];
-
     
     RETableViewSection *section = self.manager.sections[0];
     RERadioItem *core_item = section.items[2];
-    double yield = [core_item.value doubleValue];
-
     
+    double yield = [core_item.value doubleValue];
+    
+    RETableViewOptionCell *cell = (RETableViewOptionCell*) [self.manager.tableView cellForRowAtIndexPath:core_item.indexPath];
+    
+    cell.valueLabel.text = [NSString stringWithFormat:@"%.0f Gauge", yield];
     
     for (UITextField *field in _textFields){
         if (field.text.doubleValue < 0.0000000000001f) continue;
@@ -415,10 +418,7 @@
     
     total = [numbers[0] doubleValue] * yield / ([numbers[1] doubleValue] * 12) / 36;
 
-
-
-    
-    NSLog(@"%f * %f / %f / 36 = %f",[numbers[0] doubleValue], yield, [numbers[1] doubleValue], total);
+    //NSLog(@"%f * %f / (%f * 12) / 36 = %f",[numbers[0] doubleValue], yield, ([numbers[1] doubleValue] * 12), total);
     
 
     RETableViewTextCell *textcell;
@@ -498,7 +498,7 @@
     //NSLog(@"row unit: %@",_fields[row][@"unit"]);
 
     
-    if ([cell.textLabel.text rangeOfString:@"Gauge"].location != NSNotFound) {
+    if ([cell.textLabel.text rangeOfString:@"ga"].location != NSNotFound) {
         return;
     }
     

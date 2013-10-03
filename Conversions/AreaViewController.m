@@ -101,19 +101,19 @@
     
     _fields = @[
                 @{
-                    @"label":           @"Square Centimeters",
+                    @"label":           @"cm²",
                     @"base":            @1,
                     },
                 @{
-                    @"label":           @"Square Meters",
+                    @"label":           @"m²",
                     @"base":            @10000,
                     },
                 @{
-                    @"label":           @"Square Kilometers",
+                    @"label":           @"km²",
                     @"base":            @10000000000,
                     },
                 @{
-                    @"label":           @"Square Inches",
+                    @"label":           @"in²",
                     @"base":            @6.4516,
                     },
                 @{
@@ -121,15 +121,15 @@
                     @"base":            @6451.6,
                     },
                 @{
-                    @"label":           @"Square Feet",
+                    @"label":           @"ft²",
                     @"base":            @929.0304,
                     },
                 @{
-                    @"label":           @"Square Yards",
+                    @"label":           @"yd²",
                     @"base":            @8361.2736,
                     },
                 @{
-                    @"label":           @"Square Miles",
+                    @"label":           @"mi²",
                     @"base":            @25899881103.36,
                     },
                 ];
