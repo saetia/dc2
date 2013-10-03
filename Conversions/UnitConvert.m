@@ -15,6 +15,7 @@
     
     id object;
     
+    //length
     if ([unit isEqualToString:@"in"]) object = [MKLengthUnit inch];
     if ([unit isEqualToString:@"ft"]) object = [MKLengthUnit foot];
     if ([unit isEqualToString:@"yd"]) object = [MKLengthUnit yard];
@@ -24,6 +25,12 @@
     if ([unit isEqualToString:@"m"]) object = [MKLengthUnit meter];
     if ([unit isEqualToString:@"km"]) object = [MKLengthUnit kilometer];
     
+    //thickness
+    if ([unit isEqualToString:@"mil"]) object = [MKLengthUnit mil];
+    if ([unit isEqualToString:@"mic"]) object = [MKLengthUnit micron];
+    if ([unit isEqualToString:@"ga"]) object = [MKLengthUnit gauge];
+    
+    //areas
     if ([unit isEqualToString:@"in²"]) object = [MKAreaUnit square_inch];
     if ([unit isEqualToString:@"ft²"]) object = [MKAreaUnit square_foot];
     if ([unit isEqualToString:@"yd²"]) object = [MKAreaUnit square_yard];
@@ -32,12 +39,19 @@
     if ([unit isEqualToString:@"cm²"]) object = [MKAreaUnit square_centimeter];
     if ([unit isEqualToString:@"m²"]) object = [MKAreaUnit square_meter];
     if ([unit isEqualToString:@"km²"]) object = [MKAreaUnit square_kilometer];
-
     if ([unit isEqualToString:@"msi"]) object = [MKAreaUnit msi];
-    if ([unit isEqualToString:@"mil"]) object = [MKLengthUnit mil];
-    if ([unit isEqualToString:@"mic"]) object = [MKLengthUnit micron];
-    if ([unit isEqualToString:@"ga"]) object = [MKLengthUnit gauge];
 
+    //yields
+    if ([unit isEqualToString:@"in²/lb"]) object = [MKAreaUnit square_inch];
+    if ([unit isEqualToString:@"ft²/lb"]) object = [MKAreaUnit square_foot];
+    if ([unit isEqualToString:@"yd²/lb"]) object = [MKAreaUnit square_yard];
+    if ([unit isEqualToString:@"mi²/lb"]) object = [MKAreaUnit square_mile];
+    if ([unit isEqualToString:@"mm²/kg"]) object = [MKAreaUnit square_millimeter];
+    if ([unit isEqualToString:@"cm²/kg"]) object = [MKAreaUnit square_centimeter];
+    if ([unit isEqualToString:@"m²/kg"]) object = [MKAreaUnit square_meter];
+    if ([unit isEqualToString:@"km²/kg"]) object = [MKAreaUnit square_kilometer];
+    if ([unit isEqualToString:@"msi/lb"]) object = [MKAreaUnit msi];
+    
     return (object) ?: FALSE;
     
 }

@@ -154,7 +154,7 @@
                     },
                 @{
                     @"label":           @"Width",
-                    @"unit":            @"in",
+                    @"unit":            @"ft",
                     @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                     },
                 @{
@@ -281,9 +281,9 @@
         }
         [units addObject:badge.badge.badgeString];
     }
-    
-    
+
     int i = 0;
+    
     for (NSNumber *value in values) {
         NSLog(@"converting %@ %@ to %@",value, _fields[i][@"unit"], units[i]);
         [numbers addObject: (NSNumber *)[UnitConvert convert:value from: units[i] to: _fields[i][@"unit"]]]; i++;
@@ -292,8 +292,8 @@
     //make sure we have the full set of required fields
     if (filled_out_fields < [_fields count] - 1) return;
     
-
-    total = [numbers[0] doubleValue] * [numbers[2] doubleValue] / [numbers[1] doubleValue] / 36;
+    total = [numbers[0] doubleValue] * [numbers[2] doubleValue] / ([numbers[1] doubleValue] * 12) / 36;
+    
 
     RETableViewTextCell *textcell;
     
