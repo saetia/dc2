@@ -45,8 +45,10 @@
     CGFloat scale = [[UIScreen mainScreen] scale];
 	CGFloat fontsize = self.fontSize;
 	CGSize numberSize = [self.badgeString sizeWithFont:[UIFont boldSystemFontOfSize:fontsize]];
-	CGFloat radius = (__radius)?__radius:4.0;
+	CGFloat radius = (__radius)?__radius:0;
 	
+    //CGFloat radius = (__radius)?__radius:4.0;
+    
     // Set the badge background colours
 	UIColor *colour;
 	if((__parent.selectionStyle != UITableViewCellSelectionStyleNone) && (__parent.highlighted || __parent.selected))
@@ -81,10 +83,24 @@
 	else
 		CGContextSetBlendMode(context, kCGBlendModeClear);
 	
+    
+    
+    /*
+    
     // Create a frame for the badge text
 	CGRect bounds = CGRectMake((rect.size.width / 2) - (numberSize.width / 2) ,
                                ((rect.size.height / 2) - (numberSize.height / 2)),
                                numberSize.width + 12 , numberSize.height);
+    
+    */
+    
+    
+    // Create a frame for the badge text
+	CGRect bounds = CGRectMake((rect.size.width / 2) - (numberSize.width / 2),
+                               ((rect.size.height / 2) - (numberSize.height / 2)),
+                               numberSize.width + 12, numberSize.height);
+    
+    
     
 	// Draw and clip the badge text from the badge shape
     [__badgeString drawInRect:bounds withFont:[UIFont boldSystemFontOfSize:fontsize] lineBreakMode:TDLineBreakModeClip];
@@ -171,7 +187,7 @@
 	self.badge.parent = self;
     
     self.badgeLeftOffset = 10.f;
-    self.badgeRightOffset = 12.f;
+    self.badgeRightOffset = 10.f;
     
     // by default, resize textLabel & detailTextLabel
     self.resizeableLabels = [NSMutableArray arrayWithCapacity:2];
@@ -214,10 +230,25 @@
 		
         // Calculate the size of the bage from the badge string
 		CGSize badgeSize = [self.badgeString sizeWithFont:[UIFont boldSystemFontOfSize: self.badge.fontSize]];
-		CGRect badgeframe = CGRectMake(self.contentView.frame.size.width - (badgeSize.width + 13 + self.badgeRightOffset),
-									   (CGFloat)round((self.contentView.frame.size.height - (badgeSize.height + (50/badgeSize.height))) / 2),
-									   badgeSize.width + 13, badgeSize.height + (50/badgeSize.height));
+		CGRect badgeframe = CGRectMake(self.contentView.frame.size.width - 60,
+									   0,
+									   60,
+                                       44);
 		
+        
+        /*
+         
+         // Calculate the size of the bage from the badge string
+         CGSize badgeSize = [self.badgeString sizeWithFont:[UIFont boldSystemFontOfSize: self.badge.fontSize]];
+         CGRect badgeframe = CGRectMake(self.contentView.frame.size.width - (badgeSize.width + 13 + self.badgeRightOffset),
+         (CGFloat)round((self.contentView.frame.size.height - (badgeSize.height + (50/badgeSize.height))) / 2),
+         badgeSize.width + 13, badgeSize.height + (50/badgeSize.height));
+         
+         */
+        
+        
+        
+        
         // Enable shadows if we want them
 		if(self.showShadow)
 			[self.badge setShowShadow:YES];
@@ -227,7 +258,7 @@
         // Set the badge string
 		[self.badge setFrame:badgeframe];
 		[self.badge setBadgeString:self.badgeString];
-		
+
         // Resize all labels
         for (UILabel *label in self.resizeableLabels)
         {
@@ -237,7 +268,7 @@
                 label.frame = CGRectMake(label.frame.origin.x, label.frame.origin.y, textLabelWidth, label.frame.size.height);
             }
         }
-		
+		self.textLabel.adjustsFontSizeToFitWidth = true;
 		//set badge highlighted colours or use defaults
 		if (self.badgeColorHighlighted)
 			self.badge.badgeColorHighlighted = self.badgeColorHighlighted;
@@ -276,6 +307,9 @@
 		[[[self detailTextLabel] layer] setShadowRadius:1];
 		[[[self detailTextLabel] layer] setShadowOpacity:0.8];
 	}
+    
+    
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

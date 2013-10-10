@@ -154,7 +154,7 @@
                     },
                 @{
                     @"label":           @"Width",
-                    @"unit":            @"ft",
+                    @"unit":            @"in",
                     @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                     },
                 @{
@@ -292,9 +292,15 @@
     //make sure we have the full set of required fields
     if (filled_out_fields < [_fields count] - 1) return;
     
-    total = [numbers[0] doubleValue] * [numbers[2] doubleValue] / ([numbers[1] doubleValue] * 12) / 36;
     
-
+    
+    total = [numbers[0] doubleValue] * pow([numbers[2] doubleValue],2) / [numbers[1] doubleValue] / 36;
+    
+    //total = [numbers[0] doubleValue] * [numbers[2] doubleValue] / ([numbers[1] doubleValue] * 12) / 36;
+    
+    
+    //total = [numbers[0] doubleValue] * yield / ([numbers[1] doubleValue] * 12) / 36;
+    
     RETableViewTextCell *textcell;
     
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {

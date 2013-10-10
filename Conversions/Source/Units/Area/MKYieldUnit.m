@@ -1,14 +1,11 @@
 //
-//  MKAreaUnit.m
+//  MKYieldUnit.m
 //  MKUnits
 //
-//  Created by Michal Konturek on 30/06/2013.
-//  Copyright (c) 2013 Michal Konturek. All rights reserved.
-//
 
-#import "MKAreaUnit.h"
+#import "MKYieldUnit.h"
 
-@implementation MKAreaUnit
+@implementation MKYieldUnit
 
 + (instancetype)square_millimeter {
     static NSString *name   = @"square millimeter";
@@ -89,7 +86,7 @@ Convert MSI to Square Meters - Square Meters = .64 X MSI
 + (instancetype)msi {
     static NSString *name   = @"msi";
     static NSString *symbol = @"msi";
-    id ratio = [NSDecimalNumber decimalNumberWithMantissa:64516 exponent:-5 isNegative:NO];
+    id ratio = [NSDecimalNumber decimalNumberWithMantissa:142233433 exponent:-8 isNegative:NO];
     
     return [self createWithName:name
                      withSymbol:symbol
@@ -101,38 +98,38 @@ Convert MSI to Square Meters - Square Meters = .64 X MSI
 
 @end
 
-@implementation MKQuantity (MKAreaUnit)
+@implementation MKQuantity (MKYieldUnit)
 
 + (instancetype)area_square_millimeterWithAmount:(NSNumber *)amount {
-    return [self createWithAmount:amount withUnit:[MKAreaUnit square_millimeter]];
+    return [self createWithAmount:amount withUnit:[MKYieldUnit square_millimeter]];
 }
 
 + (instancetype)area_square_centimeterWithAmount:(NSNumber *)amount {
-    return [self createWithAmount:amount withUnit:[MKAreaUnit square_centimeter]];
+    return [self createWithAmount:amount withUnit:[MKYieldUnit square_centimeter]];
 }
 
 + (instancetype)area_square_decimeterWithAmount:(NSNumber *)amount {
-    return [self createWithAmount:amount withUnit:[MKAreaUnit square_decimeter]];
+    return [self createWithAmount:amount withUnit:[MKYieldUnit square_decimeter]];
 }
 
 + (instancetype)area_square_meterWithAmount:(NSNumber *)amount {
-    return [self createWithAmount:amount withUnit:[MKAreaUnit square_meter]];
+    return [self createWithAmount:amount withUnit:[MKYieldUnit square_meter]];
 }
 
 + (instancetype)area_areWithAmount:(NSNumber *)amount {
-    return [self createWithAmount:amount withUnit:[MKAreaUnit are]];
+    return [self createWithAmount:amount withUnit:[MKYieldUnit are]];
 }
 
 + (instancetype)area_hectareWithAmount:(NSNumber *)amount {
-    return [self createWithAmount:amount withUnit:[MKAreaUnit hectare]];
+    return [self createWithAmount:amount withUnit:[MKYieldUnit hectare]];
 }
 
 + (instancetype)area_square_kilometerWithAmount:(NSNumber *)amount {
-    return [self createWithAmount:amount withUnit:[MKAreaUnit square_kilometer]];
+    return [self createWithAmount:amount withUnit:[MKYieldUnit square_kilometer]];
 }
 
 + (instancetype)area_msiWithAmount:(NSNumber *)amount {
-    return [self createWithAmount:amount withUnit:[MKAreaUnit msi]];
+    return [self createWithAmount:amount withUnit:[MKYieldUnit msi]];
 }
 
 @end

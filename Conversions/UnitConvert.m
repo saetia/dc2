@@ -42,15 +42,15 @@
     if ([unit isEqualToString:@"msi"]) object = [MKAreaUnit msi];
 
     //yields
-    if ([unit isEqualToString:@"in²/lb"]) object = [MKAreaUnit square_inch];
-    if ([unit isEqualToString:@"ft²/lb"]) object = [MKAreaUnit square_foot];
-    if ([unit isEqualToString:@"yd²/lb"]) object = [MKAreaUnit square_yard];
-    if ([unit isEqualToString:@"mi²/lb"]) object = [MKAreaUnit square_mile];
-    if ([unit isEqualToString:@"mm²/kg"]) object = [MKAreaUnit square_millimeter];
-    if ([unit isEqualToString:@"cm²/kg"]) object = [MKAreaUnit square_centimeter];
-    if ([unit isEqualToString:@"m²/kg"]) object = [MKAreaUnit square_meter];
-    if ([unit isEqualToString:@"km²/kg"]) object = [MKAreaUnit square_kilometer];
-    if ([unit isEqualToString:@"msi/lb"]) object = [MKAreaUnit msi];
+    if ([unit isEqualToString:@"in²/lb"]) object = [MKYieldUnit square_inch];
+    if ([unit isEqualToString:@"ft²/lb"]) object = [MKYieldUnit square_foot];
+    if ([unit isEqualToString:@"yd²/lb"]) object = [MKYieldUnit square_yard];
+    if ([unit isEqualToString:@"mi²/lb"]) object = [MKYieldUnit square_mile];
+    if ([unit isEqualToString:@"mm²/kg"]) object = [MKYieldUnit square_millimeter];
+    if ([unit isEqualToString:@"cm²/kg"]) object = [MKYieldUnit square_centimeter];
+    if ([unit isEqualToString:@"m²/kg"]) object = [MKYieldUnit square_meter];
+    if ([unit isEqualToString:@"km²/kg"]) object = [MKYieldUnit square_kilometer];
+    if ([unit isEqualToString:@"msi/lb"]) object = [MKYieldUnit msi];
     
     return (object) ?: FALSE;
     
@@ -76,7 +76,8 @@
     
     
     NSDictionary *units_to_colors = @{
-  
+                                      
+  @"lb": [UIColor colorWithRed:0.63f green:0.04f blue:0.15f alpha:1.00f],
   @"in": [UIColor colorWithRed:0.00f green:0.69f blue:0.53f alpha:1.00f],
   @"ft": [UIColor colorWithRed:1.00f green:0.32f blue:0.35f alpha:1.00f],
   @"yd": [UIColor colorWithRed:0.85f green:0.36f blue:0.69f alpha:1.00f],
@@ -101,6 +102,7 @@
   @"oz/yd²": [UIColor colorWithRed:1.00f green:0.44f blue:0.26f alpha:0.80f],
   @"in²/lb": [UIColor colorWithRed:0.97f green:0.34f blue:0.50f alpha:0.80f],
   @"ft²/lb": [UIColor colorWithRed:0.31f green:0.38f blue:0.55f alpha:0.80f],
+  @"m²/kg":  [UIColor colorWithRed:0.07f green:0.41f blue:0.56f alpha:1.00f],
   
   
   @"mil": [UIColor colorWithRed:0.25f green:0.77f blue:0.71f alpha:1.00f],

@@ -382,6 +382,8 @@
         cell.badgeLeftOffset    = 0;
         cell.badgeRightOffset   = 10;
         
+        //cell.badge.bounds = CGRectMake(cell.badge.frame.origin.x, 0, cell.badge.frame.size.width, 44);
+
         [cell.badge addTarget:self action:@selector(triggerMenu:) forControlEvents:UIControlEventTouchUpInside];
             
     }

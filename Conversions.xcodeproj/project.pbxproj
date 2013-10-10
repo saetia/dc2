@@ -95,6 +95,8 @@
 		5D516C5A17E3C9AE000A4D1E /* BackButtonTap.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D516C5617E3C9AE000A4D1E /* BackButtonTap.png */; };
 		5D516C5B17E3C9AE000A4D1E /* BackButtonTap@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D516C5717E3C9AE000A4D1E /* BackButtonTap@2x.png */; };
 		5D63846A17E06F6E00061D10 /* AdditionalCalculationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D63846917E06F6E00061D10 /* AdditionalCalculationViewController.m */; };
+		5D66A1CE1807161F0030425C /* MKAreaUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D66A1CB1807161F0030425C /* MKAreaUnit.m */; };
+		5D66A1CF1807161F0030425C /* MKAreaUnit+Imperial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D66A1CD1807161F0030425C /* MKAreaUnit+Imperial.m */; };
 		5D69C59017C4C7A2005E0FE4 /* DigitInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69C58F17C4C7A2005E0FE4 /* DigitInputCell.m */; };
 		5D69C59317C4C7E0005E0FE4 /* DigitInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69C59217C4C7E0005E0FE4 /* DigitInputItem.m */; };
 		5D7D09A617E79CAD001B993C /* MLPAutoCompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7D09A017E79CAD001B993C /* MLPAutoCompleteTextField.m */; };
@@ -203,8 +205,8 @@
 		5DCF088F17E19C8400ED5544 /* NSDecimalNumber+Negative.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF086C17E19C8400ED5544 /* NSDecimalNumber+Negative.m */; };
 		5DCF089017E19C8400ED5544 /* NSNumber+Fraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF086E17E19C8400ED5544 /* NSNumber+Fraction.m */; };
 		5DCF089117E19C8400ED5544 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 5DCF087117E19C8400ED5544 /* .gitkeep */; };
-		5DCF089217E19C8400ED5544 /* MKAreaUnit+Imperial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF087317E19C8400ED5544 /* MKAreaUnit+Imperial.m */; };
-		5DCF089317E19C8400ED5544 /* MKAreaUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF087517E19C8400ED5544 /* MKAreaUnit.m */; };
+		5DCF089217E19C8400ED5544 /* MKYieldUnit+Imperial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF087317E19C8400ED5544 /* MKYieldUnit+Imperial.m */; };
+		5DCF089317E19C8400ED5544 /* MKYieldUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF087517E19C8400ED5544 /* MKYieldUnit.m */; };
 		5DCF089417E19C8400ED5544 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 5DCF087717E19C8400ED5544 /* .gitkeep */; };
 		5DCF089517E19C8400ED5544 /* MKByteUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF087917E19C8400ED5544 /* MKByteUnit.m */; };
 		5DCF089617E19C8400ED5544 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 5DCF087B17E19C8400ED5544 /* .gitkeep */; };
@@ -216,6 +218,7 @@
 		5DCF089C17E19C8400ED5544 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 5DCF088717E19C8400ED5544 /* .gitkeep */; };
 		5DCF089D17E19C8400ED5544 /* MKTimeUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF088917E19C8400ED5544 /* MKTimeUnit.m */; };
 		5DD8A84717A1D5D400669C34 /* CalculationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8A84617A1D5D400669C34 /* CalculationViewController.m */; };
+		5DDF2F3217FF151F0027AA78 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDF2F3117FF151F0027AA78 /* AboutViewController.m */; };
 		5DE6C2F017B20B4A00CAC389 /* BSKeyboardControls.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE6C2EC17B20B4A00CAC389 /* BSKeyboardControls.m */; };
 		5DE6C2F117B20B4A00CAC389 /* BSKeyboardControls.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DE6C2ED17B20B4A00CAC389 /* BSKeyboardControls.strings */; };
 		5DEC2CCF17CCB60900C82DFF /* LabelSizeToRollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEC2CCE17CCB60900C82DFF /* LabelSizeToRollViewController.m */; };
@@ -347,6 +350,10 @@
 		5D516C5717E3C9AE000A4D1E /* BackButtonTap@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BackButtonTap@2x.png"; sourceTree = "<group>"; };
 		5D63846817E06F6E00061D10 /* AdditionalCalculationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdditionalCalculationViewController.h; sourceTree = "<group>"; };
 		5D63846917E06F6E00061D10 /* AdditionalCalculationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionalCalculationViewController.m; sourceTree = "<group>"; };
+		5D66A1CA1807161F0030425C /* MKAreaUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKAreaUnit.h; sourceTree = "<group>"; };
+		5D66A1CB1807161F0030425C /* MKAreaUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKAreaUnit.m; sourceTree = "<group>"; };
+		5D66A1CC1807161F0030425C /* MKAreaUnit+Imperial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAreaUnit+Imperial.h"; sourceTree = "<group>"; };
+		5D66A1CD1807161F0030425C /* MKAreaUnit+Imperial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAreaUnit+Imperial.m"; sourceTree = "<group>"; };
 		5D69C58E17C4C7A2005E0FE4 /* DigitInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DigitInputCell.h; sourceTree = "<group>"; };
 		5D69C58F17C4C7A2005E0FE4 /* DigitInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DigitInputCell.m; sourceTree = "<group>"; };
 		5D69C59117C4C7E0005E0FE4 /* DigitInputItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DigitInputItem.h; sourceTree = "<group>"; };
@@ -504,10 +511,10 @@
 		5DCF086D17E19C8400ED5544 /* NSNumber+Fraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Fraction.h"; sourceTree = "<group>"; };
 		5DCF086E17E19C8400ED5544 /* NSNumber+Fraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Fraction.m"; sourceTree = "<group>"; };
 		5DCF087117E19C8400ED5544 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		5DCF087217E19C8400ED5544 /* MKAreaUnit+Imperial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAreaUnit+Imperial.h"; sourceTree = "<group>"; };
-		5DCF087317E19C8400ED5544 /* MKAreaUnit+Imperial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAreaUnit+Imperial.m"; sourceTree = "<group>"; };
-		5DCF087417E19C8400ED5544 /* MKAreaUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKAreaUnit.h; sourceTree = "<group>"; };
-		5DCF087517E19C8400ED5544 /* MKAreaUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKAreaUnit.m; sourceTree = "<group>"; };
+		5DCF087217E19C8400ED5544 /* MKYieldUnit+Imperial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MKYieldUnit+Imperial.h"; path = "Area/MKYieldUnit+Imperial.h"; sourceTree = "<group>"; };
+		5DCF087317E19C8400ED5544 /* MKYieldUnit+Imperial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MKYieldUnit+Imperial.m"; path = "Area/MKYieldUnit+Imperial.m"; sourceTree = "<group>"; };
+		5DCF087417E19C8400ED5544 /* MKYieldUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MKYieldUnit.h; path = Area/MKYieldUnit.h; sourceTree = "<group>"; };
+		5DCF087517E19C8400ED5544 /* MKYieldUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MKYieldUnit.m; path = Area/MKYieldUnit.m; sourceTree = "<group>"; };
 		5DCF087717E19C8400ED5544 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		5DCF087817E19C8400ED5544 /* MKByteUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKByteUnit.h; sourceTree = "<group>"; };
 		5DCF087917E19C8400ED5544 /* MKByteUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKByteUnit.m; sourceTree = "<group>"; };
@@ -526,6 +533,8 @@
 		5DCF088917E19C8400ED5544 /* MKTimeUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTimeUnit.m; sourceTree = "<group>"; };
 		5DD8A84517A1D5D400669C34 /* CalculationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculationViewController.h; sourceTree = "<group>"; };
 		5DD8A84617A1D5D400669C34 /* CalculationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculationViewController.m; sourceTree = "<group>"; };
+		5DDF2F3017FF151F0027AA78 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		5DDF2F3117FF151F0027AA78 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		5DE6C2EB17B20B4A00CAC389 /* BSKeyboardControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSKeyboardControls.h; sourceTree = "<group>"; };
 		5DE6C2EC17B20B4A00CAC389 /* BSKeyboardControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSKeyboardControls.m; sourceTree = "<group>"; };
 		5DE6C2EE17B20B4A00CAC389 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/BSKeyboardControls.strings; sourceTree = "<group>"; };
@@ -607,6 +616,8 @@
 				5D34432617EA46DB00B72C01 /* Lib */,
 				5D06C63717A08CBF00673E02 /* CenterViewController.h */,
 				5D06C63817A08CC000673E02 /* CenterViewController.m */,
+				5DDF2F3017FF151F0027AA78 /* AboutViewController.h */,
+				5DDF2F3117FF151F0027AA78 /* AboutViewController.m */,
 				5D34432817EA478800B72C01 /* Garbage */,
 				5D06C5EB17A0787600673E02 /* Supporting Files */,
 			);
@@ -897,6 +908,17 @@
 			name = Icons;
 			sourceTree = "<group>";
 		};
+		5D66A1C9180714F50030425C /* Yield */ = {
+			isa = PBXGroup;
+			children = (
+				5DCF087217E19C8400ED5544 /* MKYieldUnit+Imperial.h */,
+				5DCF087317E19C8400ED5544 /* MKYieldUnit+Imperial.m */,
+				5DCF087417E19C8400ED5544 /* MKYieldUnit.h */,
+				5DCF087517E19C8400ED5544 /* MKYieldUnit.m */,
+			);
+			name = Yield;
+			sourceTree = "<group>";
+		};
 		5D7D099E17E79CAD001B993C /* MLPAutoCompleteTextField */ = {
 			isa = PBXGroup;
 			children = (
@@ -1042,6 +1064,7 @@
 			isa = PBXGroup;
 			children = (
 				5DBC514517E763A200366D6F /* Thickness */,
+				5D66A1C9180714F50030425C /* Yield */,
 				5DCF087017E19C8400ED5544 /* Area */,
 				5DCF087617E19C8400ED5544 /* Byte */,
 				5DCF087A17E19C8400ED5544 /* Length */,
@@ -1054,11 +1077,11 @@
 		5DCF087017E19C8400ED5544 /* Area */ = {
 			isa = PBXGroup;
 			children = (
+				5D66A1CA1807161F0030425C /* MKAreaUnit.h */,
+				5D66A1CB1807161F0030425C /* MKAreaUnit.m */,
+				5D66A1CC1807161F0030425C /* MKAreaUnit+Imperial.h */,
+				5D66A1CD1807161F0030425C /* MKAreaUnit+Imperial.m */,
 				5DCF087117E19C8400ED5544 /* .gitkeep */,
-				5DCF087217E19C8400ED5544 /* MKAreaUnit+Imperial.h */,
-				5DCF087317E19C8400ED5544 /* MKAreaUnit+Imperial.m */,
-				5DCF087417E19C8400ED5544 /* MKAreaUnit.h */,
-				5DCF087517E19C8400ED5544 /* MKAreaUnit.m */,
 			);
 			path = Area;
 			sourceTree = "<group>";
@@ -1361,7 +1384,7 @@
 				5D06C62F17A07EF700673E02 /* MMDrawerController.m in Sources */,
 				5D06C63017A07EF700673E02 /* MMDrawerVisualState.m in Sources */,
 				5D06C63117A07EF700673E02 /* UIViewController+MMDrawerController.m in Sources */,
-				5DCF089317E19C8400ED5544 /* MKAreaUnit.m in Sources */,
+				5DCF089317E19C8400ED5544 /* MKYieldUnit.m in Sources */,
 				5D06C63617A088F900673E02 /* DrawerViewController.m in Sources */,
 				5D7D09A617E79CAD001B993C /* MLPAutoCompleteTextField.m in Sources */,
 				5D06C63917A08CC000673E02 /* CenterViewController.m in Sources */,
@@ -1375,10 +1398,12 @@
 				5DCF089017E19C8400ED5544 /* NSNumber+Fraction.m in Sources */,
 				5DA6C5C217B4EE8900819C93 /* RollLengthViewController.m in Sources */,
 				5DCF088E17E19C8400ED5544 /* MKUnit.m in Sources */,
+				5D66A1CE1807161F0030425C /* MKAreaUnit.m in Sources */,
 				5DA6C5C517B6D42400819C93 /* CalculatorViewController.m in Sources */,
 				5DB5783617C4A7F30084EFEE /* RETableViewBoolCell.m in Sources */,
 				5DB5783717C4A7F30084EFEE /* RETableViewCreditCardCell.m in Sources */,
 				5DB5783817C4A7F30084EFEE /* RETableViewDateTimeCell.m in Sources */,
+				5D66A1CF1807161F0030425C /* MKAreaUnit+Imperial.m in Sources */,
 				5DB5783917C4A7F30084EFEE /* RETableViewFloatCell.m in Sources */,
 				5DB5783A17C4A7F30084EFEE /* RETableViewLongTextCell.m in Sources */,
 				5DB5783B17C4A7F30084EFEE /* RETableViewNumberCell.m in Sources */,
@@ -1395,6 +1420,7 @@
 				5DB5784317C4A7F30084EFEE /* REMultipleChoiceItem.m in Sources */,
 				5DB5784417C4A7F30084EFEE /* RENumberItem.m in Sources */,
 				5DB5784517C4A7F30084EFEE /* RERadioItem.m in Sources */,
+				5DDF2F3217FF151F0027AA78 /* AboutViewController.m in Sources */,
 				5DB5784617C4A7F30084EFEE /* RETextItem.m in Sources */,
 				5DB5784717C4A7F30084EFEE /* REActionBar.m in Sources */,
 				5DB5784817C4A7F30084EFEE /* REPlaceholderTextView.m in Sources */,
@@ -1411,7 +1437,7 @@
 				5D99EE7D17C57683000FBFF3 /* DemoViewController.m in Sources */,
 				5D9EFFCE17CCB22E0099B0D1 /* RollDiameterViewController.m in Sources */,
 				5DEC2CCF17CCB60900C82DFF /* LabelSizeToRollViewController.m in Sources */,
-				5DCF089217E19C8400ED5544 /* MKAreaUnit+Imperial.m in Sources */,
+				5DCF089217E19C8400ED5544 /* MKYieldUnit+Imperial.m in Sources */,
 				5DEC2CD217CCBA7D00C82DFF /* YieldUsingSpecificGravityViewController.m in Sources */,
 				5D1DB86C17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.m in Sources */,
 				5D1DB86F17CD1493007CB6B9 /* YieldUsingStandardYieldViewController.m in Sources */,
@@ -1513,7 +1539,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 8;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1547,7 +1573,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 8;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
