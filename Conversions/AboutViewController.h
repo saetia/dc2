@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface AboutViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *dunmoreLogo;

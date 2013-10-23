@@ -166,6 +166,12 @@
         
     }
     
+    
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:self.title];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    
 }
 
 

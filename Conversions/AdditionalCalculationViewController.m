@@ -70,17 +70,17 @@
         _fields = @[
                     @{
                         @"label":           @"Length",
-                        @"unit":            @"ft",
+                        @"unit":            @"yd",
                         @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                         },
                     @{
                         @"label":           @"Width",
-                        @"unit":            @"ft",
+                        @"unit":            @"in",
                         @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                         },
                     @{
                         @"label":           @"Result",
-                        @"unit":            @"ft²",
+                        @"unit":            @"msi",
                         @"possibleUnits":   @[@"in²", @"msi", @"ft²", @"yd²", @"mm²", @"m²"],
                         }
                     ];
@@ -98,12 +98,12 @@
                         },
                     @{
                         @"label":           @"Width",
-                        @"unit":            @"ft",
+                        @"unit":            @"in",
                         @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                         },
                     @{
                         @"label":           @"Result",
-                        @"unit":            @"ft",
+                        @"unit":            @"yd",
                         @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
                         }
                     ];
@@ -227,6 +227,10 @@
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UIMenuControllerDidHide:) name:UIMenuControllerDidHideMenuNotification object:nil];
+
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:self.title];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
     
 }
 
@@ -302,12 +306,16 @@
     
     if ([_calculation isEqualToString:@"Length & Width ➝ Area"]){
         //total = value1 * value2 / 4;
-        total = [numbers[0] doubleValue] * [numbers[1] doubleValue];
+        //ft, ft, ft^2
+        //NSLog(@"(%f * 3) * (%f / 12) * 0.144",[numbers[0] doubleValue], [numbers[1] doubleValue]);
+        total = (([numbers[0] doubleValue] * 3) * ([numbers[1] doubleValue] / 12)) * 0.144;
     }
 
     if ([_calculation isEqualToString:@"Area & Width ➝ Length"]){
         //total = ([numbers[0] doubleValue] * 4) / [numbers[1] doubleValue];
-        total = [numbers[0] doubleValue] / [numbers[1] doubleValue];
+        //total = [numbers[0] doubleValue] / [numbers[1] doubleValue];
+        //ft^2, ft, ft
+        total = ([numbers[0] doubleValue] / ([numbers[1] doubleValue] / 12)) / 3;
     }
     
     if ([_calculation isEqualToString:@"Length & Width ➝ MSI"]){
@@ -398,8 +406,13 @@
     
     int row = (indexPath.section == 0) ? indexPath.row : (_fields.count - 1);
     
-    cell.badgeString        = _fields[row][@"unit"];
-    cell.badgeColor         = [UnitConvert colorize: _fields[row][@"unit"]];
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *unit = [defaults objectForKey:[self.title stringByAppendingString: cell.textLabel.text]];
+    if (unit == nil) unit = _fields[row][@"unit"];
+    
+    cell.badgeString        = unit;
+    cell.badgeColor         = [UnitConvert colorize: unit];
     cell.badgeTextColor     = [UIColor colorWithRed:1.00f green:1.00f blue:1.00f alpha:1.00f];
     cell.badge.fontSize     = 16;
     cell.badgeLeftOffset    = 0;
@@ -420,7 +433,7 @@
 // Second level of response - actually trigger the menu
 -(void)initiateContextMenu:(id)sender {
     
-    NSLog(@"%@",_resultField.text);
+    //NSLog(@"%@",_resultField.text);
     
     [_resultField becomeFirstResponder]; // So the menu will be active.  We can't set the Text field to be first responder -- doesn't work if it is disabled
  
@@ -500,7 +513,11 @@
             [self calculateResult: view_self.textField];
             
             [[UIMenuController sharedMenuController] setMenuItems:nil];
- 
+            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:unit forKey:[self.title stringByAppendingString: view_self.textLabel.text]];
+            [defaults synchronize];
+            
         }];
         
         [units addObject:possibleUnit];

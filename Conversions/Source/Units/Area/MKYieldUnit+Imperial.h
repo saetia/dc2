@@ -17,10 +17,10 @@
 
 @interface MKQuantity (MKYieldUnit_Imperial)
 
-+ (instancetype)area_square_inchWithAmount:(NSNumber *)amount;
-+ (instancetype)area_square_footWithAmount:(NSNumber *)amount;
-+ (instancetype)area_square_yardWithAmount:(NSNumber *)amount;
-+ (instancetype)area_acreWithAmount:(NSNumber *)amount;
-+ (instancetype)area_square_mileWithAmount:(NSNumber *)amount;
++ (instancetype)yield_square_inchWithAmount:(NSNumber *)amount;
++ (instancetype)yield_square_footWithAmount:(NSNumber *)amount;
++ (instancetype)yield_square_yardWithAmount:(NSNumber *)amount;
++ (instancetype)yield_acreWithAmount:(NSNumber *)amount;
++ (instancetype)yield_square_mileWithAmount:(NSNumber *)amount;
 
 @end

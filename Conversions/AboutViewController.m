@@ -32,6 +32,11 @@
     _dunmoreLogo.userInteractionEnabled = YES;
     [_dunmoreLogo addGestureRecognizer:singleTap];
     
+    
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"About"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
 }
 
 - (void)didReceiveMemoryWarning

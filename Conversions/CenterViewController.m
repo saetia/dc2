@@ -91,6 +91,11 @@
                 @"Metallized Film Resistance",
                 @"Additional Calculators"];
     
+    
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Home"];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
 }
 
 

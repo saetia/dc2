@@ -11,7 +11,9 @@
 #import "MMDrawerVisualState.h"
 #import <QuartzCore/QuartzCore.h>
 
-
+/******* Set your tracking ID here *******/
+static NSString *const kTrackingId = @"UA-3721858-2";
+static NSString *const kAllowTracking = @"allowTracking";
 
 
 @implementation AppDelegate
@@ -19,7 +21,17 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
+    
+    NSDictionary *appDefaults = @{kAllowTracking: @(YES)};
+    [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
 
+    [GAI sharedInstance].optOut =
+    ![[NSUserDefaults standardUserDefaults] boolForKey:kAllowTracking];
+    [GAI sharedInstance].dispatchInterval = 120;
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+
+    self.tracker = [[GAI sharedInstance] trackerWithName:@"Roll-to-Roll"
+                                              trackingId:kTrackingId];
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
@@ -62,7 +74,7 @@
     }
     
     [self.window makeKeyAndVisible];
-
+    
     return YES;
 }
 							

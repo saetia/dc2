@@ -39,6 +39,11 @@
 		5D06C64717A1ADBF00673E02 /* MMSideDrawerSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D06C63E17A1A8A800673E02 /* MMSideDrawerSectionHeaderView.m */; };
 		5D06C64917A1ADBF00673E02 /* MMSideDrawerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D06C64017A1A8A800673E02 /* MMSideDrawerTableViewCell.m */; };
 		5D06C64B17A1ADBF00673E02 /* MMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D06C64217A1A8A900673E02 /* MMTableViewCell.m */; };
+		5D16A9251818472A00C12FAA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D16A9241818472A00C12FAA /* CoreData.framework */; };
+		5D16A9271818473600C12FAA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D16A9261818473600C12FAA /* SystemConfiguration.framework */; };
+		5D16A9291818474500C12FAA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D16A9281818474500C12FAA /* libz.dylib */; };
+		5D16A92B1818477500C12FAA /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D16A92A1818477500C12FAA /* libGoogleAnalyticsServices.a */; };
+		5D16A93418184A2B00C12FAA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5D16A93318184A2B00C12FAA /* Settings.bundle */; };
 		5D1DB86C17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DB86B17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.m */; };
 		5D1DB86F17CD1493007CB6B9 /* YieldUsingStandardYieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DB86E17CD1493007CB6B9 /* YieldUsingStandardYieldViewController.m */; };
 		5D1DB88117CE6D71007CB6B9 /* area-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DB87117CE6D71007CB6B9 /* area-active.png */; };
@@ -57,7 +62,6 @@
 		5D1DB88E17CE6D72007CB6B9 /* weight-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DB87E17CE6D71007CB6B9 /* weight-active@2x.png */; };
 		5D1DB88F17CE6D72007CB6B9 /* weight-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DB87F17CE6D71007CB6B9 /* weight-normal.png */; };
 		5D1DB89017CE6D72007CB6B9 /* weight-normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D1DB88017CE6D71007CB6B9 /* weight-normal@2x.png */; };
-		5D1DB89317CE8156007CB6B9 /* CViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DB89217CE8154007CB6B9 /* CViewController.m */; };
 		5D1DB89617CE8A87007CB6B9 /* AreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DB89517CE8A86007CB6B9 /* AreaViewController.m */; };
 		5D1DB89917CE8AA3007CB6B9 /* ThicknessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DB89817CE8AA2007CB6B9 /* ThicknessViewController.m */; };
 		5D1DB89C17CE8AB3007CB6B9 /* WeightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DB89B17CE8AB1007CB6B9 /* WeightViewController.m */; };
@@ -70,8 +74,6 @@
 		5D34431617EA2BBA00B72C01 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D34430117EA2BBA00B72C01 /* Icon-Small@2x.png */; };
 		5D34431717EA2BBA00B72C01 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D34430217EA2BBA00B72C01 /* Icon.png */; };
 		5D34431817EA2BBA00B72C01 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D34430317EA2BBA00B72C01 /* Icon@2x.png */; };
-		5D34431917EA2BBA00B72C01 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D34430417EA2BBA00B72C01 /* iTunesArtwork.png */; };
-		5D34431A17EA2BBA00B72C01 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D34430517EA2BBA00B72C01 /* iTunesArtwork@2x.png */; };
 		5D34431B17EA2BBA00B72C01 /* AppIcon29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D34430717EA2BBA00B72C01 /* AppIcon29x29.png */; };
 		5D34431C17EA2BBA00B72C01 /* AppIcon29x29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D34430817EA2BBA00B72C01 /* AppIcon29x29@2x.png */; };
 		5D34431D17EA2BBA00B72C01 /* AppIcon40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D34430917EA2BBA00B72C01 /* AppIcon40x40.png */; };
@@ -99,8 +101,6 @@
 		5D66A1CF1807161F0030425C /* MKAreaUnit+Imperial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D66A1CD1807161F0030425C /* MKAreaUnit+Imperial.m */; };
 		5D69C59017C4C7A2005E0FE4 /* DigitInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69C58F17C4C7A2005E0FE4 /* DigitInputCell.m */; };
 		5D69C59317C4C7E0005E0FE4 /* DigitInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69C59217C4C7E0005E0FE4 /* DigitInputItem.m */; };
-		5D7D09A617E79CAD001B993C /* MLPAutoCompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7D09A017E79CAD001B993C /* MLPAutoCompleteTextField.m */; };
-		5D7D09A717E79CAD001B993C /* NSString+Levenshtein.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7D09A517E79CAD001B993C /* NSString+Levenshtein.m */; };
 		5D7ED68917D04DDB00E389A2 /* AdditionalCalculatorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7ED68817D04DDB00E389A2 /* AdditionalCalculatorsViewController.m */; };
 		5D83192C17A877EE0069F64E /* UnitsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D83192B17A877EE0069F64E /* UnitsButton.m */; };
 		5D99EE4117C53A18000FBFF3 /* SettingsFormBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D99EE1D17C53A18000FBFF3 /* SettingsFormBottom.png */; };
@@ -150,7 +150,6 @@
 		5D99EE7617C55651000FBFF3 /* KeyboardTopShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D99EE6F17C55651000FBFF3 /* KeyboardTopShadow@2x.png */; };
 		5D99EE7817C55681000FBFF3 /* KeyboardNumericEntryKeyBackspaceGlyphTextured@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D99EE7717C55681000FBFF3 /* KeyboardNumericEntryKeyBackspaceGlyphTextured@2x.png */; };
 		5D99EE7A17C573FC000FBFF3 /* dunmore-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D99EE7917C573FC000FBFF3 /* dunmore-logo.png */; };
-		5D99EE7D17C57683000FBFF3 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D99EE7C17C57680000FBFF3 /* DemoViewController.m */; };
 		5D9EFFCE17CCB22E0099B0D1 /* RollDiameterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9EFFCD17CCB22E0099B0D1 /* RollDiameterViewController.m */; };
 		5DA6C5C217B4EE8900819C93 /* RollLengthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA6C5C117B4EE8900819C93 /* RollLengthViewController.m */; };
 		5DA6C5C517B6D42400819C93 /* CalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA6C5C417B6D42400819C93 /* CalculatorViewController.m */; };
@@ -195,7 +194,6 @@
 		5DB5786717C4BD100084EFEE /* Middle_Selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DB5785F17C4BD100084EFEE /* Middle_Selected@2x.png */; };
 		5DBC514317E758F500366D6F /* LikePhotoCorner.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBC514117E758F500366D6F /* LikePhotoCorner.png */; };
 		5DBC514417E758F500366D6F /* LikePhotoCorner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DBC514217E758F500366D6F /* LikePhotoCorner@2x.png */; };
-		5DBC514917E763A200366D6F /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 5DBC514617E763A200366D6F /* .gitkeep */; };
 		5DBC514A17E763A200366D6F /* MKThicknessUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBC514817E763A200366D6F /* MKThicknessUnit.m */; };
 		5DCF088A17E19C8400ED5544 /* MKQuantity+Precision.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF085F17E19C8400ED5544 /* MKQuantity+Precision.m */; };
 		5DCF088B17E19C8400ED5544 /* MKQuantity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF086117E19C8400ED5544 /* MKQuantity.m */; };
@@ -204,26 +202,18 @@
 		5DCF088E17E19C8400ED5544 /* MKUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF086717E19C8400ED5544 /* MKUnit.m */; };
 		5DCF088F17E19C8400ED5544 /* NSDecimalNumber+Negative.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF086C17E19C8400ED5544 /* NSDecimalNumber+Negative.m */; };
 		5DCF089017E19C8400ED5544 /* NSNumber+Fraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF086E17E19C8400ED5544 /* NSNumber+Fraction.m */; };
-		5DCF089117E19C8400ED5544 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 5DCF087117E19C8400ED5544 /* .gitkeep */; };
 		5DCF089217E19C8400ED5544 /* MKYieldUnit+Imperial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF087317E19C8400ED5544 /* MKYieldUnit+Imperial.m */; };
 		5DCF089317E19C8400ED5544 /* MKYieldUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF087517E19C8400ED5544 /* MKYieldUnit.m */; };
-		5DCF089417E19C8400ED5544 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 5DCF087717E19C8400ED5544 /* .gitkeep */; };
 		5DCF089517E19C8400ED5544 /* MKByteUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF087917E19C8400ED5544 /* MKByteUnit.m */; };
-		5DCF089617E19C8400ED5544 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 5DCF087B17E19C8400ED5544 /* .gitkeep */; };
 		5DCF089717E19C8400ED5544 /* MKLengthUnit+Imperial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF087D17E19C8400ED5544 /* MKLengthUnit+Imperial.m */; };
 		5DCF089817E19C8400ED5544 /* MKLengthUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF087F17E19C8400ED5544 /* MKLengthUnit.m */; };
-		5DCF089917E19C8400ED5544 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 5DCF088117E19C8400ED5544 /* .gitkeep */; };
 		5DCF089A17E19C8400ED5544 /* MKMassUnit+Imperial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF088317E19C8400ED5544 /* MKMassUnit+Imperial.m */; };
 		5DCF089B17E19C8400ED5544 /* MKMassUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF088517E19C8400ED5544 /* MKMassUnit.m */; };
-		5DCF089C17E19C8400ED5544 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 5DCF088717E19C8400ED5544 /* .gitkeep */; };
 		5DCF089D17E19C8400ED5544 /* MKTimeUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF088917E19C8400ED5544 /* MKTimeUnit.m */; };
 		5DD8A84717A1D5D400669C34 /* CalculationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8A84617A1D5D400669C34 /* CalculationViewController.m */; };
 		5DDF2F3217FF151F0027AA78 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDF2F3117FF151F0027AA78 /* AboutViewController.m */; };
-		5DE6C2F017B20B4A00CAC389 /* BSKeyboardControls.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE6C2EC17B20B4A00CAC389 /* BSKeyboardControls.m */; };
-		5DE6C2F117B20B4A00CAC389 /* BSKeyboardControls.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5DE6C2ED17B20B4A00CAC389 /* BSKeyboardControls.strings */; };
 		5DEC2CCF17CCB60900C82DFF /* LabelSizeToRollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEC2CCE17CCB60900C82DFF /* LabelSizeToRollViewController.m */; };
 		5DEC2CD217CCBA7D00C82DFF /* YieldUsingSpecificGravityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEC2CD117CCBA7C00C82DFF /* YieldUsingSpecificGravityViewController.m */; };
-		5DEC2CD417CCC49B00C82DFF /* icons.psd in Resources */ = {isa = PBXBuildFile; fileRef = 5DEC2CD317CCC49B00C82DFF /* icons.psd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -282,6 +272,17 @@
 		5D06C64017A1A8A800673E02 /* MMSideDrawerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSideDrawerTableViewCell.m; sourceTree = "<group>"; };
 		5D06C64117A1A8A900673E02 /* MMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMTableViewCell.h; sourceTree = "<group>"; };
 		5D06C64217A1A8A900673E02 /* MMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMTableViewCell.m; sourceTree = "<group>"; };
+		5D16A9241818472A00C12FAA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5D16A9261818473600C12FAA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5D16A9281818474500C12FAA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		5D16A92A1818477500C12FAA /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		5D16A92C181847A800C12FAA /* GAI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		5D16A92D181847A800C12FAA /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		5D16A92E181847A800C12FAA /* GAIFields.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		5D16A92F181847A800C12FAA /* GAILogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		5D16A930181847A800C12FAA /* GAITrackedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		5D16A931181847A800C12FAA /* GAITracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		5D16A93318184A2B00C12FAA /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		5D1DB86A17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetallizedFilmResistanceViewController.h; sourceTree = "<group>"; };
 		5D1DB86B17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetallizedFilmResistanceViewController.m; sourceTree = "<group>"; };
 		5D1DB86D17CD1493007CB6B9 /* YieldUsingStandardYieldViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YieldUsingStandardYieldViewController.h; sourceTree = "<group>"; };
@@ -302,8 +303,6 @@
 		5D1DB87E17CE6D71007CB6B9 /* weight-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weight-active@2x.png"; sourceTree = "<group>"; };
 		5D1DB87F17CE6D71007CB6B9 /* weight-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weight-normal.png"; sourceTree = "<group>"; };
 		5D1DB88017CE6D71007CB6B9 /* weight-normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weight-normal@2x.png"; sourceTree = "<group>"; };
-		5D1DB89117CE8153007CB6B9 /* CViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CViewController.h; sourceTree = "<group>"; };
-		5D1DB89217CE8154007CB6B9 /* CViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CViewController.m; sourceTree = "<group>"; };
 		5D1DB89417CE8A85007CB6B9 /* AreaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaViewController.h; sourceTree = "<group>"; };
 		5D1DB89517CE8A86007CB6B9 /* AreaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaViewController.m; sourceTree = "<group>"; };
 		5D1DB89717CE8AA2007CB6B9 /* ThicknessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThicknessViewController.h; sourceTree = "<group>"; };
@@ -320,8 +319,6 @@
 		5D34430117EA2BBA00B72C01 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		5D34430217EA2BBA00B72C01 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		5D34430317EA2BBA00B72C01 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		5D34430417EA2BBA00B72C01 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
-		5D34430517EA2BBA00B72C01 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		5D34430717EA2BBA00B72C01 /* AppIcon29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon29x29.png; sourceTree = "<group>"; };
 		5D34430817EA2BBA00B72C01 /* AppIcon29x29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon29x29@2x.png"; sourceTree = "<group>"; };
 		5D34430917EA2BBA00B72C01 /* AppIcon40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon40x40.png; sourceTree = "<group>"; };
@@ -358,13 +355,6 @@
 		5D69C58F17C4C7A2005E0FE4 /* DigitInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DigitInputCell.m; sourceTree = "<group>"; };
 		5D69C59117C4C7E0005E0FE4 /* DigitInputItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DigitInputItem.h; sourceTree = "<group>"; };
 		5D69C59217C4C7E0005E0FE4 /* DigitInputItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DigitInputItem.m; sourceTree = "<group>"; };
-		5D7D099F17E79CAD001B993C /* MLPAutoCompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompleteTextField.h; sourceTree = "<group>"; };
-		5D7D09A017E79CAD001B993C /* MLPAutoCompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLPAutoCompleteTextField.m; sourceTree = "<group>"; };
-		5D7D09A117E79CAD001B993C /* MLPAutoCompleteTextFieldDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompleteTextFieldDataSource.h; sourceTree = "<group>"; };
-		5D7D09A217E79CAD001B993C /* MLPAutoCompleteTextFieldDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompleteTextFieldDelegate.h; sourceTree = "<group>"; };
-		5D7D09A317E79CAD001B993C /* MLPAutoCompletionObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLPAutoCompletionObject.h; sourceTree = "<group>"; };
-		5D7D09A417E79CAD001B993C /* NSString+Levenshtein.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Levenshtein.h"; sourceTree = "<group>"; };
-		5D7D09A517E79CAD001B993C /* NSString+Levenshtein.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Levenshtein.m"; sourceTree = "<group>"; };
 		5D7ED68717D04DDA00E389A2 /* AdditionalCalculatorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdditionalCalculatorsViewController.h; sourceTree = "<group>"; };
 		5D7ED68817D04DDB00E389A2 /* AdditionalCalculatorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionalCalculatorsViewController.m; sourceTree = "<group>"; };
 		5D83192A17A877EE0069F64E /* UnitsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitsButton.h; sourceTree = "<group>"; };
@@ -416,8 +406,6 @@
 		5D99EE6F17C55651000FBFF3 /* KeyboardTopShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KeyboardTopShadow@2x.png"; sourceTree = "<group>"; };
 		5D99EE7717C55681000FBFF3 /* KeyboardNumericEntryKeyBackspaceGlyphTextured@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KeyboardNumericEntryKeyBackspaceGlyphTextured@2x.png"; sourceTree = "<group>"; };
 		5D99EE7917C573FC000FBFF3 /* dunmore-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dunmore-logo.png"; sourceTree = "<group>"; };
-		5D99EE7B17C5767E000FBFF3 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
-		5D99EE7C17C57680000FBFF3 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
 		5D9EFFCC17CCB22D0099B0D1 /* RollDiameterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RollDiameterViewController.h; sourceTree = "<group>"; };
 		5D9EFFCD17CCB22E0099B0D1 /* RollDiameterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RollDiameterViewController.m; sourceTree = "<group>"; };
 		5DA6C5C017B4EE8900819C93 /* RollLengthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RollLengthViewController.h; sourceTree = "<group>"; };
@@ -491,7 +479,6 @@
 		5DB5785F17C4BD100084EFEE /* Middle_Selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Middle_Selected@2x.png"; sourceTree = "<group>"; };
 		5DBC514117E758F500366D6F /* LikePhotoCorner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LikePhotoCorner.png; sourceTree = "<group>"; };
 		5DBC514217E758F500366D6F /* LikePhotoCorner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LikePhotoCorner@2x.png"; sourceTree = "<group>"; };
-		5DBC514617E763A200366D6F /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		5DBC514717E763A200366D6F /* MKThicknessUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKThicknessUnit.h; sourceTree = "<group>"; };
 		5DBC514817E763A200366D6F /* MKThicknessUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKThicknessUnit.m; sourceTree = "<group>"; };
 		5DCF085E17E19C8400ED5544 /* MKQuantity+Precision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKQuantity+Precision.h"; sourceTree = "<group>"; };
@@ -535,15 +522,10 @@
 		5DD8A84617A1D5D400669C34 /* CalculationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculationViewController.m; sourceTree = "<group>"; };
 		5DDF2F3017FF151F0027AA78 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		5DDF2F3117FF151F0027AA78 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
-		5DE6C2EB17B20B4A00CAC389 /* BSKeyboardControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSKeyboardControls.h; sourceTree = "<group>"; };
-		5DE6C2EC17B20B4A00CAC389 /* BSKeyboardControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSKeyboardControls.m; sourceTree = "<group>"; };
-		5DE6C2EE17B20B4A00CAC389 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/BSKeyboardControls.strings; sourceTree = "<group>"; };
-		5DE6C2EF17B20B4A00CAC389 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BSKeyboardControls.strings; sourceTree = "<group>"; };
 		5DEC2CCD17CCB60900C82DFF /* LabelSizeToRollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelSizeToRollViewController.h; sourceTree = "<group>"; };
 		5DEC2CCE17CCB60900C82DFF /* LabelSizeToRollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelSizeToRollViewController.m; sourceTree = "<group>"; };
 		5DEC2CD017CCBA7C00C82DFF /* YieldUsingSpecificGravityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YieldUsingSpecificGravityViewController.h; sourceTree = "<group>"; };
 		5DEC2CD117CCBA7C00C82DFF /* YieldUsingSpecificGravityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YieldUsingSpecificGravityViewController.m; sourceTree = "<group>"; };
-		5DEC2CD317CCC49B00C82DFF /* icons.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = icons.psd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -551,6 +533,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D16A9291818474500C12FAA /* libz.dylib in Frameworks */,
+				5D16A9271818473600C12FAA /* SystemConfiguration.framework in Frameworks */,
+				5D16A9251818472A00C12FAA /* CoreData.framework in Frameworks */,
+				5D16A92B1818477500C12FAA /* libGoogleAnalyticsServices.a in Frameworks */,
 				5D06C63317A083EA00673E02 /* QuartzCore.framework in Frameworks */,
 				5D06C5E517A0787600673E02 /* UIKit.framework in Frameworks */,
 				5D06C5E717A0787600673E02 /* Foundation.framework in Frameworks */,
@@ -594,6 +580,10 @@
 		5D06C5E317A0787600673E02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5D16A92A1818477500C12FAA /* libGoogleAnalyticsServices.a */,
+				5D16A9281818474500C12FAA /* libz.dylib */,
+				5D16A9261818473600C12FAA /* SystemConfiguration.framework */,
+				5D16A9241818472A00C12FAA /* CoreData.framework */,
 				5D06C5E417A0787600673E02 /* UIKit.framework */,
 				5D06C5E617A0787600673E02 /* Foundation.framework */,
 				5D06C5E817A0787600673E02 /* CoreGraphics.framework */,
@@ -605,6 +595,7 @@
 		5D06C5EA17A0787600673E02 /* Conversions */ = {
 			isa = PBXGroup;
 			children = (
+				5D16A932181847AE00C12FAA /* Google Analytics */,
 				5D06C5F317A0787600673E02 /* AppDelegate.h */,
 				5D06C5F417A0787600673E02 /* AppDelegate.m */,
 				5D06C5FC17A0787600673E02 /* MainStoryboard_iPhone.storyboard */,
@@ -614,10 +605,10 @@
 				5D34432517EA462B00B72C01 /* Main Controllers */,
 				5D34432717EA473600B72C01 /* Button Controllers */,
 				5D34432617EA46DB00B72C01 /* Lib */,
-				5D06C63717A08CBF00673E02 /* CenterViewController.h */,
 				5D06C63817A08CC000673E02 /* CenterViewController.m */,
-				5DDF2F3017FF151F0027AA78 /* AboutViewController.h */,
 				5DDF2F3117FF151F0027AA78 /* AboutViewController.m */,
+				5D06C63717A08CBF00673E02 /* CenterViewController.h */,
+				5DDF2F3017FF151F0027AA78 /* AboutViewController.h */,
 				5D34432817EA478800B72C01 /* Garbage */,
 				5D06C5EB17A0787600673E02 /* Supporting Files */,
 			);
@@ -634,6 +625,7 @@
 				5D06C5F617A0787600673E02 /* Default.png */,
 				5D06C5F817A0787600673E02 /* Default@2x.png */,
 				5D06C5FA17A0787600673E02 /* Default-568h@2x.png */,
+				5D16A93318184A2B00C12FAA /* Settings.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -683,7 +675,6 @@
 			children = (
 				5D34432D17EA4BF400B72C01 /* logo.png */,
 				5D34432E17EA4BF400B72C01 /* logo@2x.png */,
-				5DEC2CD317CCC49B00C82DFF /* icons.psd */,
 				5D1DB87017CE6D71007CB6B9 /* conversions-icons */,
 				5D99EE7917C573FC000FBFF3 /* dunmore-logo.png */,
 				5DBC514117E758F500366D6F /* LikePhotoCorner.png */,
@@ -749,6 +740,19 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		5D16A932181847AE00C12FAA /* Google Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				5D16A92C181847A800C12FAA /* GAI.h */,
+				5D16A92D181847A800C12FAA /* GAIDictionaryBuilder.h */,
+				5D16A92E181847A800C12FAA /* GAIFields.h */,
+				5D16A92F181847A800C12FAA /* GAILogger.h */,
+				5D16A930181847A800C12FAA /* GAITrackedViewController.h */,
+				5D16A931181847A800C12FAA /* GAITracker.h */,
+			);
+			name = "Google Analytics";
+			sourceTree = "<group>";
+		};
 		5D1DB87017CE6D71007CB6B9 /* conversions-icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -783,8 +787,6 @@
 				5D34430117EA2BBA00B72C01 /* Icon-Small@2x.png */,
 				5D34430217EA2BBA00B72C01 /* Icon.png */,
 				5D34430317EA2BBA00B72C01 /* Icon@2x.png */,
-				5D34430417EA2BBA00B72C01 /* iTunesArtwork.png */,
-				5D34430517EA2BBA00B72C01 /* iTunesArtwork@2x.png */,
 			);
 			path = ios6;
 			sourceTree = "<group>";
@@ -838,33 +840,27 @@
 				5D516C4C17E3A6E0000A4D1E /* UnitConvert.m */,
 				5D353D3917A8E3B800EC6AEF /* PSMenuItem.h */,
 				5D353D3817A8E3B800EC6AEF /* PSMenuItem.m */,
-				5DCF085C17E19C8400ED5544 /* MKUnits */,
 				5D99EE6517C5543A000FBFF3 /* ZenKeyboard.h */,
 				5D99EE6617C5543A000FBFF3 /* ZenKeyboard.m */,
-				5D7D099E17E79CAD001B993C /* MLPAutoCompleteTextField */,
 				5DB5785517C4A8E40084EFEE /* TDBadgedCell.h */,
 				5DB5785417C4A8E40084EFEE /* TDBadgedCell.m */,
 				5DAA7CC717E27AC90074F33A /* ReadonlyUITextField.h */,
 				5DAA7CC817E27ACA0074F33A /* ReadonlyUITextField.m */,
-				5D99EE7B17C5767E000FBFF3 /* DemoViewController.h */,
-				5D99EE7C17C57680000FBFF3 /* DemoViewController.m */,
 				5D69C59117C4C7E0005E0FE4 /* DigitInputItem.h */,
 				5D69C59217C4C7E0005E0FE4 /* DigitInputItem.m */,
 				5D69C58E17C4C7A2005E0FE4 /* DigitInputCell.h */,
 				5D69C58F17C4C7A2005E0FE4 /* DigitInputCell.m */,
 				5D06C63417A088F800673E02 /* DrawerViewController.h */,
 				5D06C63517A088F900673E02 /* DrawerViewController.m */,
-				5D1DB89117CE8153007CB6B9 /* CViewController.h */,
-				5D1DB89217CE8154007CB6B9 /* CViewController.m */,
 				5D516C5117E3C0F3000A4D1E /* DunmoreLogo.h */,
 				5D516C5217E3C0F3000A4D1E /* DunmoreLogo.m */,
 				5D353D3517A8D25100EC6AEF /* UnitMenuItem.h */,
 				5D353D3617A8D25100EC6AEF /* UnitMenuItem.m */,
 				5D83192A17A877EE0069F64E /* UnitsButton.h */,
 				5D83192B17A877EE0069F64E /* UnitsButton.m */,
+				5DCF085C17E19C8400ED5544 /* MKUnits */,
 				5D06C62517A07EF700673E02 /* MMDrawerController */,
 				5DB5780017C4A7F30084EFEE /* RETableViewManager */,
-				5DE6C2EA17B20B4A00CAC389 /* BSKeyboardControls */,
 			);
 			name = Lib;
 			sourceTree = "<group>";
@@ -887,14 +883,14 @@
 		5D34432817EA478800B72C01 /* Garbage */ = {
 			isa = PBXGroup;
 			children = (
-				5DD8A84517A1D5D400669C34 /* CalculationViewController.h */,
 				5DD8A84617A1D5D400669C34 /* CalculationViewController.m */,
-				5DA6C5C317B6D42400819C93 /* CalculatorViewController.h */,
 				5DA6C5C417B6D42400819C93 /* CalculatorViewController.m */,
-				5D06C60217A0787600673E02 /* MasterViewController.h */,
 				5D06C60317A0787600673E02 /* MasterViewController.m */,
-				5D06C60517A0787600673E02 /* DetailViewController.h */,
 				5D06C60617A0787600673E02 /* DetailViewController.m */,
+				5DD8A84517A1D5D400669C34 /* CalculationViewController.h */,
+				5DA6C5C317B6D42400819C93 /* CalculatorViewController.h */,
+				5D06C60217A0787600673E02 /* MasterViewController.h */,
+				5D06C60517A0787600673E02 /* DetailViewController.h */,
 			);
 			name = Garbage;
 			sourceTree = "<group>";
@@ -917,20 +913,6 @@
 				5DCF087517E19C8400ED5544 /* MKYieldUnit.m */,
 			);
 			name = Yield;
-			sourceTree = "<group>";
-		};
-		5D7D099E17E79CAD001B993C /* MLPAutoCompleteTextField */ = {
-			isa = PBXGroup;
-			children = (
-				5D7D099F17E79CAD001B993C /* MLPAutoCompleteTextField.h */,
-				5D7D09A017E79CAD001B993C /* MLPAutoCompleteTextField.m */,
-				5D7D09A117E79CAD001B993C /* MLPAutoCompleteTextFieldDataSource.h */,
-				5D7D09A217E79CAD001B993C /* MLPAutoCompleteTextFieldDelegate.h */,
-				5D7D09A317E79CAD001B993C /* MLPAutoCompletionObject.h */,
-				5D7D09A417E79CAD001B993C /* NSString+Levenshtein.h */,
-				5D7D09A517E79CAD001B993C /* NSString+Levenshtein.m */,
-			);
-			path = MLPAutoCompleteTextField;
 			sourceTree = "<group>";
 		};
 		5DB5780017C4A7F30084EFEE /* RETableViewManager */ = {
@@ -1012,7 +994,6 @@
 		5DBC514517E763A200366D6F /* Thickness */ = {
 			isa = PBXGroup;
 			children = (
-				5DBC514617E763A200366D6F /* .gitkeep */,
 				5DBC514717E763A200366D6F /* MKThicknessUnit.h */,
 				5DBC514817E763A200366D6F /* MKThicknessUnit.m */,
 			);
@@ -1130,16 +1111,6 @@
 			path = Time;
 			sourceTree = "<group>";
 		};
-		5DE6C2EA17B20B4A00CAC389 /* BSKeyboardControls */ = {
-			isa = PBXGroup;
-			children = (
-				5DE6C2EB17B20B4A00CAC389 /* BSKeyboardControls.h */,
-				5DE6C2EC17B20B4A00CAC389 /* BSKeyboardControls.m */,
-				5DE6C2ED17B20B4A00CAC389 /* BSKeyboardControls.strings */,
-			);
-			path = BSKeyboardControls;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1227,7 +1198,6 @@
 				5D06C60117A0787600673E02 /* MainStoryboard_iPad.storyboard in Resources */,
 				5D34431517EA2BBA00B72C01 /* Icon-Small.png in Resources */,
 				5D06C63C17A19EB900673E02 /* dunmore_logo-2.png in Resources */,
-				5DE6C2F117B20B4A00CAC389 /* BSKeyboardControls.strings in Resources */,
 				5DB5784C17C4A7F30084EFEE /* RETableViewManager.bundle in Resources */,
 				5DB5786017C4BD100084EFEE /* Last@2x.png in Resources */,
 				5D34431D17EA2BBA00B72C01 /* AppIcon40x40.png in Resources */,
@@ -1247,12 +1217,10 @@
 				5D99EE4217C53A18000FBFF3 /* SettingsFormBottom@2x.png in Resources */,
 				5D99EE4317C53A18000FBFF3 /* SettingsFormBottomTap.png in Resources */,
 				5D99EE4417C53A18000FBFF3 /* SettingsFormBottomTap@2x.png in Resources */,
-				5D34431A17EA2BBA00B72C01 /* iTunesArtwork@2x.png in Resources */,
 				5D34431117EA2BBA00B72C01 /* Icon-72.png in Resources */,
 				5D34431B17EA2BBA00B72C01 /* AppIcon29x29.png in Resources */,
 				5D34432F17EA4BF400B72C01 /* logo.png in Resources */,
 				5D99EE4517C53A18000FBFF3 /* SettingsFormMiddle.png in Resources */,
-				5D34431917EA2BBA00B72C01 /* iTunesArtwork.png in Resources */,
 				5D34431717EA2BBA00B72C01 /* Icon.png in Resources */,
 				5D99EE4617C53A18000FBFF3 /* SettingsFormMiddle@2x.png in Resources */,
 				5D99EE4717C53A18000FBFF3 /* SettingsFormMiddleTap.png in Resources */,
@@ -1264,7 +1232,6 @@
 				5D99EE4B17C53A18000FBFF3 /* SettingsFormSingleTap.png in Resources */,
 				5D99EE4C17C53A18000FBFF3 /* SettingsFormSingleTap@2x.png in Resources */,
 				5D99EE4D17C53A18000FBFF3 /* SettingsFormTop.png in Resources */,
-				5DCF089617E19C8400ED5544 /* .gitkeep in Resources */,
 				5D99EE4E17C53A18000FBFF3 /* SettingsFormTop@2x.png in Resources */,
 				5DBC514417E758F500366D6F /* LikePhotoCorner@2x.png in Resources */,
 				5D99EE4F17C53A18000FBFF3 /* SettingsFormTopTap.png in Resources */,
@@ -1282,16 +1249,13 @@
 				5D34431317EA2BBA00B72C01 /* Icon-Small-50.png in Resources */,
 				5D99EE5A17C53A18000FBFF3 /* SignInFormSingle@2x.png in Resources */,
 				5D99EE5B17C53A18000FBFF3 /* SignInFormTop.png in Resources */,
-				5DCF089917E19C8400ED5544 /* .gitkeep in Resources */,
 				5D516C5A17E3C9AE000A4D1E /* BackButtonTap.png in Resources */,
 				5D99EE5C17C53A18000FBFF3 /* SignInFormTop@2x.png in Resources */,
 				5D99EE5D17C53A18000FBFF3 /* SignInGreenButton.png in Resources */,
 				5D99EE5E17C53A18000FBFF3 /* SignInGreenButton@2x.png in Resources */,
-				5DCF089417E19C8400ED5544 /* .gitkeep in Resources */,
 				5D99EE5F17C53A18000FBFF3 /* SignInGreenButtonTap.png in Resources */,
 				5D99EE6017C53A18000FBFF3 /* SignInGreenButtonTap@2x.png in Resources */,
 				5D34432417EA2BBA00B72C01 /* iTunesArtwork@2x.png in Resources */,
-				5DBC514917E763A200366D6F /* .gitkeep in Resources */,
 				5D99EE6117C53A18000FBFF3 /* TwitterButton.png in Resources */,
 				5D99EE6217C53A18000FBFF3 /* TwitterButton@2x.png in Resources */,
 				5D516C5B17E3C9AE000A4D1E /* BackButtonTap@2x.png in Resources */,
@@ -1307,6 +1271,7 @@
 				5D99EE7617C55651000FBFF3 /* KeyboardTopShadow@2x.png in Resources */,
 				5D99EE7817C55681000FBFF3 /* KeyboardNumericEntryKeyBackspaceGlyphTextured@2x.png in Resources */,
 				5D99EE7A17C573FC000FBFF3 /* dunmore-logo.png in Resources */,
+				5D16A93418184A2B00C12FAA /* Settings.bundle in Resources */,
 				5D1DB88117CE6D71007CB6B9 /* area-active.png in Resources */,
 				5D1DB88217CE6D72007CB6B9 /* area-active@2x.png in Resources */,
 				5D1DB88317CE6D72007CB6B9 /* area-normal.png in Resources */,
@@ -1318,9 +1283,7 @@
 				5D1DB88717CE6D72007CB6B9 /* distance-normal.png in Resources */,
 				5D1DB88817CE6D72007CB6B9 /* distance-normal@2x.png in Resources */,
 				5D1DB88917CE6D72007CB6B9 /* thickness-active.png in Resources */,
-				5DCF089117E19C8400ED5544 /* .gitkeep in Resources */,
 				5D34431F17EA2BBA00B72C01 /* AppIcon60x60.png in Resources */,
-				5DCF089C17E19C8400ED5544 /* .gitkeep in Resources */,
 				5D1DB88A17CE6D72007CB6B9 /* thickness-active@2x.png in Resources */,
 				5D1DB88B17CE6D72007CB6B9 /* thickness-normal.png in Resources */,
 				5D1DB88C17CE6D72007CB6B9 /* thickness-normal@2x.png in Resources */,
@@ -1337,7 +1300,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D06C61917A0787700673E02 /* InfoPlist.strings in Resources */,
-				5DEC2CD417CCC49B00C82DFF /* icons.psd in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1386,7 +1348,6 @@
 				5D06C63117A07EF700673E02 /* UIViewController+MMDrawerController.m in Sources */,
 				5DCF089317E19C8400ED5544 /* MKYieldUnit.m in Sources */,
 				5D06C63617A088F900673E02 /* DrawerViewController.m in Sources */,
-				5D7D09A617E79CAD001B993C /* MLPAutoCompleteTextField.m in Sources */,
 				5D06C63917A08CC000673E02 /* CenterViewController.m in Sources */,
 				5DD8A84717A1D5D400669C34 /* CalculationViewController.m in Sources */,
 				5D83192C17A877EE0069F64E /* UnitsButton.m in Sources */,
@@ -1394,7 +1355,6 @@
 				5DCF089717E19C8400ED5544 /* MKLengthUnit+Imperial.m in Sources */,
 				5DCF088F17E19C8400ED5544 /* NSDecimalNumber+Negative.m in Sources */,
 				5D516C5317E3C0F3000A4D1E /* DunmoreLogo.m in Sources */,
-				5DE6C2F017B20B4A00CAC389 /* BSKeyboardControls.m in Sources */,
 				5DCF089017E19C8400ED5544 /* NSNumber+Fraction.m in Sources */,
 				5DA6C5C217B4EE8900819C93 /* RollLengthViewController.m in Sources */,
 				5DCF088E17E19C8400ED5544 /* MKUnit.m in Sources */,
@@ -1408,7 +1368,6 @@
 				5DB5783A17C4A7F30084EFEE /* RETableViewLongTextCell.m in Sources */,
 				5DB5783B17C4A7F30084EFEE /* RETableViewNumberCell.m in Sources */,
 				5DB5783C17C4A7F30084EFEE /* RETableViewOptionCell.m in Sources */,
-				5D7D09A717E79CAD001B993C /* NSString+Levenshtein.m in Sources */,
 				5DB5783D17C4A7F30084EFEE /* RETableViewTextCell.m in Sources */,
 				5DB5783E17C4A7F30084EFEE /* REBoolItem.m in Sources */,
 				5DCF089517E19C8400ED5544 /* MKByteUnit.m in Sources */,
@@ -1434,7 +1393,6 @@
 				5DB5784F17C4A7F30084EFEE /* RETableViewSection.m in Sources */,
 				5D69C59017C4C7A2005E0FE4 /* DigitInputCell.m in Sources */,
 				5D69C59317C4C7E0005E0FE4 /* DigitInputItem.m in Sources */,
-				5D99EE7D17C57683000FBFF3 /* DemoViewController.m in Sources */,
 				5D9EFFCE17CCB22E0099B0D1 /* RollDiameterViewController.m in Sources */,
 				5DEC2CCF17CCB60900C82DFF /* LabelSizeToRollViewController.m in Sources */,
 				5DCF089217E19C8400ED5544 /* MKYieldUnit+Imperial.m in Sources */,
@@ -1442,7 +1400,6 @@
 				5D1DB86C17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.m in Sources */,
 				5D1DB86F17CD1493007CB6B9 /* YieldUsingStandardYieldViewController.m in Sources */,
 				5DCF088D17E19C8400ED5544 /* MKUnit+MKQuantity.m in Sources */,
-				5D1DB89317CE8156007CB6B9 /* CViewController.m in Sources */,
 				5D1DB89617CE8A87007CB6B9 /* AreaViewController.m in Sources */,
 				5D1DB89917CE8AA3007CB6B9 /* ThicknessViewController.m in Sources */,
 				5D516C4D17E3A6E0000A4D1E /* UnitConvert.m in Sources */,
@@ -1513,15 +1470,6 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		5DE6C2ED17B20B4A00CAC389 /* BSKeyboardControls.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5DE6C2EE17B20B4A00CAC389 /* da */,
-				5DE6C2EF17B20B4A00CAC389 /* en */,
-			);
-			name = BSKeyboardControls.strings;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1539,7 +1487,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 12;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1573,7 +1521,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 12;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -1590,14 +1538,18 @@
 		5D06C62017A0787700673E02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Byte Studios, Inc. (5P57FQZ4FS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Byte Studios, Inc. (5P57FQZ4FS)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Conversions/Conversions-Prefix.pch";
 				INFOPLIST_FILE = "Conversions/Conversions-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Joel/ios/Dunmore\\ Calculations",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "611C889B-C125-485A-9906-EB3A35905E70";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1605,14 +1557,18 @@
 		5D06C62117A0787700673E02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Byte Studios, Inc. (5P57FQZ4FS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Byte Studios, Inc. (5P57FQZ4FS)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Conversions/Conversions-Prefix.pch";
 				INFOPLIST_FILE = "Conversions/Conversions-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Joel/ios/Dunmore\\ Calculations",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "611C889B-C125-485A-9906-EB3A35905E70";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

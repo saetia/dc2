@@ -32,6 +32,12 @@
 
 
 -(void)viewWillAppear:(BOOL)animated {
+    
+    
+    
+    
+    
+    
     UIButton *backButton;
     
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
@@ -77,12 +83,12 @@
                     },
                 @{
                     @"label":           @"Thickness",
-                    @"unit":            @"mic",
+                    @"unit":            @"mil",
                     @"possibleUnits":   @[@"mic", @"ga", @"mil", @"in"],
                     },
                 @{
                     @"label":           @"Result",
-                    @"unit":            @"msi/lb",
+                    @"unit":            @"ft²/lb",
                     @"possibleUnits":   @[@"in²/lb", @"ft²/lb", @"msi/lb", @"m²/kg"],
                     }
                 ];
@@ -118,6 +124,10 @@
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UIMenuControllerDidHide:) name:UIMenuControllerDidHideMenuNotification object:nil];
+    
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:self.title];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
     
 }
 
@@ -196,8 +206,9 @@
     if (filled_out_fields < [_fields count] - 1) return;
     
     
-    total = 703 / ([numbers[0] doubleValue] * [numbers[1] doubleValue]);
+    total = 703 / (([numbers[0] doubleValue] * 25.4) * ([numbers[1] doubleValue] * 0.144));
     
+    //total = 703 / ([numbers[0] doubleValue] * [numbers[1] doubleValue]);
     
     RETableViewTextCell *textcell;
     
@@ -276,10 +287,12 @@
     
     if (![_fields[row][@"unit"] isEqualToString:@""]){
         
-        //NSLog(@"%@", _fields[row][@"label"]);
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *unit = [defaults objectForKey:[self.title stringByAppendingString: cell.textLabel.text]];
+        if (unit == nil) unit = _fields[row][@"unit"];
         
-        cell.badgeString        = _fields[row][@"unit"];
-        cell.badgeColor         = [UnitConvert colorize: _fields[row][@"unit"]];
+        cell.badgeString        = unit;
+        cell.badgeColor         = [UnitConvert colorize: unit];
         cell.badgeTextColor     = [UIColor colorWithRed:1.00f green:1.00f blue:1.00f alpha:1.00f];
         cell.badge.fontSize     = 16;
         cell.badgeLeftOffset    = 0;
@@ -339,7 +352,9 @@
             [self calculateResult: view_self.textField];
             
             [[UIMenuController sharedMenuController] setMenuItems:nil];
-            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:unit forKey:[self.title stringByAppendingString: view_self.textLabel.text]];
+            [defaults synchronize];
         }];
         
         [units addObject:possibleUnit];

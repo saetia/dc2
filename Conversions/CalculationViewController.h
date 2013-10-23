@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "CenterViewController.h"
-#import "BSKeyboardControls.h"
 
-@interface CalculationViewController : CenterViewController <UITextFieldDelegate, UITextViewDelegate, BSKeyboardControlsDelegate>
+
+@interface CalculationViewController : CenterViewController <UITextFieldDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *inputLabel1;
 @property (weak, nonatomic) IBOutlet UILabel *inputLabel2;
 @property (weak, nonatomic) IBOutlet UILabel *inputLabel3;

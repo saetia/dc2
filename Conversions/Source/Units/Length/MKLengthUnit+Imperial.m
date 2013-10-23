@@ -153,8 +153,6 @@
     return [self createWithAmount:amount withUnit:[MKLengthUnit nautical_mile]];
 }
 
-
-
 + (instancetype)length_milWithAmount:(NSNumber *)amount {
     return [self createWithAmount:amount withUnit:[MKLengthUnit mil]];
 }

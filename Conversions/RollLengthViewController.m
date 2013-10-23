@@ -93,7 +93,7 @@
 
 - (void)viewDidLoad
 {
-    
+
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
         self.edgesForExtendedLayout = UIRectEdgeNone;
     
@@ -175,6 +175,13 @@
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UIMenuControllerDidHide:) name:UIMenuControllerDidHideMenuNotification object:nil];
+
+    
+
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:self.title];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
 
 }
 
@@ -290,7 +297,7 @@
 
     int i = 0;
     for (NSNumber *value in values) {
-        NSLog(@"converting %@ %@ to %@ = %@",value, _fields[i][@"unit"], units[i], [UnitConvert convert:value from: units[i] to: _fields[i][@"unit"]]);
+        //NSLog(@"converting %@ %@ to %@ = %@",value, _fields[i][@"unit"], units[i], [UnitConvert convert:value from: units[i] to: _fields[i][@"unit"]]);
         [numbers addObject: (NSNumber *)[UnitConvert convert:value from: units[i] to: _fields[i][@"unit"]]]; i++;
     }
     
@@ -375,15 +382,18 @@
     
     if (_fields.count > row && ![_fields[row][@"unit"] isEqualToString:@""]){
 
-        cell.badgeString        = _fields[row][@"unit"];
-        cell.badgeColor         = [UnitConvert colorize: _fields[row][@"unit"]];
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *unit = [defaults objectForKey:[self.title stringByAppendingString: cell.textLabel.text]];
+        if (unit == nil) unit = _fields[row][@"unit"];
+        
+        cell.badgeString        = unit;
+        cell.badgeColor         = [UnitConvert colorize: unit];
         cell.badgeTextColor     = [UIColor colorWithRed:1.00f green:1.00f blue:1.00f alpha:1.00f];
         cell.badge.fontSize     = 16;
         cell.badgeLeftOffset    = 0;
         cell.badgeRightOffset   = 10;
         
-        //cell.badge.bounds = CGRectMake(cell.badge.frame.origin.x, 0, cell.badge.frame.size.width, 44);
-
         [cell.badge addTarget:self action:@selector(triggerMenu:) forControlEvents:UIControlEventTouchUpInside];
             
     }
@@ -436,6 +446,10 @@
             [self calculateResult: view_self.textField];
             
             [[UIMenuController sharedMenuController] setMenuItems:nil];
+            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:unit forKey:[self.title stringByAppendingString: view_self.textLabel.text]];
+            [defaults synchronize];
             
         }];
         

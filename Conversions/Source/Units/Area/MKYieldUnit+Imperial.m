@@ -63,23 +63,23 @@
 
 @implementation MKQuantity (MKYieldUnit_Imperial)
 
-+ (instancetype)area_square_inchWithAmount:(NSNumber *)amount {
++ (instancetype)yield_square_inchWithAmount:(NSNumber *)amount {
     return [self createWithAmount:amount withUnit:[MKYieldUnit square_inch]];
 }
 
-+ (instancetype)area_square_footWithAmount:(NSNumber *)amount {
++ (instancetype)yield_square_footWithAmount:(NSNumber *)amount {
     return [self createWithAmount:amount withUnit:[MKYieldUnit square_foot]];
 }
 
-+ (instancetype)area_square_yardWithAmount:(NSNumber *)amount {
++ (instancetype)yield_square_yardWithAmount:(NSNumber *)amount {
     return [self createWithAmount:amount withUnit:[MKYieldUnit square_yard]];
 }
 
-+ (instancetype)area_acreWithAmount:(NSNumber *)amount {
++ (instancetype)yield_acreWithAmount:(NSNumber *)amount {
     return [self createWithAmount:amount withUnit:[MKYieldUnit acre]];
 }
 
-+ (instancetype)area_square_mileWithAmount:(NSNumber *)amount {
++ (instancetype)yield_square_mileWithAmount:(NSNumber *)amount {
     return [self createWithAmount:amount withUnit:[MKYieldUnit square_mile]];
 }
 

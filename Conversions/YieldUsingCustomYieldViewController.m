@@ -159,7 +159,7 @@
                     },
                 @{
                     @"label":           @"Film Yield",
-                    @"unit":            @"in²/lb",
+                    @"unit":            @"ft²/lb",
                     @"possibleUnits":   @[@"in²/lb", @"ft²/lb", @"yd²/lb", @"mm²/kg", @"m²/kg"],
                     },
                 @{
@@ -200,6 +200,11 @@
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UIMenuControllerDidHide:) name:UIMenuControllerDidHideMenuNotification object:nil];
+    
+    
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:self.title];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
     
 }
 
@@ -285,16 +290,15 @@
     int i = 0;
     
     for (NSNumber *value in values) {
-        NSLog(@"converting %@ %@ to %@",value, _fields[i][@"unit"], units[i]);
+        //NSLog(@"converting %@ %@ to %@",value, _fields[i][@"unit"], units[i]);
         [numbers addObject: (NSNumber *)[UnitConvert convert:value from: units[i] to: _fields[i][@"unit"]]]; i++;
     }
     
     //make sure we have the full set of required fields
     if (filled_out_fields < [_fields count] - 1) return;
     
-    
-    
-    total = [numbers[0] doubleValue] * pow([numbers[2] doubleValue],2) / [numbers[1] doubleValue] / 36;
+
+    total = [numbers[0] doubleValue] * ([numbers[2] doubleValue] * 144) / [numbers[1] doubleValue] / 36;
     
     //total = [numbers[0] doubleValue] * [numbers[2] doubleValue] / ([numbers[1] doubleValue] * 12) / 36;
     
@@ -378,10 +382,12 @@
     
     if (_fields.count > row && ![_fields[row][@"unit"] isEqualToString:@""]){
         
-        //NSLog(@"%@", _fields[row][@"label"]);
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *unit = [defaults objectForKey:[self.title stringByAppendingString: cell.textLabel.text]];
+        if (unit == nil) unit = _fields[row][@"unit"];
         
-        cell.badgeString        = _fields[row][@"unit"];
-        cell.badgeColor         = [UnitConvert colorize: _fields[row][@"unit"]];
+        cell.badgeString        = unit;
+        cell.badgeColor         = [UnitConvert colorize: unit];
         cell.badgeTextColor     = [UIColor colorWithRed:1.00f green:1.00f blue:1.00f alpha:1.00f];
         cell.badge.fontSize     = 16;
         cell.badgeLeftOffset    = 0;
@@ -446,7 +452,9 @@
             [self calculateResult: view_self.textField];
             
             [[UIMenuController sharedMenuController] setMenuItems:nil];
-            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:unit forKey:[self.title stringByAppendingString: view_self.textLabel.text]];
+            [defaults synchronize];
         }];
         
         [units addObject:possibleUnit];

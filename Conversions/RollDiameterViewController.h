@@ -13,6 +13,9 @@
 #import "ZenKeyboard.h"
 #import "UnitConvert.h"
 #import "RETableViewOptionsController.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface RollDiameterViewController : UITableViewController <RETableViewManagerDelegate>
 

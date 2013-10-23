@@ -14,11 +14,8 @@
 #import "UIViewController+MMDrawerController.h"
 #import "MMDrawerBarButtonItem.h"
 #import <QuartzCore/QuartzCore.h>
-#import "BSKeyboardControls.h"
 
 @interface CalculationViewController ()
-
-@property (nonatomic, strong) BSKeyboardControls *keyboardControls;
 
 @end
 
@@ -169,43 +166,9 @@
         */
         
 	}
-    
-    NSArray *fieldsArray = [NSArray arrayWithArray:fields];
-    
-    [self setKeyboardControls:[[BSKeyboardControls alloc] initWithFields:fieldsArray]];
-    
-    [self.keyboardControls setDelegate:self];
-    
-    self.keyboardControls.barTintColor = [UIColor colorWithRed:0.87f green:0.25f blue:0.17f alpha:1.00f];
+
     
 }
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    [self.keyboardControls setActiveField:textField];
-}
-
-#pragma mark -
-#pragma mark Text View Delegate
-
-- (void)textViewDidBeginEditing:(UITextView *)textView
-{
-    [self.keyboardControls setActiveField:textView];
-}
-
-
-- (void)keyboardControls:(BSKeyboardControls *)keyboardControls selectedField:(UIView *)field inDirection:(BSKeyboardControlsDirection)direction
-{
-    //UIView *view = keyboardControls.activeField.superview.superview;
-    //[self.tableView scrollRectToVisible:view.frame animated:YES];
-}
-
-- (void)keyboardControlsDonePressed:(BSKeyboardControls *)keyboardControls
-{
-    [keyboardControls.activeField resignFirstResponder];
-}
-
-
 
 
 

@@ -103,12 +103,16 @@
   @"in²/lb": [UIColor colorWithRed:0.97f green:0.34f blue:0.50f alpha:0.80f],
   @"ft²/lb": [UIColor colorWithRed:0.31f green:0.38f blue:0.55f alpha:0.80f],
   @"m²/kg":  [UIColor colorWithRed:0.07f green:0.41f blue:0.56f alpha:1.00f],
+  @"msi/lb": [UIColor colorWithRed:0.57f green:0.24f blue:1.00f alpha:1.00f],
+
   
   
   @"mil": [UIColor colorWithRed:0.25f green:0.77f blue:0.71f alpha:1.00f],
   @"mic": [UIColor colorWithRed:1.00f green:0.44f blue:0.26f alpha:1.00f],
   @"ga": [UIColor colorWithRed:0.97f green:0.34f blue:0.50f alpha:1.00f],
+  
 
+  
   };
     
     return (units_to_colors[unit]) ?: [UIColor colorWithRed:0.00f green:0.64f blue:0.48f alpha:1.00f];

@@ -229,7 +229,7 @@
 		
 		
         // Calculate the size of the bage from the badge string
-		CGSize badgeSize = [self.badgeString sizeWithFont:[UIFont boldSystemFontOfSize: self.badge.fontSize]];
+		//CGSize badgeSize = [self.badgeString sizeWithFont:[UIFont boldSystemFontOfSize: self.badge.fontSize]];
 		CGRect badgeframe = CGRectMake(self.contentView.frame.size.width - 60,
 									   0,
 									   60,

@@ -163,6 +163,10 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UIMenuControllerDidHide:) name:UIMenuControllerDidHideMenuNotification object:nil];
     
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:self.title];
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
 }
 
 
@@ -224,9 +228,9 @@
     
     
     int i = 0;
-    NSLog(@"%@",values);
+    //NSLog(@"%@",values);
     for (NSNumber *value in values) {
-        NSLog(@"trying to get id: %d",i);
+        //NSLog(@"trying to get id: %d",i);
         //NSLog(@"converting %@ %@ to %@",value, _fields[i][@"unit"], units[i]);
         [numbers addObject: (NSNumber *)[UnitConvert convert:value from: units[i] to: _fields[i][@"unit"]]]; i++;
     }
@@ -298,12 +302,16 @@
     
     int row = (indexPath.section == 0) ? indexPath.row : (_fields.count - 1);
     
-    NSLog(@"trying to get row: %d", row);
+    //NSLog(@"trying to get row: %d", row);
     
     if (![_fields[row][@"unit"] isEqualToString:@""]){
         
-        cell.badgeString        = _fields[row][@"unit"];
-        cell.badgeColor         = [UnitConvert colorize: _fields[row][@"unit"]];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *unit = [defaults objectForKey:[self.title stringByAppendingString: cell.textLabel.text]];
+        if (unit == nil) unit = _fields[row][@"unit"];
+        
+        cell.badgeString        = unit;
+        cell.badgeColor         = [UnitConvert colorize: unit];
         cell.badgeTextColor     = [UIColor colorWithRed:1.00f green:1.00f blue:1.00f alpha:1.00f];
         cell.badge.fontSize     = 16;
         cell.badgeLeftOffset    = 0;
@@ -362,7 +370,9 @@
             [self calculateResult: view_self.textField];
             
             [[UIMenuController sharedMenuController] setMenuItems:nil];
-            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:unit forKey:[self.title stringByAppendingString: view_self.textLabel.text]];
+            [defaults synchronize];
         }];
         
         [units addObject:possibleUnit];

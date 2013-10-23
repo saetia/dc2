@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "UIViewController+MMDrawerController.h"
 #import "DunmoreLogo.h"
-
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAIDictionaryBuilder.h"
 
 @interface CenterViewController : UITableViewController
 

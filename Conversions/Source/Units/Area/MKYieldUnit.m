@@ -100,35 +100,35 @@ Convert MSI to Square Meters - Square Meters = .64 X MSI
 
 @implementation MKQuantity (MKYieldUnit)
 
-+ (instancetype)area_square_millimeterWithAmount:(NSNumber *)amount {
++ (instancetype)yield_square_millimeterWithAmount:(NSNumber *)amount {
     return [self createWithAmount:amount withUnit:[MKYieldUnit square_millimeter]];
 }
 
-+ (instancetype)area_square_centimeterWithAmount:(NSNumber *)amount {
++ (instancetype)yield_square_centimeterWithAmount:(NSNumber *)amount {
     return [self createWithAmount:amount withUnit:[MKYieldUnit square_centimeter]];
 }
 
-+ (instancetype)area_square_decimeterWithAmount:(NSNumber *)amount {
++ (instancetype)yield_square_decimeterWithAmount:(NSNumber *)amount {
     return [self createWithAmount:amount withUnit:[MKYieldUnit square_decimeter]];
 }
 
-+ (instancetype)area_square_meterWithAmount:(NSNumber *)amount {
++ (instancetype)yield_square_meterWithAmount:(NSNumber *)amount {
     return [self createWithAmount:amount withUnit:[MKYieldUnit square_meter]];
 }
 
-+ (instancetype)area_areWithAmount:(NSNumber *)amount {
++ (instancetype)yield_areWithAmount:(NSNumber *)amount {
     return [self createWithAmount:amount withUnit:[MKYieldUnit are]];
 }
 
-+ (instancetype)area_hectareWithAmount:(NSNumber *)amount {
++ (instancetype)yield_hectareWithAmount:(NSNumber *)amount {
     return [self createWithAmount:amount withUnit:[MKYieldUnit hectare]];
 }
 
-+ (instancetype)area_square_kilometerWithAmount:(NSNumber *)amount {
++ (instancetype)yield_square_kilometerWithAmount:(NSNumber *)amount {
     return [self createWithAmount:amount withUnit:[MKYieldUnit square_kilometer]];
 }
 
-+ (instancetype)area_msiWithAmount:(NSNumber *)amount {
++ (instancetype)yield_msiWithAmount:(NSNumber *)amount {
     return [self createWithAmount:amount withUnit:[MKYieldUnit msi]];
 }
 
