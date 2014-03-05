@@ -7,9 +7,10 @@
 //
 
 #import "RollDiameterViewController.h"
+#import "CoreDiameterPickerViewController.h"
 
 @interface RollDiameterViewController ()
-
+@property (strong, readwrite, nonatomic) RERadioItem *coreDiameter;
 @end
 
 @implementation RollDiameterViewController
@@ -47,6 +48,11 @@
     [backButton addTarget:self action:@selector(popCurrentViewController) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = barBackButtonItem;
     self.navigationItem.hidesBackButton = YES;
+    
+    self.coreDiameter.value = [[NSUserDefaults standardUserDefaults] objectForKey:@"coreTitle"];
+    [self.coreDiameter reloadRowWithAnimation:UITableViewRowAnimationNone];
+    [self calculateResult:nil];
+    
 }
 
 - (void)popCurrentViewController {
@@ -101,11 +107,30 @@
 }
 
 
+- (void)notificationTriggered:(NSNotification *)notification {
+    if ([notification.name isEqualToString:@"reloadData"]){
+        self.coreDiameter.value = [[NSUserDefaults standardUserDefaults] objectForKey:@"coreTitle"];
+        [self.coreDiameter reloadRowWithAnimation:UITableViewRowAnimationNone];
+        [self calculateResult:nil];
+    }
+}
+
+
+
 - (void)viewDidLoad
 {
     
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
         self.edgesForExtendedLayout = UIRectEdgeNone;
+
+    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(notificationTriggered:)
+     name:@"reloadData"
+     object:nil];
+    
+    
     
     // Register notification when the keyboard will be show
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -204,46 +229,34 @@
         if ([field[@"label"] isEqualToString: @"Result"]) continue;
         
 
+        
+        
         if ([field[@"label"] isEqualToString: @"Core Diameter"]){
             
             __typeof (&*self) __weak weakSelf = self;
             
-            RERadioItem *options = [RERadioItem itemWithTitle:@"Core Diameter" value:@"3 inches" selectionHandler:^(RERadioItem *item) {
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            
+            self.coreDiameter = [RERadioItem itemWithTitle:@"Core Diameter" value:[defaults objectForKey:@"coreTitle"] selectionHandler:^(RERadioItem *item) {
                 
                 [item deselectRowAnimated:YES];
                 
-                NSMutableArray *options = [[NSMutableArray alloc] init];
+                CoreDiameterPickerViewController *vc = [[CoreDiameterPickerViewController alloc] init];
                 
-                [options addObject:@"3 inches"];
-                [options addObject:@"6 inches"];
+                //CoreDiameterPickerViewController *vc = [weakSelf.storyboard instantiateViewControllerWithIdentifier:@"location_picker"];
                 
-                
-                RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options multipleChoice:NO completionHandler:^{
-                    [weakSelf.navigationController popViewControllerAnimated:YES];
-                    
-                    [item reloadRowWithAnimation:UITableViewRowAnimationNone];
-                    
-                    [weakSelf calculateResult: item];
-                    
-                }];
-                
-                
-                optionsController.delegate = weakSelf;
-                optionsController.style = section.style;
-                if (weakSelf.tableView.backgroundView == nil) {
-                    optionsController.tableView.backgroundColor = weakSelf.tableView.backgroundColor;
-                    optionsController.tableView.backgroundView = nil;
-                }
-                
-                
-                [weakSelf.navigationController pushViewController:optionsController animated:YES];
+                [weakSelf.navigationController pushViewController:vc animated:YES];
                 
             }];
             
-            [section addItem: options];
+            [section addItem: self.coreDiameter];
             continue;
             
         }
+        
+        
+        
+        
         
         
         RETableViewItem *item = [RETextItem itemWithTitle:field[@"label"] value:nil placeholder:@"0.00"];
@@ -282,9 +295,19 @@
 
 
     
-    RETableViewSection *section = self.manager.sections[0];
-    RERadioItem *core_item = section.items[2];
-    double core_diameter = ([core_item.value isEqualToString:@"3 inches"]) ? 3.75f : 7.00f;
+    //RETableViewSection *section = self.manager.sections[0];
+    //RERadioItem *core_item = section.items[2];
+    //double core_diameter = ([core_item.value isEqualToString:@"3 inches"]) ? 3.75f : 7.00f;
+
+    double core_diameter = [[[NSUserDefaults standardUserDefaults] objectForKey:@"coreValue"] doubleValue];
+    
+    
+    NSLog(@"core unit: %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"coreUnit"]);
+    
+    if (![[[NSUserDefaults standardUserDefaults] objectForKey:@"coreUnit"] isEqualToString:@"in"]){
+        core_diameter = [[UnitConvert convert:[NSNumber numberWithDouble: core_diameter] from: [[NSUserDefaults standardUserDefaults] objectForKey:@"coreUnit"] to: @"in"] doubleValue];
+    }
+    
     
     
     
@@ -321,6 +344,9 @@
     
     total = sqrt((15.279f * ([numbers[0] doubleValue] * 0.001)) * ([numbers[1] doubleValue] * 3) + pow(core_diameter, 2.0f));
     
+    if (total < 0) total = 0;
+    
+    NSLog(@"core: %f total: %f", core_diameter, total);
     
     RETableViewTextCell *textcell;
     

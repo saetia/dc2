@@ -224,7 +224,7 @@
                 @{
                     @"label":           @"Weight",
                     @"unit":            @"lb",
-                    @"possibleUnits":   @[@"oz", @"lb", @"g", @"kg"],
+                    @"possibleUnits":   @[@"oz", @"lb", @"g", @"mg", @"kg"],
                     },
                 @{
                     @"label":           @"Width",
@@ -419,10 +419,11 @@
     
     int i = 0;
     for (NSNumber *value in values) {
-        //NSLog(@"converting %@ %@ to %@",value, _fields[i][@"unit"], units[i]);
+        NSLog(@"converting %@ %@ to %@",value, units[i], _fields[i][@"unit"]);
         [numbers addObject: (NSNumber *)[UnitConvert convert:value from: units[i] to: _fields[i][@"unit"]]]; i++;
     }
     
+ 
     //make sure we have the full set of required fields
     if (filled_out_fields < [_fields count] - 2) return;
     

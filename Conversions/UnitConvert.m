@@ -14,6 +14,17 @@
 + (id)objectify:(NSString *)unit {
     
     id object;
+
+    
+    
+    //weight
+    if ([unit isEqualToString:@"oz"]) object = [MKMassUnit ounce];
+    if ([unit isEqualToString:@"lb"]) object = [MKMassUnit pound];
+    if ([unit isEqualToString:@"g"]) object = [MKMassUnit gram];
+    if ([unit isEqualToString:@"mg"]) object = [MKMassUnit milligram];
+    if ([unit isEqualToString:@"kg"]) object = [MKMassUnit kilogram];
+
+    
     
     //length
     if ([unit isEqualToString:@"in"]) object = [MKLengthUnit inch];

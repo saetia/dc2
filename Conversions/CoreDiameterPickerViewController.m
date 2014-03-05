@@ -1,28 +1,33 @@
 //
-//  RollLengthViewController.m
+//  CoreDiameterPickerViewController.m
 //  Conversions
 //
-//  Created by Joel Glovacki on 8/9/13.
-//  Copyright (c) 2013 Dunmore. All rights reserved.
+//  Created by Joel Glovacki on 3/4/14.
+//  Copyright (c) 2014 Dunmore. All rights reserved.
 //
 
-#import "RollLengthViewController.h"
 #import "CoreDiameterPickerViewController.h"
 
-@interface RollLengthViewController ()
-@property (strong, readwrite, nonatomic) RERadioItem *coreDiameter;
+@interface CoreDiameterPickerViewController ()
+
+@property (strong, readwrite, nonatomic) RETextItem *customDiameter;
+@property (strong, readwrite, nonatomic) RETableViewItem *threeInches;
+@property (strong, readwrite, nonatomic) RETableViewItem *sixInches;
+
+
 @end
 
-@implementation RollLengthViewController
+@implementation CoreDiameterPickerViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
+    if (self) {}
     return self;
 }
+
+
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -48,28 +53,11 @@
     [backButton addTarget:self action:@selector(popCurrentViewController) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = barBackButtonItem;
     self.navigationItem.hidesBackButton = YES;
-    
-    self.coreDiameter.value = [[NSUserDefaults standardUserDefaults] objectForKey:@"coreTitle"];
-    [self.coreDiameter reloadRowWithAnimation:UITableViewRowAnimationNone];
-    
-    [self calculateResult:nil];
-    
 }
 
 - (void)popCurrentViewController {
     [self.navigationController popViewControllerAnimated:YES];
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -87,34 +75,18 @@
 }
 - (void)keyboardWillHide:(NSNotification *)aNotification
 {
-    [UIView animateWithDuration:.3 animations:^(void)
+    [UIView animateWithDuration:0.3 animations:^(void)
      {
          self.tableView.contentInset = UIEdgeInsetsZero;
          self.tableView.scrollIndicatorInsets = UIEdgeInsetsZero;
      }];
 }
 
-- (void)notificationTriggered:(NSNotification *)notification {
-    if ([notification.name isEqualToString:@"reloadData"]){
-        self.coreDiameter.value = [[NSUserDefaults standardUserDefaults] objectForKey:@"coreTitle"];
-        [self.coreDiameter reloadRowWithAnimation:UITableViewRowAnimationNone];
-        [self calculateResult:nil];
-    }
-}
 
-
-- (void)viewDidLoad
-{
-
+- (void)viewDidLoad {
+    
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
         self.edgesForExtendedLayout = UIRectEdgeNone;
-    
-    
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(notificationTriggered:)
-     name:@"reloadData"
-     object:nil];
     
     
     // Register notification when the keyboard will be show
@@ -128,42 +100,41 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
-
-    self.title = @"Roll Length";
+    
+    self.title = @"Core Diameter";
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = [UIColor colorWithRed:0.93f green:0.93f blue:0.90f alpha:1.00f];
     [super viewDidLoad];
+
+
+    
+    
     
     _fields = @[
-        @{
-            @"label":           @"Film Thickness",
-            @"unit":            @"mil",
-            @"possibleUnits":   @[@"mil", @"mic", @"ga", @"in"],
-        },
-        @{
-            @"label":           @"Roll Diameter",
-            @"unit":            @"in",
-            @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
-        },
-        @{
-            @"label":           @"Core Diameter",
-            @"unit":            @"",
-            @"possibleUnits":   @[],
-            //@"unit":            @"in",
-            //@"possibleUnits":   @[@"in", @"ft", @"yd"],
-        },
-        @{
-            @"label":           @"Result",
-            @"unit":            @"yd",
-            @"possibleUnits":   @[@"in", @"ft", @"yd", @"mm", @"m"],
-        }
-    ];
+                @{
+                    @"label":           @"3 inches",
+                    @"unit":            @"",
+                    @"possibleUnits":   @[],
+                    },
+                @{
+                    @"label":           @"6 inches",
+                    @"unit":            @"",
+                    @"possibleUnits":   @[],
+                    },
+                
+                @{
+                    @"label":           @"Core Diameter",
+                    @"unit":            @"in",
+                    @"possibleUnits":   @[@"mil", @"mic", @"ga", @"in"],
+                    }
+                ];
+    
     
     _textFields = [[NSMutableArray alloc] init];
-    
     _manager = [[RETableViewManager alloc] initWithTableView:self.tableView delegate:self];
+    
     self.basicControlsSection = [self addBasicControls];
-    self.buttonSection = [self addButton];
+    self.customDiameterSection = [self addCustomDiameterSection];
     
     [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.00f green:0.50f blue:0.73f alpha:1.00f]];
     
@@ -191,14 +162,14 @@
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UIMenuControllerDidHide:) name:UIMenuControllerDidHideMenuNotification object:nil];
-
     
-
+    
+    
     id tracker = [[GAI sharedInstance] defaultTracker];
     [tracker set:kGAIScreenName value:self.title];
     [tracker send:[[GAIDictionaryBuilder createAppView] build]];
     
-
+    
 }
 
 -(void)UIMenuControllerDidHide:(id)sender {
@@ -206,118 +177,91 @@
 }
 
 
+
+- (RETableViewSection *)addCustomDiameterSection {
+    
+    RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Custom"];
+    
+    [_manager addSection:section];
+    
+    //customDiameter
+    
+    NSString *value = ([[NSUserDefaults standardUserDefaults] boolForKey:@"coreCustom"]) ? [[NSUserDefaults standardUserDefaults] objectForKey:@"coreValue"] : nil;
+    
+    self.customDiameter = [RETextItem itemWithTitle:@"Core Diameter" value:value placeholder:@"0.00"];
+    
+    [section addItem: self.customDiameter];
+    
+    return section;
+    
+}
+
+
 - (RETableViewSection *)addBasicControls {
     
-    RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Roll Length"];
+    RETableViewSection *section = [RETableViewSection sectionWithHeaderTitle:@"Defaults"];
     
     [_manager addSection:section];
     
-    for (NSDictionary *field in _fields){
-        if ([field[@"label"] isEqualToString: @"Result"]) continue;
-        
-
-        
-        
-        
-        
-        
-        
-        
-        
-        if ([field[@"label"] isEqualToString: @"Core Diameter"]){
-            
-            __typeof (&*self) __weak weakSelf = self;
-            
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-
-            self.coreDiameter = [RERadioItem itemWithTitle:@"Core Diameter" value:[defaults objectForKey:@"coreTitle"] selectionHandler:^(RERadioItem *item) {
-                
-                [item deselectRowAnimated:YES];
-                
-                CoreDiameterPickerViewController *vc = [[CoreDiameterPickerViewController alloc] init];
-                
-                //CoreDiameterPickerViewController *vc = [weakSelf.storyboard instantiateViewControllerWithIdentifier:@"location_picker"];
-                
-                [weakSelf.navigationController pushViewController:vc animated:YES];
-                
-            }];
-            
-            [section addItem: self.coreDiameter];
-            continue;
-            
-        }
-        
-        
-        
-        
-        /*
-        if ([field[@"label"] isEqualToString: @"Core Diameter"]){
-            
-            __typeof (&*self) __weak weakSelf = self;
-            
-            RERadioItem *options = [RERadioItem itemWithTitle:@"Core Diameter" value:@"3 inches" selectionHandler:^(RERadioItem *item) {
-                
-                [item deselectRowAnimated:YES];
-                
-                NSMutableArray *options = [[NSMutableArray alloc] init];
-                
-                [options addObject:@"3 inches"];
-                [options addObject:@"6 inches"];
-                
-                RETableViewOptionsController *optionsController = [[RETableViewOptionsController alloc] initWithItem:item options:options multipleChoice:NO completionHandler:^{
-                    [weakSelf.navigationController popViewControllerAnimated:YES];
-                    
-                    [item reloadRowWithAnimation:UITableViewRowAnimationNone];
-                    
-                    [weakSelf calculateResult: item];
-                    
-                }];
-                
-                
-                optionsController.delegate = weakSelf;
-                optionsController.style = section.style;
-                if (weakSelf.tableView.backgroundView == nil) {
-                    optionsController.tableView.backgroundColor = weakSelf.tableView.backgroundColor;
-                    optionsController.tableView.backgroundView = nil;
-                }
-                
-                
-                [weakSelf.navigationController pushViewController:optionsController animated:YES];
-                
-            }];
-            
-            [section addItem: options];
-            continue;
-            
-        }
-        */
-         
-        
-        
-        RETableViewItem *item = [RETextItem itemWithTitle:field[@"label"] value:nil placeholder:@"0.00"];
-        
-        [section addItem: item];
-        
-        
-        
-    }
+    __typeof (&*self) __weak weakSelf = self;
     
+    NSString *core = [[NSUserDefaults standardUserDefaults] objectForKey:@"coreTitle"];
+    
+    NSLog(@"defaults = %@",core);
+    
+    int accessory = ([core isEqualToString:@"3 inches"]) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+
+    
+    self.threeInches = [RETableViewItem itemWithTitle:@"3 inches" accessoryType:accessory selectionHandler:^(RETableViewItem *item) {
+        [item deselectRowAnimated:YES];
+        
+        item.accessoryType = UITableViewCellAccessoryCheckmark;
+        weakSelf.sixInches.accessoryType = UITableViewCellAccessoryNone;
+        
+        [item reloadRowWithAnimation:UITableViewRowAnimationNone];
+        [weakSelf.sixInches reloadRowWithAnimation:UITableViewRowAnimationNone];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:@"3 inches" forKey:@"coreTitle"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"3.75" forKey:@"coreValue"];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"coreCustom"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"in" forKey:@"coreUnit"];
+        
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [weakSelf.navigationController popViewControllerAnimated:YES];
+        
+    }];
+
+    
+    accessory = ([core isEqualToString:@"6 inches"]) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    
+    self.sixInches = [RETableViewItem itemWithTitle:@"6 inches" accessoryType:accessory selectionHandler:^(RETableViewItem *item) {
+        [item deselectRowAnimated:YES];
+        
+        item.accessoryType = UITableViewCellAccessoryCheckmark;
+        weakSelf.threeInches.accessoryType = UITableViewCellAccessoryNone;
+        
+        [item reloadRowWithAnimation:UITableViewRowAnimationNone];
+        [weakSelf.threeInches reloadRowWithAnimation:UITableViewRowAnimationNone];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:@"6 inches" forKey:@"coreTitle"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"7" forKey:@"coreValue"];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"coreCustom"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"in" forKey:@"coreUnit"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [weakSelf.navigationController popViewControllerAnimated:YES];
+        
+    }];
+    
+    [section addItem:self.threeInches];
+    [section addItem:self.sixInches];
+
     return section;
     
 }
 
-- (RETableViewSection *)addButton
-{
 
-    RETableViewSection *section = [RETableViewSection section];
-    
-    [_manager addSection:section];
-    
-    RETableViewItem *item = [RETextItem itemWithTitle:@"Result" value:nil placeholder:@"0.00"];
-    [section addItem: item];
-    
-    return section;
-}
 
 - (void)calculateResult:(id)sender {
     
@@ -325,79 +269,85 @@
     int filled_out_fields = 0;
     
     NSMutableArray *values = [[NSMutableArray alloc] init];
-    NSMutableArray *numbers = [[NSMutableArray alloc] init];
+
     
-    
-    //RETableViewSection *section = self.manager.sections[0];
-    //RERadioItem *core_item = section.items[2];
-    //double core_diameter = ([core_item.value isEqualToString:@"3 inches"]) ? 3.75f : 7.00f;
-    
-    double core_diameter = [[[NSUserDefaults standardUserDefaults] objectForKey:@"coreValue"] doubleValue];
-    
-    if (![[[NSUserDefaults standardUserDefaults] objectForKey:@"coreUnit"] isEqualToString:@"in"]){
-        core_diameter = [[UnitConvert convert:[NSNumber numberWithDouble: core_diameter] from: [[NSUserDefaults standardUserDefaults] objectForKey:@"coreUnit"] to: @"in"] doubleValue];
-    }
-    
-    
-    
+    //if ([core_item.value isEqualToString:@"3 inches"]) core_diameter = 3.75f;
+    //if ([core_item.value isEqualToString:@"6 inches"]) core_diameter = 7.00f;
+
     for (UITextField *field in _textFields){
         if (field.text.doubleValue < 0.0000000000001f) continue;
         filled_out_fields++;
-        [values addObject: [NSNumber numberWithDouble:field.text.doubleValue]];
+        [values addObject: [NSNumber numberWithDouble: field.text.doubleValue]];
     }
-
+    
     NSMutableArray *units = [[NSMutableArray alloc] init];
     for (UITextField *field in _textFields){
-
-        
         RETableViewCell *badge;
-        
         if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
             badge = (RETableViewCell *)field.superview.superview;
         } else {
             badge = (RETableViewCell *)field.superview.superview.superview;
         }
-
         [units addObject:badge.badge.badgeString];
     }
-
-    int i = 0;
-    for (NSNumber *value in values) {
-        //NSLog(@"converting %@ %@ to %@ = %@",value, _fields[i][@"unit"], units[i], [UnitConvert convert:value from: units[i] to: _fields[i][@"unit"]]);
-        [numbers addObject: (NSNumber *)[UnitConvert convert:value from: units[i] to: _fields[i][@"unit"]]]; i++;
-    }
     
-    //make sure we have the full set of required fields
-    if (filled_out_fields < [_fields count] - 2) return;
-        
 
-    total = 0.06545f / ([numbers[0] doubleValue] * 0.001) * (pow([numbers[1] doubleValue],  2.0f) - pow(core_diameter,  2.0f)) / 3.0f;
-    
-    if (total < 0) total = 0;
     
     RETableViewTextCell *textcell;
-    
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
         textcell = (RETableViewTextCell *)_resultField.superview.superview;
     } else {
         textcell = (RETableViewTextCell *)_resultField.superview.superview.superview;
     }
+    
 
-    NSNumber *final_total = [UnitConvert convert:[NSNumber numberWithDouble: total] from: [_fields lastObject][@"unit"] to: textcell.badge.badgeString];
+    if (self.customDiameter.value){
+        
+        self.threeInches.accessoryType = UITableViewCellAccessoryNone;
+        self.sixInches.accessoryType = UITableViewCellAccessoryNone;
+        
+        [self.threeInches reloadRowWithAnimation:UITableViewRowAnimationNone];
+        [self.sixInches reloadRowWithAnimation:UITableViewRowAnimationNone];
+        
+        
+        //NSNumber *final_total = [UnitConvert convert:[NSNumber numberWithDouble: total] from: [_fields lastObject][@"unit"] to: textcell.badge.badgeString];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:self.customDiameter.value forKey:@"coreValue"];
+        
+        NSString *string = [NSString stringWithFormat:@"%@ %@", self.customDiameter.value, textcell.badge.badgeString];
+        
+        NSLog(@"%@",string);
+        
+        [[NSUserDefaults standardUserDefaults] setObject:string forKey:@"coreTitle"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"coreCustom"];
+        [[NSUserDefaults standardUserDefaults] setObject:textcell.badge.badgeString forKey:@"coreUnit"];
+        
+        //revert to 3 inches
+    } else {
+        
+        self.threeInches.accessoryType = UITableViewCellAccessoryCheckmark;
+        [self.threeInches reloadRowWithAnimation:UITableViewRowAnimationNone];
+        [[NSUserDefaults standardUserDefaults] setObject:@"3 inches" forKey:@"coreTitle"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"3.75" forKey:@"coreValue"];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"coreCustom"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"in" forKey:@"coreUnit"];
+        
+    }
     
-    total = final_total.doubleValue;
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
-    NSString *display = [NSNumberFormatter localizedStringFromNumber:[NSNumber numberWithDouble:total] numberStyle: NSNumberFormatterDecimalStyle];
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc postNotificationName:@"reloadData" object:self userInfo: nil];
     
-    _resultField.text = display;
-    
+    NSLog(@"custom value is: %f",total);
+
 }
 
 
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(RETableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
- 
+    
     for (UIView *view in cell.contentView.subviews) {
         
         UILabel *currentView = ((UILabel *)view);
@@ -412,58 +362,41 @@
             currentView.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:18];
             currentView.textColor = [UIColor colorWithRed:0.20f green:0.20f blue:0.20f alpha:1.00f];
             
-            if (![cell.textLabel.text isEqualToString:@"Result"]){
+            if ([cell.textLabel.text isEqualToString:@"Core Diameter"]){
+             
                 _keyboardView = [[ZenKeyboard alloc] initWithFrame:CGRectMake(0, 0, 320, 216)];
                 _keyboardView.textField = (UITextField *)view;
-            
                 
                 [(UITextField *)view addTarget:self action:@selector(calculateResult:) forControlEvents:UIControlEventEditingChanged];
                 
                 _textFields[indexPath.row] = (UITextField *)view;
                 
-                
-                if (!indexPath.section && !indexPath.row) currentView.tag = 8;
-      
-                
-            } else {
-                
                 _resultField = (UITextField *)view;
                 
-                currentView.enabled = FALSE;
-                //do something to copy the number to clipboard here.
+                currentView.tag = 8;
+        
             }
-        
-        
-            
         }
     }
-
-
-    int row = (indexPath.section == 0) ? indexPath.row : (_fields.count - 1);
-
-
+    
+    if (indexPath.section == 0) return;
+    
     if ([cell.textLabel.text rangeOfString:@"inches"].location != NSNotFound) {
         return;
     }
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *unit = [defaults objectForKey:[self.title stringByAppendingString: cell.textLabel.text]];
+    if (unit == nil) unit = _fields[2][@"unit"];
     
-    if (_fields.count > row && ![_fields[row][@"unit"] isEqualToString:@""]){
-
-        
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSString *unit = [defaults objectForKey:[self.title stringByAppendingString: cell.textLabel.text]];
-        if (unit == nil) unit = _fields[row][@"unit"];
-        
-        cell.badgeString        = unit;
-        cell.badgeColor         = [UnitConvert colorize: unit];
-        cell.badgeTextColor     = [UIColor colorWithRed:1.00f green:1.00f blue:1.00f alpha:1.00f];
-        cell.badge.fontSize     = 16;
-        cell.badgeLeftOffset    = 0;
-        cell.badgeRightOffset   = 10;
-        
-        [cell.badge addTarget:self action:@selector(triggerMenu:) forControlEvents:UIControlEventTouchUpInside];
-            
-    }
+    cell.badgeString        = unit;
+    cell.badgeColor         = [UnitConvert colorize: unit];
+    cell.badgeTextColor     = [UIColor colorWithRed:1.00f green:1.00f blue:1.00f alpha:1.00f];
+    cell.badge.fontSize     = 16;
+    cell.badgeLeftOffset    = 0;
+    cell.badgeRightOffset   = 10;
+    
+    [cell.badge addTarget:self action:@selector(triggerMenu:) forControlEvents:UIControlEventTouchUpInside];
     
 }
 
@@ -477,26 +410,20 @@
     [PSMenuItem installMenuHandlerForObject:self];
 }
 
-- (void)triggerMenu:(UIButton *)sender
-{
+- (void)triggerMenu:(UIButton *)sender {
     [self becomeFirstResponder];
     
     __weak RETableViewTextCell *view_self;
-
+    
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
         view_self = (RETableViewTextCell *)sender.superview.superview;
     } else {
         view_self = (RETableViewTextCell *)sender.superview.superview.superview;
     }
-    
-    
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:view_self];
-    
+
     NSMutableArray *units = [[NSMutableArray alloc] init];
     
-    int row = (!indexPath.section) ? indexPath.row : (_fields.count - 1);
-    
-    for (NSString *unit in _fields[row][@"possibleUnits"]){
+    for (NSString *unit in _fields[2][@"possibleUnits"]){
         PSMenuItem *possibleUnit = [[PSMenuItem alloc] initWithTitle:unit block:^{
             
             view_self.badgeString = unit;
@@ -523,48 +450,29 @@
         [units addObject:possibleUnit];
         
     }
-    
-    //[cell.subviews setNeedsDisplay];
-    
+
     [sender.superview.superview setNeedsDisplay];
     
     [[UIMenuController sharedMenuController] setTargetRect:sender.frame inView:sender];
     [[UIMenuController sharedMenuController] setMenuItems:units];
     [[UIMenuController sharedMenuController] setMenuVisible:YES animated:YES];
     
-    
-    
 }
 
-
-
-
-
-
-
-
-
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 0;
-    //return (section == 0) ? 40 : 0;
+    return 40;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
-    if (section == 1){
-       return [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-    }
+    UIView *customTitleView = [ [UIView alloc] initWithFrame:CGRectMake(15, 10, 300, 30)];
+    UILabel *titleLabel = [ [UILabel alloc] initWithFrame:CGRectMake(15, 10, 300, 30)];
     
-    UIView *customTitleView = [ [UIView alloc] initWithFrame:CGRectMake(15, 0, 300, 40)];
-    UILabel *titleLabel = [ [UILabel alloc] initWithFrame:CGRectMake(15, 0, 300, 40)];
-    
-    titleLabel.text = @"";
-
+    titleLabel.text = (section == 0) ? @"Choose a Dunmore® core" : @"Or enter your own…";
     titleLabel.textColor = [UIColor colorWithRed:0.51f green:0.51f blue:0.50f alpha:0.8f];
-    titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:18];
+    titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
     titleLabel.shadowColor = [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:0.8f];
     titleLabel.shadowOffset = CGSizeMake(0, 1.0f);
-    
     titleLabel.backgroundColor = [UIColor clearColor];
     [customTitleView addSubview:titleLabel];
     return customTitleView;
@@ -573,8 +481,13 @@
 
 
 - (void)viewDidAppear:(BOOL)animated {
+    
     [super viewDidAppear:animated];
-    [[self.view viewWithTag:8] becomeFirstResponder];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"coreCustom"]){
+        [[self.view viewWithTag:8] becomeFirstResponder];
+    }
+    
 }
 
 

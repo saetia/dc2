@@ -22,7 +22,7 @@ static NSString *const kAllowTracking = @"allowTracking";
 {
 
     
-    NSDictionary *appDefaults = @{kAllowTracking: @(YES)};
+    NSDictionary *appDefaults = @{kAllowTracking: @(YES), @"coreValue":@"3.75", @"coreUnit":@"in", @"coreTitle":@"3 inches", @"coreCustom":@(NO)};
     [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
 
     [GAI sharedInstance].optOut =

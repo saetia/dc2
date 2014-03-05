@@ -42,7 +42,6 @@
 		5D16A9251818472A00C12FAA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D16A9241818472A00C12FAA /* CoreData.framework */; };
 		5D16A9271818473600C12FAA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D16A9261818473600C12FAA /* SystemConfiguration.framework */; };
 		5D16A9291818474500C12FAA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D16A9281818474500C12FAA /* libz.dylib */; };
-		5D16A92B1818477500C12FAA /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D16A92A1818477500C12FAA /* libGoogleAnalyticsServices.a */; };
 		5D16A93418184A2B00C12FAA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5D16A93318184A2B00C12FAA /* Settings.bundle */; };
 		5D1DB86C17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DB86B17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.m */; };
 		5D1DB86F17CD1493007CB6B9 /* YieldUsingStandardYieldViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1DB86E17CD1493007CB6B9 /* YieldUsingStandardYieldViewController.m */; };
@@ -212,6 +211,10 @@
 		5DCF089D17E19C8400ED5544 /* MKTimeUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF088917E19C8400ED5544 /* MKTimeUnit.m */; };
 		5DD8A84717A1D5D400669C34 /* CalculationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8A84617A1D5D400669C34 /* CalculationViewController.m */; };
 		5DDF2F3217FF151F0027AA78 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDF2F3117FF151F0027AA78 /* AboutViewController.m */; };
+		5DE3353A18C645570055E906 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D16A92A1818477500C12FAA /* libGoogleAnalyticsServices.a */; };
+		5DE3354118C647D80055E906 /* ACEAutocompleteInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE3353E18C647D80055E906 /* ACEAutocompleteInputView.m */; };
+		5DE3354218C647D80055E906 /* UITextField+ACEAutocompleteBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE3354018C647D80055E906 /* UITextField+ACEAutocompleteBar.m */; };
+		5DE3354518C658F80055E906 /* CoreDiameterPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE3354418C658F80055E906 /* CoreDiameterPickerViewController.m */; };
 		5DEC2CCF17CCB60900C82DFF /* LabelSizeToRollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEC2CCE17CCB60900C82DFF /* LabelSizeToRollViewController.m */; };
 		5DEC2CD217CCBA7D00C82DFF /* YieldUsingSpecificGravityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DEC2CD117CCBA7C00C82DFF /* YieldUsingSpecificGravityViewController.m */; };
 /* End PBXBuildFile section */
@@ -522,6 +525,13 @@
 		5DD8A84617A1D5D400669C34 /* CalculationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculationViewController.m; sourceTree = "<group>"; };
 		5DDF2F3017FF151F0027AA78 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		5DDF2F3117FF151F0027AA78 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		5DE3353C18C647D80055E906 /* ACEAutocompleteBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACEAutocompleteBar.h; sourceTree = "<group>"; };
+		5DE3353D18C647D80055E906 /* ACEAutocompleteInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACEAutocompleteInputView.h; sourceTree = "<group>"; };
+		5DE3353E18C647D80055E906 /* ACEAutocompleteInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACEAutocompleteInputView.m; sourceTree = "<group>"; };
+		5DE3353F18C647D80055E906 /* UITextField+ACEAutocompleteBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+ACEAutocompleteBar.h"; sourceTree = "<group>"; };
+		5DE3354018C647D80055E906 /* UITextField+ACEAutocompleteBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+ACEAutocompleteBar.m"; sourceTree = "<group>"; };
+		5DE3354318C658F80055E906 /* CoreDiameterPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDiameterPickerViewController.h; sourceTree = "<group>"; };
+		5DE3354418C658F80055E906 /* CoreDiameterPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDiameterPickerViewController.m; sourceTree = "<group>"; };
 		5DEC2CCD17CCB60900C82DFF /* LabelSizeToRollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelSizeToRollViewController.h; sourceTree = "<group>"; };
 		5DEC2CCE17CCB60900C82DFF /* LabelSizeToRollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelSizeToRollViewController.m; sourceTree = "<group>"; };
 		5DEC2CD017CCBA7C00C82DFF /* YieldUsingSpecificGravityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YieldUsingSpecificGravityViewController.h; sourceTree = "<group>"; };
@@ -534,9 +544,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D16A9291818474500C12FAA /* libz.dylib in Frameworks */,
+				5DE3353A18C645570055E906 /* libGoogleAnalyticsServices.a in Frameworks */,
 				5D16A9271818473600C12FAA /* SystemConfiguration.framework in Frameworks */,
 				5D16A9251818472A00C12FAA /* CoreData.framework in Frameworks */,
-				5D16A92B1818477500C12FAA /* libGoogleAnalyticsServices.a in Frameworks */,
 				5D06C63317A083EA00673E02 /* QuartzCore.framework in Frameworks */,
 				5D06C5E517A0787600673E02 /* UIKit.framework in Frameworks */,
 				5D06C5E717A0787600673E02 /* Foundation.framework in Frameworks */,
@@ -811,6 +821,7 @@
 		5D34432517EA462B00B72C01 /* Main Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5DE3354418C658F80055E906 /* CoreDiameterPickerViewController.m */,
 				5DA6C5C117B4EE8900819C93 /* RollLengthViewController.m */,
 				5D9EFFCD17CCB22E0099B0D1 /* RollDiameterViewController.m */,
 				5DEC2CCE17CCB60900C82DFF /* LabelSizeToRollViewController.m */,
@@ -820,6 +831,7 @@
 				5D1DB86B17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.m */,
 				5D7ED68817D04DDB00E389A2 /* AdditionalCalculatorsViewController.m */,
 				5D63846917E06F6E00061D10 /* AdditionalCalculationViewController.m */,
+				5DE3354318C658F80055E906 /* CoreDiameterPickerViewController.h */,
 				5DA6C5C017B4EE8900819C93 /* RollLengthViewController.h */,
 				5D9EFFCC17CCB22D0099B0D1 /* RollDiameterViewController.h */,
 				5DEC2CCD17CCB60900C82DFF /* LabelSizeToRollViewController.h */,
@@ -836,6 +848,7 @@
 		5D34432617EA46DB00B72C01 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				5DE3353B18C647D80055E906 /* ACEAutocompleteBar */,
 				5D516C4B17E3A6E0000A4D1E /* UnitConvert.h */,
 				5D516C4C17E3A6E0000A4D1E /* UnitConvert.m */,
 				5D353D3917A8E3B800EC6AEF /* PSMenuItem.h */,
@@ -1111,6 +1124,18 @@
 			path = Time;
 			sourceTree = "<group>";
 		};
+		5DE3353B18C647D80055E906 /* ACEAutocompleteBar */ = {
+			isa = PBXGroup;
+			children = (
+				5DE3353C18C647D80055E906 /* ACEAutocompleteBar.h */,
+				5DE3353D18C647D80055E906 /* ACEAutocompleteInputView.h */,
+				5DE3353E18C647D80055E906 /* ACEAutocompleteInputView.m */,
+				5DE3353F18C647D80055E906 /* UITextField+ACEAutocompleteBar.h */,
+				5DE3354018C647D80055E906 /* UITextField+ACEAutocompleteBar.m */,
+			);
+			path = ACEAutocompleteBar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1347,6 +1372,8 @@
 				5D06C63017A07EF700673E02 /* MMDrawerVisualState.m in Sources */,
 				5D06C63117A07EF700673E02 /* UIViewController+MMDrawerController.m in Sources */,
 				5DCF089317E19C8400ED5544 /* MKYieldUnit.m in Sources */,
+				5DE3354218C647D80055E906 /* UITextField+ACEAutocompleteBar.m in Sources */,
+				5DE3354518C658F80055E906 /* CoreDiameterPickerViewController.m in Sources */,
 				5D06C63617A088F900673E02 /* DrawerViewController.m in Sources */,
 				5D06C63917A08CC000673E02 /* CenterViewController.m in Sources */,
 				5DD8A84717A1D5D400669C34 /* CalculationViewController.m in Sources */,
@@ -1377,6 +1404,7 @@
 				5DB5784117C4A7F30084EFEE /* REFloatItem.m in Sources */,
 				5DB5784217C4A7F30084EFEE /* RELongTextItem.m in Sources */,
 				5DB5784317C4A7F30084EFEE /* REMultipleChoiceItem.m in Sources */,
+				5DE3354118C647D80055E906 /* ACEAutocompleteInputView.m in Sources */,
 				5DB5784417C4A7F30084EFEE /* RENumberItem.m in Sources */,
 				5DB5784517C4A7F30084EFEE /* RERadioItem.m in Sources */,
 				5DDF2F3217FF151F0027AA78 /* AboutViewController.m in Sources */,
@@ -1545,11 +1573,13 @@
 				INFOPLIST_FILE = "Conversions/Conversions-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/Joel/ios/Dunmore\\ Calculations",
+					"${SOURCE_ROOT}/**",
+					"/Users/Joel/Objective-C/Dunmore\\ Roll-to-Roll",
 				);
+				"LIBRARY_SEARCH_PATHS[arch=*]" = "$(inherited)/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "611C889B-C125-485A-9906-EB3A35905E70";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1564,11 +1594,13 @@
 				INFOPLIST_FILE = "Conversions/Conversions-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/Joel/ios/Dunmore\\ Calculations",
+					"${SOURCE_ROOT}/**",
+					"/Users/Joel/Objective-C/Dunmore\\ Roll-to-Roll",
 				);
+				"LIBRARY_SEARCH_PATHS[arch=*]" = "$(inherited)/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "611C889B-C125-485A-9906-EB3A35905E70";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

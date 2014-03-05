@@ -150,7 +150,7 @@
                 @{
                     @"label":           @"Weight",
                     @"unit":            @"lb",
-                    @"possibleUnits":   @[@"oz", @"lb", @"g", @"kg"],
+                    @"possibleUnits":   @[@"oz", @"lb", @"g", @"mg", @"kg"],
                     },
                 @{
                     @"label":           @"Width",
