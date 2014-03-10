@@ -83,7 +83,12 @@
 }
 
 
+
+    
+
 - (void)viewDidLoad {
+    
+    [super viewDidLoad];
     
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
         self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -104,9 +109,24 @@
     self.title = @"Core Diameter";
     self.tableView.backgroundView = nil;
     self.tableView.backgroundColor = [UIColor colorWithRed:0.93f green:0.93f blue:0.90f alpha:1.00f];
-    [super viewDidLoad];
 
-
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(popCurrentViewController)];
+    
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) {
+        
+        doneButton.tintColor = [UIColor colorWithRed:0 green:0.34 blue:0.49 alpha:1];
+        
+        NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
+        [attributes setValue:[UIColor colorWithRed:0.25 green:0.63 blue:0.8 alpha:1] forKey:UITextAttributeTextShadowColor];
+        [attributes setValue:[UIFont boldSystemFontOfSize:19] forKey:UITextAttributeFont];
+        [attributes setValue:[NSValue valueWithUIOffset:UIOffsetMake(0.0, 1.0)] forKey:UITextAttributeTextShadowOffset];
+        [[UIBarButtonItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    
+    }
+    
+    
+    [self.navigationItem setRightBarButtonItem:doneButton];
+    
     
     
     
@@ -207,7 +227,7 @@
     
     NSString *core = [[NSUserDefaults standardUserDefaults] objectForKey:@"coreTitle"];
     
-    NSLog(@"defaults = %@",core);
+    //NSLog(@"defaults = %@",core);
     
     int accessory = ([core isEqualToString:@"3 inches"]) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 
@@ -265,7 +285,7 @@
 
 - (void)calculateResult:(id)sender {
     
-    float total = 0;
+
     int filled_out_fields = 0;
     
     NSMutableArray *values = [[NSMutableArray alloc] init];
@@ -316,7 +336,7 @@
         
         NSString *string = [NSString stringWithFormat:@"%@ %@", self.customDiameter.value, textcell.badge.badgeString];
         
-        NSLog(@"%@",string);
+        //NSLog(@"%@",string);
         
         [[NSUserDefaults standardUserDefaults] setObject:string forKey:@"coreTitle"];
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"coreCustom"];
@@ -339,7 +359,7 @@
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc postNotificationName:@"reloadData" object:self userInfo: nil];
     
-    NSLog(@"custom value is: %f",total);
+    //NSLog(@"custom value is: %f",total);
 
 }
 
@@ -478,6 +498,10 @@
     return customTitleView;
     
 }
+
+
+
+
 
 
 - (void)viewDidAppear:(BOOL)animated {

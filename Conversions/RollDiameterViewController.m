@@ -302,7 +302,7 @@
     double core_diameter = [[[NSUserDefaults standardUserDefaults] objectForKey:@"coreValue"] doubleValue];
     
     
-    NSLog(@"core unit: %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"coreUnit"]);
+    //NSLog(@"core unit: %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"coreUnit"]);
     
     if (![[[NSUserDefaults standardUserDefaults] objectForKey:@"coreUnit"] isEqualToString:@"in"]){
         core_diameter = [[UnitConvert convert:[NSNumber numberWithDouble: core_diameter] from: [[NSUserDefaults standardUserDefaults] objectForKey:@"coreUnit"] to: @"in"] doubleValue];
@@ -346,7 +346,7 @@
     
     if (total < 0) total = 0;
     
-    NSLog(@"core: %f total: %f", core_diameter, total);
+    //NSLog(@"core: %f total: %f", core_diameter, total);
     
     RETableViewTextCell *textcell;
     
