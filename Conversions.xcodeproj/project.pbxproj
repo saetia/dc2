@@ -89,6 +89,7 @@
 		5D353D3717A8D25100EC6AEF /* UnitMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D353D3617A8D25100EC6AEF /* UnitMenuItem.m */; };
 		5D353D3A17A8E3B800EC6AEF /* PSMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D353D3817A8E3B800EC6AEF /* PSMenuItem.m */; };
 		5D353D3B17A8E7AB00EC6AEF /* PSMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D353D3817A8E3B800EC6AEF /* PSMenuItem.m */; };
+		5D36817518D36B3C007E38F6 /* Raygun4iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D36817418D36B3C007E38F6 /* Raygun4iOS.framework */; };
 		5D516C4D17E3A6E0000A4D1E /* UnitConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D516C4C17E3A6E0000A4D1E /* UnitConvert.m */; };
 		5D516C5317E3C0F3000A4D1E /* DunmoreLogo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D516C5217E3C0F3000A4D1E /* DunmoreLogo.m */; };
 		5D516C5817E3C9AE000A4D1E /* BackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D516C5417E3C9AE000A4D1E /* BackButton.png */; };
@@ -100,6 +101,7 @@
 		5D66A1CF1807161F0030425C /* MKAreaUnit+Imperial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D66A1CD1807161F0030425C /* MKAreaUnit+Imperial.m */; };
 		5D69C59017C4C7A2005E0FE4 /* DigitInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69C58F17C4C7A2005E0FE4 /* DigitInputCell.m */; };
 		5D69C59317C4C7E0005E0FE4 /* DigitInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D69C59217C4C7E0005E0FE4 /* DigitInputItem.m */; };
+		5D7A503719DCE7CA004D31DF /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7A503619DCE7CA004D31DF /* libGoogleAnalyticsServices.a */; };
 		5D7ED68917D04DDB00E389A2 /* AdditionalCalculatorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7ED68817D04DDB00E389A2 /* AdditionalCalculatorsViewController.m */; };
 		5D83192C17A877EE0069F64E /* UnitsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D83192B17A877EE0069F64E /* UnitsButton.m */; };
 		5D99EE4117C53A18000FBFF3 /* SettingsFormBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D99EE1D17C53A18000FBFF3 /* SettingsFormBottom.png */; };
@@ -211,7 +213,6 @@
 		5DCF089D17E19C8400ED5544 /* MKTimeUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DCF088917E19C8400ED5544 /* MKTimeUnit.m */; };
 		5DD8A84717A1D5D400669C34 /* CalculationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8A84617A1D5D400669C34 /* CalculationViewController.m */; };
 		5DDF2F3217FF151F0027AA78 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDF2F3117FF151F0027AA78 /* AboutViewController.m */; };
-		5DE3353A18C645570055E906 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D16A92A1818477500C12FAA /* libGoogleAnalyticsServices.a */; };
 		5DE3354118C647D80055E906 /* ACEAutocompleteInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE3353E18C647D80055E906 /* ACEAutocompleteInputView.m */; };
 		5DE3354218C647D80055E906 /* UITextField+ACEAutocompleteBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE3354018C647D80055E906 /* UITextField+ACEAutocompleteBar.m */; };
 		5DE3354518C658F80055E906 /* CoreDiameterPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE3354418C658F80055E906 /* CoreDiameterPickerViewController.m */; };
@@ -278,13 +279,6 @@
 		5D16A9241818472A00C12FAA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5D16A9261818473600C12FAA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5D16A9281818474500C12FAA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		5D16A92A1818477500C12FAA /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
-		5D16A92C181847A800C12FAA /* GAI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
-		5D16A92D181847A800C12FAA /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
-		5D16A92E181847A800C12FAA /* GAIFields.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
-		5D16A92F181847A800C12FAA /* GAILogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
-		5D16A930181847A800C12FAA /* GAITrackedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
-		5D16A931181847A800C12FAA /* GAITracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
 		5D16A93318184A2B00C12FAA /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		5D1DB86A17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetallizedFilmResistanceViewController.h; sourceTree = "<group>"; };
 		5D1DB86B17CD12B7007CB6B9 /* MetallizedFilmResistanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetallizedFilmResistanceViewController.m; sourceTree = "<group>"; };
@@ -340,6 +334,8 @@
 		5D353D3617A8D25100EC6AEF /* UnitMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitMenuItem.m; sourceTree = "<group>"; };
 		5D353D3817A8E3B800EC6AEF /* PSMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMenuItem.m; sourceTree = "<group>"; };
 		5D353D3917A8E3B800EC6AEF /* PSMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMenuItem.h; sourceTree = "<group>"; };
+		5D36817418D36B3C007E38F6 /* Raygun4iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Raygun4iOS.framework; sourceTree = "<group>"; };
+		5D36817718D373B9007E38F6 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		5D516C4B17E3A6E0000A4D1E /* UnitConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitConvert.h; sourceTree = "<group>"; };
 		5D516C4C17E3A6E0000A4D1E /* UnitConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitConvert.m; sourceTree = "<group>"; };
 		5D516C5117E3C0F3000A4D1E /* DunmoreLogo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DunmoreLogo.h; sourceTree = "<group>"; };
@@ -358,6 +354,17 @@
 		5D69C58F17C4C7A2005E0FE4 /* DigitInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DigitInputCell.m; sourceTree = "<group>"; };
 		5D69C59117C4C7E0005E0FE4 /* DigitInputItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DigitInputItem.h; sourceTree = "<group>"; };
 		5D69C59217C4C7E0005E0FE4 /* DigitInputItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DigitInputItem.m; sourceTree = "<group>"; };
+		5D7A503619DCE7CA004D31DF /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		5D7A503819DCE82B004D31DF /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		5D7A503919DCE82B004D31DF /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		5D7A503A19DCE82B004D31DF /* GAIEcommerceFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceFields.h; sourceTree = "<group>"; };
+		5D7A503B19DCE82B004D31DF /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		5D7A503C19DCE82B004D31DF /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		5D7A503D19DCE82B004D31DF /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		5D7A503E19DCE82B004D31DF /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		5D7A503F19DCE82B004D31DF /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		5D7A504019DCE82B004D31DF /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		5D7A504119DCE82B004D31DF /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
 		5D7ED68717D04DDA00E389A2 /* AdditionalCalculatorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdditionalCalculatorsViewController.h; sourceTree = "<group>"; };
 		5D7ED68817D04DDB00E389A2 /* AdditionalCalculatorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionalCalculatorsViewController.m; sourceTree = "<group>"; };
 		5D83192A17A877EE0069F64E /* UnitsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitsButton.h; sourceTree = "<group>"; };
@@ -544,10 +551,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D16A9291818474500C12FAA /* libz.dylib in Frameworks */,
-				5DE3353A18C645570055E906 /* libGoogleAnalyticsServices.a in Frameworks */,
 				5D16A9271818473600C12FAA /* SystemConfiguration.framework in Frameworks */,
+				5D7A503719DCE7CA004D31DF /* libGoogleAnalyticsServices.a in Frameworks */,
 				5D16A9251818472A00C12FAA /* CoreData.framework in Frameworks */,
 				5D06C63317A083EA00673E02 /* QuartzCore.framework in Frameworks */,
+				5D36817518D36B3C007E38F6 /* Raygun4iOS.framework in Frameworks */,
 				5D06C5E517A0787600673E02 /* UIKit.framework in Frameworks */,
 				5D06C5E717A0787600673E02 /* Foundation.framework in Frameworks */,
 				5D06C5E917A0787600673E02 /* CoreGraphics.framework in Frameworks */,
@@ -590,7 +598,9 @@
 		5D06C5E317A0787600673E02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5D16A92A1818477500C12FAA /* libGoogleAnalyticsServices.a */,
+				5D7A503619DCE7CA004D31DF /* libGoogleAnalyticsServices.a */,
+				5D36817718D373B9007E38F6 /* Crashlytics.framework */,
+				5D36817418D36B3C007E38F6 /* Raygun4iOS.framework */,
 				5D16A9281818474500C12FAA /* libz.dylib */,
 				5D16A9261818473600C12FAA /* SystemConfiguration.framework */,
 				5D16A9241818472A00C12FAA /* CoreData.framework */,
@@ -753,12 +763,16 @@
 		5D16A932181847AE00C12FAA /* Google Analytics */ = {
 			isa = PBXGroup;
 			children = (
-				5D16A92C181847A800C12FAA /* GAI.h */,
-				5D16A92D181847A800C12FAA /* GAIDictionaryBuilder.h */,
-				5D16A92E181847A800C12FAA /* GAIFields.h */,
-				5D16A92F181847A800C12FAA /* GAILogger.h */,
-				5D16A930181847A800C12FAA /* GAITrackedViewController.h */,
-				5D16A931181847A800C12FAA /* GAITracker.h */,
+				5D7A503819DCE82B004D31DF /* GAI.h */,
+				5D7A503919DCE82B004D31DF /* GAIDictionaryBuilder.h */,
+				5D7A503A19DCE82B004D31DF /* GAIEcommerceFields.h */,
+				5D7A503B19DCE82B004D31DF /* GAIEcommerceProduct.h */,
+				5D7A503C19DCE82B004D31DF /* GAIEcommerceProductAction.h */,
+				5D7A503D19DCE82B004D31DF /* GAIEcommercePromotion.h */,
+				5D7A503E19DCE82B004D31DF /* GAIFields.h */,
+				5D7A503F19DCE82B004D31DF /* GAILogger.h */,
+				5D7A504019DCE82B004D31DF /* GAITrackedViewController.h */,
+				5D7A504119DCE82B004D31DF /* GAITracker.h */,
 			);
 			name = "Google Analytics";
 			sourceTree = "<group>";
@@ -1146,6 +1160,7 @@
 				5D06C5DD17A0787600673E02 /* Sources */,
 				5D06C5DE17A0787600673E02 /* Frameworks */,
 				5D06C5DF17A0787600673E02 /* Resources */,
+				5D36817618D3735D007E38F6 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -1173,7 +1188,7 @@
 			name = ConversionsTests;
 			productName = ConversionsTests;
 			productReference = 5D06C60D17A0787700673E02 /* ConversionsTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -1181,6 +1196,7 @@
 		5D06C5D917A0787600673E02 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Dunmore;
 				TargetAttributes = {
@@ -1343,6 +1359,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		5D36817618D3735D007E38F6 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 1e42be544e83b6979fcc4077166f12672beed82b 46f8ead719995718f13fdb9309f1dcb0ed3b4032a0ccb599049564058ac71f65";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1513,7 +1543,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 12;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1529,6 +1560,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "CE530BA8-525D-4372-A710-A886AE8B37CE";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1547,7 +1579,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 12;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1556,6 +1589,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "CE530BA8-525D-4372-A710-A886AE8B37CE";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1566,19 +1600,24 @@
 		5D06C62017A0787700673E02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Byte Studios, Inc. (5P57FQZ4FS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Byte Studios, Inc. (5P57FQZ4FS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Conversions/Conversions-Prefix.pch";
 				INFOPLIST_FILE = "Conversions/Conversions-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
-					"${SOURCE_ROOT}/**",
-					"/Users/Joel/Objective-C/Dunmore\\ Roll-to-Roll",
+					"$(SRCROOT)",
+					/Users/Joel/Downloads/GoogleAnalyticsServicesiOS_3.09,
+					"$(PROJECT_DIR)",
 				);
 				"LIBRARY_SEARCH_PATHS[arch=*]" = "$(inherited)/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "611C889B-C125-485A-9906-EB3A35905E70";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1587,19 +1626,24 @@
 		5D06C62117A0787700673E02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Byte Studios, Inc. (5P57FQZ4FS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Byte Studios, Inc. (5P57FQZ4FS)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Conversions/Conversions-Prefix.pch";
 				INFOPLIST_FILE = "Conversions/Conversions-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
-					"${SOURCE_ROOT}/**",
-					"/Users/Joel/Objective-C/Dunmore\\ Roll-to-Roll",
+					"$(SRCROOT)",
+					/Users/Joel/Downloads/GoogleAnalyticsServicesiOS_3.09,
+					"$(PROJECT_DIR)",
 				);
 				"LIBRARY_SEARCH_PATHS[arch=*]" = "$(inherited)/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "611C889B-C125-485A-9906-EB3A35905E70";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

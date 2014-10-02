@@ -77,6 +77,10 @@
 }
 
 
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad
 {
     
@@ -212,13 +216,18 @@
     
     NSMutableArray *units = [[NSMutableArray alloc] init];
     for (UITextField *field in _textFields){
-        RETableViewCell *badge;
+        NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:[self.tableView convertPoint:field.center fromView:field.superview]];
         
-        if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
-            badge = (RETableViewCell *)field.superview.superview;
-        } else {
-            badge = (RETableViewCell *)field.superview.superview.superview;
-        }
+        
+        RETableViewCell *badge = (RETableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+        
+        /*
+         if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+         badge = (RETableViewCell *)field.superview.superview;
+         } else {
+         badge = (RETableViewCell *)field.superview.superview.superview;
+         }
+         */
         if (badge.badge.badgeString){
             [units addObject:badge.badge.badgeString];
         } else {
@@ -240,13 +249,20 @@
     
     total = ([numbers[0] doubleValue] * [numbers[1] doubleValue]) * [numbers[2] doubleValue] / ([numbers[3] doubleValue] * 36);
     
-    RETableViewTextCell *textcell;
+//    RETableViewTextCell *textcell;
+//    
+//    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+//        textcell = (RETableViewTextCell *)_resultField.superview.superview;
+//    } else {
+//        textcell = (RETableViewTextCell *)_resultField.superview.superview.superview;
+//    }
+
     
-    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
-        textcell = (RETableViewTextCell *)_resultField.superview.superview;
-    } else {
-        textcell = (RETableViewTextCell *)_resultField.superview.superview.superview;
-    }
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:[self.tableView convertPoint:_resultField.center fromView:_resultField.superview]];
+    
+    
+    RETableViewTextCell *textcell = (RETableViewTextCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    
     
     NSNumber *final_total = [UnitConvert convert:[NSNumber numberWithDouble: total] from: [_fields lastObject][@"unit"] to: textcell.badge.badgeString];
     
@@ -341,17 +357,23 @@
     
     __weak RETableViewTextCell *view_self;
     
-    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
-        view_self = (RETableViewTextCell *)sender.superview.superview;
-    } else {
-        view_self = (RETableViewTextCell *)sender.superview.superview.superview;
-    }
+    NSIndexPath *indexPathAtPoint = [self.tableView indexPathForRowAtPoint:[self.tableView convertPoint:sender.center fromView:sender.superview]];
+    
+    view_self = (RETableViewTextCell *)[self.tableView cellForRowAtIndexPath:indexPathAtPoint];
+    
+    /*
+     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+     view_self = (RETableViewTextCell *)sender.superview.superview;
+     } else {
+     view_self = (RETableViewTextCell *)sender.superview.superview.superview;
+     }
+     */
     
     NSIndexPath *indexPath = [self.tableView indexPathForCell:view_self];
     
     NSMutableArray *units = [[NSMutableArray alloc] init];
     
-    int row = (!indexPath.section) ? indexPath.row : (_fields.count - 1);
+    int row = (!indexPath.section) ? (int)indexPath.row : ((int)_fields.count - 1);
     
     for (NSString *unit in _fields[row][@"possibleUnits"]){
         PSMenuItem *possibleUnit = [[PSMenuItem alloc] initWithTitle:unit block:^{

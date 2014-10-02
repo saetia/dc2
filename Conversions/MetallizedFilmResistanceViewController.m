@@ -386,17 +386,23 @@
     
     __weak RETableViewTextCell *view_self;
     
-    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
-        view_self = (RETableViewTextCell *)sender.superview.superview;
-    } else {
-        view_self = (RETableViewTextCell *)sender.superview.superview.superview;
-    }
+    NSIndexPath *indexPathAtPoint = [self.tableView indexPathForRowAtPoint:[self.tableView convertPoint:sender.center fromView:sender.superview]];
+    
+    view_self = (RETableViewTextCell *)[self.tableView cellForRowAtIndexPath:indexPathAtPoint];
+    
+    /*
+     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+     view_self = (RETableViewTextCell *)sender.superview.superview;
+     } else {
+     view_self = (RETableViewTextCell *)sender.superview.superview.superview;
+     }
+     */
     
     NSIndexPath *indexPath = [self.tableView indexPathForCell:view_self];
     
     NSMutableArray *units = [[NSMutableArray alloc] init];
     
-    int row = (!indexPath.section) ? indexPath.row : (_fields.count - 1);
+    int row = (!indexPath.section) ? (int)indexPath.row : ((int)_fields.count - 1);
     
     for (NSString *unit in _fields[row][@"possibleUnits"]){
         PSMenuItem *possibleUnit = [[PSMenuItem alloc] initWithTitle:unit block:^{

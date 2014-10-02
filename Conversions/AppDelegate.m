@@ -10,10 +10,12 @@
 #import "MMDrawerController.h"
 #import "MMDrawerVisualState.h"
 #import <QuartzCore/QuartzCore.h>
+#import <Crashlytics/Crashlytics.h>
 
 /******* Set your tracking ID here *******/
 static NSString *const kTrackingId = @"UA-3721858-2";
 static NSString *const kAllowTracking = @"allowTracking";
+
 
 
 @implementation AppDelegate
@@ -21,6 +23,8 @@ static NSString *const kAllowTracking = @"allowTracking";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
+    //[Raygun sharedReporterWithApiKey:@"m3v0koPwXofrtoz+KW3aDg=="];
+    
     
     NSDictionary *appDefaults = @{kAllowTracking: @(YES), @"coreValue":@"3.75", @"coreUnit":@"in", @"coreTitle":@"3 inches", @"coreCustom":@(NO)};
     [[NSUserDefaults standardUserDefaults] registerDefaults:appDefaults];
@@ -32,6 +36,12 @@ static NSString *const kAllowTracking = @"allowTracking";
 
     self.tracker = [[GAI sharedInstance] trackerWithName:@"Roll-to-Roll"
                                               trackingId:kTrackingId];
+    
+    
+    
+    //[Crashlytics startWithAPIKey:@"1e42be544e83b6979fcc4077166f12672beed82b"];
+    
+    
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;

@@ -36,6 +36,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+    
     UIButton *backButton;
     
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
@@ -196,7 +197,9 @@
     [[UIMenuController sharedMenuController] setMenuItems:nil];
 }
 
-
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (RETableViewSection *)addCustomDiameterSection {
     
@@ -302,23 +305,42 @@
     
     NSMutableArray *units = [[NSMutableArray alloc] init];
     for (UITextField *field in _textFields){
-        RETableViewCell *badge;
+        
+        
+        //RETableViewCell *badge;
+        
+
+        NSIndexPath *indexPathAtPoint = [self.tableView indexPathForRowAtPoint:[self.tableView convertPoint:field.center fromView:field.superview]];
+        
+        RETableViewCell *badge = (RETableViewTextCell *)[self.tableView cellForRowAtIndexPath:indexPathAtPoint];
+        
+        /*
         if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
             badge = (RETableViewCell *)field.superview.superview;
         } else {
             badge = (RETableViewCell *)field.superview.superview.superview;
         }
+        */
+        
         [units addObject:badge.badge.badgeString];
     }
     
 
     
-    RETableViewTextCell *textcell;
+    //RETableViewTextCell *textcell;
+    
+
+    NSIndexPath *indexPathAtPoint = [self.tableView indexPathForRowAtPoint:[self.tableView convertPoint:_resultField.center fromView:_resultField.superview]];
+    
+    RETableViewTextCell *textcell = (RETableViewTextCell *)[self.tableView cellForRowAtIndexPath:indexPathAtPoint];
+    
+    /*
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
         textcell = (RETableViewTextCell *)_resultField.superview.superview;
     } else {
         textcell = (RETableViewTextCell *)_resultField.superview.superview.superview;
     }
+    */
     
 
     if (self.customDiameter.value){
@@ -435,11 +457,17 @@
     
     __weak RETableViewTextCell *view_self;
     
-    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
-        view_self = (RETableViewTextCell *)sender.superview.superview;
-    } else {
-        view_self = (RETableViewTextCell *)sender.superview.superview.superview;
-    }
+    NSIndexPath *indexPathAtPoint = [self.tableView indexPathForRowAtPoint:[self.tableView convertPoint:sender.center fromView:sender.superview]];
+    
+    view_self = (RETableViewTextCell *)[self.tableView cellForRowAtIndexPath:indexPathAtPoint];
+    
+    /*
+     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+     view_self = (RETableViewTextCell *)sender.superview.superview;
+     } else {
+     view_self = (RETableViewTextCell *)sender.superview.superview.superview;
+     }
+     */
 
     NSMutableArray *units = [[NSMutableArray alloc] init];
     
